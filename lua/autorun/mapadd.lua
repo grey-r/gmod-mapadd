@@ -219,7 +219,31 @@ MapAdd.Env = {
         ["VectorLength"] = function(a,b) return a:Distance(b) end,
         ["VectorNormalize"] = function(v) return a:GetNormalized() end,
         ["AngleVectors"] = function(a) return a:Forward() end,
-        ["VectorAngles"] = function(v) return a:Angle() end
+        ["VectorAngles"] = function(v) return a:Angle() end,
+        ["CheckRoom"] = function( origin, mins, maxs )
+            local td = {}
+            td.start = origin
+            td.endpos = origin
+            td.mins = mins
+            td.maxs = maxs
+            local tr = util.TraceHull(td)
+            return tr.Hit
+        end,
+        ["CheckVisible"] = function(a,b)
+            local p1 = a.EyePos and a:EyePos() or a:GetPos()
+            local p2 = b.EyePos and b:EyePos() or b:GetPos()
+            local td = {}
+            td.start = p1
+            td.endpos = p2
+            td.filter = {p1,p2}
+            local tr = util.TraceLine(tr)
+            local ret = {
+                ["IsVisible"] = not tr.Hit,
+                ["Length"] = tr.HitPos:Distance(p1),
+                ["AngleYaw"] = td.Normal:Angle().y,
+                ["AnglePitch"] = td.Normal:Angle().p
+            }
+        end
     }
 }
 
