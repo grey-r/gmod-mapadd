@@ -213,6 +213,13 @@ MapAdd.Env = {
         ["RemoveEntity"] = function(ent)
             SafeRemoveEntity(ent)
         end
+        ["Vector"] = function(x,y,z) return Vector(x,y,z) end,
+        ["VectorString"] = function(v) return tostring(v) end,
+        ["DotProduct"] = function(a,b) return a:Dot(b) end,
+        ["VectorLength"] = function(a,b) return a:Distance(b) end,
+        ["VectorNormalize"] = function(v) return a:GetNormalized() end,
+        ["AngleVectors"] = function(a) return a:Forward() end,
+        ["VectorAngles"] = function(v) return a:Angle() end
     }
 }
 
