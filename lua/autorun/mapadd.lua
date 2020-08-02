@@ -58,6 +58,19 @@ MapAdd.Env = {
                     MapAdd.Entities( inner.Value )
                 end
             end
+        end,
+        ["GetMoney"] = function()
+            return MapAdd.Money or 0
+        end,
+        ["SetMoney"] = function(v)
+            MapAdd.Money = v
+        end,
+        ["GetPlayer"] = function( pn )
+            if CLIENT then
+                return LocalPlayer()
+            else
+                return Entity(1)
+            end
         end
     }
 }
