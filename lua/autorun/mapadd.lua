@@ -1,7 +1,66 @@
 --lua_run dumpTable(util.KeyValuesToTable( fixKeyValues(file.Read( "data/mapadd/d1_trainstation_01.txt", "GAME" )) ))
 
 MapAdd = {}
-MapAdd.tbl = {} --loaded from keyvalues
+MapAdd.Table = {} --loaded from keyvalues
+MapAdd.Env = {
+    ["HL2"] = {
+        ["EntFire"] = function (targetname, activator, input, parameter, delay )
+            timer.Simple(delay, function()
+                local es = ents.FindByName(targetname)
+                for _,v in pairs(es) do
+                    vInput( input, activator, activator, parameter )
+                end
+            end)
+        end,
+        ["HookKilledEvent"] = function( f_name )
+            hook.add("PostEntityTakeDamage","MapAddKilledHook",function( ent, dmg, took)
+                --[[
+                > Info.IsPlayer - Boolean; if this entity is the player, return 1. Otherwise, return 0.
+                > Info.IsNPC - Boolean; if the entity's an NPC, return 1. Otherwise, return 0.
+                > Info.Relation - String; the entity's relation string.
+                > Info.DamageType - Integer; the damage flag of the killer's attack (e.g. CLUB, ENERGYBEAM). See trigger_hurt's "damagetype" keyvalue for a listing.
+                > Info.Damage - Integer; the amount of damage the fatal attack inflicted.
+                > Info.AmmoType - String; the ammotype used to kill the victim. See weapon_custom Bullet section.
+                > Info.Attacker - String; the targetname of the victim's killer.
+                > Info.KilledEnt - pEnt; The entity itself. Use HL2.GetEntInfo with this if you need more information like the victim's classname.
+                ]]--
+                if ( ent.Alive and not ent:Alive() ) or (ent.Health and ent:Health()<0) then
+                    local info = {}
+                    info.IsPlayer = ent:IsPlayer()
+                    info.IsNPC = ent:IsNPC()
+                    info.Relation = ent:GetRelationship(dmg:GetAttacker())
+                    info.DamageType = dmg:GetDamageType()
+                    info.Damage = dmg:GetDamage()
+                    info.AmmoType = dmg:GetAmmoType()
+                    info.Attacker = dmg:GetAttacker()
+                    info.KilledEnt = ent
+                    RunString(f_name .. "(" .. info .. ")")
+                end
+            end)
+        end,
+        ["CreateTimer"] = function(f_name, int, parameters ) --todo: add vararg for parameters?
+            timer.Simple(int, function()
+                RunString(f_name .. "(" .. (parameters or "") .. ")")
+            end
+        end,
+        ["GetDateMD"] = function()
+            return os.date("%m%d")
+        end,
+        ["CurrentMapName"] = function()
+            return game.GetMap()
+        end,
+        ["ChangeLevel"] = function(mapn)
+            RunConsoleCommand( "changelevel", mapn )
+        end,
+        ["CallMapaddLabel"] = function(lbl)
+            for _,inner in pairs(MapAdd.Table) do
+                if inner.Key == "entities:" .. lbl then
+                    MapAdd.Entities( inner.Value )
+                end
+            end
+        end
+    }
+}
 
 local function dumpTable( t, indent, done )
 
@@ -189,7 +248,7 @@ function MapAdd.ActivateTrigger( t )
 
     if t.labels then
         for k,v in pairs(t.labels) do
-            for _,inner in pairs(MapAdd.tbl) do
+            for _,inner in pairs(MapAdd.Table) do
                 if inner.Key == "entities:" .. v then
                     MapAdd.Entities( inner.Value )
                 end
@@ -199,7 +258,7 @@ function MapAdd.ActivateTrigger( t )
 end
 
 function MapAdd.Initialize()
-    local t = MapAdd.tbl--[1].Value --root
+    local t = MapAdd.Table--[1].Value --root
     for _, inner in pairs(t) do
         if inner.Key == "precache" then
             MapAdd.Precache(inner.Value)
@@ -216,7 +275,7 @@ function MapAdd.Load()
     if (file.Exists(mapAddPath,"GAME")) then
         local mapAdd = file.Read( mapAddPath, "GAME" )
         local fixedKeyValues = fixKeyValues(mapAdd)
-        MapAdd.tbl = util.KeyValuesToTablePreserveOrder( fixedKeyValues, true, true )
+        MapAdd.Table = util.KeyValuesToTablePreserveOrder( fixedKeyValues, true, true )
         MapAdd.Initialize()
     end
 end
