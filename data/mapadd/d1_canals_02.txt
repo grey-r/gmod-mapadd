@@ -1,0 +1,144 @@
+//	map arrange data
+//	location: d1_canal_02
+//FIXES: Typos of "partol" instead of "patrol"
+"precache" {
+	"entity" "npc_zombie"
+	"entity" "npc_houndeye"	
+	"model" "models/props_c17/furniturewashingmachine001a.mdl"
+	"model" "models/items/boxmrounds.mdl"
+}
+
+"randomspawn" {
+
+	"npc_metropolice" {
+		"count"		"10"
+		"weapon"	"weapon_pistol"
+		"values" 	"squadname cpb"		
+		"patrol"
+	}
+	"npc_combine_s" {
+		"count"		"5"
+		"weapon"	"weapon_smg1"
+		"values" 	"squadname cmb"		
+		"patrol"
+	}
+
+}
+
+"entities" {
+
+	"prop_physics" {
+		"origin" "796.2 -406.2 -739.3"  "angle" "-18 -16 27"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_wasteland\cargo_container01c.mdl"
+		}
+	}
+
+//	"npc_barnacle" {
+//		"origin" "2897 -2346 -384"
+//	}
+
+	"prop_physics" {
+		"origin" "796.2 -406.2 -739.3"  "angle" "-18 -16 27"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_wasteland\cargo_container01c.mdl"
+		}
+	}
+
+//	"npc_houndeye" {
+//		"origin" "-110.36 -1083.19 -1007.97"
+//		"keyvalues" {
+//			"squadname" "woof"			
+//		}		
+//	}
+	"npc_houndeye" {
+		"origin" "-441.83 -1069.15 -704"
+		"keyvalues" {
+			"squadname" "woof"			
+		}		
+	}
+	"npc_houndeye" {
+		"origin" "-490.56 -420.38 -713.93"
+		"keyvalues" {
+			"squadname" "woof"			
+		}		
+	}
+	"item_item_crate"
+	{
+		"origin"	"-105 -1117 -1007"
+		"angle"		"0 0 0"
+		"keyvalues"
+		{
+			"itemclass"		"item_battery"
+			"itemcount"		"2"
+		}
+	}	
+	
+	"instant_trig" {
+		"origin" "2610 -503 -611"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie1"
+			"radius" "300"
+		}
+	}
+}
+
+"entities:zombie1" {
+
+	"npc_metropolice" {
+		"origin" "1619 -419 89"
+		"angle" "0 179 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"					
+			"targetname"		"alpha_drop1"
+			"waitingtorappel"	"1"
+			"spawnflags"		"33685508"
+			"squadname" "universal_combine3"			
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "1619 -527 89"
+		"angle" "0 179 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"					
+			"targetname"		"alpha_drop2"
+			"waitingtorappel"	"1"
+			"spawnflags"		"33685508"
+			"squadname" "universal_combine3"			
+		}
+	}
+	
+	"event" {
+		"targetname" "alpha_drop*"
+		"action" "beginrappel"
+		"value" "0.5"
+	}
+}
+
+"entities:alpha_trouble" {
+
+	"npc_zombie" {
+		"origin" "-465.7 -763.6 -770.2"  "angle" "0 266 0"
+		"keyvalues" {
+			"targetname" "alpha_skeeter"
+			"squadname" "ringading"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "-493.8 -1092.8 -772.2"  "angle" "0 81 0"
+		"keyvalues" {
+			"targetname" "alpha_skeeter"
+			"squadname" "ringading"
+		}
+	}
+	
+	"event" {
+		"targetname" "alpha_skeeter"
+		"action" "wake"
+	}
+}	

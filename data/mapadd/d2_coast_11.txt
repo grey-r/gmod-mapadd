@@ -1,0 +1,623 @@
+//	map arrange data
+//	location: d1_coast_11
+"precache" {
+	"entity" "npc_citizen"
+	"entity" "npc_antlion"
+	"entity" "npc_antlionguard"
+	"entity" "weapon_kar98"
+	"entity" "weapon_ak47"
+	"entity" "weapon_custom13"		
+	"entity" "weapon_custom16"		
+	"entity" "weapon_custom17"	
+	"entity" "weapon_custom18"
+	"entity" "weapon_custom30"
+	"entity" "weapon_grease"
+	"entity" "weapon_mp5"
+	"entity" "weapon_svd"			
+	"entity" "weapon_anm14"	
+	"entity" "weapon_lstick"		
+	"model"		"models/buggy.mdl"
+}
+
+"entities:engun" {
+
+	"info_target" {
+		"origin" "5061 5574 532"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"nakama*"
+			"goal"		"goalnpc1"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "4556 6764 576"
+		"keyvalues" { "targetname"	"nakama1"
+			"additionalequipment"	"weapon_ak47"
+			"citizentype"	"3"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "4464 6850 571"
+		"keyvalues" { "targetname"	"nakama1"
+			"additionalequipment"	"weapon_mp5"
+			"citizentype"	"3"
+		}
+	}
+
+
+}
+
+"entities" {
+
+	
+	"npc_zombie" {
+		"origin" "3945 -8496 1543" "angle" "0 140 0"	
+	}
+
+	"npc_houndeye" {
+		"origin" "3537 -10012 1604" "angle" "0 -100 0"	
+		"keyvalues" { 
+			"squadname"	"grrr"
+		}
+	}	
+
+	"npc_houndeye" {
+		"origin" "3411 -8820 1624" "angle" "0 -100 0"	
+		"keyvalues" { 
+			"squadname"	"grrr"
+		}
+	}	
+	
+	"item_item_crate"
+	{
+		"origin" "936 3858 1696"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_svd"
+			"ItemCount"		"1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"tobias"
+			"label"		"music"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "3815 4736 455"
+		"keyvalues" {
+			"label"	"engun"
+			"radius"	"2000"
+		}
+	}
+
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"2"
+			"label"	"initstage"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "1249 -290 295"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_anm14"
+			"ItemCount"		"1"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "1335 -290 295"
+		"keyvalues"
+		{
+			"ItemClass"		"item_box_buckshot"
+			"ItemCount"		"1"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "2503 -7344 1653"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_hopwire"
+			"ItemCount"		"1"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "2960 3330 622"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_custom18"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"item_item_crate"
+	{
+		"origin" "4452 6983 339"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_357"
+			"ItemCount"		"2"
+		}
+	}	
+
+	"item_item_crate"
+	{
+		"origin" "3393 -2737 868"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_custom17"
+			"ItemCount"		"1"
+		}
+	}
+
+	"item_item_crate" {
+		"origin" "6488 -1331 388" "angle" "0 111 0"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_custom30"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"item_item_crate" {
+		"origin" "6059.4 -1422.9 456.5"  "angle" "-0 -167 360"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_pistol"
+			"ItemCount"		"2"
+		}
+	}
+
+	"item_item_crate" {
+		"origin" "4236.1 -1439.9 356.5"  "angle" "-0 -167 360"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_lstick"
+			"ItemCount"		"1"
+		}
+	}	
+
+	"item_item_crate" {
+		"origin" "6773 3435 51" "angle" "0 0 0"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_custom13"
+			"ItemCount"		"1"
+		}
+	}
+	
+//	"instant_trig" {
+//		"origin" "5177 1810 383"
+//		"angle" "0 0 0"
+//		"keyvalues" {
+//			"label" "citizen"
+//			"radius" "750"
+//		}
+//	}
+//	"instant_trig" {
+//		"origin" "4098 -267 604"
+//		"angle" "0 0 0"
+//		"keyvalues" {
+//			"label" "citizen1"
+//			"radius" "1200"
+//			"timer" "15"
+//		}
+//	}
+
+	"instant_trig" {
+		"origin" "5339 9921 238"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "camp"
+			"radius" "300"
+		}
+	}
+	"instant_trig" {
+		"origin" "4444 10146 255"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "campfire"
+			"radius" "300"
+		}
+	}
+	
+	"item_ammo_smg1_grenade" {
+		"origin" "6104.9 -1349.2 418.9"  "angle" "1 21 262"
+	}	
+}
+
+"entities:initstage" {
+
+	"removeentity" {
+		"classname"	"prop_physics"
+		"origin" "3518 -886 841"
+		"radius"	"8000"
+	}
+
+
+	"prop_physics" {
+		"origin" "5141.9 901.4 245.6"  "angle" "-71 65 187"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "5266.2 919.6 226.1"  "angle" "74 -101 166"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "5193.7 913.4 234.8"  "angle" "68 -112 353"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "5115.2 918.5 244.2"  "angle" "-72 69 184"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "5269.2 931.9 228.7"  "angle" "3 -0 260"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "5247.5 940.1 222.8"  "angle" "-81 69 201"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "5170.8 939.2 229.4"  "angle" "-86 8 69"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+
+	"prop_vehicle_jeep" {
+		"origin" "6488 -1331 388" "angle" "0 111 0"
+		"keyvalues" {
+			"model"	"models/buggy.mdl"
+			"solid" "6"
+			"vehiclescript" "scripts/vehicles/jeep_test.txt"
+		}
+	}
+	
+	"prop_physics" {
+	"origin" "6059.4 -1422.9 456.5"  "angle" "-0 -167 360"
+	"keyvalues" {
+	"model" "models/props_junk/wood_crate001a.mdl"
+	}
+	}
+	"prop_physics" {
+		"origin" "6045.1 -1479.6 456.5"  "angle" "0 179 360"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "6051.2 -1478.8 416.4"  "angle" "-0 -15 0"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "6069.0 -1427.0 416.4"  "angle" "-0 -108 0"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "6216.0 -1342.9 411.3"  "angle" "2 20 281"
+		"keyvalues" {
+		"model" "models/props_junk/Wheebarrow01a.mdl"
+		}
+	}
+
+
+
+	"prop_physics" {
+		"origin" "6179.1 -1300.2 442.5"  "angle" "20 -90 1"
+		"keyvalues" {
+		"model" "models/props_c17/door01_left.mdl"
+		}
+	}
+	
+	
+	"prop_physics" {
+		"origin" "6129.1 -1355.7 407.1"  "angle" "-0 -89 0"
+		"keyvalues" {
+		"model" "models/props_c17/FurnitureTable003a.mdl"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin" "6070 -1370 396" "angle" "0 -20 0"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_svd"
+			"ItemCount"		"1"
+		}
+	}
+
+
+}
+
+"entities:music" {
+	"player" {
+		"music"	"song23"
+	}
+
+
+
+}
+
+
+"entities:citizen" {
+
+	"npc_citizen" {
+		"origin" "4137.5 2058.0 601.1"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"						
+			"citizentype" "3"
+			"squadname" "universal_citizen2"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3987.9 2039.0 600.2"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"					
+			"citizentype" "3"
+			"squadname" "universal_citizen2"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3787.0 2047.9 606.6"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"				
+			"citizentype" "3"
+			"squadname" "universal_citizen2"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3732.9 2261.4 550.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"				
+			"citizentype" "3"
+			"squadname" "universal_citizen2"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3787.0 2047.9 606.6"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"				
+			"citizentype" "3"
+			"squadname" "universal_citizen2"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3545.1 2067.9 608.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"			
+			"citizentype" "3"
+			"squadname" "universal_citizen2"
+			"spawnflags" "1048576"			
+		}
+	}
+}
+
+"entities:citizen1" {
+
+	"npc_citizen" {
+		"origin" "5724.6 -583.3 182.1"  "angle" "0 106 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"citizentype" "3"
+			"squadname" "universal_citizen3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "5941.8 -643.8 154.9"  "angle" "0 101 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"						
+			"citizentype" "3"
+			"squadname" "universal_citizen3"
+			"spawnflags" "1048576"			
+		}
+	}
+}
+
+"entities:camp" {
+
+	"npc_citizen" {
+		"origin" "4835.3 10000.5 175.0"  "angle" "0 -10 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"								
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3876.1 10609.6 200.8"  "angle" "0 -30 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"								
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3865.8 10556.1 197.3"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"								
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3433.5 10219.9 154.8"  "angle" "0 49 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"					
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2955.9 9907.9 177.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"					
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2991.5 9855.1 177.4"  "angle" "0 82 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"					
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2274.3 10194.0 168.2"  "angle" "0 326 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"					
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2462.7 9578.2 166.5"  "angle" "0 99 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"					
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2715.0 10548.1 170.4"  "angle" "0 256 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"					
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2700.1 10280.8 176.6"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"				
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2348.6 9932.0 159.7"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"				
+			"targetname" "radish"
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+	
+	"event" {
+		"targetname" "radish"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:campfire" {
+
+	"npc_citizen" {
+		"origin" "1633.8 11808.3 494.9"  "angle" "0 0 0"
+		"keyvalues" {
+			"spawnflags" "1048576"			
+		}		
+	}
+	
+	"npc_citizen" {
+		"origin" "1659.2 11735.0 487.2"  "angle" "0 62 0"
+		"keyvalues" {
+			"spawnflags" "1048576"			
+		}		
+	}
+	
+	"npc_citizen" {
+		"origin" "1735.1 11705.6 474.1"  "angle" "0 110 0"
+		"keyvalues" {
+			"spawnflags" "1048576"			
+		}		
+	}
+	
+	"npc_citizen" {
+		"origin" "940.3 11488.2 495.4"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"					
+			"citizentype" "3"
+			"spawnflags" "1048576"			
+		}
+	}
+}

@@ -1,0 +1,266 @@
+//	map arrange data
+//	location: d1_town_03
+//FIXES: Precache
+
+"precache" {
+	"entity"	"npc_f_combine"
+	"entity"	"npc_citizen"	
+	"entity"	"npc_stalker"	
+	"entity"	"npc_zombie2"	
+	"entity"	"weapon_anm14"	
+	"entity" 	"weapon_custom7"		
+	"model"	"models/Humans/corpse1.mdl"
+}
+
+
+"randomspawn" {
+	"npc_fastzombie" {
+		"count"	"10"
+		"values" "HeadCrabLess 1 runspeedmod 1.2 health 100"		
+	}
+	"npc_zombie2" {
+		"count"	"10"
+	}	
+}
+
+
+"entities:drop1" {
+
+	"player" {
+		"music"	"song2"
+	}
+
+	"prop_ragdoll" {
+		"origin" "-3597 -882 -3327"
+		"keyvalues" {
+			"model"	"models/Humans/corpse1.mdl"
+		}
+	}
+	
+	
+	"instant_trig" {
+		"origin" "-1049 -1149 -3520"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"drop3"
+		}
+	}
+}
+
+"entities:drop3" {
+	"prop_ragdoll" {
+		"origin" "-972 -1016 -3259"
+		"keyvalues" {
+			"model"	"models/Humans/corpse1.mdl"
+		}
+	}
+}
+
+"entities:drop2" {
+	"prop_ragdoll" {
+		"origin" "-1824 -1644 -3504"
+		"velocity"	"0 -10000 0"
+		"keyvalues" {
+			"model"	"models/Humans/corpse1.mdl"
+		}
+	}
+	
+	"npc_fastzombie" {
+		"origin" "-1998 -1660 -3504" "angle" "0 -1 0"
+	}
+	
+}
+
+
+"entities" {
+
+
+	"instant_trig" {
+		"origin" "-3602 -692 -3584"
+		"keyvalues" {
+			"radius"	"60"
+			"label"		"drop1"
+		}
+	}
+	
+//	"npc_stalker" {
+//		"origin" "-2120 -1166 -3392" "angle" "0 175 0"
+//		"keyvalues" {
+//			"beampower"	"2"
+//		}
+//	}
+	
+	"item_item_crate"
+	{
+		"origin" "-2077 -1827 -3504" "angle" "0 177 0"
+		"keyvalues"
+		{
+			"ItemClass"		"npc_headcrab_poison"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-3024 -905 -3600" "angle" "0 -178 0"
+	}
+	
+	"instant_trig" {
+		"origin" "-1967 -1870 -3632"
+		"keyvalues" {
+			"radius"	"60"
+			"label"		"drop2"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-3585 -815 -3519"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie1"
+			"radius" "450"
+		}
+	}
+	"instant_trig" {
+		"origin" "-2819 -1062 -3533"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie3"
+			"radius" "380"
+		}
+	}
+	"instant_trig" {
+		"origin" "-2122 -1270 -3564"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie4"
+			"radius" "400"
+		}
+	}
+	"instant_trig" {
+		"origin" " -2007 -1705 -3440"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie5"
+			"radius" "400"
+		}
+	}
+	"instant_trig" {
+		"origin" "-3391 -1044 -3540"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie6"
+			"radius" "400"
+		}
+	}
+	"instant_trig" {
+		"origin" "-3233 -1084 -3543"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie7"
+			"radius" "400"
+		}
+	}	
+}
+
+"entities:zombie1" {
+	"npc_zombie" {
+		"origin" "-2970.1 -1002.8 -3608.0" "angle" "0 213 0"
+	}
+	"npc_zombie" {
+		"origin" "-2960.3 -1076.4 -3612.2" "angle" "0 186 0"
+	}
+	"npc_zombie" {
+		"origin" "-2917.4 -1168.7 -3617.6" "angle" "0 166 0"
+	}
+	"npc_zombie" {
+		"origin" "-2770.4 -1003.7 -3633.1" "angle" "0 206 0"
+	}
+	"npc_zombie" {
+		"origin" "-3061.9 -1024.2 -3608.0" "angle" "0 170 0"
+	}
+//	"npc_zombie" {
+//		"origin" "-3051.0 -1115.3 -3608.0" "angle" "0 170 0"
+//	}
+//	"npc_zombie" {
+//		"origin" "-3347.7 -1370.0 -3607.9" "angle" "0 119 0"
+//	}
+//	"npc_zombie" {
+//		"origin" "-3408.3 -1453.6 -3607.9" "angle" "0 100 0"
+//	}
+}
+"entities:zombie3" {
+	"npc_zombie" {
+		"origin" "-2998.5 -1600.2 -3632.0" "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-2988.5 -1667.8 -3632.0" "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-3097.9 -1625.3 -3632.0" "angle" "0 0 0"
+	}
+}
+"entities:zombie4" {
+	"npc_zombie2" {
+		"origin" "-2769.2 -1632.6 -3632.0" "angle" "0 0 0"
+	}
+	"npc_zombie2" {
+		"origin" "-2810.6 -1573.7 -3632.0" "angle" "0 0 0"
+	}
+	"npc_fastzombie" {
+		"origin" "-2881.8 -1639.2 -3632.0" "angle" "0 0 0"
+	}
+}
+"entities:zombie5" {
+	"npc_fastzombie" {
+		"origin" "-2031.8 -1640.9 -3253.0" "angle" "0 86 0"
+	}
+	"npc_fastzombie" {
+		"origin" "-1881.7 -1671.9 -3237.5" "angle" "0 106 0"
+	}
+	"npc_zombie2" {
+		"origin" "-2035.9 -1956.2 -3663.9" "angle" "0 180 0"
+	}
+	"npc_zombie2" {
+		"origin" "-2093.2 -2021.5 -3663.9" "angle" "0 180 0"
+	}
+	"npc_zombie2" {
+		"origin" "-2115.7 -1959.1 -3663.9" "angle" "0 180 0"
+	}
+	"npc_zombie2" {
+		"origin" "-1569.2 -1804.6 -3706.1" "angle" "0 185 0"
+	}
+//	"npc_zombie2" {
+//		"origin" "-1403.8 -1798.2 -3711.9" "angle" "0 183 0"
+//	}
+//	"npc_zombie2" {
+//		"origin" "-1459.5 -1835.7 -3711.9" "angle" "0 174 0"
+//	}
+}
+"entities:zombie6" {
+	"npc_zombie" {
+		"origin" "-2580.1 -1001.3 -3640.5" "angle" "0 164 0"
+	}
+	"npc_zombie" {
+		"origin" "-2566.9 -1113.0 -3645.0" "angle" "0 164 0"
+	}
+	"npc_zombie" {
+		"origin" "-2667.9 -1077.0 -3640.0" "angle" "0 164 0"
+	}
+//	"npc_zombie" {
+//		"origin" "-2668.3 -1169.1 -3640.0" "angle" "0 164 0"
+//	}
+//	"npc_zombie" {
+//		"origin" "-2434.4 -1076.8 -3659.0" "angle" "0 180 0"
+//	}
+}
+"entities:zombie7" {
+	"npc_zombie2" {
+		"origin" "-2156.9 -679.3 -3656.0" "angle" "0 180 0"
+	}
+	"npc_zombie2" {
+		"origin" "-2080.8 -624.0 -3656.0" "angle" "0 180 0"
+	}
+	"npc_fastzombie" {
+		"origin" "-2152.1 -626.8 -3656.0" "angle" "0 180 0"
+	}
+}

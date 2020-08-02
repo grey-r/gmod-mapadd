@@ -1,0 +1,126 @@
+//	map arrange data
+//	location: d1_canals_05
+//FIXES: Precache. Replaced the zombie in a box with a headcrab due to issues.
+"precache"{
+	"entity"	"npc_zombie"
+	"entity"	"npc_houndeye"		
+	"entity"	"weapon_bananna"
+	"entity"	"weapon_flaregun"	
+}
+
+
+"entities"{
+
+	"weapon_bananna"
+	{
+		"origin"	"2813.9 -5075.6 -432"
+	}
+
+	"weapon_flaregun"
+	{
+		"origin"	"4271.968750 1808.049438 -454.275269"
+	}
+	
+	"item_item_crate"
+	{
+		"origin"	"4118.283203 3164.878906 -434.521057"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"npc_zombie"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"event" {
+		"targetname"	"trigger_rockfall_start"
+		"action"	"enable"
+	}
+	
+	"instant_trig" {
+		"origin" "5941 661 -458"
+		"keyvalues" {
+			"label"		"canister1"
+			"radius"	"50"
+		}
+	}
+
+	// START - ARLENE FIX //
+	"instant_trig" {
+		"origin" "6159 854 -429"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "arlene_fix_go"
+			"radius" "150"
+		}
+	}
+	
+	"point_servercommand" {
+		"origin" "6179 665 -403"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "game_s_cmd"
+		}
+	}
+
+	"npc_houndeye" {
+		"origin" "1058.7 -3807.3 -405.8" "angle" "0 4 0"
+		"keyvalues" { 
+			"squadname" "howl"			
+		}		
+	}		
+	"npc_houndeye" {
+		"origin" "3344.2 -4659.3 -405.8" "angle" "0 42 0"
+		"keyvalues" { 
+			"squadname" "howl"			
+		}		
+	}
+	"npc_houndeye" {
+		"origin" "3095.2 -3113.4 -405.8" "angle" "0 -11 0"
+		"keyvalues" { 
+			"squadname" "howl"			
+		}		
+	}	
+}
+
+"entities:arlene_fix_go" {
+		
+	"event" {
+		"targetname" "arlene"
+		"action" "addoutput"
+		"value" "health 9999"
+	}
+}
+
+"entities:canister1" {
+
+
+	"env_headcrabcanister" {
+		"origin" "6142 848 -460"
+		"angle" "3 210 0"
+
+		"keyvalues" {
+			"SmokeLifetime" "60"
+			"targetname" "cannister01"
+			"spawnflags" "57346"
+			"DamageRadius" "0"
+			"Damage" "100"
+			"SkyboxCannisterCount" "1"
+			"StartingHeight" "0"
+			"FlightTime" "1.5"
+			"FlightSpeed" "2700"
+			"HeadcrabCount" "4"
+			"HeadcrabType" "0"
+			"angles" "308 138 0"
+			"OnImpacted" "cannister01,OpenCanister,,0.5,-1"
+			"OnOpened" "cannister01,SpawnHeadcrabs,,1,-1"
+		}
+	}
+
+
+	"event" {
+		"targetname"	"cannister01"
+		"action"	"firecanister"
+	}
+}

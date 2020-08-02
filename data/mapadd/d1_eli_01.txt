@@ -1,0 +1,492 @@
+///////////////////////////////////////
+// map arrange data
+// location: d1_eli_01
+// created, 06.23.2009
+///////////////////////////////////////
+
+
+"precache" {
+	"entity" "weapon_crowbar"
+	"entity" "weapon_grease"
+	"entity" "weapon_svd"	
+}
+
+"entities" {
+
+	// outside lookout start //
+	"path_corner" {
+		"origin" "469.3 3999.5 -1137.6"
+		"angle" "0 0 0"
+		"keyvalues" {	
+			"targetname" "perch"
+			"onpass" "lookout,startscripting,,0,-1"
+			"onpass" "lookoutgo,beginsequence,,0.1,-1"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "265.1 3852.7 -1152.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "lookout"
+			"additionalequipment"	"weapon_svd"					
+			"model" "models/humans/group01/male_08.mdl"
+			"sleepstate" "3"
+			"target" "perch"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "469.3 3999.5 -1090"
+		"angles" "0 90 0"
+		"keyvalues" {
+			"targetname" "lookoutgo"
+			"m_iszentity" "lookout"
+			"m_iszplay" "d1_town05_daniels_kneel_entry"
+			"m_iszpostidle" "roofidle2"
+			"spawnflags" "256"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "848 5264 -905"
+		"keyvalues" {
+			"label" "lookoutstart"
+			"timer" "2"
+		}
+	}
+	// outside lookout end //
+	
+	// outside patrols start //
+	"npc_citizen" {
+		"origin" "878.6 7000.8 -1152.0"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"				
+			"targetname" "outside_guard1"
+			"sleepstate" "3"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-2130.3 4651.2 -1279.9"  "angle" "0 1 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"					
+			"targetname" "outside_guard2"
+			"sleepstate" "3"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-886.4 6947.9 -1152.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"					
+			"targetname" "outside_guard3"
+			"sleepstate" "3"
+		}
+	}
+	// outside patrols end //
+
+		"instant_trig" {
+		"origin" "-63 2742 -1251"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "transition01"
+			"radius" "125"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label" "init"
+			"timer" "0.1"
+		}
+	}
+}
+
+"entities:init" {
+
+	"event" {
+		"targetname" "chester"
+		"action" "addoutput"
+		"value" "health 9999"
+		"delaytime" "0.2"
+	}
+	
+	"event" {
+		"targetname" "mossman"
+		"action" "addoutput"
+		"value" "health 9999"
+		"delaytime" "0.2"
+	}
+	
+	"event" {
+		"targetname" "eli"
+		"action" "addoutput"
+		"value" "health 9999"
+		"delaytime" "0.2"
+	}
+	
+	
+}
+
+"entities:lookoutstart" {
+	
+	"event" {
+		"targetname" "outside_guard*"
+		"action" "wake"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "outside_guard*"
+		"action" "startpatrolling"
+		"delaytime" "0.15"
+	}
+	
+	"event" {
+		"targetname" "outside_guard*"
+		"action" "setreadinessmedium"
+		"delaytime" "0.2"
+	}
+	
+	"event" {
+		"targetname" "lookout"
+		"action" "wake"
+		"delaytime" "5"
+	}
+}
+
+"entities:transition01" {
+
+	"event" {
+		"targetname" "lookout*"
+		"action" "kill"
+	}
+	
+	"event" {
+		"targetname" "outside_guard*"
+		"action" "kill"
+	}
+	
+	// inside leaner start //
+	"npc_citizen" {
+		"origin" "-135 2582 -1280"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "inside_leaner01"
+			//"model" "models/humans/group01/female_03.mdl"
+			"sleepstate" "3"
+			"spawnflags" "1048576"
+			"onplayeruse" "inside_leaner01go,cancelsequence,,0,1"
+			"onplayeruse" "inside_leaner01_toidle,beginsequence,,0,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-102 2586 -1251"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "inside_leaner01go"
+			"m_iszentity" "inside_leaner01"
+			"m_iszplay" "lean_back"
+			"m_iszpostidle" "lean_back"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-102 2586 -1225"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "inside_leaner01_toidle"
+			"m_iszentity" "inside_leaner01"
+			"m_iszplay" "lean_back_to_idle"
+			//"spawnflags" "256"
+			"onendsequence" "inside_leaner01,setreadinessmedium,,0,1"
+		}
+	}
+	
+	"event" {
+		//"targetname" "inside_leaner01"
+		"targetname" "inside_*"
+		"action" "wake"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "inside_leaner01go"
+		"action" "beginsequence"
+		"delaytime" "0.2"
+	}
+	// inside leaner end //
+	
+	// inside sitter start //
+	"npc_citizen" {
+		"origin" "-37.3 2239.5 -1280.0"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "inside_sitter01"
+			"sleepstate" "3"
+			"spawnflags" "1048576"
+			"onplayeruse" "inside_sitter01go,cancelsequence,,0,1"
+			"onplayeruse" "inside_sitter01_toidle,beginsequence,,0,1"
+			"additionalequipment"	"weapon_grease"			
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "133 2411 -1280.0"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "inside_sitter01go"
+			"m_iszentity" "inside_sitter01"
+			"m_iszplay" "idle_to_sit_chair"
+			"m_iszpostidle" "sit_chair"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "133.1 2411.1 -1280.0"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "inside_sitter01_toidle"
+			"m_iszentity" "inside_sitter01"
+			"m_iszplay" "sit_chair_to_idle"
+			"onendsequence" "inside_sitter01,setreadinessmedium,,0,-1"
+		}
+	}
+	
+	"event" {
+		"targetname" "inside_sitter01go"
+		"action" "beginsequence"
+		"delaytime" "0.2"
+	}
+	// inside sitter end //
+	
+	"instant_trig" {
+		"origin" "37 2219 -1251"
+		"keyvalues" {
+			"label" "transition01a"
+			"radius" "120"
+		}
+	}
+}
+
+"entities:transition01a" {
+
+	"npc_citizen" {
+		"origin" "1767 1820 -1407"
+		"angle" "0 180 0"
+		"keyvalues" {
+			"targetname" "inside_walker"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2112 2217 -1408"
+		"angle" "0 288 0"
+		"keyvalues" {
+			"targetname" "inside_walker"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "2359 1847 -1397"
+		"angle" "0 -0 360"
+		"freeze"
+		"keyvalues" {
+			"targetname" "inside_sitter02_prop"
+			"model" "models/props_wasteland/cafeteria_bench001a.mdl"
+			"minhealthdmg" "500"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "2336 1863 -1408"
+		"angle" "0 180 0"
+		"keyvalues" {
+			"targetname" "inside_sitter02"
+			"sleepstate" "3"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2333 1863 -1408"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "inside_sitter02go"
+			"m_iszentity" "inside_sitter02"
+			"m_iszplay" "idle_to_sit_chair"
+			"m_iszpostidle" "sit_chair"
+			"spawnflags" "256"
+		}
+	}
+	
+	"event" {
+		"targetname" "inside_sitter02"
+		"action" "wake"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "inside_sitter02go"
+		"action" "beginsequence"
+		"delaytime" "0.2"
+	}
+	
+	"event" {
+		"targetname" "inside_walker"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"origin" "466 1654 -1420"
+		"keyvalues" {
+			"label" "transition02"
+			"radius" "120"
+		}
+	}
+}
+
+"entities:transition02" {
+	
+	"npc_citizen" {
+		"origin" "477.0 2572.4 -2735.9"
+		"angle" "0 6 0"
+		"keyvalues" {
+			"targetname" "downstairs_guard"
+			"spawnflags" "1048576"
+			"onplayeruse" "downstairs_guard,speakidleresponse,,0,-1"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "203.2 2717.8 -2736.0"
+		"angle" "0 189 0"
+		"keyvalues" {
+			"targetname" "downstairs_walker"
+		}
+	}	
+	
+	"npc_citizen" {
+		//"origin" "242.6 1335.1 -2480.0"
+		"origin" "129 1745 -2608"
+		"angle" "0 178 0"
+		"keyvalues" {
+			"targetname" "downstairs_walker"
+		}
+	}
+	
+	"event" {
+		"targetname" "downstairs_walker"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"origin" "-288 2126 -2707"
+		"keyvalues" {
+			"label" "transition02a"
+			"radius" "120"
+		}
+	}
+}
+
+"entities:transition02a" {
+	
+	"npc_citizen" {
+		"origin" "-773 994 -2656"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "downstairs2_idler"
+			"spawnflags" "1048576"
+			"onplayeruse" "downstairs2_idler,speakidleresponse,,0,-1"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-665 1186 -2688"
+		"angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "downstairs2_leaner"
+			"sleepstate" "3"
+			"spawnflags" "1048576"
+			"onplayeruse" "downstairs2_leanergo,cancelsequence,,0,1"
+			"onplayeruse" "downstairs2_leaner_toidle,beginsequence,,0,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-665 1186 -2688"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "downstairs2_leanergo"
+			"m_iszentity" "downstairs2_leaner"
+			"m_iszplay" "plazaidle3"
+			"m_iszpostidle" "plazaidle3"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-665 1186 -2688"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "downstairs2_leaner_toidle"
+			"m_iszentity" "downstairs2_leaner"
+			"m_iszplay" "plazastand3"
+			"onendsequence" "downstairs2_leaner,startpatrolling,,0,-1"
+		}
+	}
+	
+	"event" {
+		"targetname" "downstairs2_leaner"
+		"action" "wake"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "downstairs2_leanergo"
+		"action" "beginsequence"
+		"delaytime" "0.2"
+	}
+	
+	"instant_trig" {
+		"origin" "-701 2039 -2707"
+		"keyvalues" {
+			"label" "transition02b"
+			"radius" "165"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-670 1549 -2681"
+		"keyvalues" {
+			"label" "leantopatrol"
+			"radius" "250"
+		}
+	}
+}
+
+"entities:transition02b" {
+
+	"event" {
+		"targetname" "downstairs_*"
+		"action" "kill"
+	}
+}
+
+"entities:leantopatrol" {
+	
+	"event" {
+		"targetname" "downstairs2_leanergo"
+		"action" "cancelsequence"
+	}
+	
+	"event" {
+		"targetname" "downstairs2_leaner_toidle"
+		"action" "beginsequence"
+	}
+}

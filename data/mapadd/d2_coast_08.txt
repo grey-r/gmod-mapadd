@@ -1,0 +1,109 @@
+//	map arrange data
+//	location: d1_coast_08
+//FIXES: Precache
+
+"precache" {
+	"entity"	"weapon_ak47"
+	"entity"	"weapon_grease"
+	"entity"	"weapon_kar98"
+	"entity"	"weapon_custom16"	
+	"entity"	"npc_stalker"		
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "3344 1464 1536"
+		"radius"	"500"
+	}
+
+	"removenodes" {
+		"origin" "3331 694 1536"
+		"radius"	"500"
+	}
+
+	"removenodes" {
+		"origin" "1491 2512 1646"
+		"radius"	"2000"
+	}
+
+	"prop_physics" {
+		"count"		"5"
+		"model"		"models\props_junk\wood_crate002a.mdl"
+	}
+	"prop_physics" {
+		"count"		"5"
+		"model"		"models\props_c17\oildrum001_explosive.mdl"
+	}
+
+	"npc_combine_s" {
+		"count"		"5"
+		"weapon"	"weapon_custom16"
+		"values" 	"squadname cmb10"		
+		"patrol"
+	}
+
+	"npc_combine_s" {
+		"count"		"5"
+		"weapon"	"weapon_grease"
+		"values" 	"squadname cb10"		
+		"patrol"
+	}
+
+	"npc_combine_s" {
+		"count"		"3"
+		"weapon"	"weapon_ak47"
+		"values" 	"squadname cm10"		
+		"patrol"
+	}
+}
+
+
+"entities" {
+
+	"removeentity" {
+		"targetname" "jeep_fall_trigger"
+	}
+	
+	"instant_trig" {
+		"origin" "3007 -7363 1920"
+		"keyvalues" {
+			"label"		"stalkers"
+			"radius"	"30"
+		}
+	}
+	
+}
+
+"entities:stalkers" {
+	"npc_stalker" {
+		"origin" "3513 -6352 1536" "angle" "0 -106 0"
+		"keyvalues" {
+			"beampower"	"2"
+		}
+	}
+
+	"npc_stalker" {
+		"origin" "3171 -4120 1792" "angle" "0 -91 0"
+		"keyvalues" {
+			"beampower"	"1"
+		}
+	}
+
+	"npc_stalker" {
+		"origin" "3174 -2577 1612" "angle" "0 -79 0"
+		"keyvalues" {
+			"beampower"	"2"
+		}
+	}
+
+	"npc_stalker" {
+		"origin" "3423 84 1792" "angle" "0 -104 0"
+		"keyvalues" {
+			"beampower"	"1"
+		}
+	}
+
+	
+}
+

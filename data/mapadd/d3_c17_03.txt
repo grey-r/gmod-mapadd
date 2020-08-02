@@ -1,0 +1,483 @@
+"precache" {
+	"entity"	"npc_citizen"
+	"entity"	"npc_zombie2"	
+	"entity"	"npc_f_combine"	
+	"entity"	"npc_combine_s"		
+	"entity"	"npc_combine_e"
+	"entity"	"npc_houndeye"
+	"entity"	"weapon_grease"
+	"entity"	"weapon_ak47"
+	"entity"	"weapon_kar98"
+	"entity"	"weapon_mp5"	
+	"entity" 	"weapon_custom5"	
+	"entity" 	"weapon_custom24"	
+}
+
+"entities" {
+
+	"npc_f_combine" {
+		"origin" "-5243 -3823 64" "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_f_combine" {
+		"origin" "-2966 -2257 128" "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_f_combine" {
+		"origin" "-2963 -1812 128" "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "init"
+			"timer" "0.1"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-4387 -3821 28"
+		"keyvalues" {
+			"label" "zombie1"
+			"radius" "150"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3657 -4336 28"
+		"keyvalues" {
+			"label" "zombie2"
+			"radius" "125"
+		}
+	}
+}
+
+"entities:init" {
+	
+	"removeentity" {
+		"origin" "-3864.2 -3858.1 0.1"
+		"radius" "50"
+		"classname" "npc_citizen"
+	}
+	
+	"npc_citizen" {
+		"origin" "-5021.0 -3450.7 64.0"  "angle" "0 256 0"
+		"keyvalues" {
+			"additionalequipment" "weapon_grease"			
+			"targetname" "stratus"
+			"squadname" "universal_citizen2"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-4970.0 -3529.9 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment" "weapon_smg1"			
+			"targetname" "nimbus"
+			"squadname" "universal_citizen2"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-5220.0 -3681.7 0.0"  "angle" "0 38 0"
+		"keyvalues" {
+			"additionalequipment" "weapon_kar98"			
+			"targetname" "cumulus"
+			"ammosupply" "ar2"
+			"ammoamount" "15"
+			"spawnflags" "524288"
+			"squadname" "universal_citizen2"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-5167.3 -3599 0.0"  "angle" "0 270 0"
+		"keyvalues" {
+			"additionalequipment" "weapon_custom24"			
+			"targetname" "cirrus"
+			"squadname" "universal_citizen2"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5095.1 -3495.3 115.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "stratus_crouching"
+			"m_iszEntity" "stratus"
+			"m_iszPostIdle" "crouch_idled"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5095.1 -3495.3 115.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "stratus_crouching_to_stand"
+			"m_iszEntity" "stratus"
+			"m_iszPlay" "crouchdtostand"
+			"OnBeginSequence" "stratus,addoutput,health 270,0,1"
+			"OnEndSequence" "stratus,setsquad,player_squad,0,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5261.5 -3590.1 6.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "cirrus_leaning"
+			"m_iszEntity" "cirrus"
+			"m_iszPostIdle" "plazaidle2"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5261.5 -3590.1 6.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "cirrus_leaning_to_stand"
+			"m_iszEntity" "cirrus"
+			"m_iszPlay" "plazastand2"
+			"OnBeginSequence" "cirrus,addoutput,health 270,0,1"
+			"OnEndSequence" "cirrus,setsquad,player_squad,0,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5277.2 -4052.3 5.9"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "cumulus_sitting"
+			"m_iszEntity" "cumulus"
+			"m_iszPostIdle" "sit_ground"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5277.2 -4052.3 5.9"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "cumulus_sitting_to_stand"
+			"m_iszEntity" "cumulus"
+			"m_iszPlay" "sit_ground_to_idle"
+			"OnBeginSequence" "cumulus,addoutput,health 270,0,1"
+			"OnEndSequence" "cumulus,setsquad,player_squad,0,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-4959.4 -3973.0 6.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "nimbus_sitting"
+			"m_iszEntity" "nimbus"
+			"m_iszPostIdle" "plazaidle4"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-4959.4 -3973.0 6.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "nimbus_sitting_to_stand"
+			"m_iszEntity" "nimbus"
+			"m_iszPlay" "plazastand4"
+			"OnBeginSequence" "nimbus,addoutput,health 270,0,1"
+			"OnEndSequence" "nimbus,setsquad,player_squad,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "stratus_crouching"
+		"action" "beginsequence"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "cirrus_leaning"
+		"action" "beginsequence"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "cumulus_sitting"
+		"action" "beginsequence"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "nimbus_sitting"
+		"action" "beginsequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"origin" "-5127 -4149 28"
+		"keyvalues" {
+			"label" "riseup"
+			"radius" "70"
+		}
+	}
+}
+
+"entities:riseup" {
+
+	"event" {
+		"targetname" "stratus_crouching"
+		"action" "cancelsequence"
+		"delaytime" "1.2"
+	}
+	
+	"event" {
+		"targetname" "stratus_crouching_to_stand"
+		"action" "beginsequence"
+		"delaytime" "1.2"
+	}
+	
+	"event" {
+		"targetname" "cirrus_leaning"
+		"action" "cancelsequence"
+		"delaytime" "1.2"
+	}
+	
+	"event" {
+		"targetname" "cirrus_leaning_to_stand"
+		"action" "beginsequence"
+		"delaytime" "1.2"
+	}
+	
+	"event" {
+		"targetname" "cumulus_sitting"
+		"action" "cancelsequence"
+		"delaytime" "1.2"
+	}
+	
+	"event" {
+		"targetname" "cumulus_sitting_to_stand"
+		"action" "beginsequence"
+		"delaytime" "1.2"
+	}
+	
+	"event" {
+		"targetname" "nimbus_sitting"
+		"action" "cancelsequence"
+		"delaytime" "1.2"
+	}
+
+	"event" {
+		"targetname" "nimbus_sitting_to_stand"
+		"action" "beginsequence"
+		"delaytime" "1.2"
+	}
+}
+
+"entities:zombie1" {
+
+	"math_counter" {
+		"origin" "-5438.1 -3818.3 6.0"
+		"keyvalues" {
+			"targetname" "zkills"
+			"startdisabled" "0"
+			"startvalue" "0"
+			"min" "0"
+			"max" "7" //set to # of zombies in zombie1a group.
+			"onhitmax" "runner1_goto,cancelsequence,,0,1"
+			"onhitmax" "runner2_goto,cancelsequence,,0,1"
+			"onhitmax" "runner1,setsquad,player_squad,1,1"
+			"onhitmax" "runner2,setsquad,player_squad,1,1"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-3693.9 -4257.2 0.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment" "weapon_kar98"			
+			"targetname" "runner1"
+			"model" "models/Humans/Group03/female_03.mdl"
+			"squadname" "universal_citizen3"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-3621.3 -4393.8 0.0" "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment" "weapon_custom5"
+			"squadname" "universal_citizen3"			
+			"targetname" "runner2"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5062.9 -4078.1 3.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "runner1_goto"
+			"m_iszEntity" "runner1"
+			"m_iszCustomMove" "run_protected_all"
+			"m_iszPlay" "cower"
+			"m_iszPostIdle" "cower_idle"
+			"m_fMoveTo" "3"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5208.5 -3408.5 67.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "runner2_goto"
+			"m_iszEntity" "runner2"
+			"m_iszCustomMove" "run_protected_all"
+			"m_iszPlay" "cower"
+			"m_iszPostIdle" "cower_idle"
+			"m_fMoveTo" "3"
+			"spawnflags" "256"
+		}
+	}
+	
+	"event" {
+		"targetname" "runner1_goto"
+		"action" "beginsequence"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "runner2_goto"
+		"action" "beginsequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label" "zombie1a"
+			"timer" "1"
+		}
+	}
+}
+
+"entities:zombie1a" {
+
+	"npc_zombie2" {
+		"origin" "-3656.7 -4449.3 0.0"  "angle" "0 90 0"
+		"relation" "ph1 gh2"
+		"keyvalues" {
+			"squadname" "rufus_daily"
+			"ondeath" "zkills,add,1,0,1"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-3727.7 -4491.2 0.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"squadname" "rufus_daily"
+			"ondeath" "zkills,add,1,0,1"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-3683.6 -4559.3 0.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"squadname" "rufus_daily"
+			"ondeath" "zkills,add,1,0,1"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-3560.8 -4554.4 0.0"  "angle" "0 128 0"
+		"relation" "ph2 gh1"
+		"keyvalues" {
+			"squadname" "rufus_daily"
+			"ondeath" "zkills,add,1,0,1"
+		}
+	}
+	
+	"npc_houndeye" {
+		"origin" "-3536.5 -4458.7 0.0"  "angle" "0 128 0"
+		"keyvalues" {
+			"squadname" "rufus_daily"
+			"ondeath" "zkills,add,1,0,1"
+		}
+	}
+	
+	"npc_houndeye" {
+		"origin" "-3396.2 -4468.2 0.0"  "angle" "0 -179 0"
+		"keyvalues" {
+			"squadname" "rufus_daily"
+			"ondeath" "zkills,add,1,0,1"
+		}
+	}
+	
+	"npc_houndeye" {
+		"origin" "-3417.4 -4554.6 0.0"  "angle" "0 -179 0"
+		"relation" "ph1 gh2"
+		"keyvalues" {
+			"squadname" "rufus_daily"
+			"ondeath" "zkills,add,1,0,1"
+		}
+	}
+}
+
+"entities:zombie2" {
+
+	"npc_citizen" {
+		"origin" "-3268.8 -4573.1 224.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment" "weapon_ak47"			
+		}
+	}
+
+	"npc_zombie2" {
+		"origin" "-2729.4 -4085.2 0.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"squadname" "qix"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-2764.7 -4252.6 -4.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"squadname" "qix"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-2826.4 -4358.8 -4.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"squadname" "qix"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-2911.6 -4222.2 -4.0"  "angle" "0 179 0"
+		"relation" "ph2 gh1"
+		"keyvalues" {
+			"squadname" "qix"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-3010.1 -4432.2 0.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"squadname" "qix"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-3187.7 -4430.3 0.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"squadname" "qix"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-3430.2 -4437.0 0.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"squadname" "qix"
+		}
+	}
+}

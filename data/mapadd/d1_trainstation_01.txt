@@ -1,0 +1,468 @@
+//	map arrange data
+//	location: d1_trainstation_01
+//FIXES: Precache
+
+"precache" {
+	"entity" "npc_citizen"
+	"entity" "npc_cscanner"
+	"entity" "npc_breen"
+	"entity" "npc_kleiner"
+	"entity" "npc_barney"
+	"entity" "npc_metropolice"
+	"entity" "npc_gman"
+	"model" "models/weapons/w_suitcase_passenger.mdl"
+	"model" "models/props_combine/combine_barricade_short01a.mdl"
+	"entity"	"food_sankaba"	
+	"model" "models/misc/kanban/nozaki.mdl"
+}
+
+"entities:leave1"
+{
+
+	"scripted_sequence" {
+		"origin" "-7301 -3473 320"
+		"keyvalues" {
+			"spawnflags" "608"
+			"m_iszEntity" "gmang1"
+			"targetname" "gman_ss_1"
+			"m_fMoveTo" "1"
+			"angles" "0 0 0"
+		}
+	}
+
+	"event" {
+		"targetname"	"gman_ss_1"
+		"action"	"beginsequence"
+	}
+
+}
+
+
+"entities:sb" {
+
+	"shoot_bullet" {
+		"origin" "3972 -4252 -500"
+		"angle" "-9 69 0"
+		"keyvalues" {
+			"force"	"3000"
+			"damage"	"1000"
+		}
+		
+	}
+}
+
+"entities"
+{
+	
+	"npc_combine_e" {
+		"origin" "4047 -4064 -528"
+		"angle" "0 -85 0"
+	}
+	
+	
+//	"instant_trig" {
+//		"origin" "-4382 -2052 -16"
+//		"keyvalues" {
+//			"radius"	"200"
+//			"label"	"sb"
+//		}
+//	}
+	
+	"npc_gman" {
+		"origin" "-7335 -2964 324"
+		"angle" "0 89 0"
+		"keyvalues" {
+			"targetname"	"gmang1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-7504 -2071 16"
+		"keyvalues" {
+			"radius"	"150"
+			"label"		"leave1"
+		}
+	}
+	
+	
+	"food_sankaba" {
+		"origin" "-5250.2 -1316.1 -0.8"  "angle" "0 -153 360"
+		"keyvalues" {
+		"model" "models/misc/foods/sankaba.mdl"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "-5696.3 -2042.7 38.3"  "angle" "-0 -180 359"
+		"freeze"
+		"keyvalues" {
+		"model" "models/misc/kanban/nozaki.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-7068.8 -2173.9 69.7"  "angle" "-0 180 359"
+		"freeze"
+		"keyvalues" {
+		"model" "models/misc/kanban/nozaki.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-7577.9 -2306.9 72.0"  "angle" "-0 180 359"
+		"freeze"
+		"keyvalues" {
+		"model" "models/misc/kanban/nozaki.mdl"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4762.0 -1684.5 354.0"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_police01"
+			"additionalequipment" "weapon_smg1"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-4760.2 -2450.7 354.0"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_police01"
+			"additionalequipment" "weapon_smg1"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5162 -2050 -5"
+		"angle" "0 91 360"
+			"keyvalues" {
+				"targetname" "alpha_junk"
+				"model" "models/props_c17/SuitCase001a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5160.2 -1077.6 110.5"
+		"angle" "-0 -50 360"
+		"freeze"
+		"keyvalues" {
+			"targetname" "alpha_barricade1left"
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5226.4 -1107.0 110.5"
+		"angle" "0 -90 360"
+		"freeze"
+		"keyvalues" {
+			"targetname" "alpha_barricade1center"
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5293.9 -1087.4 110.5"
+		"angle" "0 -123 360"
+		"freeze"
+		"keyvalues" {
+			"targetname" "alpha_barricade1right"
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5232.9 -926.0 110.4"
+		"angle" "-1 91 0"
+		"freeze"
+		"keyvalues" {
+			"targetname" "alpha_barricade2center"
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5294.6 -946.4 110.5"
+		"angle" "-0 122 0"
+		"freeze"
+		"keyvalues" {
+			"targetname" "alpha_barricade2left"
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5170.3 -946.6 110.5"
+		"angle" "-0 63 360"
+		"freeze"
+		"keyvalues" {
+			"targetname" "alpha_barricade2right"
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-5231.0 -963.6 80.0"
+		"angle" "0 95 0"
+		"keyvalues" {
+			"targetname" "alpha_police02"
+			"additionalequipment" "weapon_smg1"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-5231.7 -1082.9 80.0"
+		"angle" "0 261 0"
+		"keyvalues" {
+			"targetname" "alpha_police02"
+			"additionalequipment" "weapon_smg1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-4092 -1390 -4"
+		"keyvalues" {
+			"label" "alpha_sleeper"
+			"radius" "65"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-4676 -687 -24"
+		"keyvalues" {
+			"label" "alpha_walker"
+			"radius" "40"
+		}
+	}
+
+}
+
+"entities:alpha_sleeper" {
+
+	"npc_citizen" {
+		"origin" "-5592.8 -1084.4 -32.0"
+		"angle" "0 270 0"
+		"keyvalues" {
+			"targetname" "alpha_sleeper"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5570.1 -1062.5 -29.0"
+		"angle" "-68 165 90"
+		"keyvalues" {
+			"targetname" "alpha_junk"
+			"model" "models/props_junk/garbage_glassbottle001a.mdl"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-5576 -1070 -3"
+		"angles" "0 270 0"
+		"keyvalues" {
+			"targetname" "alpha_sleepergo"
+			"m_iszEntity" "alpha_sleeper"
+			"m_iszPlay" "Lying_Down"
+			"m_iszPostIdle" "Lying_Down"
+			"spawnflags" "256"
+		}
+	}
+	
+	"event" {
+		"targetname" "alpha_sleeper"
+		"action" "StartScripting"
+		"delaytime" "0.1"
+	}
+	
+	"event" {
+		"targetname" "alpha_sleepergo"
+		"action" "BeginSequence"
+		"delaytime" "0.2"
+	}
+}
+
+"entities:alpha_walker" {
+	
+	"npc_metropolice" {
+		"origin" "-3615.5 -663.6 32.0"
+		"angle" "0 280 0"
+		"keyvalues" {
+			"targetname" "alpha_comwalker01"
+			"additionalequipment" "weapon_smg1"
+			"target" "alpha_comwalkto"
+		}
+	}
+	
+	"path_corner" {
+		"origin" "-3574.9 -1133.4 38.5"
+		"keyvalues" {
+			"targetname" "alpha_comwalkto"
+			"OnPass" "alpha_comwalker01,Kill,,0,1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-4701.9 -913.6 -25.5"
+		"keyvalues" {
+			"label" "alpha_walker2"
+			"radius" "25"
+		}
+	}
+}
+
+"entities:alpha_walker2" {
+	
+	"npc_metropolice" {
+		"origin" "-3663.3 -665.7 32.1"
+		"angle" "0 281 0"
+		"keyvalues" {
+			"targetname" "alpha_comwalker02"
+			"additionalequipment" "weapon_smg1"
+			"target" "alpha_comwalkto2"
+		}
+	}
+	
+	"path_corner" {
+		"origin" "-3677.8 -1163.7 38.5"
+		"keyvalues" {
+			"targetname" "alpha_comwalkto2"
+			"OnPass" "alpha_comwalker02,Kill,,0,1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-4217.8 -670.8 -25.5"
+		"keyvalues" {
+			"label" "alpha_walker3"
+			"radius" "75"
+		}
+	}
+}
+
+"entities:alpha_walker3" {
+	
+	"npc_metropolice" {
+		"origin" "-3896.0 -228.1 -32.0"
+		"angle" "0 182 0"
+		"keyvalues" {
+			"targetname" "alpha_comwalker03"
+			"additionalequipment" "weapon_smg1"
+			"target" "alpha_comwalkto3"
+		}
+	}
+	
+	"path_corner" {
+		"origin" "-4819.8 -354.1 -28.7" //fixed
+		"keyvalues" {
+			"targetname" "alpha_comwalkto3"
+			"OnPass" "alpha_comwalker03,Kill,,0,1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3884 -512 -4"
+		"keyvalues" {
+			"label" "beta"
+			"radius" "35"
+		}
+	}
+}
+
+"entities:beta" {
+
+	"event" {
+		"targetname" "alpha_*"
+		"action" "Kill"
+	}
+		
+	"npc_metropolice" {
+		"origin" "-3765 -311 -32.0"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "beta_guard"
+			"additionalequipment" "weapon_stunstick"
+		}
+	}
+	
+	"ai_relationship" {
+		"origin" "-3670 -251 32"
+		"keyvalues" {
+			"targetname" "beta_guardsic"
+			"subject" "beta_guard"
+			"target" "citizen_introom_1"
+			"disposition" "1"
+			"startactive" "0"
+			"rank" "5"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3700 -501 -4"
+		"keyvalues" {
+			"label" "attax"
+			"radius" "35"
+		}
+	}
+		
+	"prop_physics" {
+		"origin" "-3420.9 -357.5 3.8"
+		"angle" "-2 178 90"
+		"keyvalues" {
+			"targetname" "beta_junk"
+			"model" "models/weapons/w_stunbaton.mdl"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3106 -39 -36"
+		"keyvalues" {
+			"label" "wrap"
+			"radius" "95"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-3770.4 -357.1 -32.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "just_for_ineptguard"
+			"m_iszEntity" "citizen_introom_1"
+			"m_iszPlay" "idle_subtle"
+			"m_fMoveTo" "4"
+		}
+	}
+}
+
+"entities:attax" {
+
+	"event" {
+		"targetname" "beta_guardsic"
+		"action" "ApplyRelationship"
+		"delaytime" "4"
+	}
+	
+	"event" {
+		"targetname" "citizen_introom_1"
+		"action" "addoutput"
+		"value" "health 75"
+	}
+	
+	"event" {
+		"targetname" "ss_citizen_introom_chair"
+		"action" "cancelsequence"
+		"delaytime" "6"
+	}
+	
+	"event" {
+		"targetname" "just_for_ineptguard"
+		"action" "beginsequence"
+		"delaytime" "6"
+	}
+}
+
+"entities:wrap" {
+
+	"event" {
+		"targetname" "beta_*"
+		"action" "Kill"
+	}
+}

@@ -1,0 +1,27 @@
+//	map arrange data
+//	location: d3_c17_01
+"precache" {
+	"entity"		"food_cornedbeef"
+	"entity"		"food_sankaba"
+	"entity"		"weapon_gauss"	
+}
+
+
+"entities" {
+
+	"weapon_gauss"
+	{
+		"origin" "-7037.9 -1041.5 120"
+	}
+	
+	"item_item_crate"
+	{
+		"origin" "-6790.0 -1603.4 140.5"
+		"keyvalues"
+		{
+			"ItemClass"		"food_cornedbeef"
+			"ItemCount"		"3"
+		}
+	}	
+}
+

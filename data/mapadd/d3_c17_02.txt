@@ -1,0 +1,426 @@
+//	map arrange data
+//	location: d3_c17_02
+//FIXES: Precache
+"precache" {
+	"sound"		"npc_citizen.letsgo01"
+	"sound"		"npc_citizen.question25"
+	"sound"		"npc_citizen.question10"
+	"sound"		"npc_citizen.question09"
+	"sound"		"opening.cit_hit03"
+	"sound"		"npc_citizen.illstayhere01"
+	"sound"		"odessa.nlo_cheer01"
+	"sound"		"odessa.nlo_cheer03"
+	"entity"	"npc_combine_s"	
+	"entity"	"npc_citizen"
+	"entity"	"npc_citizen_medic"		
+	"entity"	"weapon_grease"	
+	"entity"	"weapon_kar98"
+	"entity"	"weapon_ak47"
+	"entity" 	"weapon_custom24"
+	"entity" 	"weapon_custom16"	
+	"entity" 	"weapon_custom12"	
+}
+
+
+"entities" {
+
+	"instant_trig" {
+		"origin" "-7235 -6346 701"
+		"keyvalues" {
+			"label"	"gogogo"
+			"radius"	"600"
+			"touchname"	"dropship2"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-9034 -6064 -64" "angle" "0 19 0"
+		"alwaysthink"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"
+			"targetname"		"npc11"
+			"spawnflags" "1052674"
+			"squadname" "universal_citizen"			
+		}		
+	}
+
+
+	"npc_citizen_medic" {
+		"origin" "-8874 -6053 -64" "angle" "0 6 0"
+		"alwaysthink"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"targetname"		"npc12"
+			"spawnflags" "1052674"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_kleiner" {
+		"origin" "-4852 -4098 -1592"
+		"angle" "0 -116 0"	
+	}
+	
+	
+	"npc_metropolice" {
+		"origin" "-6787 -6520 384" "angle" "0 149 0"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-6697 -5880 512" "angle" "0 180 0"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom24"
+			"squadname" "universal_combine"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-5905 -6141 643" "angle" "0 174 0"
+		"alwaysthink"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-6518 -6371 526" "angle" "0 170 0"
+		"alwaysthink"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine"			
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-9192.4 -5669.4 -64.0"  "angle" "0 167 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"		
+			"targetname" "cit_1"
+			"squadname" "universal_citizen"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-9422.3 -5713.6 -64.0"  "angle" "0 57 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom12"		
+			"targetname" "cit_2"
+			"squadname" "universal_citizen"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-9191.3 -5562.9 -64.0"  "angle" "0 187 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"		
+			"targetname" "cit_3"
+			"squadname" "universal_citizen"
+		}
+	}	
+	
+	"prop_physics" {
+		"origin" "-8696.0 -6042.2 14.1"  "angle" "-0 88 360"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/TrashDumpster01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-8660.6 -6029.3 -38.3"  "angle" "-0 21 360"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/TrashDumpster01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-8735.1 -6054.6 -38.3"  "angle" "-0 -92 0"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/TrashDumpster01a.mdl"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "-6143.2 -6284.6 48.1"  "angle" "-0 -12 360"
+		"keyvalues" {
+		"model" "models/props_junk/PlasticCrate01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6145.9 -6282.5 20.3"  "angle" "0 -103 90"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6106.4 -6240.0 20.4"  "angle" "90 -96 180"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6153.3 -6220.7 20.4"  "angle" "-0 -53 0"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6633.2 -5986.3 12.5"  "angle" "6 -41 3"
+		"keyvalues" {
+		"model" "models/props_junk/cardboard_box001b.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6617.9 -6084.6 6.8"  "angle" "0 -133 180"
+		"keyvalues" {
+		"model" "models/props_junk/cardboard_box001b.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6790.8 -6225.4 11.1"  "angle" "-90 101 180"
+		"keyvalues" {
+		"model" "models/props_junk/cardboard_box001b.mdl"
+		}
+	}
+
+	
+	"prop_physics" {
+		"origin" "-7359.7 -5755.2 54.1"  "angle" "38 -160 127"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-7346.9 -5719.0 20.4"  "angle" "0 -89 90"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-7320.6 -5775.4 31.5"  "angle" "18 130 246"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-7390.0 -5774.5 20.5"  "angle" "-90 -160 180"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate001a.mdl"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "-8752.5 -6058.0 -10.4"  "angle" "83 40 176"
+		"keyvalues" {
+		"model" "models/props_c17/doll01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-8739.7 -6058.2 -11.1"  "angle" "52 89 270"
+		"keyvalues" {
+		"model" "models/props_c17/doll01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-8744.8 -6046.6 -12.5"  "angle" "-82 -158 102"
+		"keyvalues" {
+		"model" "models/props_c17/doll01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-8756.8 -6049.7 -11.9"  "angle" "-31 -49 87"
+		"keyvalues" {
+		"model" "models/props_c17/doll01.mdl"
+		}
+	}
+
+
+	"instant_trig" {
+		"origin" "-9061 -5954 -64"
+		"keyvalues" {
+			"label"	"talk1:talk2:talk3"
+			"radius" "100"
+		}
+	}
+	
+	
+	"instant_trig" {
+		"origin" "-5991.0 -6239.4 -15.5"
+			"keyvalues" {
+			"label"	"talk4"
+			"radius"	"50"
+			"touchname"	"apc_01"
+		}
+	}
+
+	"instant_trig" {
+		"origin" " -9414 -5625 0.031"
+		"angle" "0 0 0"
+		"timer" ".1"
+		"keyvalues" {
+			"label" "combine"
+			"radius" "500"
+		}
+	}	
+}
+
+"entities:talk1" {
+	"sound" {
+		"targetname"	"npc11"
+		"soundname"	"npc_citizen.question25"
+	}
+}
+"entities:talk2" {
+	"sound" {
+		"targetname"	"npc11"
+		"soundname"	"npc_citizen.question10"
+	}
+}
+"entities:talk3" {
+	"sound" {
+		"targetname"	"npc11"
+		"soundname"	"npc_citizen.question09"
+	}
+}
+"entities:talk4" {
+	"sound" {
+		"targetname"	"npc11"
+		"soundname"	"odessa.nlo_cheer01"
+	}
+	"sound" {
+		"targetname"	"npc12"
+		"soundname"	"odessa.nlo_cheer03"
+	}
+}
+
+
+"entities:gogogo" {
+
+
+	"instant_trig" {
+		"origin" "-5659.8 -5575.3 -4.0"
+		"keyvalues" {
+			"touchname"	"dog"
+			"label"	"talk5"
+			"radius"	"30"
+		}
+	}
+	
+	"info_target" {
+		"origin" "-6096 -6290 3"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"3"
+			"actor"		"npc1*"
+			"goal"		"goalnpc1"
+		}
+	}
+	
+	"sound" {
+		"targetname"	"npc11"
+		"soundname"	"npc_citizen.letsgo01"
+	}
+
+}
+
+
+"entities:talk5" {
+
+	"info_target" {
+		"origin" "-5709 -5667 -4"
+		"keyvalues" { "targetname" "goalnpc2" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"3"
+			"actor"		"npc1*"
+			"goal"		"goalnpc2"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"talk6"
+			"timer"	"8"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"talk7"
+			"timer"	"9"
+		}
+	}
+
+}
+
+"entities:talk7" {
+	"sound" {
+		"targetname"	"npc11"
+		"soundname"	"opening.cit_hit03"
+	}
+}
+
+"entities:talk6" {
+	"sound" {
+		"targetname"	"npc12"
+		"soundname"	"npc_citizen.illstayhere01"
+	}
+}
+
+
+"entities:combine" {
+
+	"npc_combine_s" {
+	"relation" "ph1 gh2 lh3"
+		"origin" "-6713.6 -6155.2 -4.0" "angle" "0 166 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"
+		}		
+	}
+	"npc_combine_s" {
+	"relation" "ph1 gh3 lf2"
+		"origin" "-6459.2 -6195.0 0.0" "angle" "0 167 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine2"
+		}				
+	}
+	"npc_combine_s" {
+	"relation" "ph1 gh3 lf2"
+		"origin" "-6497.8 -5993.6 -4.0" "angle" "0 189 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"
+			"squadname" "universal_combine2"			
+		}		
+	}
+	"npc_combine_s" {
+	"relation" "ph1 gh3 lf2"
+		"origin" "-7199.3 -6303.7 -4.0"  "angle" "0 64 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"
+			"squadname" "universal_combine2"			
+		}		
+	}
+}

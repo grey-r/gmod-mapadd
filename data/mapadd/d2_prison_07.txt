@@ -1,0 +1,343 @@
+//	map arrange data
+//	location: d2_prison_07
+"precache" {
+	"entity" "setmsbomb"
+	"entity" "setmsbomb2"	
+	"entity"	"npc_combine_e"	
+	"entity"	"monster_human_grunt"		
+	"entity"	"npc_combine_p"	
+	"entity" 	"weapon_grease"
+	"entity" 	"weapon_mp5"	
+	"entity" 	"weapon_custom14"
+	"entity" 	"weapon_custom8"	
+	"entity"	"npc_f_turret_floor"	
+	"model" "models/weapons/w_msbomb.mdl"	
+	"model"	"models/Humans/corpse1.mdl"
+	"model"	"models/combine_super_soldier.mdl"
+	"model"	"models/combine_commando.mdl"		
+}
+
+
+"entities:comealyx" {
+
+	"event" {
+		"targetname"	"logic_croom2_turretsdeployed"
+		"action"	"trigger"
+	}
+
+	"event" {
+		"targetname"	"grate_alyx_break_1"
+		"action"	"ForceDrop"
+		"delaytime"	"90.0"
+	}
+	"event" {
+		"targetname"	"grate_alyx_break_1"
+		"action"	"EnableMotion"
+		"delaytime"	"90.0"
+	}
+	"event" {
+		"targetname"	"teleport_alyx_to_croom2"
+		"action"	"BeginSequence"
+		"delaytime"	"90.5"
+	}
+
+	"event" {
+		"targetname" "alyx"
+		"action" "addoutput"
+		"value" "health 9999"
+		"delaytime" "5"
+	}	
+}
+
+"entities" {
+
+	lua {
+		"callfunc"	"Init"
+	}
+
+
+	"prop_ragdoll" {
+		"origin" "-416 -3436 64"
+		"keyvalues" {
+			"model"	"models/Humans/corpse1.mdl"
+		}
+	}
+
+	"event" {
+		"targetname"	"lcs_message_croom2_arrival"
+		"action"	"kill"
+	}
+
+	"event" {
+		"targetname"	"lcs_message_croom2_fields"
+		"action"	"kill"
+	}
+	
+	"event" {
+		"targetname"	"lcs_message_croom2_search"
+		"action"	"kill"
+	}
+
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"npc_combine_croom2_*"
+			"label"		"comealyx"
+		}
+	}
+
+
+	"npc_f_turret_floor" {
+		"origin" "4072.1 -4064.6 -539.2"  "angle" "0 -94 0"
+	}
+
+
+	"prop_ragdoll" {
+		"origin" "2377 -3727 -774"
+		"keyvalues" {
+			"model"	"models/combine_super_soldier.mdl"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "1291 -3159 -680"
+		"keyvalues" {
+			"label"	"trap1"
+			"radius"	"50"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "1641 -3305 -680"
+		"keyvalues" {
+			"label"	"trap2"
+			"radius"	"50"
+		}
+	}
+
+	"event" {
+		"targetname" "alyx"
+		"action" "addoutput"
+		"value" "health 9999"
+		"delaytime" "5"
+	}		
+
+	"instant_trig" {
+		"origin" "1172 -3199 -231"
+		"keyvalues" {
+			"label"	"trap3"
+			"radius"	"110"
+		}
+	}	
+	
+	"instant_trig" {
+		"origin" "3600 -3392 -515"
+		"keyvalues" {
+			"label"	"miner"
+			"radius" "120"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "118 -3891 -267"
+		"keyvalues" {
+			"label"	"sword"
+			"radius"	"100"
+		}
+	}	
+	
+}
+
+
+"entities:trap1" {
+	"setmsbomb2" {
+		"origin" "1322.1 -3265.0 -662.0"  "angle" "0 270 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	"setmsbomb2" {
+		"origin" "1397.2 -3265.0 -660.8"  "angle" "0 270 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	"setmsbomb2" {
+		"origin" "1445.9 -3265.0 -618.3"  "angle" "0 270 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	
+	"setmsbomb2" {
+		"origin" "1578 -3265.0 -659"  "angle" "0 270 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	
+	"setmsbomb2" {
+		"origin" "1489.1 -3359.0 -660.6"  "angle" "0 90 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	"setmsbomb2" {
+		"origin" "1523.0 -3359.0 -653.5"  "angle" "0 90 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	"setmsbomb2" {
+		"origin" "1549.3 -3359.0 -625.6"  "angle" "0 90 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+//	"setmsbomb2" {
+//		"origin" "1481.6 -3359.0 -603.0"  "angle" "0 90 0"
+//		"keyvalues" {
+//		"model" "models/weapons/w_msbomb.mdl"
+//		}
+//	}
+
+	"setmsbomb2" {
+		"origin" "1562.8 -3359.0 -575.8"  "angle" "0 90 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+
+	"setmsbomb2" {
+		"origin" "1477.9 -3359.0 -558.9"  "angle" "0 90 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+
+
+}
+
+
+"entities:trap2" {
+
+	"setmsbomb" {
+		"origin" "1945.0 -3819.6 -932.7"  "angle" "0 0 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+
+	"setmsbomb" {
+		"origin" "2158.0 -3760.0 -793.0"  "angle" "0 180 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	"setmsbomb" {
+		"origin" "1854.4 -3505.0 -691.7"  "angle" "0 270 0"
+		"keyvalues" {
+		"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+
+}
+
+"entities:trap3" {
+
+	"setmsbomb" {
+		"origin" "1391.0 -3092.1 -287.3"  "angle" "0 180 0"
+		"keyvalues" {
+			"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	
+	"setmsbomb" {
+		"origin" "1391.0 -3125.1 -404.2"  "angle" "0 180 0"
+		"keyvalues" {
+			"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+	
+	"setmsbomb" {
+		"origin" "1391.0 -3070.0 -488.3"  "angle" "0 180 0"
+		"keyvalues" {
+			"model" "models/weapons/w_msbomb.mdl"
+		}
+	}
+}
+
+
+"entities:sword" {
+
+	"monster_human_grunt" {
+		"origin" "1056.1 -3699.8 -40.0"  "angle" "0 273 0"
+		"alwaysthink"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"			
+			"targetname" "lowbine_1"
+			"runspeedmod" "1.5"			
+			"squadname" "plat_squad"
+		}
+	}
+	
+	"monster_human_grunt" {
+		"origin" "1106.1 -3580.8 -40.0"  "angle" "0 252 0"
+		"alwaysthink"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"			
+			"targetname" "lowbine_2"
+			"runspeedmod" "1.5"				
+			"squadname" "plat_squad"
+		}
+	}
+	
+	"info_target" {
+		"origin" "976.1 -3974.8 -26.0"
+		"keyvalues" {
+			"targetname" "leverage"
+		}
+	}
+	
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"maximumstate"	"2"
+			"actor"		"lowbine_*"
+			"goal"		"leverage"
+		}
+	}
+
+	"event" {
+		"targetname" "commando"
+		"action" "addoutput"
+		"value" "health 100"
+		"delaytime" "0.1"
+	}	
+}
+
+"entities:miner" {
+
+	"combine_mine" {
+		"origin" "4802.3 -4705.5 -523.6"  "angle" "-0 25 0"
+		"keyvalues" {
+			"startdisarmed" "1"
+			"locksilently" "0"
+			"bounce" "1"
+			"explosiondamage" "75"
+			"explosionradius" "150"
+		}
+	}
+	
+	"combine_mine" {
+		"origin" "4802.8 -4704.5 -483.4"  "angle" "-90 138 273"
+		"keyvalues" {
+			"startdisarmed" "1"
+			"locksilently" "0"
+			"bounce" "1"
+			"explosiondamage" "75"
+			"explosionradius" "150"
+		}
+	}
+}

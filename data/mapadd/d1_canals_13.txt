@@ -1,0 +1,54 @@
+"precache" {
+	"entity" "npc_combine_s"
+	"entity" "npc_metropolice"
+	"entity" "npc_houndeye"	
+	"entity" "weapon_custom16"
+	"entity" "weapon_frag"
+	"entity" "weapon_stickybomb"
+}
+
+"entities" {
+
+	"weapon_stickybomb" {
+		"origin" "2609 -2418 -407"
+	}
+	
+	"npc_houndeye" {
+		"origin" "3000 -2621 -388"
+	}	
+
+	"npc_houndeye" {
+		"origin" "2975 -2394 -385"
+	}	
+	
+	"instant_trig" {
+		"origin" "3136 2559 -162"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "gigas"
+			"radius" "300"
+		}
+	}
+}
+
+
+"entities:gigas" {
+
+	"npc_combine_s" {
+		"origin" "3592.5 -1578.0 160.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "canals_squad_gc_mcambush1"
+			"targetname" "canals_npc_gc_mcambush1_6"
+			"additionalequipment"	"weapon_custom16"			
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "3478.2 -1574.5 160.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "canals_squad_gc_mcambush1"
+			"targetname" "canals_npc_gc_mcambush1_7"
+			"additionalequipment"	"weapon_custom16"			
+		}
+	}
+}

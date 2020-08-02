@@ -1,0 +1,216 @@
+//	map arrange data
+//	location: d1_coast_08
+
+"precache" {
+	"entity" "npc_citizen"
+	"entity" "npc_combine_s"
+	"entity" "npc_stalker"	
+	"entity"	"weapon_grease"
+	"entity"	"weapon_ak47"
+	"entity"	"weapon_kar98"
+	"entity"	"weapon_mp5"	
+	"entity"	"weapon_stcannon"	
+	"entity" 	"weapon_custom12" 
+	"entity" 	"weapon_custom16"
+	"entity" 	"weapon_custom30"
+	"entity" 	"weapon_custom14"   	
+}
+
+"randomspawn" {
+
+	"npc_stalker" {
+		"count"		"5"
+		"beampower"	"2"
+		"patrol"
+	}
+
+}
+
+"entities" {
+
+	"instant_trig" {
+		"origin" "-5639 -286 -22"
+		"keyvalues" {
+			"radius" "85"
+			"label" "combine"
+		}
+	}
+
+	"weapon_stcannon" {
+		"origin" "-12143 -925 -234"		
+	}	
+	
+	"instant_trig" {
+		"origin" "-5639 -286 -22"
+		"keyvalues" {
+			"label"	"ambush"
+			"radius"	"500"
+		}
+	}
+
+	"prop_ragdoll" {
+		"origin" "-7979 -1149 -198" "angle" "10 160 0"
+		"keyvalues" {
+			"model"	"models/combine_f_soldier.mdl"
+		}
+	}
+
+	"prop_ragdoll" {
+		"origin" "-7402 -713 -198" "angle" "10 -160 0"
+		"keyvalues" {
+			"model"	"models/combine_f_soldier.mdl"
+		}
+	}
+
+	"item_item_crate" {
+		"origin" "-9197.3 -1266.4 -238.6"  "angle" "0 108 90"
+		"keyvalues" {
+			"itemclass"		"item_ammo_357"
+			"itemcount"		"2"
+		}
+	}
+	
+	"item_item_crate" {
+		"origin" "-9153.9 -1228.1 -255.7"  "angle" "4 82 360"
+		"keyvalues" {
+			"itemclass"		"item_ammo_crossbow"
+			"itemcount"		"2"
+		}
+	}
+	
+	"item_item_crate" {
+		"origin" "-9168.8 -1190.8 -258.1"  "angle" "3 110 1"
+		"keyvalues" {
+			"itemclass"		"weapon_custom30"
+			"itemcount"		"1"
+		}
+	}	
+	
+	"npc_citizen" {
+		"origin" "-8774.6 -1169.9 -259.0"  "angle" "0 0 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom12"		
+			"squadname" "dig"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-9101.6 -1095.6 -260.0"  "angle" "0 0 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"		
+			"squadname" "dig"
+		}
+	}
+	
+	
+	"npc_combine_s" {
+		"origin" "-6227.5 -701.3 -260.0"  "angle" "0 192 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_lasergun"		
+			"squadname" "dug"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-5949.9 -215.8 -258.8"  "angle" "0 304 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"		
+			"squadname" "dug"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-6128.8 -458.7 -256.0"  "angle" "0 292 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"		
+			"squadname" "dug"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-5990.8 -353.3 -256.0"  "angle" "0 255 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"		
+			"squadname" "dug"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-5891.8 -409.7 -256.0"  "angle" "0 256 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"		
+			"squadname" "dug"
+		}
+	}
+}
+
+"entities:ambush" {
+
+	"npc_combine_e" {
+		"origin" "-5629 165 64" "angle" "0 -98 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-4789 58 64" "angle" "0 173 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"
+			"squadname" "universal_combine"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-5180 265 64" "angle" "0 -126 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom5"
+			"squadname" "universal_combine"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-6203 55 256" "angle" "0 -3 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_lasergun"
+			"squadname" "universal_combine"
+		}
+	}
+}
+
+"entities:combine" {
+
+	"npc_combine_s" {
+		"origin" "-4601.1 -267.2 -180.9"  "angle" "0 85 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"		
+			"squadname" "interior_building_squad"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-4976.1 292.3 -192.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"		
+			"squadname" "interior_building_squad"
+		}
+	}
+	
+	
+	"npc_combine_s" {
+		"origin" "-5305.9 -344.5 -192.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"		
+			"squadname" "interior_building_squad"
+		}
+	}
+}
+

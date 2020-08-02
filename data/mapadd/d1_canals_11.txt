@@ -1,0 +1,243 @@
+//	map arrange data
+//	location: d1_canals_11
+//FIXES: Precache
+"precache"{
+	"entity" "npc_citizen"
+	"entity" "npc_combine_s"	
+	"entity" "npc_zombie"
+	"entity" "npc_metropolice"
+	"entity" "weapon_custom18"		
+	"entity" "weapon_scissor"
+	"entity" "weapon_custom16"	
+	"entity" "weapon_custom11"		
+	"entity" "setmsbomb"
+}
+
+"randomspawn" {
+	"removenodes" {
+		"origin" "6414 4907 -894"
+		"radius"	"2000"
+	}
+	
+	"removenodes" {
+		"origin" "1872 -7717 -842"
+		"radius"	"2000"
+	}
+	
+	
+	"npc_metropolice" {
+		"count"		"10"
+		"weapon"	"weapon_pistol"
+		"values" 	"squadname cb10"		
+	}
+
+}
+
+"entities:spawn1" {
+	"npc_metropolice" {
+		"origin" "2218 -8691 -768" "angle" "0 92 0"
+		"activate"
+		"keyvalues" {
+			"targetname"	"teki11"
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+}
+
+"entities:timer" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "spawn1"
+			"timer"	"5"
+			"noclear"	"1"
+			"group"	"1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"60"
+			"group"	"1"
+			"removegroup"	"1"
+		}
+	}
+
+
+}
+
+"entities" {
+
+	"weapon_scissor" {
+		"origin" "785 -7018 -890"
+	}
+
+	"setmsbomb" {
+		"origin" "10217 7307 -392"
+		"angle" "90 0 0"
+	}
+
+	"setmsbomb" {
+		"origin" "9319 8190 -691"
+		"angle" "0 270 0"
+	}
+
+
+	"instant_trig" {
+		"origin" "1068 -7079 -928"
+		"keyvalues" {
+			"label"	"timer"
+			"radius" "50"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin"	"6528.35 5342.63 -867.97"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"weapon_custom22"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
+		}
+	}	
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"teki1*"
+			"goal"		"goalnpc1"
+		}
+	}
+
+	"info_target" {
+		"origin" "1935 -8165 -864"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+
+	"npc_metropolice" {
+		"origin" "9713 8140 -256" "angle" "0 -48 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine"					
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "9339 7304 -104" "angle" "0 73 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine"					
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "9471 7304 -104" "angle" "0 75 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine"					
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "2914 -491 -676" "angle" "0 52 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine"					
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "4405 -1617 -438" "angle" "0 99 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine"					
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-4369 -2983 -753"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine"
+			"radius" "1000"
+		}
+	}
+}
+
+"entities:combine" {
+	"npc_combine_s" {
+		"origin" "-7200.9 -2266.4 -768.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-7377.4 -2263.5 -768.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-7326.1 -2859.8 -768.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-9023.6 -2381.2 -896.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-9491.7 -2749.0 -896.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-10257.5 -2363.2 -896.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-10371.2 -2365.1 -896.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-10502.0 -2366.6 -896.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-11694.7 -1783.5 -896.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-11698.1 -1944.7 -896.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine2"			
+		}
+	}
+}	

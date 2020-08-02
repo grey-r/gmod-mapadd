@@ -1,0 +1,71 @@
+//	map arrange data
+//	location: d3_citadel_02
+"precache" {
+}
+
+
+"entities" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"5"
+			"label"	"unlockpod"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-12.45 5615 2123"
+		"keyvalues" {
+			"radius" "75"
+			"label"	"running_man"
+		}
+	}
+}
+
+"entities:running_man" {
+
+	"npc_combine_s" {
+		"origin" "227.1 5425.0 2496.0"  "angle" "0 77 0"
+		"keyvalues" {
+			"targetname" "runningman"
+			"additionalequipment" "weapon_shotgun"
+			"OnDeath" "runningman_ss,kill,,0,1"
+		}
+	}
+
+	"scripted_sequence" {
+		"origin" "957 5632.0 2496.0"
+		"keyvalues" {
+			"targetname" "runningman_ss"
+			"m_iszentity" "runningman"
+			"m_fmoveto" "2"
+			"m_iszplay" "jump_holding_jump"
+			"spawnflags" "96"
+			//"OnBeginSequence" "runningman,sethealth,0,0,1"
+		}
+	}
+	
+	//#REDUX - Adjust these for timing
+	"event" {
+		"targetname" "runningman_ss"
+		"action" "beginsequence"
+		"delaytime" "0.7" //how soon he starts running
+	}
+	
+	"event" {
+		"targetname" "runningman"
+		"action" "sethealth"
+		"value" "0"
+		"delaytime" "4.2" //how soon he dies
+	}
+}
+
+"entities:unlockpod" {
+
+	"event" {
+		"targetname"	"pod_player"
+		"action"	"unlock"
+	}
+	
+
+}

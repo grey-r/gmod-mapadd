@@ -1,0 +1,687 @@
+//	map arrange data
+//	location: d1_coast_04
+
+"precache" {
+	"entity"	"npc_citizen"
+	"entity"	"npc_metropolice"
+	"entity"	"npc_fastzombie"
+	"entity"	"npc_combinedropship"
+	"entity"	"weapon_kar98"
+	"entity"	"weapon_grease"	
+	"entity"	"weapon_custom16"		
+	"entity" 	"weapon_custom24"	
+	"entity" 	"weapon_custom30"		
+	"entity"	"prop_dropship_container"
+	"model"	"models/ichthyosaur_corpse.mdl"	
+}
+
+"entities:land3" {
+	"removeentity" {
+		"targetname"	"dship1"
+	}
+}
+
+
+"entities:land2" {
+
+	"npc_combine_s" {
+		"origin" "5719 -2524 384"
+		"keyvalues" {
+			"NumGrenades" "12"
+			"squadname" "sq1"
+			"targetname"	"cb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "5731 -2372 384"
+		"keyvalues" {
+			"NumGrenades" "12"
+			"squadname" "sq1"
+			"targetname"	"cb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "5859 -2358 384"
+		"keyvalues" {
+			"NumGrenades" "12"
+			"squadname" "sq1"
+			"targetname"	"cb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}	
+	
+	"event" {
+		"targetname"	"cb1"
+		"action"	"startpatrolling"
+		"value"		"1"
+	}
+
+	"event" {
+		"targetname"	"dship1"
+		"action"	"FlyToSpecificTrackViaPath"
+		"value"		"dsp3"
+	}
+
+	
+}
+
+"entities:land1" {
+
+	"event" {
+		"targetname"	"dship1"
+		"action"	"landleavecrate"
+		"value"		"1"
+	}
+
+	"instant_trig" {
+		"origin" "10021 10523 354"
+		"keyvalues" {
+			"radius"	"200"
+			"label"		"land3"
+			"touchname"	"dship1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"		"land2"
+			"timer"		"20"
+		}
+	}
+
+
+
+}
+
+"entities:a1" {
+
+
+	"info_target" {
+		"origin" "6039 -2311 384"
+		"angle" "0 -177 0"
+		"keyvalues" {
+			"targetname"	"dsp2"
+		}
+	}
+
+	"path_track" {
+//		"origin" "5977 -2350 2724"
+		"origin" "10021 10523 354"
+		"angle" "21 -114 0"
+		"keyvalues" {
+			"orientationtype" "1"
+			"targetname"	"dsp3"
+		}
+	}
+
+
+	"path_track" {
+		"origin" "5900 -2398 660"
+		"angle" "0 -167 0"
+		"keyvalues" {
+			"orientationtype" "1"
+			"targetname"	"dsp1"
+		}
+	}
+
+	"npc_combinedropship" {
+		"origin" "-5538 -2152 2256"
+		"keyvalues" {
+			"targetname"	"dship1"
+			"cratetype"	"1"
+			"LandTarget"	"dsp2"
+			"target"	"dsp1"
+			"gunrange"	"4000"
+			"Dustoff1" "p2"
+			"NPCTemplate" "cb1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "5927 -2361 685"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"land1"
+			"touchname"	"dship1"
+		}
+	}
+	
+	"info_target" {
+		"origin" "5211 -2283 384"
+	}
+	
+}
+
+"entities:init" {
+	"event" {
+		"targetname"	"thumper_1"
+		"action"	"enable"
+	}
+}
+
+"entities:cann" {
+	
+	"event" {
+		"targetname"	"cannister01"
+		"action"	"firecanister"
+	}
+
+}
+
+"entities" {
+
+	"env_headcrabcanister" {
+		"origin" "2620 7603 1272"
+		"angle" "58 -81 0"
+		"keyvalues" {
+			"SmokeLifetime" "60"
+			"targetname" "cannister01"
+			"spawnflags" "57346"
+			"DamageRadius" "0"
+			"Damage" "100"
+			"SkyboxCannisterCount" "1"
+			"StartingHeight" "0"
+			"FlightTime" "1.5"
+			"FlightSpeed" "2700"
+			"HeadcrabCount" "4"
+			"HeadcrabType" "1"
+			"angles" "308 138 0"
+			"OnImpacted" "cannister01,OpenCanister,,0.5,-1"
+			"OnOpened" "cannister01,SpawnHeadcrabs,,1,-1"
+		}
+	}
+
+	"env_headcrabcanister" {
+		"origin" "2390 7865 1305"
+		"angle" "52 -65 0"
+		"keyvalues" {
+			"SmokeLifetime" "60"
+			"targetname" "cannister01"
+			"spawnflags" "57346"
+			"DamageRadius" "0"
+			"Damage" "100"
+			"SkyboxCannisterCount" "1"
+			"StartingHeight" "0"
+			"FlightTime" "1.5"
+			"FlightSpeed" "2700"
+			"HeadcrabCount" "4"
+			"HeadcrabType" "1"
+			"angles" "308 138 0"
+			"OnImpacted" "cannister01,OpenCanister,,0.5,-1"
+			"OnOpened" "cannister01,SpawnHeadcrabs,,1,-1"
+		}
+	}
+
+	"env_headcrabcanister" {
+		"origin" "2764 7798 1297"
+		"angle" "39 132 0"
+		"keyvalues" {
+			"SmokeLifetime" "60"
+			"targetname" "cannister01"
+			"spawnflags" "57346"
+			"DamageRadius" "0"
+			"Damage" "100"
+			"SkyboxCannisterCount" "1"
+			"StartingHeight" "0"
+			"FlightTime" "1.5"
+			"FlightSpeed" "2700"
+			"HeadcrabCount" "4"
+			"HeadcrabType" "1"
+			"angles" "308 138 0"
+			"OnImpacted" "cannister01,OpenCanister,,0.5,-1"
+			"OnOpened" "cannister01,SpawnHeadcrabs,,1,-1"
+		}
+	}
+
+
+"prop_physics" {
+	"origin" "2724.8 7498.1 1257.7"  "angle" "4 -34 6"
+	"stabilize"	"30"
+	"keyvalues" {
+	"model" "models/props_c17/oildrum001.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "2650.6 7490.5 1256.8"  "angle" "-7 98 359"
+	"stabilize"	"30"
+	"keyvalues" {
+	"model" "models/props_c17/oildrum001.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "2570.4 7481.3 1255.6"  "angle" "1 -171 353"
+	"stabilize"	"30"
+	"keyvalues" {
+	"model" "models/props_c17/oildrum001.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "2504.1 7470.4 1299.7"  "angle" "7 -90 180"
+	"stabilize"	"30"
+	"keyvalues" {
+	"model" "models/props_c17/oildrum001.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "2446.9 7473.4 1300.0"  "angle" "7 -72 182"
+	"stabilize"	"30"
+	"keyvalues" {
+	"model" "models/props_c17/oildrum001.mdl"
+			"forcetoenablemotion"	"1"
+	}
+}
+
+
+	"instant_trig" {
+		"origin" "2679 6267 1169"
+		"keyvalues" {
+			"radius"	"300"
+			"label"		"cann"
+		}
+	}
+	"instant_trig" {
+		"origin" "2213 -2829 412"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"a1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"		"0.01"
+			"label"		"init"
+		}
+	}
+
+
+
+	"npc_citizen" {
+		"origin" "1653 -2522 256" "angle" "0 41 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_grease"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "1871 -3026 256" "angle" "0 87 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_grease"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "4509 -1652 672"
+		"keyvalues"
+		{
+			"label"	"spawncit"
+			"radius"	"50"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "585 -3368 897"
+		"keyvalues"
+		{
+			"label"	"spawn2"
+			"radius"	"300"
+		}
+	}
+
+	"npc_fastzombie" {
+		"origin" "2135 6793 1153" "angle" "0 -63 0"
+	}
+
+	"item_item_crate"
+	{
+		"origin"	"3514.42 -4707.47 580"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_rpg_round"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin"	"3489.9 -4754.2 580"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_rpg_round"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}	
+
+	"item_item_crate"
+	{
+		"origin"	"2885 -4089 580"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_rpg_round"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin"	"1683 -3152 580"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_rpg_round"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-2322 124 351"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine"
+			"radius" "3000"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "2852 -1278 154"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine2"
+			"radius" "1500"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "5797 -4451 444"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "siren"
+			"radius" "65"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "2213 -2792 418"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "tempest"
+			"radius" "65"
+		}
+	}
+
+	"weapon_custom30" {
+		"origin" "4545.8 -3141.5 540.0"
+	}
+
+	"prop_ragdoll" {
+		"origin" "4008 1319 256"
+		//"velocity"	"0 -10000 0"
+		"keyvalues" {
+			"model"	"models/ichthyosaur_corpse.mdl"
+		}
+	}	
+}
+
+
+"entities:spawn2" {
+
+	"prop_physics" {
+		"origin" "-1942.0 -1277.2 951.1"  "angle" "-0 -171 0"
+		"keyvalues" {
+		"model" "models/props_vehicles/car003a_physics.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-1847.1 -1399.4 951.1"  "angle" "-0 90 0"
+		"keyvalues" {
+		"model" "models/props_vehicles/car003a_physics.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-1722.2 -1293.2 951.1"  "angle" "0 -164 0"
+		"keyvalues" {
+		"model" "models/props_vehicles/car003a_physics.mdl"
+		}
+	}
+	
+	
+	"npc_combine_s" {
+		"origin" "-1712.0 -1054.8 928.0"  "angle" "0 -88 0"
+		"keyvalues" {
+				"squadname" "universal_combine"		
+				"additionalequipment"	"weapon_custom16"
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-1850.2 -1078.6 928.0"  "angle" "0 -88 0"
+		"keyvalues" {
+				"squadname" "universal_combine"				
+				"additionalequipment"	"weapon_custom24"
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-1958.2 -1097.1 928.0"  "angle" "0 -88 0"
+		"keyvalues" {
+				"squadname" "universal_combine"				
+				"additionalequipment"	"weapon_grease"
+		}
+	}
+
+}
+
+"entities:spawncit" {
+	
+	"npc_citizen" {
+		"origin" "4400 -1682 256" "angle" "0 -83 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "4342 -1589 256" "angle" "0 -83 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_grease"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "4295 -1747 256" "angle" "0 95 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+	
+}
+
+
+"entities:combine" {
+
+"npc_combine_s" {
+	"origin" "3112.6 471.2 14.7"  "angle" "0 180 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine2"
+			"additionalequipment"	"weapon_smg1"
+		}
+}
+"npc_combine_s" {
+	"origin" "3112.8 342.7 11.0"  "angle" "0 180 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine2"
+			"additionalequipment"	"weapon_ar2"
+		}
+}
+"npc_combine_s" {
+	"origin" "255.9 -949.5 37.5"  "angle" "0 180 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine2"
+			"additionalequipment"	"weapon_grease"
+		}
+}
+"npc_combine_s" {
+	"origin" "513.1 -1259.8 41.0"  "angle" "0 180 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine2"
+			"additionalequipment"	"weapon_smg1"
+		}
+}
+"npc_combine_s" {
+	"origin" "882.2 -1338.5 13.9"  "angle" "0 180 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine2"
+			"additionalequipment"	"weapon_shotgun"
+		}
+	}
+}
+
+"entities:combine2" {
+"npc_combine_s" {
+	"origin" "1891.9 -2843.9 256.0"  "angle" "0 90 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine3"
+			"additionalequipment"	"weapon_smg1"
+		}
+}
+"npc_combine_s" {
+	"origin" "2184.6 -2748.2 256.0"  "angle" "0 90 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine3"
+			"additionalequipment"	"weapon_ar2"
+		}
+}
+"npc_combine_s" {
+	"origin" "2008.6 -2741.0 256.0"  "angle" "0 90 0"
+		"keyvalues"
+		{
+			"squadname" "universal_combine3"		
+			"additionalequipment"	"weapon_grease"
+		}
+	}
+}
+
+"entities:siren" {
+
+	"npc_combine_s" {
+		"origin" "6121.6 -3402.8 384.0"  "angle" "0 196 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"		
+			"targetname" "jenkins00"
+			"squadname" "elroy"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "6088.9 -3492.1 384.0"  "angle" "0 121 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"		
+			"targetname" "jenkins02"
+			"squadname" "elroy"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "6142.2 -3621.8 384.0"  "angle" "0 151 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"		
+			"targetname" "jenkins06"
+			"squadname" "elroy"
+		}
+	}
+	
+	"info_target" {
+		"origin" "5534.8 -3472.8 429.5"
+		"keyvalues" {
+			"targetname" "rollout"
+		}
+	}
+	
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"jenkins*"
+			"goal"		"rollout"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "5534.8 -3472.8 412"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "terra"
+			"radius" "85"
+			"touchname" "jenkins*"
+		}
+	}
+}
+
+"entities:tempest" {
+
+	"npc_combine_s" {
+		"origin" "4519.3 -2685.0 384.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"		
+			"targetname" "bogie19"
+			"squadname" "universal_combine4"			
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "4592.6 -2639.8 384.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"		
+			"targetname" "bogie18"
+			"squadname" "universal_combine4"
+		}
+	}
+	
+	"info_target" {
+		"origin" "3777.2 -2932.3 384.5"
+		"keyvalues" {
+			"targetname" "dental"
+		}
+	}
+	
+	"ai_goal_follow" {
+		"keyvalues" {
+			"targetname" "roman"
+			"startactive" "1"
+			"searchtype" "0"
+			"MaximumState" "2"
+			"actor" "bogie*"
+			"goal" "dental"
+		}
+	}
+}
+
+"entities:terra" {
+
+	"event" {
+		"targetname" "roman"
+		"action" "deactivate"
+	}
+}

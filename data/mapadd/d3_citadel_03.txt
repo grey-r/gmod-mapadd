@@ -1,0 +1,11 @@
+"precache"{
+"entity"	"weapon_custom29"
+}
+
+"entities" {
+
+	"weapon_custom29"
+	{
+		"origin" "7348.92 344.7 2128"		
+	}
+}

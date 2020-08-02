@@ -1,0 +1,341 @@
+//	map arrange data
+//	location: d1_trainstation_06
+
+"precache"{
+	"entity" 	"npc_zombie"
+	"entity" 	"npc_barnacle"	
+	"entity"	"npc_rollermine"	
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "-8981 -3343 192"
+		"radius" "500"
+	}
+	"removenodes" {
+		"origin" "-9364 -2673 382"
+		"radius" "500"
+	}
+	"removenodes" {
+		"origin" "-8378 -3219 192"
+		"radius" "500"
+	}
+	"removenodes" {
+		"origin" "-8355 -544 -256"
+		"radius" "500"
+	}
+	"npc_metropolice" {
+		"count"		"16"
+		"weapon"	"weapon_pistol"
+		"values" 	"squadname cb"		
+	}
+}
+
+
+"entities"{
+
+	"npc_metropolice"
+	{
+		"origin"	"-7116.761230 -1507.508179 -63.968750"
+		"angle"		"0 32 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_stunstick"
+			"squadname" "universal_combine"				
+		}
+	}
+	
+	"npc_metropolice"
+	{
+		"origin"	"-7338.571777 -1518.019531 -63.968750" 
+		"angle"		"0 167 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine"				
+		}
+	}
+	
+//	"weapon_physlauncher"
+//	{
+//		"origin"	"-6893.041016 -1386.352783 -53.818825"
+//	}
+	
+	"item_item_crate"
+	{
+		"origin"	"-6893.041016 -1386.352783 -63.818825"
+		"angle"		"0 35 0"
+		"keyvalues"
+		{
+			"ItemClass"		"npc_rollermine"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"npc_barnacle"
+	{
+		"origin"	"-8727 -2977 122"
+	}
+
+	"instant_trig" {
+		"origin" "-9944 -3446 397"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie"
+			"radius" "250"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-9964 -3480 398"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "metro"
+			"radius" "250"
+		}
+	}	
+}
+
+
+"entities:zombie" {
+	
+	"npc_maker" {
+		"origin" "-8168.0 -3357.3 320.1"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-8010.7 -3363.9 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-7907.1 -3352.2 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-7836.3 -3347.9 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-7798.1 -3501.1 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-7882.0 -3454.7 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"instant_trig" {
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie1"
+			"timer" "15"
+		}
+	}
+}
+
+"entities:metro" {
+	
+	"npc_maker" {
+		"origin" "-7885.5 -1900.6 320.0"  "angle" "0 -90 0"
+		"keyvalues" {
+			"targetname" "metros_stand"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "1"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_metropolice"
+			"additionalequipment" "weapon_pistol"
+			"NPCTargetname" "sticky"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-8003.9 -1854.0 320.0"  "angle" "0 -90 0"
+		"keyvalues" {
+			"targetname" "metros_stand"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "1"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_metropolice"
+			"additionalequipment" "weapon_smg1"
+			"NPCTargetname" "sticky"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-8120.0 -1922.7 320.0"  "angle" "0 -90 0"
+		"keyvalues" {
+			"targetname" "metros_stand"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "1"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_metropolice"
+			"additionalequipment" "weapon_pistol"
+			"NPCTargetname" "sticky"
+		}
+	}
+	
+	// Trimmed to let zombies get closer.
+	//"npc_maker" {
+	//	"origin" "-7749.6 -1481.9 626.4"  "angle" "0 -90 0"
+	//	"keyvalues" {
+	//		"targetname" "metros_stand"
+	//		"startdisabled" "0"
+	//		"SpawnFrequency" "-1"
+	//		"MaxNPCCount" "1"
+	//		"MaxLiveChildren" "1"
+	//		"NPCType" "npc_metropolice"
+	//		"NPCTargetname" "sticky"
+	//	}
+	//}
+}
+
+"entities:zombie1" {
+	
+	"npc_maker" {
+		"origin" "-7981.0 -3465.4 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk2"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-8118.3 -3478.1 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk2"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-8033.4 -3595.5 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk2"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "-7931.8 -3576.7 320.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "zombies_walk2"
+			"startdisabled" "0"
+			"SpawnFrequency" "-1"
+			"MaxNPCCount" "5"
+			"MaxLiveChildren" "1"
+			"NPCType" "npc_zombie"
+			"NPCTargetname" "icky"
+			"NPCSquadname" "temecula"
+		}
+	}
+	
+	// Add these back in if you feel like there isn't enough Zombs.
+	//"npc_maker" {
+	//	"origin" "-8064.7 -3419.4 320.0"  "angle" "0 90 0"
+	//	"keyvalues" {
+	//		"targetname" "zombies_walk2"
+	//		"startdisabled" "0"
+	//		"SpawnFrequency" "-1"
+	//		"MaxNPCCount" "5"
+	//		"MaxLiveChildren" "1"
+	//		"NPCType" "npc_zombie"
+	//		"NPCTargetname" "icky"
+	//		"NPCSquadname" "temecula"
+	//	}
+	//}
+	
+	//"npc_maker" {
+	//	"origin" "-7841.1 -3672.6 320.0"  "angle" "0 90 0"
+	//	"keyvalues" {
+	//		"targetname" "zombies_walk2"
+	//		"startdisabled" "0"
+	//		"SpawnFrequency" "-1"
+	//		"MaxNPCCount" "5"
+	//		"MaxLiveChildren" "1"
+	//		"NPCType" "npc_zombie"
+	//		"NPCTargetname" "icky"
+	//		"NPCSquadname" "temecula"
+	//	}
+	//}
+}

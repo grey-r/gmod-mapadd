@@ -1,0 +1,336 @@
+//	map arrange data
+//	location: d1_canal_03
+//	police rush
+//FIXES: Precache entities added by mapadd for possible better performance. Removed underwater spawns.
+"precache" {
+	"entity"	"npc_citizen"
+	"entity"	"npc_kscanner"
+	"entity"	"npc_zombie"
+	"entity"	"npc_houndeye"	
+	"entity" 	"weapon_custom23"	
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "-818 2966 -864"
+		"radius" "500"
+	}
+	"removenodes" {
+		"origin" "-2386 -855 -1582.7"
+		"radius" "1500"
+	}
+	"removenodes" {
+		"origin" "-2291 -130.9 -1595.3"
+		"radius" "1500"
+	}
+	"removenodes" {
+		"origin" "-2676 29.2 -1600.1"
+		"radius" "1500"
+	}
+
+	"npc_metropolice" {
+		"count"		"15"
+		"weapon"	"weapon_pistol"
+		"values" 	"squadname cpr"			
+		"patrol"
+	}
+
+//	"npc_citizen" {
+//		"count"		"5"
+//		"weapon"	"weapon_pistol"
+//		"patrol"
+//	}
+
+}
+
+
+"entities:shoot" {
+
+
+	"shoot_bullet" {
+		"origin" "-681 2862 -780"
+		"angle" "25 157 0"
+		"keyvalues" {
+//			"type"	"pistol"
+			"damage"	"400"
+			"force"		"20"
+			"tracer"	"0"
+		}
+	}
+}
+
+
+"entities" {
+
+	"instant_trig" {
+		"origin" "-654 2834 -845"
+		"keyvalues" {
+			"label"	"spawn"
+			"touchname"	"manhack_4matt"
+			"radius"	"500"
+		}
+	}
+
+	"weapon_custom23" {
+		"origin" "-1156.09 1826.86 -830.66"
+	}	
+
+	"npc_houndeye" {
+		"origin" "-1401.10 -1348.31 -767.97"
+		"keyvalues" {
+			"squadname" "bark"			
+		}		
+	}
+	"npc_houndeye" {
+		"origin" "-131.43 -3480.58 -783.99"
+		"keyvalues" {
+			"squadname" "bark"			
+		}		
+	}
+	"npc_houndeye" {
+		"origin" "-1844.82 -819.47 -832.95"
+		"keyvalues" {
+			"squadname" "bark"			
+		}		
+	}
+	"npc_houndeye" {
+		"origin" "-667.86 1279.02 -767.97"
+		"keyvalues" {
+			"squadname" "bark"			
+		}		
+	}
+
+	"instant_trig" {
+		"origin" "-1481 886 -831"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine"
+			"radius" "150"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-2504 -487 -1443"
+		"keyvalues" {
+			"label"	"newcombine"
+			"radius"	"250"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-1388 -792 -1024"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_roofies"
+			"radius" "135"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-261 -416 -989"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_surprise"
+			"radius" "50"
+		}
+	}	
+
+	"npc_citizen" {
+		"origin" "-884  3123.1 -847.6" "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_cithelp"
+			"spawnflags" "1048576"			
+			"additionalequipment" "weapon_pistol"				
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-930  2958.1 -864 " "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_cithelp"
+			"spawnflags" "1048576"			
+			"additionalequipment" "weapon_crowbar"
+		}
+	}
+	
+	"event" {
+		"targetname" "alpha_cithelp"
+		"action" "startpatrolling"
+	}
+	
+}
+
+"entities:spawn" {
+
+	"npc_kscanner" {
+		"origin" "49 2823 -768"
+		"keyvalues" {
+			"targetname"	"manhack_4matt"
+			"laserdamage"	"2"
+		}
+	}
+}
+
+"entities:alpha_roofies" {
+
+	"npc_houndeye" {
+		"origin" "-695.1 -759.9 -772.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_manks"
+		}
+	}
+	
+	"npc_houndeye" {
+		"origin" "-774.3 -880.2 -767.9"  "angle" "0 8 0"
+		"keyvalues" {
+			"targetname" "alpha_manks"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "-876.0 -751.5 -768.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_manks"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "-1007.2 -867.0 -767.9"  "angle" "0 266 0"
+		"keyvalues" {
+			"targetname" "alpha_manks"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-604.7 -793.5 -720.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"targetname" "alpha_comb"
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+}
+
+"entities:alpha_surprise" {
+	
+	"npc_zombie" {
+		"origin" "-153.1 -545.1 -968.9"  "angle" "0 82 0"
+		"keyvalues" {
+			"targetname" "alpha_hit"
+		}
+	}
+}
+
+"entities:newcombine" {
+
+	"npc_metropolice" {
+		"origin" "-3329 -37 -1050"
+		"angle" "0 9 0"	
+		"keyvalues" { "targetname"	"nakama1"
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "nakama"			
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3329 24 -1050"
+		"angle" "0 9 0"	
+		"keyvalues" { "targetname"	"nakama1"
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "nakama"			
+		}
+	}
+
+	"info_target" {
+		"origin" "-2636 103 -1117"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"nakama*"
+			"goal"		"goalnpc1"
+		}
+	}
+}
+
+"entities:spawn" {
+
+	"npc_kscanner" {
+		"origin" "49 2823 -768"
+		"keyvalues" {
+			"targetname"	"manhack_4matt"
+			"laserdamage"	"2"
+		}
+	}
+}
+
+"entities:combine" {
+	"npc_metropolice" {
+		"origin" "-1492.3 -53.2 -1040 " "angle" "0 101 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-1519.5 14.1 -1043.1" "angle" "0 99 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-1682.6 -38.8 -1050.1" "angle" "0 74 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-1579.9 -411.4 -1053.1" "angle" "0 83 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine3"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-1610.3 -286.4 -1049.4" "angle" "0 87 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine3"			
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-1652.9 -424  -1042.3" "angle" "0 84 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine3"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-1644.1 -797.6 -1043.8" "angle" "0 86 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine4"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-1528.2 -839.3 -1047.3" "angle" "0 92 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine4"			
+		}
+	}
+}

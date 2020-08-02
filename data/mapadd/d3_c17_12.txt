@@ -1,0 +1,782 @@
+"precache" {
+	"entity"	"npc_combine_ace"
+	"entity"	"npc_combine_e"
+	"entity"	"npc_f_combine"	
+	"entity" "npc_zombine"
+	"entity" "npc_zombie2"
+	"entity"	"monster_human_grunt"		
+	"entity"	"weapon_grease"
+	"entity"	"weapon_ak47"
+	"entity"	"weapon_kar98"
+	"entity"	"weapon_mp5"	
+	"entity"	"weapon_lasergun"	
+	"entity"	"weapon_svd"	
+	"entity" 	"weapon_custom12"
+	"entity" 	"weapon_custom5"
+	"entity" 	"weapon_custom14"	
+	"entity" 	"weapon_custom15"	
+	"entity" 	"weapon_custom16"
+	"entity" 	"weapon_custom8"
+	"entity" 	"weapon_custom17"	
+	"model"	"models/combine_commando.mdl"		
+}
+
+"entities" {
+
+	"prop_ragdoll" {
+		"origin" "-692 5327 194" "angle" "10 60 0"
+		"keyvalues" {
+			"model"	"models/combine_soldier.mdl"
+		}
+	}
+
+	"prop_ragdoll" {
+		"origin" "-808 6830 194" "angle" "10 160 0"
+		"keyvalues" {
+			"model"	"models/combine_soldier.mdl"
+		}
+	}
+
+	"prop_ragdoll" {
+		"origin" "-481 7500 200" "angle" "10 0 0"
+		"keyvalues" {
+			"model"	"models/combine_soldier.mdl"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "74 3773 180"
+		"keyvalues" {
+			"label"	"streetfight"
+			"radius"	"250"
+		}
+	}	
+
+	"instant_trig" {
+		"origin" "-1282.48 7374 -21"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "cod_attack"
+			"radius" "100"
+		}
+	}
+
+	"point_servercommand" {
+		"origin" "930 3401 448"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "game_s_cmd"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer" "0.1"
+			"label" "init"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "675 3389 220"
+		"keyvalues" {
+			"radius" "85"
+			"label" "get_started"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-593 4539 156"
+		"keyvalues" {
+			"radius" "230"
+			"label" "combine"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-953 7572 -10"
+		"keyvalues" {
+			"radius" "75"
+			"label" "mo_zombies"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-2532 5608 156"
+		"keyvalues" {
+			"radius" "100"
+			"label" "mo_zombies2"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-2376 6986 156"
+		"keyvalues" {
+			"radius" "145"
+			"label" "combine2"
+		}
+	}	
+}
+
+"entities:streetfight" {
+
+	"npc_citizen" {
+		"origin" "-271 4334 192" "angle" "0 -70 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-130 4262 192" "angle" "0 -58 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-2551 5888 192" "angle" "0 53 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom24"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_f_combine" {
+		"origin" "-604 5277 192" "angle" "0 60 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_f_combine" {
+		"origin" "-414 5993 256" "angle" "0 180 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom12"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_f_combine" {
+		"origin" "-96 6381 320" "angle" "0 180 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"npc_f_combine" {
+		"origin" "-772 7035 288" "angle" "0 180 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_rpg"
+			"squadname" "universal_citizen"
+		}
+	}
+
+	"monster_human_grunt" {
+		"origin" "-1489 7098 192" "angle" "0 -21 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom8"
+			"squadname" "streetcom1"	
+			"targetname" "commando"			
+		}
+	}
+
+	"monster_human_grunt" {
+		"origin" "-1136 7828 192" "angle" "0 -21 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom5"
+			"squadname" "streetcom1"	
+			"targetname" "commando"			
+		}
+	}
+
+	"monster_human_grunt" {
+		"origin" "-1510 7125 192" "angle" "0 -21 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"
+			"squadname" "streetcom1"	
+			"targetname" "commando"			
+		}
+	}
+
+	"monster_human_grunt" {
+		"origin" "-1581 8339 192" "angle" "0 -39 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom15"
+			"squadname" "streetcom1"	
+			"targetname" "commando"			
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-597 8146 181" "angle" "0 -86 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-597 8146 181" "angle" "0 -86 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_svd"
+		}
+	}
+
+	"event" {
+		"targetname" "commando"
+		"action" "addoutput"
+		"value" "health 100"
+		"delaytime" "0.1"
+	}	
+}
+
+"entities:cod_attack" {
+	"npc_enemyfinder" {
+    "origin" "-1373.15 5970.05 142.10"
+		"keyvalues" {
+    "targetname" "z_ambush_locater"
+    "angles" "0 0 0"
+    "renderfx" "0"
+    "rendermode" "0"
+    "renderamt" "255"
+    "rendercolor" "255 255 255"
+    "disablereceiveshadows" "0"
+    "disableshadows" "0"
+    "hintlimiting" "0"
+    "sleepstate" "0"
+    "wakeradius" "0"
+    "wakesquad" "0"
+    "ignoreunseenenemies" "0"
+    "physdamagescale" "1.0"
+    "FieldOfView" "-1.0"
+    "MinSearchDist" "0"
+    "MaxSearchDist" "9999"
+    "freepass_timetotrigger" "0"
+    "freepass_duration" "0"
+    "freepass_movetolerance" "120"
+    "freepass_refillrate" "0.5"
+    "freepass_peektime" "0"
+    "StartOn" "1"
+    "spawnflags" "516"
+    "squadname" "z"
+		}
+	}
+
+	"ai_goal_follow" {
+    "origin" "-1373.15 6548.65 142.10"
+		"keyvalues" {
+    "targetname" "z_ambush_commander"
+    "StartActive" "0"
+    "SearchType" "0"
+    "MaximumState" "3"
+    "Formation" "0"
+    "spawnflags" "32"
+    "actor" "cod_npc"
+    "goal" "!player"
+		}
+	}
+
+	"npc_maker" {
+    "origin" "-2524.57 5581.63 153.23"
+		"keyvalues" {
+    "StartDisabled" "0" 
+    "MaxNPCCount" "1"
+    "SpawnFrequency" "15"
+    "MaxLiveChildren" "0"
+    "targetname" "z_ambush_spawner" 
+    "spawnflags" "32"
+    "additionalequipment" "weapon_custom14"
+    "NPCType" "npc_combine_s" 
+    "NPCSquadname" "z"
+    "NPCTargetname" "cod_npc"
+		}
+	}
+
+	"npc_maker" {
+    "origin" "-2524.57 5458.89 153.23"
+		"keyvalues" {
+    "StartDisabled" "0" 
+    "MaxNPCCount" "1"
+    "SpawnFrequency" "15"
+    "MaxLiveChildren" "0"
+    "targetname" "z_ambush_spawner" 
+    "spawnflags" "32"
+	"additionalequipment"	"weapon_shotgun"
+    "NPCType" "npc_combine_s" 
+    "NPCSquadname" "z"
+    "NPCTargetname" "cod_npc"
+		}
+	}
+
+	"npc_maker" {
+    "origin" "-2524.57 5390.62 153.23"
+		"keyvalues" {
+    "StartDisabled" "0" 
+    "MaxNPCCount" "1"
+    "SpawnFrequency" "15"
+    "MaxLiveChildren" "0"
+    "targetname" "z_ambush_spawner" 
+    "spawnflags" "32"
+    "additionalequipment" "weapon_mp5"
+    "NPCType" "npc_combine_s" 
+    "NPCSquadname" "z"
+    "NPCTargetname" "cod_npc"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-1763 5214 169"
+		"keyvalues" {
+			"radius"	"550"
+			"label"		"cancelattack"
+		}
+	}
+	
+}
+
+"entities:cancelattack" {
+
+    "removeentity" {
+        "classname"    "npc_maker"
+        "targetname" "z_ambush_spawner"
+       }    
+}
+
+"entities:init" {
+	
+	"item_item_crate" {
+		"origin" "-840 7899 16"  "angle" "0 173 360"
+		"keyvalues" {
+			"itemclass"		"item_ammo_357"
+			"itemcount"		"2"
+		}
+	}
+	
+	"item_item_crate" {
+		"origin" "-2415.1 5332.5 153.2"  "angle" "1 -105 355"
+		"keyvalues" {
+			"itemclass"		"item_ammo_crossbow"
+			"itemcount"		"2"
+		}
+	}
+	
+	"item_item_crate" {
+		"origin" "-2427.7 5339.9 129.9"  "angle" "5 -29 360"
+		"keyvalues" {
+			"itemclass"		"weapon_custom17"
+			"itemcount"		"1"
+		}
+	}
+	
+	"npc_zombine" {
+		"origin" "719.4 3391.9 576.0"  "angle" "0 355 0"
+		"keyvalues" {
+			"targetname" "zombine12"
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.2"
+			"OnFoundPlayer" "ss_zombine12_idle,cancelsequence,,0.5,1"
+			"OnFoundPlayer" "ss_zombine12_rise,beginsequence,,0.6,1"
+			"OnFoundPlayer" "ss_zombine12_rise,kill,,5,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "1045.3 3394.5 385.1"  "angle" "0 -153 92"
+		"keyvalues" {
+			"targetname" "ss_zombine12_idle"
+			"m_iszEntity" "zombine12"
+			"m_iszPostIdle" "slump_a"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "1045.3 3394.5 385.1"  "angle" "0 -153 92"
+		"keyvalues" {
+			"targetname" "ss_zombine12_rise"
+			"m_iszEntity" "zombine12"
+			"m_iszPlay" "slumprise_a2"
+		}
+	}
+	
+	"event" {
+		"targetname" "ss_zombine12_idle"
+		"action" "beginsequence"
+	}
+	
+	"npc_zombie2" {
+		"origin" "1214.2 3432.6 384.0"  "angle" "0 180 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.2"
+		}
+	}
+
+	"npc_zombie2" {
+		"origin" "1225.8 3309.6 384.0"  "angle" "0 165 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.2"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "1225.6 3196.0 384.0"  "angle" "0 161 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.2"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "1009.9 3428.9 384.0"  "angle" "0 193 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.2"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "730.8 3427.3 384.0"  "angle" "0 357 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.2"
+		}
+	}
+	
+	"npc_zombine" {
+		"origin" "766.9 3350.4 384.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.2"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "1185.4 3176.7 192.0"  "angle" "0 137 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.5"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "1171.0 3250.3 192.0"  "angle" "0 145 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.5"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "1070.9 3264.4 192.0"  "angle" "0 135 0"
+		"keyvalues" {
+			"squadname" "stairs_zombie_squad"
+			"runspeedmod" "1.5"
+		}
+	}
+}
+
+"entities:get_started" {
+
+	"npc_citizen" {
+		"origin" "213.8 3890.6 128.0"  "angle" "0 92 0"
+		"keyvalues" {
+			"targetname" "van_protector"
+			"additionalequipment" "weapon_ar2"
+			"OnPlayerUse" "ss_van_protector_idle,cancelsequence,,0,1"
+			"OnPlayerUse" "ss_van_protector_idle,kill,,2,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "1045.3 3394.5 385.1"  "angle" "0 -153 92"
+		"keyvalues" {
+			"targetname" "ss_van_protector_idle"
+			"m_iszEntity" "van_protector"
+			"m_iszPostIdle" "crouch_idled"
+			"spawnflags" "256"
+		}
+	}
+	
+	"event" {
+		"targetname" "ss_van_protector_idle"
+		"action" "beginsequence"
+	}
+}
+
+"entities:combine" {
+
+	"npc_combine_s" {
+		"origin" "-138.6 8268.8 124.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_lasergun"		
+			"targetname" "frontyard_soldiers1_1"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_soldiers1_sched"
+			"m_iszEntity" "frontyard_soldiers1_1"
+			"goalent" "!player"
+			"schedule" "3"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"event" {
+		"targetname" "frontyard_soldiers1_sched"
+		"action" "startschedule"
+		"delaytime" "0.2"
+	}
+	
+	"npc_combine_s" {
+		"origin" "-133.8 8354.3 124.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"		
+			"targetname" "frontyard_soldiers1_2"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_soldiers1_sched"
+			"m_iszEntity" "frontyard_soldiers1_2"
+			"goalent" "!player"
+			"schedule" "3"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-186.2 8479.7 128.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"		
+			"targetname" "frontyard_soldiers1_3"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_soldiers1_sched"
+			"m_iszEntity" "frontyard_soldiers1_3"
+			"goalent" "!player"
+			"schedule" "3"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-795.8 7145.8 128.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"		
+			"targetname" "frontyard_soldiers1_4"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_soldiers1_sched"
+			"m_iszEntity" "frontyard_soldiers1_4"
+			"goalent" "!player"
+			"schedule" "3"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+}
+
+"entities:mo_zombies" {
+
+	"npc_zombie2" {
+		"origin" "-2.7 8222.5 124.0"  "angle" "0 177 0"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_1"
+			"squadname" "frontyard_zombies1_squad"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_sched"
+			"m_iszEntity" "frontyard_zombies1_1"
+			"goalent" "!player"
+			"schedule" "6"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "3.5 8294.8 124.0"  "angle" "0 229 0"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_2"
+			"squadname" "frontyard_zombies1_squad"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_sched"
+			"m_iszEntity" "frontyard_zombies1_2"
+			"goalent" "!player"
+			"schedule" "6"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-160.8 8219.5 124.0"  "angle" "0 181 0"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_3"
+			"squadname" "frontyard_zombies1_squad"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_sched"
+			"m_iszEntity" "frontyard_zombies1_3"
+			"goalent" "!player"
+			"schedule" "6"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "-165.7 8283.3 124.0"  "angle" "0 177 0"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_4"
+			"squadname" "frontyard_zombies1_squad"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "frontyard_zombies1_sched"
+			"m_iszEntity" "frontyard_zombies1_4"
+			"goalent" "!player"
+			"schedule" "6"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"event" {
+		"targetname" "frontyard_zombies1_sched"
+		"action" "startschedule"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:mo_zombies2" {
+
+	"npc_zombine" {
+		"origin" "-2550.6 6689.0 128.0"  "angle" "0 277 0"
+		"relation" "gh1"
+	}
+	
+	"npc_zombine" {
+		"origin" "-2568.3 6790.8 128.0"  "angle" "0 290 0"
+		"relation" "gh1"
+	}
+	
+	"npc_zombine" {
+		"origin" "-2524.4 6578.2 128.0"  "angle" "0 281 0"
+		"relation" "gh1"
+	}
+}
+
+"entities:combine2" {
+
+	"npc_combine_s" {
+		"origin" "-2533.3 8386.0 128.0"  "angle" "0 4 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"		
+			"squadname" "barricade_soldiers_squad"
+			"targetname" "barricade_soldiers_1"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "barricade_soldiers_sched"
+			"m_iszEntity" "barricade_soldiers_1"
+			"goalent" "!player"
+			"schedule" "3"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-2523.2 9471.3 128.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom5"		
+			"squadname" "barricade_soldiers_squad"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-2456.8 9425.8 128.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"		
+			"squadname" "barricade_soldiers_squad"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-2489.0 9120.8 128.0"  "angle" "0 348 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_lasergun"		
+			"squadname" "barricade_soldiers_squad"
+			"targetname" "barricade_soldiers_2"
+		}
+	}
+	
+	"aiscripted_schedule" {
+		"origin" "-578 7899 291"
+		"keyvalues" {
+			"targetname" "barricade_soldiers_sched"
+			"m_iszEntity" "barricade_soldiers_2"
+			"goalent" "!player"
+			"schedule" "3"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"spawnflags" "1028"
+		}
+	}
+	
+	"event" {
+		"targetname" "barricade_soldiers_sched"
+		"action" "startschedule"
+		"delaytime" "0.1"
+	}
+}

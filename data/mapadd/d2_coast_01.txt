@@ -1,0 +1,129 @@
+//	map arrange data
+//	location: d1_coast_01
+//FIXES: Precache
+"precache" {
+	"entity"	"npc_zombie"
+	"entity"	"npc_poisonzombie"
+	"entity"	"npc_fastzombie"
+	"entity"	"npc_combine_s"
+	"entity"	"weapon_abgun"	
+	"entity" 	"weapon_pistol"	
+}
+
+"entities:cover" {
+
+
+	"npc_citizen" {
+		"origin" "-10700 -6861 517" "angle" "0 56 0"
+		"keyvalues" { "targetname"	"nakama1"
+			"spawnflags" "1052674"
+			"additionalequipment"	"weapon_smg1" 
+		}
+	}
+	"npc_citizen" {
+		"origin" "-10700 -6861 717" "angle" "0 56 0"
+		"keyvalues" { "targetname"	"nakama1"
+			"additionalequipment"	"weapon_pistol" 
+			"spawnflags" "1052674"
+		}
+	}
+	"npc_citizen" {
+		"origin" "-10700 -6861 617" "angle" "0 56 0"
+		"keyvalues" { "targetname"	"nakama1"
+			"additionalequipment"	"weapon_smg1" 
+			"spawnflags" "1052674"
+		}
+	}
+
+	"info_target" {
+		"origin" "-9501 -7886 505"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"nakama*"
+			"goal"		"goalnpc1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-10704 -4049 506"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" { 
+			"targetname"	"nakama1"
+			"additionalequipment"	"weapon_ar2" 
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-10873 -4185 571"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" { 
+			"targetname"	"nakama1"
+			"additionalequipment"	"weapon_ar2" 
+		}
+	}
+
+}
+
+"entities:zombie" {
+	
+	"removeentity" {
+		"targetname"	"nakama*"
+	}
+	
+	"npc_poisonzombie" {
+		"origin" "-12618 971 1521" "angle" "0 -75 0"
+	}
+	
+	"npc_zombie" {
+		"origin" "-12873 956 1522" "angle" "0 -42 0"
+	}
+	
+	"npc_fastzombie" {
+		"origin" "-12890 121 1491" "angle" "0 52 0"
+	}
+	
+	"npc_poisonzombie" {
+		"origin" "-12560 1151 1516" "angle" "0 -35 0"
+	}
+	
+}
+
+"entities" {
+
+
+
+	"instant_trig" {
+		"origin" "-9501 -8219 499"
+		"keyvalues" {
+			"label"  "cover"
+			"radius" "200"
+		}
+	}
+	
+	
+	
+	"npc_zombie" {
+		"origin" "-12953 640 1524"
+		"angle" "0 22 0"
+	}
+	
+	"instant_trig" {
+		"origin" "-12771 705 1524"
+		"keyvalues" {
+			"label"  "zombie"
+			"radius" "30"
+		}
+	}
+
+	"weapon_abgun" {
+		"origin" "-7108 -10356 816" "angle" "0 0 0"
+	}	
+
+}

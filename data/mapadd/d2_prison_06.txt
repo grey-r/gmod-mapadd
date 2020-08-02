@@ -1,0 +1,715 @@
+//	map arrange data
+//	location: d2_prison_06
+"precache" {
+	"model"		"models/combine_super_soldier.mdl"
+	"entity"	"npc_zombie"
+	"entity"	"npc_zombie2"
+	"entity"	"npc_zombine"	
+	"entity"	"npc_houndeye"
+	"entity"	"npc_fastzombie"
+	"entity"	"weapon_ak47"		
+	"entity"	"weapon_mp5"		
+	"entity" 	"weapon_custom14"	
+	"entity" 	"weapon_custom16"	
+}
+
+
+"entities" {
+
+//Yet another train that lags/crashes the game.
+	"removeentity" {
+		"targetname"	"start_train_1_relay"
+	}
+
+	"instant_trig" {
+		"origin" "1974 1050 -568"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"drop1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "313 -809 0"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"zombie1"
+		}
+	}
+
+	"item_box_buckshot" {
+		"origin" "436.1 -1606.1 0.4"  "angle" "3 -160 2"
+	}
+	
+	"item_ammo_smg1_grenade" {
+		"origin" "600.2 -2931.1 -239.5"  "angle" "0 -152 357"
+	}
+	
+	"item_ammo_smg1_grenade" {
+		"origin" "579.4 -2943.9 -240.0"  "angle" "-3 35 357"
+	}	
+	
+	"npc_houndeye" {
+		"origin" "1845 1456 -561" "angle" "0 -50 0"
+	}
+
+	"event" {
+		"targetname" "alyx"
+		"action" "addoutput"
+		"value" "health 9999"
+	}
+
+	"instant_trig" {
+		"origin" "1542 679 -380"
+		"keyvalues" {
+			"radius" "150"
+			"label" "extra1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "386.0 665.4 -163"
+		"keyvalues" {
+			"radius" "150"
+			"label" "extra2"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "311 -332 -35"
+		"keyvalues" {
+			"radius" "100"
+			"label" "extra3"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "317 -809 28"
+		"keyvalues" {
+			"radius" "85"
+			"label" "extra4"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "317 -809 28"
+		"keyvalues" {
+			"radius" "125"
+			"label" "extra5"
+		}
+	}
+	
+	"item_ammo_357" {
+		"origin" "1390.3 351.0 -619.5"  "angle" "-1 -31 360"
+	}
+	
+	"instant_trig" {
+		"origin" "608 120 28"
+		"keyvalues" {
+			"radius"	"85"
+			"label"		"buffer"
+		}
+	}
+	
+}
+
+
+"entities:drop1" {
+	"prop_ragdoll" {
+		"origin" "1987 758 124" "angle" "89 90 0"
+		"keyvalues" {
+			"model"	"models/combine_super_soldier.mdl"
+		}
+	}
+}
+
+
+"entities:zombie1" {
+
+	"npc_zombie" {
+		"origin" "776.6 -1194.5 0.0"  "angle" "0 0 0"
+		"alwaysthink"
+		"keyvalues" {
+			"targetname"	"zb1"
+		}
+	}
+	"npc_zombie" {
+		"origin" "536.5 -1739.0 0.0"  "angle" "0 66 0"
+		"alwaysthink"
+		"keyvalues" {
+			"targetname"	"zb1"
+		}
+	}
+	"npc_zombie" {
+		"origin" "368.6 -1532.7 0.0"  "angle" "0 0 0"
+		"alwaysthink"
+		"keyvalues" {
+			"targetname"	"zb1"
+		}
+	}
+
+	"info_target" {
+		"origin" "534 -978 0"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"3"
+			"actor"		"zb1"
+			"goal"		"goalnpc1"
+		}
+	}
+
+	"npc_houndeye" {
+		"origin" "1057 -2165 -240"
+		"angle" "0 2 0"
+	}
+
+	"npc_fastzombie" {
+		"origin" "1172 -2180 -240"
+		"angle" "0 93 0"
+		"keyvalues" {
+			"targetname"	"zb1"
+		}
+	}
+
+}
+
+"entities:extra1" {
+
+	"npc_combine_p" {
+		"origin" "1059.3 361.9 -192.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom14"		
+			"squadname" "squad_croom2_assault"
+		}
+	}
+}
+
+"entities:extra2" {
+
+	"npc_combine_p" {
+		"origin" "-687.0 697.0 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom5"			
+			"targetname" "stair_soldiers"
+			"squadname" "stair_squad"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "291.6 105.6 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"			
+			"targetname" "stair_soldiers2"
+			"squadname" "stair_squad2"
+		}
+	}
+}
+
+"entities:extra3" {
+
+	"npc_zombine" {
+		"origin" "528.1 -605.8 -64.0"  "angle" "0 178 0"
+		"keyvalues" {
+			"squadname" "koolaid"
+		}
+	}
+	
+	"npc_zombine" {
+		"origin" "525.0 -531.6 -64.0"  "angle" "0 219 0"
+		"keyvalues" {
+			"squadname" "koolaid"
+		}
+	}
+}
+
+"entities:extra4" {
+
+	"npc_zombine" {
+		"origin" "776.6 -1194.5 0.0"  "angle" "0 69 0"
+		"keyvalues" {
+			"squadname" "zb1"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "368.6 -1532.7 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "zb1"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "423.1 -1366.8 0.0"  "angle" "0 287 0"
+		"keyvalues" {
+			"squadname" "zb1"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "484.3 -1798.2 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "zb1"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "528.8 -1661.5 0.0"  "angle" "0 88 0"
+		"keyvalues" {
+			"squadname" "zb1"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "451.5 -1460.3 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "zb1"
+		}
+	}
+	
+	"npc_zombine" {
+		"origin" "1003.6 -1970.1 -240.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "zb2"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "1490.6 -2150.5 -240.0"  "angle" "0 138 0"
+		"keyvalues" {
+			"squadname" "zb2"
+		}
+	}
+	
+	"npc_zombie2" {
+		"origin" "1489.9 -2014.5 -240.0"  "angle" "0 181 0"
+		"keyvalues" {
+			"squadname" "zb2"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "1485.4 -1888.1 -240.0"  "angle" "0 194 0"
+		"keyvalues" {
+			"squadname" "zb2"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "533.2 -2194.6 0.0"  "angle" "0 93 0"
+		"keyvalues" {
+			"squadname" "zb2"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "706.1 -2290.4 0.0"  "angle" "0 204 0"
+		"keyvalues" {
+			"squadname" "zb2"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "726.1 -2400.8 0.0"  "angle" "0 168 0"
+		"keyvalues" {
+			"squadname" "zb2"
+		}
+	}
+	
+	"item_ammo_smg1_grenade" {
+		"origin" "1185.1 -1560.8 -133.7"  "angle" "2 -97 184"
+	}
+	
+	"item_ammo_smg1_grenade" {
+		"origin" "1192.9 -1569.0 -133.8"  "angle" "-1 146 163"
+	}
+	
+	"item_ammo_smg1_grenade" {
+		"origin" "1180.3 -1625.0 -134.8"  "angle" "1 158 88"
+	}	
+}
+
+"entities:extra5" {
+
+	"npc_combine_p" {
+		"origin" "1000.7 -2365.9 -240.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"			
+			"targetname" "combine_room2_ambush_1"
+			"squadname" "combine_room2_ambush"
+		}
+	}
+}
+
+"entities:buffer" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"57"
+			"label"	"bridge"
+		}
+	}
+}
+
+"entities:bridge" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"			
+			"targetname" "archibold_1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_1"
+			"m_iszEntity" "archibold_1"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s" // 4 frames, prevents backups.
+			"OnEndSequence" "archibold_1,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_1"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"3"
+			"label"	"bridge2"
+		}
+	}
+}
+
+"entities:bridge2" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_2"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_2"
+			"m_iszEntity" "archibold_2"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_2,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_2"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"3"
+			"label"	"bridge3"
+		}
+	}
+}
+
+"entities:bridge3" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_3"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_3"
+			"m_iszEntity" "archibold_3"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_3,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_3"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"5"
+			"label"	"bridge4"
+		}
+	}
+}
+
+"entities:bridge4" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_4"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_4"
+			"m_iszEntity" "archibold_4"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_4,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_4"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"2"
+			"label"	"bridge5"
+		}
+	}
+}
+
+"entities:bridge5" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_5"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_5"
+			"m_iszEntity" "archibold_5"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_5,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_5"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"4"
+			"label"	"bridge6"
+		}
+	}
+}
+
+"entities:bridge6" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_6"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_6"
+			"m_iszEntity" "archibold_6"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_6,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_6"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"1"
+			"label"	"bridge7"
+		}
+	}
+}
+
+"entities:bridge7" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_7"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_7"
+			"m_iszEntity" "archibold_7"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_7,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_7"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"8"
+			"label"	"bridge8"
+		}
+	}
+}
+
+"entities:bridge8" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_8"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_8"
+			"m_iszEntity" "archibold_8"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_8,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_8"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"1"
+			"label"	"bridge9"
+		}
+	}
+}
+
+"entities:bridge9" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_9"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_9"
+			"m_iszEntity" "archibold_9"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_9,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_9"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"2.5"
+			"label"	"bridge10"
+		}
+	}
+}
+
+"entities:bridge10" {
+
+	"npc_combine_p" {
+		"origin" "2347.6 -202.0 64.0"  "angle" "0 94 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"				
+			"targetname" "archibold_10"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "2338.9 386.9 82.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "s_10"
+			"m_iszEntity" "archibold_10"
+			"m_fMoveTo" "1"
+			"m_iszPlay" "shootAR2s"
+			"OnEndSequence" "archibold_10,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_10"
+		"action" "BeginSequence"
+		"delaytime" "0.1"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"20"
+			"label"	"bridge_c"
+		}
+	}
+}
+
+"entities:bridge_c" {
+
+	"event" {
+		"targetname" "s_*"
+		"action" "Kill"
+		"delaytime" "7"
+	}
+}

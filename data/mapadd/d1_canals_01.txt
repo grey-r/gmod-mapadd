@@ -1,0 +1,280 @@
+//	map arrange data
+//	location: d1_canal_01
+"precache" {
+	"entity"	"npc_zombie"
+}
+
+
+"randomspawn" {
+	
+	"removenodes" {
+		"origin" "134 -7354 -128"
+		"radius" "500"
+	}
+
+	"removenodes" {
+		"origin" "809 2630 -58"
+		"radius" "300"
+	}
+
+	"removenodes" {
+		"origin" "122 -7351 -63"
+		"radius" "1000"
+	}
+
+	"npc_metropolice" {
+		"count"		"15"
+		"weapon"	"weapon_pistol"
+		"values" 	"squadname cbr"			
+		"patrol"
+	}
+
+}
+
+
+"entities" {
+
+	"removeentity" {
+		"targetname" "track_4"
+	}
+	
+	"path_track" {
+		"origin" "248 -11320 341" "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "track_4"
+			"orientationtype" "1"
+			"target" "train_2_start"
+			"spawnflags" "0"
+			"OnPass" "razortrain_wav,StopSound,,0,-1"
+			"OnPass" "looping_traincar1,Kill,,0,1"
+			"OnPass" "looping_traincar1,KillHierarchy,,0,1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "427 -4329 512"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"wave1"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-323 -6844 516"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_bgshoot"
+			"radius" "70"
+		}
+	}	
+	
+		//cover props.
+		"prop_physics" {
+			"origin" "70.8 -7097.4 640.8"
+			"angle" "7 180 278"
+			"freeze"
+			"keyvalues" {
+				"targetname" "silent_arrow_barricades"
+				"model" "models/props_debris/metal_panel01a.mdl"
+			}
+		}
+		
+		"prop_physics" {
+			"origin" "61.6 -7096.7 601.5"
+			"angle" "2 -1 90"
+			"freeze"
+			"keyvalues" {
+				"targetname" "silent_arrow_barricades"
+				"model" "models/props_debris/metal_panel01a.mdl"
+			}
+		}
+		
+		"prop_physics" {
+			"origin" "65.2 -6493.7 597.1"
+			"angle" "4 -179 90"
+			"freeze"
+			"keyvalues" {
+				"targetname" "phase_ii_lowcover_rebels"
+				"model" "models/props_debris/metal_panel01a.mdl"
+			}
+		}
+
+		"prop_physics" {
+			"origin" "67.1 -6626.1 597.7"
+			"angle" "7 -179 91"
+			"freeze"
+			"keyvalues" {
+				"targetname" "phase_ii_lowcover_rebels"
+				"model" "models/props_debris/metal_panel01a.mdl"
+			}
+		}
+
+
+		"prop_physics" {
+			"origin" "61.3 -6734.5 601.8"  "angle" "1 1 270"
+			"freeze"
+			"keyvalues" {
+				"targetname" "a_b3_ii_prop-reb-cover_horiz"
+				"model" "models/props_debris/metal_panel01a.mdl"
+			}
+		}
+		
+		"prop_physics" {
+			"origin" "65.4 -7026.5 613.0"  "angle" "2 180 359"
+			"freeze"
+			"keyvalues" {
+				"targetname" "a_b3_ii_prop-reb-cover_vert"
+				"model" "models/props_debris/metal_panel01a.mdl"
+			}
+		}
+		
+		"prop_physics" {
+			"origin" "61.1 -6851.5 610.3"  "angle" "-0 1 295"
+			"freeze"
+			"keyvalues" {
+				"targetname" "a_b3_ii_prop-reb-cover_1"
+				"model" "models/props_debris/wood_board05a.mdl"
+			}
+		}
+		
+		"prop_physics" {
+			"origin" "97.8 -6178.0 642.5"  "angle" "-0 -90 20"
+			"freeze"
+			"keyvalues" {
+				"targetname" "a_b3_ii_prop-reb-cover_2"
+				"model" "models/props_debris/wood_board05a.mdl"
+			}
+		}		
+
+	"env_hudhint" {
+		"keyvalues" {
+			"targetname" "hudhint_bullettime"
+			"message" "Valve_Hint_BulletTime"
+		}
+	}	
+	
+	"env_hudhint" {
+		"keyvalues" {
+			"targetname" "hudhint_ironsight"
+			"message" "Valve_Hint_Ironsight"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-697 -7003 319"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"hudhinttrigger_bt"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "549 -4959 540"
+		"keyvalues" {
+			"radius"	"128"
+			"label"		"hudhinttrigger_ironsight"
+		}
+	}	
+}
+
+"entities:wave1" {
+
+	"npc_metropolice"
+	{
+		"origin" "199 -2672 576" "angle" "0 -90 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice"
+	{
+		"origin" "352 -2672 576" "angle" "14 -95 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-231 -2398 480"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"wave2"
+		}
+	}
+
+
+}
+
+"entities:wave2" {
+	"npc_metropolice"
+	{
+		"origin" "260 -1283 576" "angle" "0 -90 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice"
+	{
+		"origin" "45 -344 640" "angle" "0 -70 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_zombie" {
+		"origin" "944 2187 -126" "angle" "0 -146 0"	
+	}
+}
+
+"entities:alpha_bgshoot" {
+	
+	"npc_metropolice" {
+		"origin" "328.2 -7820.6 576.0"  "angle" "0 89 0"
+		"longrange"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"		
+			"targetname" "alpha_gunner1st"
+			"squadname" "getem"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "532.2 -8014.5 576.0"  "angle" "0 96 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"		
+			"targetname" "alpha_gunner2nd"
+			"squadname" "getem"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-85.4 -7132.8 601.7"  "angle" "-0 94 0"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_junk/trashdumpster01a.mdl"
+			"targetname" "alpha_junk"
+		}
+	}
+}
+
+"entities:hudhinttrigger_bt" {
+	"event" {
+		"targetname" "hudhint_bullettime"
+		"action" "ShowHudHint"
+		"delaytime" "0.5"
+	}
+}
+
+"entities:hudhinttrigger_ironsight" {
+	"event" {
+		"targetname" "hudhint_ironsight"
+		"action" "ShowHudHint"
+		"delaytime" "1"
+	}
+}

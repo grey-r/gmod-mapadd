@@ -1,0 +1,52 @@
+//	map arrange data
+//	location: d1_trainstation_04
+
+"precache" {
+	"entity" "npc_alyx"
+	"entity" "npc_cscanner"
+	"entity" "npc_combinegunship"
+	"entity" "npc_metropolice"
+	"entity" 	"weapon_grease"	
+}
+
+"entities" {
+	
+	"instant_trig" {
+		"origin" "-6531 -4375 540"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_cbiners"
+			"radius" "65"
+		}
+	}
+}
+
+"entities:alpha_cbiners" {
+
+	"npc_metropolice" {
+		"origin" "-7875.4 -4818.1 448.0"  "angle" "0 0 0"
+		"longrange"
+		"keyvalues" {
+			"targetname" "alpha_guard"
+			"additionalequipment" "weapon_grease"
+			"squadname" "chaser_squad"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-7178 -3889 412"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "cleanup"
+			"radius" "55"
+		}
+	}
+}
+
+"entities:cleanup" {
+
+	"event" {
+		"targetname" "alpha_*"
+		"action" "Kill"
+	}
+}

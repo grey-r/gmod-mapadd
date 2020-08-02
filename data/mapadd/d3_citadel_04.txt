@@ -1,0 +1,41 @@
+"precache" {
+	"entity" "npc_stalker"
+	"entity" "npc_combine_e"
+	"entity" "npc_combine_c"	
+	"entity" "npc_combine_ace"
+	"entity"	"weapon_grease"
+	"entity"	"weapon_ak47"
+	"entity"	"weapon_custom29"
+	"entity"	"weapon_mp5"
+	"entity"	"weapon_svd"	
+	"entity"	"weapon_lasergun"
+}
+
+"randomspawn" {
+
+	"npc_stalker" {
+		"count"		"5"
+		"patrol"
+		"values"	"beampower 1 squadname stk1"
+	}
+
+	"npc_combine_c" {
+		"count"		"4"
+		"grenade"	"5"
+		"patrolrandom"
+		"weapon"	"weapon_mp5"
+		"values" "squadname cb2"
+	}
+
+}
+
+"entities" {
+
+    "point_servercommand" {
+        "origin" "-104 231 703"
+        "angle" "0 0 0"
+        "keyvalues" {
+            "targetname" "game_cset"
+        }
+    }
+}

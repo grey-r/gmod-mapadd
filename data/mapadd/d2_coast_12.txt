@@ -1,0 +1,1378 @@
+//	map arrange data
+//	location: d2_coast_12
+"precache" {
+	"entity" "weapon_kar98"
+	"entity" "weapon_ak47"
+	"entity" "weapon_grease"
+	"entity" "weapon_mp5"
+	"entity" "weapon_svd"
+	"entity" "weapon_custom12"
+	"entity" "weapon_custom16"	
+	"sound"	"npc_citizen.abouttime01"
+	"sound"		"odessa.nlo_cheer01"
+	"sound"		"odessa.nlo_cheer03"
+	"sound"		"streetwar.ba_heycomeon"
+	"sound"		"k_lab.ba_nottoosoon01"
+	"sound"		"nexus.ba_followme02"
+	"sound"		"eli_lab.al_awesome"
+	"sound"		"eli_lab.eli_handle_b"
+	"sound"		"k_lab.kl_excellent"
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "6997 -10803 205"
+		"radius"	"5000"
+	}
+
+	"npc_combine_p" {
+		"count"		"20"
+		"weapon"	"weapon_ak47"
+		"values" 	"squadname cmbsol"		
+	}
+
+}
+
+
+
+"entities:fortsniper" {
+
+	"npc_combine_p" {
+		"origin" "7163 7728 2336" "angle" "0 -124 0"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" { 
+			"additionalequipment"	"weapon_svd"
+			"squadname" "simo"			
+		}
+	}
+
+	"npc_combine_p" {
+		"origin" "7779 6730 1844" "angle" "0 -124 0"
+		"longrange"
+		"keyvalues" { 
+			"additionalequipment"	"weapon_svd"
+			"squadname" "simo"				
+		}
+	}
+
+	"npc_combine_p" {
+		"origin" "9709 8123 2192" "angle" "0 -148 0"
+		"longrange"
+		"keyvalues" { 
+			"additionalequipment"	"weapon_svd"
+			"squadname" "simo"				
+		}
+	}
+
+
+}
+
+
+"entities:en1" {
+
+	"instant_trig" {
+		"origin" "3743 4186 783"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"fortsniper"
+		}
+	}
+
+	"npc_combine_p" {
+		"origin" "4935 3628 960" "angle" "0 -91 0"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" { 
+			"additionalequipment"	"weapon_svd"
+			"squadname" "simo"				
+		}
+	}
+
+	"npc_combine_p" {
+		"origin" "6774 7952 2588" "angle" "0 -116 0"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" { 
+			"additionalequipment"	"weapon_svd"
+			"squadname" "simo"				
+		}
+	}
+}
+
+"entities" {
+
+
+
+	"relation" {
+		"classname"	"npc_antlion"
+		"relation"	"pl1 vl1"
+	}
+
+	"relation" {
+		"classname"	"npc_barney"
+		"relation"	"al1"
+	}
+
+	"instant_trig" {
+		"origin" "4533 -11155 299"
+		"keyvalues" {
+			"radius"	"1000"
+			"label"		"en1"
+			"group"		"1"
+		}
+	}
+	
+	"ai_goal_follow" {
+		"Keyvalues" {
+			"Formation" "0"
+			"MaximumState" "3"
+			"StartActive" "1"
+			"actor" "friend*"
+			"targetname" "bfollow_goal"
+			"SearchType" "0"
+		}
+	}	
+
+	"event" {
+		"targetname"	"antlion_tutorial_antlion"
+		"action"	"sethealth"
+		"value"		"1000"
+	}
+
+
+	"instant_trig" {
+		"origin" "4575 -9254 472"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine1"
+			"radius" "500"
+			"timer" "15"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "4476 -6223 417"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine2"
+			"radius" "650"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "4091 -4507 573"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine3"
+			"radius" "650"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "4521 -3550 411"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine4"
+			"radius" "500"
+			"timer" "10"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "3771 667 487"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine5"
+			"radius" "500"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "2222 2904 843"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine6"
+			"radius" "300"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "4843 3795 926"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine7"
+			"radius" "250"
+			"timer" "5"
+		}
+	}	
+
+}
+
+"entities:removeents" {
+
+	"item_suit" {
+		"origin" "4816 -8534 301"
+	}
+
+	"player" {
+		"origin" "4816 -8534 301"
+		"angle" "-0 97 0"
+	}
+
+	"removeentity" {
+		"classname"	"npc*"
+	}
+
+	"removeentity" {
+		"classname"	"point_*"
+	}
+
+	"removeentity" {
+		"classname"	"npc_antlion_template_maker"		
+	}	
+
+	"relation" {
+		"classname"	"npc_antlion"
+		"relation"	"pl1 vl1"
+	}
+
+	"relation" {
+		"classname"	"npc_barney"
+		"relation"	"al1"
+	}
+	
+	"npc_alyx" {
+		"origin" "4998 -7115 273"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname"		"aly"
+		}		
+	}
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "352"
+			"m_iszPlay" "plazaidle2"
+			"m_iszPostIdle" "plazaidle2"
+			"m_iszEntity" "aly"
+			"targetname" "alx1"
+		}
+	}
+
+	"event" {
+		"targetname"	"alx1"
+		"action"	"beginsequence"
+	}
+
+
+	"npc_eli" {
+		"origin" "4821 -7224 295"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"eli"
+		}		
+	}
+	
+	
+	"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "256"
+			"m_iszPostIdle" "d1_t02_playground_cit2_pockets"
+			"m_iszEntity" "eli"
+			"targetname" "eli1"
+		}
+	}
+
+	"event" {
+		"targetname"	"eli1"
+		"action"	"beginsequence"
+	}
+
+	
+
+	"npc_kleiner" {
+		"origin" "4855 -7106 291"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"kle"
+		}		
+	}
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "256"
+			"m_iszPostIdle" "lineidle02"
+			"m_iszEntity" "kle"
+			"targetname" "kle1"
+		}
+	}
+
+	"event" {
+		"targetname"	"kle1"
+		"action"	"beginsequence"
+	}
+
+	"npc_barney" {
+		"origin" "4935 -6998 282"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"ba"
+		}		
+	}
+
+
+	//	group C
+	"npc_citizen" {
+		"origin" "4637 -7654 361"
+		"angle" "0 8 0"
+		"keyvalues" {
+			"targetname"		"groupc"
+			"spawnflags" "1052674"
+			"expressiontype" "Random"
+		}		
+	}
+
+
+	//	group A
+	"npc_citizen" {
+		"origin" "4519 -6817 389"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"groupa1"
+			"spawnflags" "1052674"
+		}		
+	}
+	"npc_citizen" {
+		"origin" "4572 -6750 320"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"groupa2"
+			"spawnflags" "1052674"
+		}		
+	}
+	"npc_citizen" {
+		"origin" "4147 -6723 360"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"groupa3"
+			"spawnflags" "1052674"
+		}		
+	}
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "256"
+			"m_iszPostIdle" "d2_coast03_prebattle_scan_skies02"
+			"m_iszEntity" "groupa3"
+			"targetname" "ga3"
+		}
+	}
+
+	"event" {
+		"targetname"	"ga3"
+		"action"	"beginsequence"
+	}
+
+
+	//	group B
+	"npc_citizen" {
+		"origin" "4245 -7114 368"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"groupb1"
+			"spawnflags" "1052674"
+		}		
+	}
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "352"
+			"m_iszPlay" "Sit_Ground"
+			"m_iszPostIdle" "Sit_Ground"
+			"m_iszEntity" "groupb1"
+			"m_fMoveTo" "5"
+			"targetname" "gb1"
+			"angles" "0 -10 0"
+		}
+	}
+
+	"event" {
+		"targetname"	"gb1"
+		"action"	"beginsequence"
+	}
+
+
+	"npc_citizen" {
+		"origin" "4668 -7131 315"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"groupb2"
+			"spawnflags" "1052674"
+		}		
+	}
+
+
+	"npc_citizen" {
+		"origin" "4699 -6828 308"
+		"angle" "0 -8 0"
+		"keyvalues" {
+			"targetname"		"groupb3"
+			"spawnflags" "1052674"
+		}		
+	}
+
+
+}
+
+"entities:talk1" {
+	"sound" {
+		"targetname"	"groupc"
+		"soundname"	"npc_citizen.abouttime01"
+	}
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"5"
+			"label"	"talk2"
+		}
+	}
+
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "32"
+			"m_iszPlay" "plazaidle2"
+			"m_iszEntity" "groupc"
+			"m_fMoveTo" "5"
+			"targetname" "gc1"
+			"angles" "0 8 0"
+		}
+	}
+
+	"event" {
+		"targetname"	"gc1"
+		"action"	"beginsequence"
+	}
+}
+
+"entities:talk2" {
+
+	"sound" {
+		"targetname"	"ba"
+		"soundname"	"streetwar.ba_heycomeon"
+	}
+	
+	
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "32"
+			"m_iszPlay" "wave"
+			"m_iszPostIdle" "lineidle02"
+			"m_iszEntity" "ba"
+			"m_fMoveTo" "5"
+			"targetname" "ba1"
+			"angles" "0 -93 0"
+		}
+	}
+
+	"event" {
+		"targetname"	"ba1"
+		"action"	"beginsequence"
+	}
+
+	
+		"scripted_sequence" {
+		"keyvalues" {
+			"spawnflags" "352"
+			"m_iszPlay" "idle_to_sit_ground"
+			"m_iszPostIdle" "sit_ground"
+			"m_iszEntity" "ba"
+			"m_fMoveTo" "5"
+			"targetname" "ba2"
+			"angles" "0 -10 0"
+		}
+	}
+
+	"event" {
+		"targetname"	"ba2"
+		"action"	"beginsequence"
+		"delay"		"5"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"10"
+			"label"	"talk3"
+		}
+	}
+}
+
+"entities:talk3" {
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"3"
+			"label"	"hanabikaisi"
+		}
+	}
+	
+
+	
+	"sound" {
+		"targetname"	"ba"
+		"soundname"	"k_lab.ba_nottoosoon01"
+	}
+}
+
+
+
+"entities:hanabitaikai" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"0.01"
+			"label"		"removeents"
+			"group"		"1"
+			"removegroup"	"1"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "4794 -7654 363"
+		"keyvalues" {
+			"label"	"talk1"
+			"radius" "300"
+		}
+	}
+
+	"removeentity" {
+		"targetname"	"thumper*"
+	}
+
+
+	"ef_fireworksstarter" {
+		"origin" "5458 -12276 735"
+		"keyvalues" {
+			"delaytime"	"5"
+		}
+	}
+
+
+	//	
+	"prop_physics" {
+		"origin" "4239.6 -7226.5 415.2"  "angle" "0 90 6"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_interiors/VendingMachineSoda01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4315.3 -7235.0 409.9"  "angle" "4 81 3"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_interiors/VendingMachineSoda01a.mdl"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "4968.3 -7133.5 294.1"  "angle" "-7 -173 359"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\FurnitureTable002a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4926.4 -7139.5 299.6"  "angle" "7 7 2"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\FurnitureTable002a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4919.1 -7072.8 300.4"  "angle" "7 7 1"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\FurnitureTable002a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4958.1 -7065.7 295.8"  "angle" "7 7 1"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\FurnitureTable002a.mdl"
+		}
+	}
+
+	
+	"prop_physics" {
+		"origin" "4718.4 -6933.9 323.4"  "angle" "6 -7 359"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\FurnitureTable001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4579.4 -6841.9 337.0"  "angle" "-4 -136 356"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\FurnitureTable001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4632.6 -7091.6 335.4"  "angle" "-5 -128 354"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\FurnitureTable001a.mdl"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "4131.5 -6691.3 380.7"  "angle" "4 -69 356"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\bench01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4217.2 -6615.8 375.5"  "angle" "7 -27 1"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\bench01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4206.6 -6523.2 383.1"  "angle" "1 46 7"
+		"freeze"
+		"keyvalues" {
+		"model" "models\props_c17\bench01a.mdl"
+		}
+	}
+
+	
+	"prop_physics" {
+		"origin" "4720.2 -6975.5 319.9"  "angle" "-0 90 6"
+		"keyvalues" {
+		"model" "models\props_c17\chair02a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4643.4 -7046.0 330.6"  "angle" "0 -86 352"
+		"keyvalues" {
+		"model" "models\props_c17\chair02a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4679.6 -6894.0 324.0"  "angle" "5 -19 358"
+		"keyvalues" {
+		"model" "models\props_c17\chair02a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4593.1 -6809.5 359.5"  "angle" "-1 -104 176"
+		"keyvalues" {
+		"model" "models\props_c17\chair02a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "4933.1 -7181.7 294.5"  "angle" "-1 95 7"
+		"keyvalues" {
+		"model" "models\props_c17\chair02a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4869.2 -7151.4 302.6"  "angle" "7 11 2"
+		"keyvalues" {
+		"model" "models\props_c17\chair02a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4868.4 -7071.4 302.7"  "angle" "5 -35 356"
+		"keyvalues" {
+		"model" "models\props_c17\chair02a.mdl"
+		}
+	}
+
+
+	"prop_physics" {
+		"origin" "4368.5 -7244.5 377.8"  "angle" "6 -37 352"
+		"keyvalues" {
+		"model" "models\props_wasteland\laundry_basket002.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "4916.1 -7075.9 322.9"  "angle" "-7 -175 359"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_coffeemug001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4921.6 -7098.1 322.2"  "angle" "-7 178 0"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_coffeemug001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4969.8 -7095.5 316.4"  "angle" "-5 114 6"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_coffeemug001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4924.2 -7154.5 321.7"  "angle" "-11 173 1"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_coffeemug001a.mdl"
+		}
+	}
+	
+	
+	"prop_physics" {
+		"origin" "4976.4 -7120.2 320.9"  "angle" "3 72 8"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_glassbottle001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4980.7 -7133.4 320.3"  "angle" "1 -84 353"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_glassbottle001a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "4922.4 -7053.5 319.3"  "angle" "-5 139 5"
+		"keyvalues" {
+		"model" "models\props_junk\glassjug01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4934.0 -7055.4 317.7"  "angle" "-3 122 6"
+		"keyvalues" {
+		"model" "models\props_junk\glassjug01.mdl"
+		}
+	}
+
+
+	"prop_physics" {
+		"origin" "4187.8 -7224.3 390.3"  "angle" "-1 102 3"
+		"keyvalues" {
+		"model" "models\props_junk\TrashBin01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "4855.3 -7041.9 298.1"  "angle" "-28 139 166"
+		"keyvalues" {
+		"model" "models\props_junk\watermelon01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4851.8 -7043.1 297.4"  "angle" "-1 103 7"
+		"keyvalues" {
+		"model" "models\props_junk\PlasticCrate01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4819.7 -7042.1 302.4"  "angle" "24 27 159"
+		"keyvalues" {
+		"model" "models\props_junk\watermelon01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4818.9 -7039.9 301.3"  "angle" "7 8 1"
+		"keyvalues" {
+		"model" "models\props_junk\PlasticCrate01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4841.9 -7009.0 300.6"  "angle" "-12 4 237"
+		"keyvalues" {
+		"model" "models\props_junk\watermelon01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4840.3 -7010.3 298.8"  "angle" "5 -43 355"
+		"keyvalues" {
+		"model" "models\props_junk\PlasticCrate01a.mdl"
+		}
+	}
+
+
+	"prop_physics" {
+		"origin" "4629.4 -7007.6 331.3"  "angle" "-30 151 99"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_plasticbottle003a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4645.4 -7007.9 329.1"  "angle" "59 -164 86"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_plasticbottle003a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4643.7 -7006.1 321.9"  "angle" "-9 122 67"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4645.9 -7009.6 323.0"  "angle" "14 -56 292"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4639.3 -7010.2 321.2"  "angle" "43 -100 328"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4637.1 -7009.7 324.3"  "angle" "-53 -98 152"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4633.1 -7010.2 325.6"  "angle" "62 125 235"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4634.2 -7005.8 322.9"  "angle" "-46 5 145"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4638.7 -7008.9 323.0"  "angle" "2 87 7"
+		"keyvalues" {
+		"model" "models\props_junk\MetalBucket02a.mdl"
+		}
+	}
+	
+
+	"prop_physics" {
+		"origin" "4666.9 -6967.5 324.6"  "angle" "-42 -116 72"
+		"keyvalues" {
+		"model" "models\props_junk\garbage_plasticbottle003a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4670.2 -6963.3 320.0"  "angle" "48 114 264"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4674.9 -6964.6 316.6"  "angle" "53 17 146"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4679.1 -6964.4 315.6"  "angle" "63 22 146"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4683.7 -6968.2 317.2"  "angle" "-45 102 236"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4671.4 -6968.6 318.0"  "angle" "10 -154 257"
+		"keyvalues" {
+		"model" "models\props_junk\PopCan01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4676.1 -6966.4 317.4"  "angle" "2 -72 354"
+		"keyvalues" {
+		"model" "models\props_junk\MetalBucket02a.mdl"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "4962.1 -7068.4 317.1"  "angle" "10 156 328"
+		"keyvalues" {
+		"model" "models\props_junk\watermelon01_chunk01b.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4943.3 -7082.8 319.3"  "angle" "19 69 331"
+		"keyvalues" {
+		"model" "models\props_junk\watermelon01_chunk01b.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4944.6 -7099.6 319.2"  "angle" "22 43 330"
+		"keyvalues" {
+		"model" "models\props_junk\watermelon01_chunk01b.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "4941.3 -7146.9 320.1"  "angle" "-23 -160 39"
+		"keyvalues" {
+		"model" "models\props_junk\watermelon01_chunk01c.mdl"
+		}
+	}
+	
+
+
+}
+
+"entities:cheer1" {
+
+	"sound" {
+		"targetname"	"groupa1"
+		"soundname"	"odessa.nlo_cheer01"
+	}
+
+	"sound" {
+		"targetname"	"groupa2"
+		"soundname"	"odessa.nlo_cheer01"
+	}
+
+	"sound" {
+		"targetname"	"groupa3
+		"soundname"	"odessa.nlo_cheer01"
+	}
+
+	"sound" {
+		"targetname"	"groupc"
+		"soundname"	"odessa.nlo_cheer01"
+	}
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"m_iszplay"	"cheer1"
+			"m_iszEntity" "groupa1"
+			"targetname" "ga1"
+		}
+	}
+
+	"event" {
+		"targetname"	"ga1"
+		"action"	"beginsequence"
+	}
+
+
+}
+
+"entities:cheer2" {
+
+	"sound" {
+		"targetname"	"groupb1"
+		"soundname"	"odessa.nlo_cheer03"
+	}
+	"sound" {
+		"targetname"	"groupb2"
+		"soundname"	"odessa.nlo_cheer03"
+	}
+	"sound" {
+		"targetname"	"groupb3"
+		"soundname"	"odessa.nlo_cheer03"
+	}
+	"scripted_sequence" {
+		"keyvalues" {
+			"m_iszplay"	"cheer1"
+			"m_iszEntity" "groupb2"
+			"targetname" "gb2"
+		}
+	}
+
+	"event" {
+		"targetname"	"gb2"
+		"action"	"beginsequence"
+	}
+
+}
+
+"entities:cheer3" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"0.01"
+			"label"	"cheer1"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"0.01"
+			"label"	"cheer2"
+		}
+	}
+
+
+}
+
+"entities:alyxtalk" {
+	"sound" {
+		"targetname"	"aly"
+		"soundname"	"eli_lab.al_awesome"
+	}
+}
+
+"entities:elitalk" {
+	"sound" {
+		"targetname"	"eli"
+		"soundname"	"eli_lab.eli_handle_b"
+	}
+}
+"entities:kletalk" {
+	"sound" {
+		"targetname"	"kle"
+		"soundname"	"k_lab.kl_excellent"
+	}
+}
+
+
+"entities:HanabiKaisi" {
+	
+	"info_target" {
+		"origin" "9625 -7310 2129"
+		"keyvalues" {
+			"targetname" "hanabilook"
+		}
+	}
+	
+	"lua" {
+		"callfunc"	"HanabiKaisi"
+	}
+
+	"sound" {
+		"targetname"	"ba"
+		"soundname"	"nexus.ba_followme02"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"1"
+			"label"	"cheer3"
+		}
+	}
+	
+
+
+}
+
+"entities:Hanabitugi" {
+	
+	lua {
+		"callfunc"	"HanabiKaisi"
+	}
+
+}
+
+
+"entities:combine" {
+
+	"npc_combine_p" {
+		"origin" "3741.9 -6619.9 428.7"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom12"				
+			"targetname" "brownie"
+			"squadname" "universal_combine3"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "3774.4 -6682.4 422.1"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"				
+			"targetname" "brownie"
+			"squadname" "universal_combine3"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "3720.1 -6723.4 428.1"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"				
+			"targetname" "brownie"
+			"squadname" "universal_combine3"
+		}
+	}
+	
+	"event" {
+		"targetname" "brownie"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:combine1" {
+
+	"npc_combine_p" {
+		"origin" "3817.3 -4757.0 443.1"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom12"				
+			"targetname" "bighorn"
+			"squadname" "universal_combine4"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "4757.5 -4902.4 288.9"  "angle" "0 180 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"					
+			"targetname" "bighorn"
+			"squadname" "universal_combine4"
+		}
+	}
+	
+	"event" {
+		"targetname" "bighorn"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:combine2" {
+
+	"npc_combine_p" {
+		"origin" "2771.4 -4537.8 653.2"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"					
+			"targetname" "subversion"
+			"squadname" "universal_combine5"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2847.6 -4720.9 666.2"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"			
+			"targetname" "subversion"
+			"squadname" "universal_combine5"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2700.6 -4659.9 657.8"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"					
+			"targetname" "subversion"
+			"squadname" "universal_combine5"
+		}
+	}
+	
+	"event" {
+		"targetname" "subversion"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:combine3" {
+
+	"npc_combine_p" {
+		"origin" "3792.2 -2931.8 423.9"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_mp5"					
+			"targetname" "ripsaw"
+			"squadname" "universal_combine6"
+		}
+	}
+	"npc_combine_p" {
+		"origin" "3915.2 -3099.0 408.3"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"					
+			"targetname" "ripsaw"
+			"squadname" "universal_combine6"
+		}
+	}
+	
+	"event" {
+		"targetname" "ripsaw"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:combine4" {
+
+	"npc_combine_p" {
+		"origin" "4689.1 -1151.5 416.1"  "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"					
+			"targetname" "burnoose"
+			"squadname" "universal_combine7"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "4755.2 -1230.5 404.6"  "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"					
+			"targetname" "burnoose"
+			"squadname" "universal_combine7"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "4797.6 -1098.6 383.8"  "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"					
+			"targetname" "burnoose"
+			"squadname" "universal_combine7"
+		}
+	}
+	
+	"event" {
+		"targetname" "burnoose"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:combine5" {
+
+	"npc_combine_p" {
+		"origin" "2553.9 -149.0 669.5"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"					
+			"targetname" "signet"
+			"squadname" "universal_combine8"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2655.9 -233.1 664.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"				
+			"targetname" "signet"
+			"squadname" "universal_combine8"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2801.6 -561.5 678.6"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"				
+			"targetname" "signet"
+			"squadname" "universal_combine8"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2865.0 -700.6 700.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"					
+			"targetname" "signet"
+			"squadname" "universal_combine8"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2838.9 -858.0 697.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"					
+			"targetname" "signet"
+			"squadname" "universal_combine8"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2727.4 -1009.4 679.3"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"					
+			"targetname" "signet"
+			"squadname" "universal_combine8"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "2933.4 -944.7 701.6"  "angle" "0 90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_kar98"					
+			"targetname" "signet"
+			"squadname" "universal_combine8"
+		}
+	}
+	
+	"event" {
+		"targetname" "signet"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:combine6" {
+	
+	"npc_combine_p" {
+		"origin" "3218.2 3230.7 768.0"  "angle" "0 234 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"					
+			"targetname" "tricolor"
+			"squadname" "universal_combine9"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "3393.3 3162.2 761.3"  "angle" "0 206 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"					
+			"targetname" "tricolor"
+			"squadname" "universal_combine9"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "4442.5 3956.6 843.1"  "angle" "0 160 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"					
+			"targetname" "tricolor"
+			"squadname" "universal_combine9"
+		}
+	}
+	
+	"event" {
+		"targetname" "tricolor"
+		"action" "startpatrolling"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:combine7" {
+
+	"npc_combine_p" {
+		"origin" "6066.5 5959.1 605.5"  "angle" "0 -120 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"					
+			"squadname" "isobar"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "6020.4 5822.1 572.8"  "angle" "0 -120 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"					
+			"squadname" "isobar"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "5697.2 5898.2 557.5"  "angle" "0 -120 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"					
+			"squadname" "isobar"
+		}
+	}
+	
+	"npc_combine_p" {
+		"origin" "5673.3 5772.9 574.4"  "angle" "0 -120 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"					
+			"squadname" "isobar"
+		}
+	}
+}

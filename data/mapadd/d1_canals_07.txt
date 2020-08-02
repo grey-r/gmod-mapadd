@@ -1,0 +1,642 @@
+//	map arrange data
+//	location: d1_canals_06
+//FIXES: Precache. Added message to help players stuck on finding airboat.
+"precache"{
+	"entity"	"npc_combine_s"
+	"entity"	"npc_citizen"	
+	"entity"	"npc_turret_floor"		
+	"entity"	"weapon_custom16"			
+	"model"		"models/buggy.mdl"	
+}
+
+
+
+"randomspawn" {
+
+	"npc_metropolice" {
+		"count"		"6"
+		"weapon"	"weapon_pistol"
+		"patrol"
+		"values" 	"squadname cb11"
+	}
+
+	"npc_metropolice" {
+		"count"		"2"
+		"weapon"	"weapon_pistol"
+		"patrol"
+		"values"	"squadname mp1"
+	}
+
+	"npc_metropolice" {
+		"count"		"2"
+		"weapon"	"weapon_pistol"
+		"patrol"
+		"values"	"squadname mp2"
+	}
+
+	"npc_metropolice" {
+		"count"		"2"
+		"weapon"	"weapon_smg1"
+		"patrol"
+		"values"	"squadname mp3"
+	}
+
+	"npc_combine_s" {
+		"count"		"3"
+		"weapon"	"weapon_custom16"
+		"grenade"	"5"
+		"patrol"
+		"values" 	"squadname cmb1"		
+	}
+
+	"npc_citizen" {
+		"count"		"1"
+		"weapon"	"weapon_smg1"
+	}
+
+}
+
+
+"entities:boatremove"{
+
+	"removeentity" {
+		"classname"	"prop_vehicle_airboat"
+	}
+
+}
+
+"entities:minieps" {
+	"player" {
+		"message"	"MINI EPISODE - Where is my boat?"
+		"music"		"song19"
+	}
+
+	"prop_vehicle_jeep" {
+		"origin" "4505 1431 -300"
+		"angle" "0 -50 0"
+		"keyvalues" {
+			"model"	"models/buggy.mdl"
+			"solid" "6"
+			"vehiclescript" "scripts/vehicles/jeep_test.txt"
+		}
+	}
+	
+	
+	"npc_metropolice" {
+		"origin" "7982 1394 -256" "angle" "0 -8 0"
+		"longrange"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-10293 -4537 -932"
+		"keyvalues" {
+			"radius"	"750"
+			"label"	"boatmessage"
+		}
+	}	
+	
+}
+
+"entities" {
+
+	"npc_turret_floor" {
+		"origin" "7941.5 1719.0 -255.2"  "angle" "0 2 0"
+		"stabilize"	"100"
+	}
+
+	"instant_trig" {
+		"origin" "9625 1697 -224"
+		"keyvalues" {
+			"radius"	"50"
+			"label"	"boatremove"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "10364 845 -196"
+		"keyvalues" {
+			"model" "models/props_vehicles/car003a_physics.mdl"
+			"mass" "10000"
+		}
+	}
+
+
+	"instant_trig" {
+		"origin" "7618 1717 -257"
+		"keyvalues" {
+			"radius"	"50"
+			"label"	"spawn1"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "11230.8 2948.2 -256.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_outsider0"
+			"additionalequipment" "weapon_smg1"
+			"spawnflags" "33554432"
+			"squadname" "outsiders"			
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "11993.1 2187.5 -256.0"  "angle" "0 74 0"
+		"keyvalues" {
+			"targetname" "alpha_outsider1"
+			"squadname" "outsiders"
+			"additionalequipment" "weapon_smg1"
+			"spawnflags" "33554432"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "11583.7 2183.0 -256.0"  "angle" "0 98 0"
+		"keyvalues" {
+			"targetname" "alpha_outsider2"
+			"squadname" "outsiders"
+			"additionalequipment" "weapon_pistol"
+			"spawnflags" "33554432"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "11299.4 2212.8 -256.0"  "angle" "0 352 0"
+		"keyvalues" {
+			"targetname" "alpha_outsider3"
+			"squadname" "outsiders"
+			"additionalequipment" "weapon_pistol"
+			"spawnflags" "33554432"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "11292 2021 -227"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_complex"
+			"radius" "65"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "9710 1694 -220"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_outhall"
+			"radius" "65"
+		}
+	}	
+}
+
+"entities:spawn1" {
+	"npc_combine_s"
+	{
+		"origin" "7787 1191 -128"	"angle" "0 149 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine"			
+		}
+	}
+	"npc_combine_s"
+	{
+		"origin" "7762 1098 -128"	"angle" "0 58 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine"			
+		}
+	}
+	"npc_combine_s"
+	{
+		"origin" "7766 1002 -128"	"angle" "0 44 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine"			
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "11309 2076 -256"
+		"keyvalues" {
+			"radius"	"50"
+			"label"	"minieps"
+		}
+	}
+
+}
+
+
+
+"entities:alpha_complex" {
+
+	"npc_metropolice" {
+		"origin" "10809.4 1872.2 -256.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "complexer"			
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "10676.2 1470.7 -256.0"  "angle" "0 80 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "complexer"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "10312.3 2084.2 -256.0"  "angle" "0 355 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "complexer"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "10187.5 1644.3 -256.0"  "angle" "0 301 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "complexer"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "10247 2286 -227"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_morec"
+			"radius" "350"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label" "alpha_prisoner"
+			"timer" "1"
+		}
+	}
+}
+
+"entities:alpha_prisoner" {
+
+	"npc_citizen" {
+		"origin" "10144 1919.9 -256.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_detainee"
+			"OnPlayerUse" "alpha_prisoner_sit,CancelSequence,,0,1"
+			"OnPlayerUse" "alpha_prisoner_stand,BeginSequence,,0,1"
+			"OnPlayerUse" "alpha_detainee,GiveWeapon,weapon_smg1,5,1"
+			"OnPlayerUse" "alpha_detainee,setsquad,player_squad,4,1"
+			"OnPlayerUse" "alpha_detainee,SetRelationship,canals_camera_mhdeployroom01 D_NU 5,0,1"
+			"OnPlayerUse" "alpha_detainee,addoutput,health 300,1,1"
+			
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "10139 1917.5 -252.9"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_prisoner_sit"
+			"m_iszEntity" "alpha_detainee"
+			"m_iszPlay" "Idle_to_Sit_Ground"
+			"m_iszPostIdle" "Sit_Ground"
+			"spawnflags" "256"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "10139 1917.5 -191"
+		"angles" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_prisoner_stand"
+			"m_iszEntity" "alpha_detainee"
+			"m_iszPlay" "Sit_Ground_to_Idle"
+		}
+	}
+	
+	"event" {
+		"targetname" "alpha_prisoner_sit"
+		"action" "BeginSequence"
+		"delaytime" "0.2"
+	}
+}
+
+"entities:alpha_morec" {
+
+	"npc_metropolice" {
+		"origin" "9887.0 1684.9 -256.0"  "angle" "0 71 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_smg1"
+		}
+	}
+}
+
+"entities:alpha_outhall" {
+
+	"event" {
+		"targetname" "copturret_1"
+		"action" "SetRelationship"
+		"value" "alpha_detainee D_NU 8"
+		"delaytime" "1.5"
+	}
+	
+	"npc_metropolice" {
+		"origin" "8984.6 1657.4 -256.0"  "angle" "0 52 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "plaza"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "8510.7 1967.2 -256.0"  "angle" "0 278 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "plaza"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "8030.9 1938.7 -256.0"  "angle" "0 311 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_grease"
+			"squadname" "plaza"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "7912 1726 -227"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_catwalk"
+			"radius" "150"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "7791 1727 -227"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_boilerroom"
+			"radius" "75"
+		}
+	}
+}
+
+"entities:alpha_catwalk" {
+
+	"npc_metropolice" {
+		"origin" "7773.8 614.6 -221.5"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_cwalker1"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "nipper"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "7717.0 513.2 -256.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_cwalker2"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "nipper"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "7777.7 510.2 -256.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_cwalker3"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "nipper"
+		}
+	}
+	
+	"info_target" {
+		"origin" "7779.5 1247.9 -124.5"
+		"keyvalues" {
+			"targetname" "uphere"
+		}
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"	"alpha_cwalker*"
+			"goal"	"uphere"
+		}
+	}
+}
+
+"entities:alpha_boilerroom" {
+
+	"prop_physics" {
+		"origin" "7576.9 1730.4 -241.4"  "angle" "0 177 272"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_debris/metal_panel02a.mdl"
+			"targetname" "alpha_coverme"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "7484.6 1490.5 -237.1"  "angle" "-0 -91 268"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_debris/metal_panel01a.mdl"
+			"targetname" "alpha_coverme"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "7136.5 2216.6 -208.7"  "angle" "0 339 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "universal_combine3"			
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "7419.0 1649.8 -384.0"  "angle" "0 118 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "universal_combine3"			
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "7094.8 1468.6 -320.0"  "angle" "0 26 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "universal_combine3"			
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "7426 1430 -227"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_relay1"
+			"radius" "145"
+		}
+	}
+}
+
+"entities:alpha_relay1" {
+
+	"instant_trig" {
+		"origin" "7644 1729 -211"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_relay2"
+			"radius" "65"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "9855 1653 -227"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_backin"
+			"radius" "125"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "7145 1029 -480"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "beta"
+			"radius" "280"
+		}
+	}
+}
+
+"entities:alpha_relay2" {
+
+	"npc_metropolice" {
+		"origin" "9400.8 1891.3 -256.0"  "angle" "0 198 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "texas"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "8602.5 -195.3 -207.1"  "angle" "0 0 0"
+		"longrange"
+		"keyvalues" {
+			"targetname" "alpha_moveit2"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "texas"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "8608.1 -267.8 -188.7"  "angle" "0 0 0"
+		"longrange"
+		"keyvalues" {
+			"targetname" "alpha_moveit3"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "texas"
+		}
+	}
+	
+	"info_target" {
+		"origin" "8517.8 415.6 -251.5"
+		"keyvalues" {
+			"targetname" "runhere"
+		}
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"alpha_moveit*"
+			"goal"		"runhere"
+		}
+	}
+}
+
+"entities:alpha_backin" {
+
+	"npc_combine_s" {
+		"origin" "10402.0 1996.9 -256.0"  "angle" "0 82 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_custom16"
+			"squadname" "mexico"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "10638.6 2362.2 -256.0"  "angle" "0 244 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "mexico"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "10922.3 1779.5 -256.0"  "angle" "0 175 0"
+		"keyvalues" {
+			"targetname" "alpha_comguard"
+			"additionalequipment" "weapon_pistol"
+			"squadname" "mexico"
+		}
+	}
+}
+
+"entities:beta" {
+	
+	"npc_metropolice" {
+		"origin" "6569.3 315.7 -93.2"  "angle" "0 179 0"
+		"longrange"
+		"keyvalues" {
+			"targetname" "beta_high"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "universal_combine4"			
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "3850.4 -7997.0 -640.0"  "angle" "0 0 0"
+		"longrange"
+		"keyvalues" {
+			"targetname" "beta_high"
+			"additionalequipment" "weapon_smg1"
+			"squadname" "universal_combine4"			
+		}
+	}
+}
+
+"entities:boatmessage" {
+	"player" {
+		"message"	"Keep going to find your airboat Gordon!"
+	}
+}

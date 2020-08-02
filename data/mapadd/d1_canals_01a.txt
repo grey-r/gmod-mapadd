@@ -1,0 +1,210 @@
+//	map arrange data
+//	location: d1_canal_01a
+//FIXES: Precache and removenoded several underwater/scripted sequence areas.
+
+"precache" {
+	"entity"	"weapon_smg1"		
+}
+
+"randomspawn" {
+	"removenodes" {
+		"origin" "626 4374 -32"
+		"radius" "750"
+	}
+	"removenodes" {
+		"origin" "-2029 6222 192"
+		"radius" "750"
+	}
+	"removenodes" {
+		"origin" "-2423 4518 -55"
+		"radius" "750"
+	}
+	"removenodes" {
+		"origin" "-2595 6198 -31"
+		"radius" "750"
+	}
+
+	"removenodes" {
+		"origin" "909 4212 -31"
+		"radius" "750"
+	}
+	
+	"npc_metropolice" {
+		"count"		"16"
+		"weapon"	"weapon_pistol"
+		"values" 	"squadname cbr"			
+	}
+	"npc_metropolice" {
+		"count"		"5"
+		"weapon"	"weapon_smg1"
+		"values" 	"squadname csr"			
+	}
+}
+
+
+"entities" {
+		
+	"instant_trig" {
+		"origin" "550 4492 -31"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine1"
+			"radius" "300"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-2664 5284 23"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "combine2"
+			"radius" "300"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-1105 6353 -38"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "bridge"
+			"radius" "120"
+		}
+	}
+
+	"env_hudhint" {
+		"keyvalues" {
+			"targetname" "hudhint_lean"
+			"message" "Valve_Hint_Lean"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "741 5100 -19"
+		"keyvalues" {
+			"radius"	"128"
+			"label"		"hudhinttrigger_lean"
+		}
+	}	
+}
+
+"entities:bridge" {
+
+	
+	"npc_metropolice" {
+		"origin" "-2132.8 6640.8 128.0"  "angle" "0 179 0"
+		"relation" "gh2 lh1"
+		"keyvalues" {
+			"targetname" "b_1"
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine"			
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-2132.1 6692.6 128.0"  "angle" "0 179 0"
+		"relation" "gh2 lh1"
+		"keyvalues" {
+			"targetname" "b_2"
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine"			
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-2033.5 5202.9 171.6"  "angle" "0 -90 0"
+		"keyvalues" {
+			"targetname" "s_1"
+			"m_iszEntity" "b_1"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shoot_smg1" // 3 frames, short, prevents backup in tight spaces.
+			"OnEndSequence" "b_1,kill,,0,1"
+		}
+	}
+	
+	"scripted_sequence" {
+		"origin" "-2045.2 5291.4 164.6"  "angle" "0 -90 0"
+		"keyvalues" {
+			"targetname" "s_2"
+			"m_iszEntity" "b_2"
+			"m_fMoveTo" "2"
+			"m_iszPlay" "shoot_smg1"
+			"OnEndSequence" "b_2,kill,,0,1"
+		}
+	}
+	
+	"event" {
+		"targetname" "s_1"
+		"action" "beginsequence"
+		"delaytime" "1"
+	}
+	
+	"event" {
+		"targetname" "s_2"
+		"action" "beginsequence"
+		"delaytime" "1"
+	}
+}
+
+
+"entities:combine1" {
+	"npc_metropolice" {
+		"origin" "2289.4 6287.4 32" "angle" "0 180 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine2"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "2329 6020 96" "angle" "0 190 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}
+	}
+}
+
+"entities:combine2" {
+	"npc_metropolice" {
+		"origin" "-3248.4 6823.4 128" "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"	
+			"squadname" "universal_combine3"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-3102.2 6559.4 -92.1" "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"	
+			"squadname" "universal_combine3"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-3427.4 6194 128" "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+			"squadname" "universal_combine3"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-3283.8 5469.6 128" "angle" "0 -30 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine3"			
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-3119.7 5902.3 -88.3" "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine3"			
+		}
+	}
+}
+
+"entities:hudhinttrigger_lean" {
+	"event" {
+		"targetname" "hudhint_lean"
+		"action" "ShowHudHint"
+		"delaytime" "6"
+	}
+}

@@ -1,0 +1,719 @@
+//	map arrange data
+//	location: d1_trainstation_05
+
+"precache" {
+	"entity"	"food_cornedbeef"
+	"entity"	"food_sankaba"	
+	"entity"	"explo_justaway"
+	"entity"	"weapon_soy"
+	"entity" 	"npc_fastzombie"		
+	"model" "models/misc/pcrate.mdl"
+	"model" "models/misc/katoributa.mdl"	
+	"model" "models/misc/newyear/oseti.mdl"	
+}
+
+"entities"
+{
+	
+	"food_cornedbeef" {
+		"origin" "-6634.0 -1247.3 32.1"  "angle" "-0 -173 1"
+		"keyvalues" {
+		"model" "models/misc/foods/cornedbeef.mdl"
+		}
+	}
+	"food_sankaba" {
+		"origin" "-6638.7 -1243.9 31.1"  "angle" "0 63 2"
+		"keyvalues" {
+		"model" "models/misc/foods/sankaba.mdl"
+		}
+	}
+	"food_sankaba" {
+		"origin" "-6642.2 -1247.5 31.2"  "angle" "0 -52 -0"
+		"keyvalues" {
+		"model" "models/misc/foods/sankaba.mdl"
+		}
+	}
+
+	"explo_justaway" {
+		"origin" "-6390.3 -1404.5 35"  "angle" "0 -147 0"
+		"stabilize"	"45"
+		"keyvalues" {
+			"model" "models/misc/justaway.mdl"
+		}
+	}
+
+//	"explo_justaway" {
+//		"origin" "-6597.1 -1519.1 70.4"  "angle" "0 -18 358"
+//		"keyvalues" {
+//			"model" "models/misc/justaway.mdl"
+//			"detonatevel"	"200"
+//		}
+//	}
+	
+	"prop_physics" {
+		"origin" "-6906.8 -1641.4 128.7"  "angle" "0 -162 180"
+		"keyvalues" {
+		"model" "models/misc/pcrate.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6993.3 -1643.8 168.9"  "angle" "0 179 360"
+		"keyvalues" {
+		"model" "models/misc/pcrate.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-10345.0 -5024.3 289.8"  "angle" "-90 -0 180"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-10344.8 -5021.2 224.6"  "angle" "90 -180 180"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+
+
+	
+	"prop_physics" {
+		"origin" "-10617.5 -4708.6 212.5"  "angle" "0 -180 0"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate002a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-10620.0 -4713.1 252.9"  "angle" "-0 -9 360"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate002a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-10623.9 -4709.6 307.5"  "angle" "-0 29 90"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_junk/wood_crate002a.mdl"
+		}
+	}	
+
+	"env_hudhint" {
+		"keyvalues" {
+			"targetname" "hudhint_kick"
+			"message" "Valve_Hint_QuickKick"
+		}
+	}	
+	
+	"instant_trig" {
+		"origin" "-10290 -4733 353"
+		"keyvalues" {
+			"radius"	"128"
+			"label"		"hudhinttrigger_kick"
+		}
+	}	
+}
+
+
+"entities:xmasset" {
+
+"prop_physics" {
+	"origin" "-6856.5 -1298.1 45.9"  "angle" "-0 -38 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_glassbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6850.7 -1300.1 45.9"  "angle" "0 167 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_glassbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6846.9 -1293.2 45.9"  "angle" "-0 44 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_glassbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6838.9 -1303.0 37.8"  "angle" "0 60 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/glassjug01.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6862.4 -1302.2 18.6"  "angle" "-0 -90 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_c17/FurnitureTable002a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6847.8 -1318.1 40.7"  "angle" "-0 -55 0"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_coffeemug001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6880.3 -1314.1 40.4"  "angle" "0 63 180"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_coffeemug001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6885.2 -1316.3 40.4"  "angle" "-0 45 180"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_coffeemug001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6878.5 -1298.5 44.1"  "angle" "13 -161 195"
+	"keyvalues" {
+	"model" "models/props/cs_italy/bananna_bunch.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6871.6 -1295.8 43.2"  "angle" "52 179 190"
+	"keyvalues" {
+	"model" "models/props/cs_italy/bananna_bunch.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6895.4 -1295.5 43.2"  "angle" "-0 -43 359"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_takeoutcarton001a.mdl"
+	}
+}
+"food_cornedbeef" {
+	"origin" "-6896.8 -1305.8 39.4"  "angle" "-0 -127 358"
+	"keyvalues" {
+	"model" "models/misc/foods/cornedbeef.mdl"
+	}
+}
+"food_sankaba" {
+	"origin" "-6902.7 -1305.3 38.5"  "angle" "0 140 360"
+	"keyvalues" {
+	"model" "models/misc/foods/sankaba.mdl"
+	}
+}
+"food_sankaba" {
+	"origin" "-6903.3 -1301.9 39.1"  "angle" "1 11 273"
+	"keyvalues" {
+	"model" "models/misc/foods/sankaba.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6904.9 -1297.2 43.3"  "angle" "-0 94 360"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_takeoutcarton001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6910.6 -1313.5 37.8"  "angle" "0 126 360"
+	"keyvalues" {
+	"model" "models/props_junk/glassjug01.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6916.4 -1299.5 41.2"  "angle" "-0 -159 0"
+	"keyvalues" {
+	"model" "models/props_junk/PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6922.5 -1294.6 41.2"  "angle" "-0 74 0"
+	"keyvalues" {
+	"model" "models/props_junk/PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6927.0 -1297.0 41.2"  "angle" "0 118 360"
+	"keyvalues" {
+	"model" "models/props_junk/PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6925.4 -1307.1 41.2"  "angle" "-0 -40 0"
+	"keyvalues" {
+	"model" "models/props_junk/PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6919.4 -1314.7 41.2"  "angle" "0 -115 0"
+	"keyvalues" {
+	"model" "models/props_junk/PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6929.4 -1312.8 41.2"  "angle" "0 51 360"
+	"keyvalues" {
+	"model" "models/props_junk/PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6939.0 -1306.7 42"  "angle" "-46 -163 90"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_plasticbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6946.8 -1296.3 49"  "angle" "0 0 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_plasticbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6947.0 -1308.0 49"  "angle" "0 0 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_plasticbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6955.7 -1299.0 49"  "angle" "0 0 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_plasticbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6956.2 -1311.1 49"  "angle" "0 0 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_plasticbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6930.4 -1302.1 18.7"  "angle" "-0 90 0"
+	"freeze"
+		"keyvalues" {
+	"model" "models/props_c17/FurnitureTable002a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6966.4 -1298.9 8.5"  "angle" "0 103 0"
+	"keyvalues" {
+	"model" "models/props_junk/MetalBucket01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6992.5 -1301.3 8.0"  "angle" "0 38 0"
+	"keyvalues" {
+	"model" "models/props_junk/PlasticCrate01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6988.6 -1305.3 9.8"  "angle" "0 -42 360"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_glassbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6991.7 -1300.4 9.8"  "angle" "0 -5 0"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_glassbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6994.0 -1308.5 9.8"  "angle" "1 28 0"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_glassbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6994.2 -1293.0 12.5"  "angle" "0 -39 0"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_plasticbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6999.5 -1297.4 12.5"  "angle" "0 -0 0"
+	"keyvalues" {
+	"model" "models/props_junk/garbage_plasticbottle003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6951.4 -1347.1 21.4"  "angle" "-0 50 360"
+	"keyvalues" {
+	"model" "models/props_interiors/Furniture_chair01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6925.7 -1346.3 21.4"  "angle" "0 124 360"
+	"keyvalues" {
+	"model" "models/props_interiors/Furniture_chair01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6920.8 -1344.0 24.1"  "angle" "-44 179 90"
+	"keyvalues" {
+	"model" "models/props_c17/doll01.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6859.1 -1345.5 21.4"  "angle" "0 -48 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models/props_interiors/Furniture_chair01a.mdl"
+	}
+}
+"weapon_gcrowbar" {
+	"origin" "-6859.9 -1342.2 37.6"  "angle" "58 -60 358"
+	"freeze"
+}
+"prop_physics" {
+	"origin" "-6777.2 -1478.9 21.4"  "angle" "-0 -8 360"
+	"keyvalues" {
+	"model" "models/props_interiors/Furniture_chair01a.mdl"
+	}
+}
+
+
+"prop_physics" {
+	"origin" "-7011.5 -1247.3 18.4"  "angle" "0 141 0"
+	"keyvalues" {
+	"model" "models/props_c17/FurnitureTable001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7012.5 -1242.1 55.9"  "angle" "0 75 180"
+	"keyvalues" {
+	"model" "models/props_c17/FurnitureTable001a.mdl"
+	}
+}
+
+	"instant_trig" {
+		"origin" "-6839 -1351 0"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"merryxmas"
+		}
+	}
+
+}
+
+"entities:merryxmas" {
+
+	"player" {
+		"message"	"*** MERRY CHRISTMAS ***"
+		"music"		"jinglebell"
+	}
+}
+
+"entities:newyearset" {
+
+
+	"prop_physics" {
+		"origin" "-6659.9 -1501.7 18.4"  "angle" "-0 -8 360"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_c17/FurnitureTable001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6693.1 -1494.2 21.4"  "angle" "0 12 360"
+		"keyvalues" {
+		"model" "models/props_interiors/Furniture_chair01a.mdl"
+		}
+	}
+
+
+	"prop_physics" {
+		"origin" "-6646.8 -1496.9 41.3"  "angle" "0 25 0"
+		"keyvalues" {
+		"model" "models/misc/newyear/oseti.mdl"
+		"skin"	"0"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6653.3 -1503.0 41.3"  "angle" "-0 26 360"
+		"keyvalues" {
+		"model" "models/misc/newyear/oseti.mdl"
+		"skin"	"1"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6656.8 -1495.2 41.3"  "angle" "0 -155 360"
+		"keyvalues" {
+		"model" "models/misc/newyear/oseti.mdl"
+		"skin"	"2"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-6487 -1213 0"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"happynewyear"
+		}
+	}
+
+
+"prop_physics" {
+	"origin" "-6738.5 -1518.1 43"  "angle" "-0 30 -0"
+	"stabilize"	"45"
+	"keyvalues" {
+	"model" "models/misc/newyear/kagamimoti.mdl"
+	}
+}
+	
+	"prop_physics" {
+		"origin" "-11655.9 -552.6 30.6"  "angle" "0 -78 360"
+		"freeze"
+		"keyvalues" {
+			"model" "models/misc/newyear/kagamimoti.mdl"
+		}
+	}
+
+	
+	"prop_physics" {
+		"origin" "-13438.3 -53.9 53"  "angle" "0 106 0"
+		"freeze"
+		"keyvalues" {
+		"model" "models/misc/newyear/kagamimoti.mdl"
+		}
+	}
+
+	"item_otosidama" {
+		"origin" "-6653.8 -1486.6 37.7"  "angle" "1 4 178"
+	}
+
+	"item_otosidama" {
+		"origin" "-6662.6 -1486.9 37.7"  "angle" "0 -52 359"
+	}
+	
+	"item_otosidama" {
+		"origin" "-6669.1 -1488.3 37.7"  "angle" "-0 98 359"
+	}
+
+
+	"prop_physics" {
+		"origin" "-6571.2 -1043.3 0.8"  "angle" "2 53 1"
+		"freeze"
+		"keyvalues" {
+			"model" "models/misc/newyear/kadomatu.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6380.5 -1036.4 0.4"  "angle" "-0 114 360"
+		"freeze"
+		"keyvalues" {
+			"model" "models/misc/newyear/kadomatu.mdl"
+		}
+	}
+
+
+	"prop_physics" {
+		"origin" "-6676.9 -1504.6 40.1"  "angle" "0 -133 180"
+		"keyvalues" {
+			"model" "models/props_junk/garbage_coffeemug001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6669.8 -1502.4 37.4"  "angle" "-1 -39 360"
+		"keyvalues" {
+			"model" "models/props_junk/glassjug01.mdl"
+		}
+	}
+
+}
+
+
+"entities:happynewyear" {
+	"player" {
+		"message"	"- HAPPY NEW YEAR -"
+		"music"		"harunoumi"
+	}
+
+}
+
+"entities:osetimoiikedo" {
+
+	"prop_physics" {
+		"origin" "-6648.9 -1486.9 38.5"  "angle" "-1 108 13"
+		"keyvalues" {
+		"model" "models/misc/newyear/boncurry.mdl"
+		}
+	}
+
+}
+
+
+"entities:setubun" {
+
+	"prop_physics" {
+		"origin" "-6631.2 -1318.2 18.4"  "angle" "0 86 0"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_c17/FurnitureTable001a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6636.5 -1366.7 18.4"  "angle" "0 104 0"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_c17/FurnitureTable001a.mdl"
+		}
+	}
+
+
+	"prop_physics" {
+		"origin" "-6637.2 -1305.0 37.4"  "angle" "0 118 0"
+		"stabilize"	"60"
+		"keyvalues" {
+		"model" "models/props_junk/glassjug01.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-6638.3 -1315.5 37.4"  "angle" "0 84 359"
+		"stabilize"	"60"
+		"keyvalues" {
+		"model" "models/props_junk/glassjug01.mdl"
+		}
+	}
+
+
+	"weapon_soy" {
+		"origin" "-6638.6 -1353.1 37.4"  "angle" "-1 -19 0"
+		"keyvalues" {
+		"model" "models/weapons/w_mamehands.mdl"
+		}
+	}
+	"weapon_soy" {
+		"origin" "-6626.4 -1366.8 37.3"  "angle" "1 58 359"
+		"keyvalues" {
+		"model" "models/weapons/w_mamehands.mdl"
+		}
+	}
+	
+	
+	"npc_fastzombie" {
+		"origin" "-7199.0 -1302.9 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+		"model" "models/zombie/fast.mdl"
+			"targetname"	"oni"
+			"HeadCrabLess"	"1"
+			"isfastdie"	"1"
+		}
+	}
+	"npc_zombie" {
+		"origin" "-7205.6 -1382.0 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+		"model" "models/zombie/fast.mdl"
+			"targetname"	"oni"
+			"HeadCrabLess"	"1"
+			"isfastdie"	"1"
+		}
+	}
+	"npc_fastzombie" {
+		"origin" "-7222.5 -1452.9 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+		"model" "models/zombie/fast.mdl"
+			"targetname"	"oni"
+			"HeadCrabLess"	"1"
+			"isfastdie"	"1"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-6597 -1365 0"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"setubun2"
+		}
+	}
+	
+}
+
+
+"entities:setubun2" {
+
+	"player" {
+		"music"	"song31"
+		"message" "鬼は外、福は内"
+	}
+
+	"event"	{
+		"targetname"	"lab_door"
+		"action"	"open"
+	}
+
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"oni"
+			"label"		"setubun3"
+		}
+	}
+	
+}
+
+
+"entities:setubun3" {
+
+	"player" {
+		"message" "後は適当に撒いて、歳の数だけ食べてください"
+	}
+
+
+	"event"	{
+		"targetname"	"lab_door"
+		"action"	"close"
+	}
+	
+}
+
+"entities:natu" {
+
+	"prop_physics" {
+		"origin" "-6638.2 -1298.6 0.3"  "angle" "0 0 0"
+		"keyvalues" {
+			"model" "models/misc/katoributa.mdl"
+			"targetname"	"buta1"
+		}
+	}
+
+
+	"env_steam" {
+		"origin" "-6634.2 -1298.6 0.3"  "angle" "270 0 0"
+		"keyvalues" {
+			"targetname"	"katori"
+			"JetLength"	"50"
+			"rendercolor"	"255 255 255"
+			"renderamt"	"64"
+			"Rate"		"16"
+			"endsize"	"1"
+			"startsize"	"0"
+			"speed"		"15"
+			"spreadspeed"	"1"
+			"initialstate"	"1"
+		}
+	}
+
+	"phys_constraint" {
+		"origin" "-6638.2 -1298.6 0.3" "angle" "0 0 0"
+		"keyvalues" {
+			"attach2" "buta1"
+			"attach1" "katori"
+			"spawnflags" "0"
+		}
+	}
+
+}
+
+"entities:hudhinttrigger_kick" {	
+	"event" {
+		"targetname" "hudhint_kick"
+		"action" "ShowHudHint"
+		"delaytime" "6"
+	}
+}

@@ -1,0 +1,419 @@
+//	map arrange data
+//	location: d1_canals_06
+//FIXES: Precache.
+"precache"{
+	"entity"	"npc_combine_s"
+	"entity"	"npc_houndeye"			
+	"entity"	"weapon_bugspawner"	
+	"entity" 	"weapon_custom16"	
+}
+
+
+"entities:trap1" {
+	"prop_physics" {
+		"origin" "10410 9109 154"
+		"keyvalues" {
+			"model" "models/props_junk/wood_crate002a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "10410 9109 154"
+		"keyvalues" {
+			"model" "models/props_borealis/bluebarrel002.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "10410 9109 154"
+		"keyvalues" {
+			"model" "models/props_canal/boat001b.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "10410 9109 154"
+		"keyvalues" {
+			"model" "models/props_junk/wood_crate002a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "10410 9109 154"
+		"keyvalues" {
+			"model" "models/props_borealis/bluebarrel002.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "10410 9109 154"
+		"keyvalues" {
+			"model" "models/props_canal/boat001b.mdl"
+		}
+	}
+
+}
+
+"entities:assault1" {
+
+	"npc_combine_s" {
+		"origin" "4575 6581 -320" "angle" "0 -106 0"
+		"keyvalues" { "targetname"	"teki1"
+			"additionalequipment"	"weapon_custom16"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "4608 6475 -320" "angle" "0 -106 0"
+		"keyvalues" { "targetname"	"teki1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "4607 6633 -320" "angle" "0 -106 0"
+		"keyvalues" { "targetname"	"teki1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"info_target" {
+		"origin" "4951 5801 -192"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"teki*"
+			"goal"		"goalnpc1"
+		}
+	}
+}
+
+
+
+"entities"{
+
+	"instant_trig" {
+		"origin" "4235 5994 -188"
+		"keyvalues"{
+			"radius"	"50"
+			"label"	"assault1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues"{
+			"timer"	".1"
+			"label"	"trap1"
+		}
+	}
+
+
+	"npc_combine_s"
+	{
+		"origin"	"-4983.537109 -1615.141602 -205.050613"
+		"angle"		"0 107 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_custom16"
+		}
+	}
+	
+	"npc_combine_s"
+	{
+		"origin"	"-5200.593262 -1691.040527 -205.050613"
+		"angle"		"0 107 0"
+		"keyvalues"
+		{
+			"additionalequipment"	"weapon_custom16"
+		}
+	}
+	
+	"npc_houndeye"
+	{
+		"origin"	"7897.737305 9057.213867 -243.333557"
+		"angle"		"0 137 0"
+	}
+	
+	"item_item_crate"
+	{
+		"origin"	"-6072.309570 -479.928406 -134.468750"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_bugspawner"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-106 4209 12" "angle" "0 -89 0"
+		"keyvalues" {
+			"targetname"		"rp1"
+			"waitingtorappel"	"1"
+			"spawnflags"		"33685508"
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+		
+	"npc_metropolice" {
+		"origin" "163 4224 12" "angle" "0 -89 0"
+		"keyvalues" {
+			"targetname"		"rp2"
+			"waitingtorappel"	"1"
+			"spawnflags"		"33685508"
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "97 3052 -419"
+		"keyvalues" {
+			"radius"	"1000"
+			"label"		"rappel1"
+		}
+	}
+
+	"npc_houndeye"
+	{
+		"origin"	"-1461.21 5406.31 -108.64"
+		"angle"		"0 -88 0"
+	}
+
+//	"npc_houndeye"
+//	{
+//		"origin"	"-220.73 10401.53 -112.44"
+//		"angle"		"0 -88 0"
+//	}
+	
+	"npc_houndeye"
+	{
+		"origin"	"-8778.69 10479.77 -160.82"
+		"angle"		"0 -88 0"
+	}
+
+//	"npc_bullsquid"
+//	{
+//		"origin"	"-7959.69 7386.45 -97.82"
+//		"angle"		"0 0 0"
+//	}
+
+	"instant_trig" {
+		"origin" "4843 5974 -307"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombieshack"
+			"radius" "750"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "1908 1483 -313"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_props"
+			"radius" "300"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-1471 5037 -139"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_bush"
+			"radius" "75"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-8195 12311 -130"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_tunnel"
+			"radius" "85"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-6749 4575 26"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "beta"
+			"radius" "500"
+		}
+	}	
+}
+
+"entities:rappel1" {
+	"event" {
+		"targetname"	"rp*"
+		"action"	"BeginRappel"
+		"value"		"0.5"
+	}
+}
+
+"entities:alpha_props" {
+
+	"prop_physics" {
+		"origin" "685.9 5130.7 36.4"  "angle" "0 -134 67"
+		"keyvalues" {
+			"targetname" "alpha_fubar"
+			"model" "models/props_junk/wood_pallet001a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "527.5 5160.8 45.5"  "angle" "-0 -111 180"
+		"keyvalues" {
+			"targetname" "alpha_fubar"
+			"model" "models/props_c17/oildrum001.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "517.6 5266.4 24.5"  "angle" "-5 4 90"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_debris/metal_panel01a.mdl"
+			"targetname" "alpha_fubar"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-6712.1 11177.0 -107.6"  "angle" "90 115 182"
+		"keyvalues" {
+			"model" "models/props_junk/wood_crate001a.mdl"
+			"targetname" "alpha_fubar"
+		}
+	}
+}
+
+"entities:alpha_bush" {
+
+	"npc_metropolice" {
+		"origin" "553.2 5187.5 0.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"targetname" "alpha_crew2"
+			"squadname" "flyingmonkey"
+			"additionalequipment" "weapon_smg1"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "535.0 5268.8 0.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"targetname" "alpha_crew2"
+			"squadname" "flyingmonkey"
+			"additionalequipment" "weapon_smg1"
+		}
+	}
+}
+
+"entities:zombieshack" {
+	"npc_zombie" {
+		"origin" "4071.1 5911.9 -188.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "4273.8 5840.6 -188.0"  "angle" "0 0 0"
+	}
+//	"npc_zombie" {
+//		"origin" "4343.6 5941.2 -188.0"  "angle" "0 0 0"
+//	}
+	"npc_zombie" {
+		"origin" "4414.4 5993.1 -188.0"  "angle" "0 0 0"
+	}
+//	"npc_zombie" {
+//		"origin" "4311.7 6092.4 -188.0"  "angle" "0 0 0"
+//	}
+	"npc_zombie" {
+		"origin" "4411.0 5853.6 -188.0"  "angle" "0 0 0"
+	}
+//	"npc_zombie" {
+//		"origin" "4132.6 5953.8 -188.0"  "angle" "0 0 0"
+//	}
+}
+
+
+"entities:alpha_tunnel" {
+
+	"npc_houndeye" {
+		"origin" "-8288.7 13347.4 -49.8"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "eyeseeu"			
+			"targetname" "alpha_clunky"
+		}
+	}
+	
+	"npc_houndeye" {
+		"origin" "-8220.2 13357.2 -58.1"  "angle" "0 0 0"
+		"keyvalues" {
+			"squadname" "eyeseeu"		
+			"targetname" "alpha_clunky"
+		}
+	}
+	
+	"npc_houndeye" {
+		"origin" "-8233.2 13493.5 -59.6"  "angle" "0 305 0"
+		"keyvalues" {
+			"squadname" "eyeseeu"			
+			"targetname" "alpha_clunky"
+		}
+	}
+	
+	"npc_zombie" {
+		"origin" "-8326.8 13912.7 -39.2"  "angle" "0 280 0"
+		"keyvalues" {
+			"squadname" "eyeseeu2"			
+			"targetname" "alpha_clunky"
+		}
+	}
+}
+
+"entities:beta" {
+	
+	"prop_physics" {
+		"origin" "-5330.3 -1661.1 -209.6"  "angle" "-90 -56 259"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_c17/oildrum001.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5372.9 -1679.7 -209.5"  "angle" "90 112 90"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_c17/oildrum001.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5376.4 -1685.0 -209.6"  "angle" "0 -69 90"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_c17/oildrum001.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5330.1 -1616.1 -205.2"  "angle" "-75 108 180"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_debris/metal_panel01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5379.7 -1621.8 -207.9"  "angle" "-76 112 357"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_debris/metal_panel01a.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5424.5 -1644.7 -207.8"  "angle" "-77 111 179"
+		"freeze"
+		"keyvalues" {
+			"model" "models/props_debris/metal_panel01a.mdl"
+		}
+	}
+}

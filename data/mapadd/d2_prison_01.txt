@@ -1,0 +1,376 @@
+//	map arrange data
+//	location: d2_prison_01
+
+"precache" {
+	"model"		"models/vortigaunt.mdl"
+	"entity"	"npc_vortigaunt"	
+	"entity"	"npc_metropolice"
+	"entity"	"npc_citizen"
+	"entity" 	"weapon_kar98"
+	"entity" 	"weapon_ak47"
+	"entity" 	"weapon_grease"
+	"entity" 	"weapon_mp5"
+	"entity" 	"weapon_custom12"		
+}
+
+"randomspawn" {
+
+	"npc_metropolice" {
+		"count"		"10"
+		"weapon"	"weapon_smg1"
+		"values" 	"squadname cb10"		
+	}
+
+}
+
+"entities:friend" {
+	"ai_goal_follow" {
+		"Keyvalues" {
+			"Formation""0"
+			"MaximumState""3"
+			"StartActive""1"
+			"actor""friend*"
+			"targetname""bfollow_goal"
+			"SearchType""0"
+		}
+	}	
+	
+	"npc_vortigaunt" {
+		"origin" "1712 -3152 1280"
+		"longrange"
+		"alwaysthink"
+		"keyvalues" {
+			"targetname"	"friend1"
+		}
+	}
+
+
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"friend1"
+			"label"		"more1:more2"
+			"noclear"	"1"
+		}
+	}
+
+}
+"entities:more2" {
+	
+	"npc_citizen" {
+		"origin" "1807 -3152 1280"
+		"alwaysthink"
+		"relation"	"ch1"
+		"keyvalues" {
+			"targetname"	"friend1"
+			"additionalequipment"	"weapon_rpg"
+			"citizentype"	"3"
+		}
+	}
+	
+}
+
+"entities:more1" {
+	
+	"npc_citizen" {
+		"origin" "1807 -3152 1280"
+		"alwaysthink"
+		"relation"	"ch1"
+		"keyvalues" {
+			"targetname"	"friend1"
+			"additionalequipment"	"weapon_ak47"
+			"citizentype"	"3"
+		}
+	}
+	
+}
+
+
+"entities:propane" {
+
+	"event" {
+		"targetname"	"propanetank_prepare_to_blow"
+		"action"	"trigger"
+		"delaytime"		"1"
+	}
+	
+	"event" {
+		"targetname"	"propanetank"
+		"action"	"setdamagefilter"
+		"value"		"0"
+		"delaytime"		"2"
+	}
+
+}
+
+"entities" {
+
+	
+	"instant_trig" {
+		"keyvalues"{
+			"timer"	"3"
+			"label"	"propane"
+		}
+	}
+
+	"removeentity" {
+		"classname"	"npc_antlion_template_maker"
+		
+	}
+
+	"npc_citizen" {
+		"origin" "1807 -3152 1280"
+		"alwaysthink"
+		"keyvalues" {
+			"targetname"	"friend1"
+			"additionalequipment"	"weapon_grease"
+			"citizentype"	"3"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "1821 -3292 1190"
+		"keyvalues" {
+			"radius"	"30"
+			"label"	"friend"
+		}
+	}
+	
+
+	"instant_trig" {
+		"origin" "3639 -3627 1408"
+		"keyvalues" {
+			"radius"	"200"
+			"label"	"music"
+		}
+	}
+
+	"npc_combine_p" {
+		"origin" "3867.9 -2702.9 1408.0"
+		"angle" "0 201 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease"		
+			"squadname" "ground_soldier"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "1943 -2973 1500"
+		"keyvalues" {
+			"radius"	"150"
+			"label"	"backup"
+		}
+	}		
+}
+
+
+"entities:music" {
+	"player" {
+		"music" "song_hl1_22"
+	}
+}
+
+
+"entities:friend" {
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"formation" "5"
+			"maximumstate""3"
+			"startactive""1"
+			"actor""friend*"
+			"targetname""bfollow_goal"
+			"searchtype""0"
+		}
+	}	
+	
+	"npc_maker" {
+		"origin" "1712 -3152 1280"
+		"keyvalues" {
+			"targetname" "spawner1"
+			"maxnpccount" "0"
+			"spawnfrequency" "-1"
+			"maxlivechildren" "1"
+			"npctype" "npc_citizen"
+			"npctargetname"	"friend1"
+			"spawnflags" "32"
+			"additionalequipment" "weapon_rpg"
+		}
+	}
+
+	"npc_maker" {
+		"origin" "1211 -4043 1283"
+		"keyvalues" {
+			"targetname" "spawner2"
+			"maxnpccount" "0"
+			"spawnfrequency" "-1"
+			"maxlivechildren" "1"
+			"npctype" "npc_citizen"
+			"npctargetname"	"friend1"
+			"spawnflags" "32"
+			"additionalequipment" "weapon_custom12"
+		}
+	}
+}
+
+
+"entities:backup" {
+
+	"event" {
+		"targetname" "spawner*"
+		"action" "kill"
+	}
+	
+	//"ai_relationship" {
+	//	"origin" "-3670 -251 32"
+	//	"keyvalues" {
+	//		"targetname" "relate_legion"
+	//		"subject" "npc_citizen"
+	//		"target" "npc_combinegunship"
+	//		"disposition" "1"
+	//		"startactive" "1"
+	//		"rank" "1"
+	//	}
+	//}
+	
+	"ai_goal_follow" {
+		"keyvalues" {
+			"formation" "5"
+			"maximumstate" "3"
+			"startactive" "1"
+			"actor" "legion*"
+			"targetname" "bfollow_goal"
+			"searchtype" "0"
+		}
+	}
+	
+	"ai_goal_follow" {
+		"keyvalues" {
+			"formation" "1"
+			"maximumstate" "3"
+			"startactive" "1"
+			"actor" "kanon*"
+			"targetname" "bfollow_goal"
+			"searchtype" "0"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "3896 -2897 1408"
+		"longrange"
+		"alwaysthink"
+		"relation" "ch1"
+		"keyvalues" {
+			"targetname" "legion1"
+			"additionalequipment" "weapon_rpg"
+			"citizentype" "3"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "3310 -1979 1412"
+		"longrange"
+		"alwaysthink"
+		"relation" "ch1"
+		"keyvalues" {
+			"targetname" "legion2"
+			"spawnflags" "32"
+			"additionalequipment" "weapon_rpg"
+			"citizentype" "3"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived" "legion1"
+			"label" "respawn1"
+			"noclear "1"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived" "legion2"
+			"label" "respawn2"
+			"noclear" "1"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "2790 -2247 1664"
+		"keyvalues" {
+			"targetname" "dynamo1"
+			"maxnpccount" "0"
+			"spawnfrequency" "-1"
+			"maxlivechildren" "1"			
+			"npctype" "npc_combine_p"
+			"additionalequipment"	"weapon_ak47"			
+			"npctargetname"	"kanon1"
+			"spawnflags" "32"
+		}
+	}
+	
+	"npc_maker" {
+		"origin" "2792 -2335 1664"
+		"keyvalues" {
+			"targetname" "dynamo2"
+			"maxnpccount" "0"
+			"spawnfrequency" "-1"
+			"maxlivechildren" "1"
+			"npctype" "npc_combine_p"
+			"additionalequipment"	"weapon_ar2"			
+			"npctargetname"	"kanon2"
+			"spawnflags" "32"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived" "teller"
+			"label" "trim_c"
+		}
+	}	
+}
+
+"entities:trim_c" {
+
+	"event" {
+		"targetname" "dynamo1"
+		"action" "kill"
+	}
+
+	"event" {
+		"targetname" "dynamo2"
+		"action" "kill"
+	}
+}
+
+"entities:respawn1" {
+
+	"npc_citizen" {
+		"origin" "3896 -2897 1408"
+		"longrange"
+		"alwaysthink"
+		"relation" "ch1"
+		"keyvalues" {
+			"targetname" "legion1"
+			"additionalequipment" "weapon_rpg"
+			"citizentype" "3"
+		}
+	}
+}
+
+"entities:respawn2" {
+
+	"npc_citizen" {
+		"origin" "3310 -1979 1412"
+		"longrange"
+		"alwaysthink"
+		"relation" "ch1"
+		"keyvalues" {
+			"targetname" "legion2"
+			"spawnflags" "32"
+			"additionalequipment" "weapon_rpg"
+			"citizentype" "3"
+		}
+	}
+}

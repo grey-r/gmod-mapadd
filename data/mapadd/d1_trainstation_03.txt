@@ -1,0 +1,273 @@
+//	map arrange data
+//	location: d1_trainstation_03
+
+"precache" {
+	"entity" "npc_citizen"
+	"entity" "npc_metropolice"
+	"entity" "npc_cscanner"
+	"entity" "npc_helicopter"
+	"entity" "weapon_grease"
+	"entity" "weapon_smg1"
+	"model"	"models/props_wasteland/barricade001a.mdl"
+	"model"	"models/props_wasteland/barricade001a_chunk01.mdl"
+	"model"	"models/props_wasteland/barricade001a_chunk02.mdl"
+	"model"	"models/props_wasteland/barricade001a_chunk03.mdl"
+	"model"	"models/props_wasteland/barricade001a_chunk04.mdl"
+	"model"	"models/props_wasteland/barricade001a_chunk05.mdl"
+}
+
+"entities"
+{
+	"npc_citizen"
+	{
+		"origin" "-5104 -4691 192"
+		"angle" "0 90 0"
+	}
+	
+//	"npc_barnacle"
+//	{
+//		"origin" "-5043 -4642 504"
+//	}
+
+	"instant_trig" {
+		"origin" "-4983 -4801 28"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_outbreak"
+			"radius" "65"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-5106 -4534 188"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "beta"
+			"radius" "110"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3905 -4613 284"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "blocking_fix"
+			"radius" "135"
+		}
+	}
+	
+	"ai_relationship" {
+		"origin" "-3933 -4612 320"
+		"keyvalues" {
+			"targetname" "oihadfkjnv"
+			"subject" "npc_breakincop3"
+			"target" "!player"
+			"disposition" "4"
+			"startactive" "0"
+			"rank" "99"
+		}
+	}
+
+}
+
+"entities:alpha_outbreak" {
+	
+	"prop_physics_override" {
+		"origin" "-5246.0 -5359.6 0.1"  "angle" "0 -173 0"
+		"freeze"
+		"keyvalues" {
+			"model" "models/combine_apc.mdl"
+			"targetname" "alpha_junk"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-5208.8 -5190.3 0.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_killme"
+			"additionalequipment" "weapon_pistol"
+		}
+	}
+		
+	"npc_metropolice" {
+		"origin" "-5171.5 -5354.5 -4.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "alpha_killme"
+			"additionalequipment" "weapon_grease"
+		}
+	}
+		
+	"npc_metropolice" {
+		"origin" "-5208.1 -5518.1 0.0"  "angle" "0 2 0"
+		"keyvalues" {
+			"targetname" "alpha_killme"
+			"additionalequipment" "weapon_grease"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-4894.7 -5043.2 0.0" "angle" "0 265 0"
+		"keyvalues" {
+			"targetname" "alpha_killme"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5135.0 -5170.3 15.5"  "angle" "0 -90 0"
+		"keyvalues" {
+			"model" "models\props_wasteland\barricade001a.mdl"
+			"targetname" "alpha_junk"
+		}
+	}
+		
+	"prop_physics" {
+		"origin" "-5107.4 -5259.9 13.4"  "angle" "0 -78 8"
+		"keyvalues" {
+			"model" "models\props_wasteland\barricade001a.mdl"
+			"targetname" "alpha_junk"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5092.5 -5350.0 11.5"  "angle" "0 -88 360"
+		"keyvalues" {
+			"model" "models\props_wasteland\barricade001a.mdl"
+			"targetname" "alpha_junk"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5111.8 -5441.9 11.5"  "angle" "0 78 0"
+		"keyvalues" {
+		"model" "models\props_wasteland\barricade001a.mdl"
+		"targetname" "alpha_junk"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-5128.7 -5535.9 15.5"  "angle" "0 -108 0"
+		"keyvalues" {
+		"model" "models\props_wasteland\barricade001a.mdl"
+		"targetname" "alpha_junk"
+		}
+	}
+}
+
+"entities:beta" {
+
+	"npc_metropolice" {
+		"origin" "-5127.3 -4683.0 0.0"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "beta_blocker"
+			"additionalequipment" "weapon_stunstick"
+			"target" "beta_roomba"
+		}
+	}
+	
+	"path_corner" {
+		"origin" "-4988.7 -4721.2 4.5"  "angle" "0 90 0"
+		"keyvalues" {
+			"targetname" "beta_roomba"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3618 -4584 320"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "charlie"
+			"radius" "100"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-4626 -4770 284"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "beta_flyer"
+			"radius" "75"
+		}
+	}
+}
+
+"entities:beta_flyer" {
+
+	"npc_cscanner" {
+		"origin" "-3973.1 -5310.3 294.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"targetname" "beta_scannerly"
+			"target" "beta_flyto1"
+			"spawnflags" "16"
+		}
+	}
+	
+	"path_corner" {
+		"origin" "-5621 -5139 294.0"  "angle" "0 179 0" // fixed.
+		"keyvalues" {
+			"targetname" "beta_flyto1"
+			"OnPass" "beta_scannerly,Kill,,0,1"
+		}
+	}
+}
+
+"entities:blocking_fix" {
+
+	"event" {
+		"targetname" "oihadfkjnv"
+		"action" "ApplyRelationship"
+		"delaytime" "0.1"
+	}
+}
+
+"entities:charlie" {
+	
+	"instant_trig" {
+		"origin" "-3771 -4611 412"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "charlie_fodder"
+			"radius" "100"
+		}
+	}
+}
+
+"entities:charlie_fodder" {
+
+	"npc_citizen" {
+		"origin" "-4117.8 -4337.4 384.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "charlie_cit"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-3903.4 -4116.8 384.0"  "angle" "0 179 0"
+		"keyvalues" {
+			"targetname" "charlie_cit"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-4465.4 -4134.1 384.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "charlie_cit"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-4984 -4766 540"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "cleanup"
+			"radius" "100"
+		}
+	}
+}
+
+"entities:cleanup" {
+
+	"event" {
+		"targetname" "charlie_*"
+		"action" "Kill"
+	}
+}

@@ -1,0 +1,805 @@
+//	map arrange data
+//	location: d1_canals_08
+//FIXES: Precache. NPC's spawning underwater.
+"precache"{
+	"entity"	"npc_metropolice"
+	"entity"	"npc_citizen"
+	"entity"	"npc_combine_s"
+	"entity"	"weapon_kar98"
+	"entity"	"weapon_custom16"	
+	"entity"	"weapon_svd"
+	"entity"	"weapon_alyxgun"				
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "-811 -1033 -587"
+		"radius" "200"
+	}
+	
+	"removenodes" {
+		"origin" "9952 -7774 -220"
+		"radius" "1000"
+	}
+
+	"removenodes" {
+		"origin" "563 -347 -704"
+		"radius" "750"
+	}	
+
+	"removenodes" {
+		"origin" "-7210 2597 -443"
+		"radius" "1000"
+	}
+	
+	"removenodes" {
+		"origin" "484.4 -2934.5 -591.5"
+		"radius" "1500"
+	}
+
+	"npc_metropolice" {
+		"count"		"6"
+		"weapon"	"weapon_pistol"
+		"values" 	"squadname cp"
+		"patrol"
+	}
+
+	"npc_metropolice" {
+		"count"		"2"
+		"weapon"	"weapon_smg1"
+		"values" 	"squadname mp"		
+	}
+
+	"npc_combine_s" {
+		"count"		"2"
+		"weapon"	"weapon_smg1"
+		"values" 	"squadname cmbsol"		
+		"grenade"	"5"
+	}
+
+	"npc_citizen" {
+		"count"		"5"
+		"weapon"	"weapon_smg1"
+	}
+
+}
+
+"entities" {
+
+//	"npc_sniper" {
+//		"origin" "1254 -5626 244" "angle" "0 118 0"
+//	}
+	"npc_combine_s"
+	{
+		"origin" "1254 -5626 244" "angle" "0 118 0"
+		"longrange"
+		"keyvalues"
+		{
+			"targetname"		"e1"
+			"additionalequipment"	"weapon_svd"
+		}
+	}
+
+	"prop_vehicle_airboat" {
+		"origin" "10492 -7287 -243" "angle" "0 91 0"
+		"keyvalues"
+		{
+			"solid"	"6"
+			"model"	"models/airboat.mdl"
+			"targetname"	"global_newgame_spawner_airboat"
+			"vehiclescript" "scripts/vehicles/airboat.txt" 
+		}
+	
+	}
+
+	"npc_combine_s"
+	{
+		"origin" "9896 -7519 -64" "angle" "0 -88 0"
+		"keyvalues"
+		{
+			"targetname"		"e2"
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_soldier"				
+		}
+	}
+
+
+	"npc_combine_s"
+	{
+		"origin" "10324 -7671 64" "angle" "0 -90 0"
+		"keyvalues"
+		{
+			"targetname"		"e3"
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_soldier"				
+		}
+	}
+	"npc_combine_s"
+	{
+		"origin" "9568 -7374 -418" "angle" "0 -57 0"
+		"keyvalues"
+		{
+			"targetname"		"e4"
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_soldier"				
+		}
+	}
+	"npc_metropolice"
+	{
+		"origin" "10429 -7336 -300"	"angle" "0 -91 0"
+		"keyvalues"
+		{
+			"targetname"		"e5"
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_soldier"				
+		}
+	}
+	
+	"npc_combine_s"
+	{
+		"origin" "-576 -1730 384"	"angle" "0 -38 0"
+		"keyvalues"
+		{
+			"targetname"		"e7"
+			"additionalequipment"	"weapon_custom16"
+		}
+	}
+	
+	"npc_combine_s"
+	{
+		"origin" "1831 -881 -504" "angle" "12 -174 0"
+		"keyvalues"
+		{
+			"targetname"		"e8"
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_soldier"				
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-564 -55 -576"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"music1"
+			
+		}
+	}
+	
+	
+"setmsbomb" {
+	"origin" "-2431.0 -2582.5 -186.5"  "angle" "0 0 0"
+	"keyvalues" {
+	"model" "models/weapons/w_msbomb.mdl"
+	}
+}
+
+"setmsbomb" {
+	"origin" "-1671.2 -3100.7 -335.2"  "angle" "0 175 0"
+	"keyvalues" {
+	"model" "models/weapons/w_msbomb.mdl"
+	}
+}
+
+"setmsbomb" {
+	"origin" "-1970.6 -1245.0 -344.8"  "angle" "0 86 0"
+	"keyvalues" {
+	"model" "models/weapons/w_msbomb.mdl"
+	}
+}
+
+	"path_corner" {
+		"origin" "-6277 -4126 -499"
+		"keyvalues" {
+			"targetname" "t1"
+		}
+	}
+
+	"event" {
+		"targetname"		"e*"
+		"action"		"startpatrolling"
+		"value"			"1"
+	}
+	
+	"event" {
+		"targetname"		"e6"
+		"action"		"crouch"
+		"value"			"1"
+	}
+
+
+
+"prop_physics" {
+	"origin" "-7352.3 2510.6 -486.6"  "angle" "-0 110 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_interiors\Furniture_chair01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7448.9 2524.2 -486.6"  "angle" "0 16 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_interiors\Furniture_chair01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7411.5 2566.0 -486.6"  "angle" "-0 -55 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_interiors\Furniture_chair01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7386.6 2532.9 -461.7"  "angle" "0 67 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_lab\desklamp01.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7386.0 2540.0 -489.6"  "angle" "0 -7 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureTable001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7370.1 2637.0 -484.3"  "angle" "-33 -16 90"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7378.6 2653.4 -497.0"  "angle" "-0 176 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureTable003a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7438.0 2693.3 -486.0"  "angle" "-0 -2 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_interiors\Furniture_Couch02a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7439.4 2647.3 -486.1"  "angle" "0 -5 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_interiors\Furniture_Couch02a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7285.2 2644.4 -492.2"  "angle" "-0 -153 90"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\consolebox01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7274.5 2627.2 -459.3"  "angle" "-0 -170 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\tv_monitor01.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7272.5 2605.8 -463.9"  "angle" "-1 -107 359"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7262.0 2613.9 -465.6"  "angle" "90 100 71"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\PopCan01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7275.5 2623.0 -487.6"  "angle" "0 -153 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureDrawer001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7115.4 2582.5 -489.3"  "angle" "-0 176 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureBed001a.mdl"
+	}
+}
+"prop_ragdoll" {
+	"origin" "-7111.2 2626.3 -491.6"  "angle" "0 0 0"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureMattress001a.mdl"
+	}
+}
+"prop_ragdoll" {
+	"origin" "-7099.0 2564.2 -477.5"  "angle" "0 0 0"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureMattress001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7112.4 2627.9 -489.4"  "angle" "-0 -179 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureBed001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7100.7 2724.3 -470.7"  "angle" "-0 -1 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureBathtub001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6912.7 2722.2 -368.7"  "angle" "57 -176 90"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_debris\wood_board07a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6918.5 2764.0 -443.5"  "angle" "0 -98 180"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_debris\wood_board07a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6942.4 2749.4 -485.6"  "angle" "-0 -136 -0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\FurnitureWashingmachine001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7040.1 2769.9 -472.0"  "angle" "-0 -91 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\Lockers001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7047.8 2780.1 -483.1"  "angle" "0 89 270"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_debris\wood_board06a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7050.1 2780.1 -499.5"  "angle" "-0 -91 90"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_debris\wood_board06a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7111.9 2714.7 -483.5"  "angle" "90 -68 109"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_debris\wood_board06a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7110.5 2731.3 -483.5"  "angle" "-90 -78 80"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_debris\wood_board06a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7158.6 2721.5 -500.1"  "angle" "0 -169 180"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\PlasticCrate01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7138.9 2735.7 -496.2"  "angle" "-0 -9 180"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\CinderBlock01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7139.0 2710.3 -496.3"  "angle" "-0 -83 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\CinderBlock01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7112.2 2719.0 -496.4"  "angle" "0 -22 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\CinderBlock01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7080.9 2735.0 -496.3"  "angle" "-0 -79 179"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\CinderBlock01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7085.1 2711.3 -496.3"  "angle" "-1 -61 359"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\CinderBlock01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6942.0 2669.8 -499.1"  "angle" "-2 -80 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\MetalBucket02a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6973.4 2664.8 -491.8"  "angle" "0 -82 46"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\MetalBucket02a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6937.9 2587.8 -500.1"  "angle" "-0 114 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\PlasticCrate01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6940.7 2586.2 -499.0"  "angle" "69 -63 147"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\watermelon01.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6949.4 2498.5 -466.6"  "angle" "-89 -60 262"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\cardboard_box001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6956.4 2527.5 -483.1"  "angle" "-0 -170 359"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_lab\monitor02.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6934.4 2486.6 -495.5"  "angle" "-0 7 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\cardboard_box001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6972.9 2480.7 -495.5"  "angle" "-0 13 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\cardboard_box001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6956.7 2524.0 -495.5"  "angle" "-0 -173 180"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_junk\cardboard_box001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6971.9 2529.1 -483.5"  "angle" "-15 178 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\computer01_keyboard.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6955.1 2553.2 -497.7"  "angle" "-0 -174 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_lab\harddrive02.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-7026.0 2484.7 -472.3"  "angle" "0 102 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_lab\reciever_cart.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6923.9 2615.4 -464.0"  "angle" "-0 -10 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_interiors\pot02a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6930.7 2642.5 -462.1"  "angle" "0 -148 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_interiors\pot01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6929.8 2628.3 -487.5"  "angle" "0 -180 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\furnitureStove001a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6917.2 2597.5 -478.3"  "angle" "-0 136 360"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\canister01a.mdl"
+	}
+}
+"prop_physics" {
+	"origin" "-6916.1 2587.7 -478.2"  "angle" "0 -18 0"
+	"freeze"
+	"keyvalues" {
+	"model" "models\props_c17\canister01a.mdl"
+	}
+}
+
+	"weapon_alyxgun" {
+		"origin" "-7375.7 2656.5 -484.2"  "angle" "-12 -96 285"
+	}
+
+"npc_citizen" {
+	"origin" "-7424.0 2539.3 -507.9"  "angle" "0 138 0"
+	"keyvalues" {
+	"model" "models/Humans/Group02/male_03.mdl"
+	}
+}
+"npc_citizen" {
+	"origin" "-7344.5 2715.9 -507.9"  "angle" "0 171 0"
+	"keyvalues" {
+	"model" "models/Humans/Group02/male_04.mdl"
+	}
+}
+
+
+	"item_item_crate"
+	{
+		"origin"	"-2554.97 -3258.08 -319.97"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"weapon_anm14"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"item_item_crate"
+	{
+		"origin"	"-2092.02 -1612.22 -317.97"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_357"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+
+	"weapon_kar98" {
+		"origin" "-1601.7 -712.3 -243.9"
+	}	
+
+	"instant_trig" {
+		"origin" "9666 -10667 -383"
+		"angle"		"0 0 0"
+		"keyvalues" {
+			"label" "combine"
+			"radius"	"1500"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-6240 -109 -555"
+		"angle"		"0 0 0"
+		"keyvalues" {
+			"label" "alpha"
+			"radius"	"400"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "4133 -4255 -362"
+		"angle"		"0 0 0"
+		"keyvalues" {
+			"label" "combine2"
+			"radius"	"1500"
+		}
+	}
+	"instant_trig" {
+		"origin" "-458 -72 -511"
+		"angle"		"0 0 0"
+		"keyvalues" {
+			"label" "combine3"
+			"radius"	"1500"
+		}
+	}
+	"instant_trig" {
+		"origin" "-2256 -2857 -319"
+		"angle"		"0 0 0"
+		"keyvalues" {
+			"label" "combine4"
+			"radius"	"1500"
+		}
+	}	
+}
+
+
+"entities:music1" {
+	"player" {
+		"music"	"song_hl1_2"
+	}
+}
+
+
+
+"entities:combine" {
+	"npc_combine_s" {
+		"origin" "9814.4 -7555.0 -63.9"  "angle" "0 262 0"
+		// bridge
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine2"			
+		}		
+	}
+	
+	"npc_combine_s" {
+		"origin" "10009.9 -7560.6 -64.0"  "angle" "0 262 0"
+		// bridge
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"squadname" "universal_combine2"			
+		}		
+	}
+	
+	"npc_combine_s" {
+		"origin" "10157 -7326 -120"  "angle" "0 262 0"
+		"keyvalues" {
+			"targetname" "alpha_pressure4"
+			"waitingtorappel" "1"
+			"spawnflags" "33685508"
+			"squadname" "universal_combine2"			
+			"additionalequipment"	"weapon_custom16"			
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "10500.8 -7302.4 -291.4"  "angle" "0 -90 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"	
+			"squadname" "universal_combine2"			
+		}		
+	}
+	"npc_combine_s" {
+		"origin" "9685.0 -7651.0 -442.3"  "angle" "0 262 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"	
+			"squadname" "universal_combine2"			
+		}		
+	}
+	
+	"npc_combine_s" {
+		"origin" "9606 -7323 -120"  "angle" "0 262 0"
+		"keyvalues" {
+			"targetname" "alpha_pressure2"
+			"waitingtorappel" "1"
+			"spawnflags" "33685508"
+			"squadname" "universal_combine2"			
+			"additionalequipment"	"weapon_custom16"						
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "9793 -9065 -384"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "alpha_rapa"
+			"radius" "345"
+		}
+	}
+}
+
+"entities:alpha_rapa" {
+
+	"event" {
+		"targetname" "alpha_pressure*"
+		"action" "BeginRappel"
+		"value" "0.5"
+	}
+}
+
+"entities:combine2" {
+	"npc_combine_s" {
+		"origin" "-22.5 -3117.5 -448.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine3"			
+		}		
+	}
+	"npc_combine_s" {
+		"origin" "-18.5 -2415.7 -512.0"  "angle" "0 0 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine3"			
+		}		
+	}
+	"npc_combine_s" {
+		"origin" "301.3 130.3 -446.4"  "angle" "0 265 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine3"			
+		}		
+	}
+	// Removed combine near dock.
+}
+"entities:combine3" {
+	"npc_combine_s" {
+		"origin" "-116.3 -1743.6 -384.0"  "angle" "0 147 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine4"			
+		}		
+	}
+	"npc_combine_s" {
+		"origin" "-251.6 -2114.6 -384.0"  "angle" "0 92 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"
+			"squadname" "universal_combine4"			
+		}		
+	}
+	"npc_combine_s" {
+		"origin" "-1262.1 -1574.4 -384.0"  "angle" "0 84 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_custom16"	
+			"squadname" "universal_combine4"			
+		}		
+	}
+	"npc_combine_s" {
+		"origin" "-1548.8 -1745.4 -251.9"  "angle" "0 84 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine4"			
+		}		
+	}
+	"npc_combine_s" {
+		"origin" "-144.4 -2731.5 -384.0"  "angle" "0 158 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine4"			
+		}		
+	}
+}
+
+"entities:combine4" {
+	"npc_combine_s" {
+		"origin" "-1192.7 -3478.9 -384.0"  "angle" "0 80 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"	
+			"squadname" "universal_combine5"			
+		}		
+	}
+}

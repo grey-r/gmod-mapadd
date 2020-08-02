@@ -1,0 +1,41 @@
+"entities" {
+
+	"removeentity" {
+		"targetname" "song3"
+	}	
+
+	"removeentity" {
+		"targetname" "hl1_song25"
+	}
+	
+	"point_servercommand" {
+		"origin" "73 675 1024"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"targetname" "game_s_cmd"
+		}
+	}
+
+	"event" {
+			"targetname" "logic_ending_credits"
+			"action" "addoutput"	
+			"value" "OnTrigger game_s_cmd,command,instant_trig_run newcredits,0.1,1"
+		}	
+		
+}
+
+//Valve coded the credits to lock all chapters past the HL2 default. below is a workaround.
+"entities:newcredits" {
+
+    "event" {
+        "targetname" "game_s_cmd"
+        "action"    "Command"
+        "value"        "sv_unlockedchapters 64"
+    }
+
+	"player" {
+		"music"	"credits"
+	}
+	
+}
+	

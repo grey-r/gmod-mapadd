@@ -1,0 +1,213 @@
+"precache" {
+	"entity"	"npc_f_combine"
+	"entity"	"npc_fastzombie"
+	"entity"	"npc_poisonzombie"	
+	"entity"	"npc_zombie2"	
+	"entity"	"weapon_grease"	
+	"entity" 	"weapon_custom7"		
+	"entity"	"weapon_flaregun"		
+}
+
+
+"entities" {
+
+	lua {
+		"callfunc"	"Init"
+	}
+
+
+	"npc_f_combine" {
+		"origin" "-465 837 -3280"
+		"angle" "0 -134 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_grease" 
+		}
+	}
+
+		
+	"aiscripted_schedule" {
+		"keyvalues" {
+			"spawnflags" "4"
+			"goalent" "!player"
+			"m_iszEntity" "zb*"
+			"schedule" "3"
+			"forcestate" "3"
+			"m_flRadius" "0"
+			"targetname" "zombie_sched"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-27 1263 -3471"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"spawnfastzombie"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "168 -84 -3237"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie"
+			"radius" "200"
+		}
+	}
+	"instant_trig" {
+		"origin" "45 -330 -3199"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie1"
+			"radius" "150"
+		}
+	}
+	"instant_trig" {
+		"origin" "-187 -91 -3269"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie2"
+			"radius" "150"
+		}
+	}
+	"instant_trig" {
+		"origin" "-310 877 -3215"
+		"angle" "0 0 0"
+		"keyvalues" {
+			"label" "zombie3"
+			"radius" "250"
+		}
+	}	
+	
+}
+
+
+"entities:spawnfastzombie" {
+
+	"npc_fastzombie" {
+		"origin" "-695 480 -3545" "angle" "0 0 0"
+		"alwaysthink"
+		"keyvalues" {
+			"targetname"	"zb1"
+			"HeadCrabLess"	"1"
+			"runspeedmod"	"1.5"
+			"spawnflags" "3584"
+			"squadname"	"zbg"
+		}
+	}
+
+	"npc_fastzombie" {
+		"origin" "-518 821 -2940" "angle" "22 3 0"
+		"alwaysthink"
+		"patrol"
+		"keyvalues" {
+			"targetname"	"zb2"
+			"HeadCrabLess"	"1"
+			"runspeedmod"	"1.5"
+			"spawnflags" "3584"
+			"squadname"	"zbg"
+		}
+	}
+
+	"npc_fastzombie" {
+		"origin" "32 -568 -3264" "angle" "8 -179 0"
+		"alwaysthink"
+		"patrol"
+		"keyvalues" {
+			"targetname"	"zb3"
+			"HeadCrabLess"	"1"
+			"runspeedmod"	"1.5"
+			"spawnflags" "3584"
+			"squadname"	"zbg"
+		}
+	}
+
+	"event" {
+		"targetname"	"zombie_sched"
+		"action"	"StartSchedule"
+	}
+}
+
+"entities:zombie" {
+	"npc_zombie" {
+		"origin" "-97.3 -203.5 -3262.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-66.0 -140.0 -3262.0"  "angle" "0 199 0"
+	}
+	"npc_zombie" {
+		"origin" "-22.6 -92.0 -3262.0"  "angle" "0 12 0"
+	}
+	"npc_zombie" {
+		"origin" "-36.6 -33.0 -3261.0"  "angle" "0 12 0"
+	}
+	"npc_zombie" {
+		"origin" "-316.7 35.7 -3584.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-405.4 45.7 -3584.0"  "angle" "0 0 0"
+	}
+	"npc_poisonzombie" {
+		"origin" "-398.6 103.0 -3584.0"  "angle" "0 44 0"
+	}
+}
+"entities:zombie1" {
+	"npc_zombie" {
+		"origin" "-15.2 1130.7 -3628.3"  "angle" "0 262 0"
+	}
+	"npc_zombie" {
+		"origin" "-129.2 1101.6 -3622.5"  "angle" "0 262 0"
+	}
+	"npc_zombie" {
+		"origin" "-68.9 1139.3 -3630.0"  "angle" "0 259 0"
+	}
+	"npc_zombie" {
+		"origin" "-154.7 1174.6 -3637.1"  "angle" "0 273 0"
+	}
+	"npc_zombie" {
+		"origin" "-61.3 1257.5 -3648.0"  "angle" "0 262 0"
+	}
+	"npc_zombie" {
+		"origin" "-106.5 1343.2 -3648.0"  "angle" "0 274 0"
+	}
+	"npc_zombie" {
+		"origin" "-140.7 1389.3 -3648.0"  "angle" "0 282 0"
+	}
+	"npc_zombie" {
+		"origin" "-71.3 1419.5 -3648.0"  "angle" "0 265 0"
+	}
+	"npc_fastzombie" {
+		"origin" "-292.3 748.4 -2987.0"  "angle" "0 -90 0"
+	}
+	"npc_fastzombie" {
+		"origin" "-380.0 694.4 -3023.0"  "angle" "0 -90 0"
+	}
+	"npc_fastzombie" {
+		"origin" "-481.8 746.4 -2988.3"  "angle" "0 -90 0"
+	}
+}
+"entities:zombie3" {
+	"npc_zombie" {
+		"origin" "-517.3 681.6 -3280.0"  "angle" "0 0 0"
+	}
+	"npc_poisonzombie" {
+		"origin" "-487.5 718.0 -3280.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-507.2 759.6 -3280.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-597.9 758.4 -3280.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-592.1 692.7 -3280.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-762.0 845.6 -3280.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-780.6 764.7 -3280.0"  "angle" "0 0 0"
+	}
+	"npc_zombie" {
+		"origin" "-799.8 705.6 -3280.0"  "angle" "0 0 0"
+	}
+}
