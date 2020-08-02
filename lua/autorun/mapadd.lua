@@ -71,6 +71,15 @@ MapAdd.Env = {
             else
                 return Entity(1)
             end
+        end,
+        ["ShowHUDMessage"] = function(msg)
+            PrintMessage(HUD_PRINTCENTER,msg)   
+        end,
+        ["ShowInfoMessage"] = function(msg)
+            PrintMessage(HUD_PRINTTALK,msg)   
+        end,
+        ["TimeStr"] = function(seconds)
+            return math.floor(seconds/60) .. ":" .. tostring(seconds%60)
         end
     }
 }
