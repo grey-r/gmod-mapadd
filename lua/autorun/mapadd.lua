@@ -80,6 +80,138 @@ MapAdd.Env = {
         end,
         ["TimeStr"] = function(seconds)
             return math.floor(seconds/60) .. ":" .. tostring(seconds%60)
+        end,
+        ["GetEntInfo"] = function(e)
+            local info = {}
+            info.Health = e:Health()
+            info.Classname = e:GetClass()
+            info.ModelName = e:GetModel()
+            info.IsAlive = (e.Alive and e:Alive()) or (e.Health and e:Health() > 0)
+            info.IsNpc = e:IsNPC()
+            info.IsPlayer = e:IsPlayer()
+            info.Owner = e:GetOwner()
+            info.Name = e:GetName()
+        end,
+        ["GetAbsOrigin"] = function(e) return e:GetPos() end,
+        ["GetAbsAngles"] = function(e) return e:GetAngles() end,
+        ["GetAbsVelocity"] = function(e) return e:GetVelocity() end,
+        ["SetAbsOrigin"] = function(e,v) e:SetPos(v) end,
+        ["SetAbsAngles"] = function(e,v) e:SetAngles(Angle(v.x,v.y,v.z)) end,
+        ["SetAbsVelocity"] = function(e,v) e:SetVelocity(v) end,
+        ["EyePosition"] = function(e) return e:EyePos() end,
+        ["EyeAngles"] = function(e) return Vector( e:EyeAngles().p, e:EyeAngles().y, e:EyeAngles().r) end,
+        ["KeyValue"] = function(e,k,v) e:SetKeyValue(k,v) end,
+        ["SetEntityParent"] = function(e,par,at) e:SetParent(par,at) end,
+        ["SetEntityOwner"] = function(e,own) e:SetOwner(own) end,
+        ["SetEntityMoveType"] = function(e,mt)
+            local MOVETYPES = {
+                ["none"] = MOVETYPE_NONE,
+                ["isometric"] = MOVETYPE_ISOMETRIC,
+                ["walk"] = MOVETYPE_WALK,
+                ["ground"] = MOVETYPE_WALK,
+                ["step"] = MOVETYPE_STEP,
+                ["fly"] = MOVETYPE_FLY,
+                ["flygravity"] = MOVETYPE_FLYGRAVITY,
+                ["physics"] = MOVETYPE_VPHYSICS,
+                ["vphysics"] = MOVETYPE_VPHYSICS,
+                ["push"] = MOVETYPE_PUSH,
+                ["noclip"] = MOVETYPE_NOCLIP,
+                ["ladder"] = MOVETYPE_LADDER,
+                ["observer"] = MOVETYPE_OBSERVER,
+                ["custom"] = MOVETYPE_CUSTOM
+            }
+            e:SetMoveType(MOVETYPES[mt] or MOVETYPES["ground"])
+        end,,
+        ["SetEntityRelationship"] = function(a,b,disposition,priority)
+            local aList, bList
+
+            if IsEntity( a ) then
+                aList = { [1]=a }
+            elseif isstring(a) then
+                aList = {}
+                table.Merge(aList, ents.FindByClass(a))
+                table.Merge(aList, ents.FindByName(a))
+            else
+                aList = {}
+            end
+
+            if IsEntity( b ) then
+                bList = { [1]=b }
+            elseif isstring(a) then
+                bList = {}
+                table.Merge(bList, ents.FindByClass(b))
+                table.Merge(bList, ents.FindByName(b))
+            else
+                bList = {}
+            end
+
+            for _,v in pairs(aList) do
+                for _,b in pairs(bList) do
+                    v:AddEntityRelationship( b, disposition, priority )
+                end
+            end
+        end,
+        ["SetEntityPhysVelocity"] = function(ent,v)
+            local phys = ent:GetPhysicsObject()
+            if IsValid(phys) then
+                phys:SetVelocity(v)
+            end
+        end,
+        ["SetEntityPhysVelocity"] = function(ent,v)
+            local phys = ent:GetPhysicsObject()
+            if IsValid(phys) then
+                phys:SetVelocity(v)
+            end
+        end,
+        ["SetEntityPhysFreeze"] = function(ent) --unknown how second param works
+            local phys = ent:GetPhysicsObject()
+            if IsValid(phys) then
+                phys:EnableMotion(false)
+            end
+        end,
+        ["SetModel"] = function(ent,model)
+            ent:SetModel(model)
+        end,
+        ["CreateEntity"] = function(classname, origin, angle )
+            local e = ents.Create(classname)
+            if e:IsValid() then
+                e:SetPos(origin)
+                e:SetAngles( Angle(angle.x,angle.y,angle.z))
+            end
+        end,
+        ["SpawnEntity"] = function(ent)
+            if IsValid(ent) then ent:Spawn() end
+        end,
+        ["FindEntityByName"] = function(ent,targetname)
+            local entsTbl = ents.FindByName(targetname)
+            local canReturn = false
+            if ent==nil then
+                canReturn = true
+            end
+            for _,v in pairs(entsTbl) do
+                if canReturn then
+                    return v
+                elseif v == ent then
+                    canReturn = true
+                end
+            end
+        end,
+        ["FindEntityByClassname"] = function(ent,classname)
+            local entsTbl = ents.FindByClass(classname)
+            local canReturn = false
+            if ent==nil then
+                canReturn = true
+            end
+            for _,v in pairs(entsTbl) do
+                if canReturn then
+                    return v
+                elseif v == ent then
+                    canReturn = true
+                end
+            end
+        end,
+        ["RemoveEntity"] = function(ent)
+            SafeRemoveEntity(ent)
         end
     }
 }
@@ -302,7 +434,7 @@ function MapAdd.Load()
     end
 end
 
-hook.add("Initialize","MapAdd",function()
+hook.add("InitPostEntity","MapAdd",function()
     MapAdd.Load()
 end)
 
@@ -314,4 +446,7 @@ hook.Add("Tick","MapAdd",function()
     MapAdd.ProcessTriggers()
 end)
 
-MapAdd.Load()
+if MapAdd.Hotload then
+    MapAdd.Load()
+end
+MapAdd.Hotload = true
