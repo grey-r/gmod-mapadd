@@ -114,7 +114,11 @@ MapAdd.Env = {
         ["SetEntityAbsVelocity"] = function(e,v) e:SetVelocity(v) end,
         ["EyePosition"] = function(e) return e:EyePos() end,
         ["EyeAngles"] = function(e) return Vector( e:EyeAngles().p, e:EyeAngles().y, e:EyeAngles().r) end,
-        ["KeyValue"] = function(e,k,v) e:SetKeyValue(k,v) end,
+        ["KeyValue"] = function(e,k,v)
+            if IsValid(e) then
+                e:SetKeyValue(k,v)
+            end
+        end,
         ["SetEntityParent"] = function(e,par,at) e:SetParent(par,at) end,
         ["SetEntityOwner"] = function(e,own) e:SetOwner(own) end,
         ["SetEntityMoveType"] = function(e,mt)
@@ -161,9 +165,20 @@ MapAdd.Env = {
 
             for _,v in pairs(aList) do
                 for _,b in pairs(bList) do
-                    v:AddEntityRelationship( b, disposition, priority )
+                    if v.AddEntityRelationship then
+                        v:AddEntityRelationship( b, disposition, priority )
+                    end
                 end
             end
+        end,
+        ["SetEntityRelationship2"] = function(a,b,disposition,priority,...)
+            return MapAdd.Env.HL2.SetEntityRelationship(a,b,disposition,priority,...)
+        end,
+        ["SetEntityRelationshipName"] = function(a,b,disposition,priority,...)
+            return MapAdd.Env.HL2.SetEntityRelationship(a,b,disposition,priority,...)
+        end,
+        ["SetEntityRelationshipName2"] = function(a,b,disposition,priority,...)
+            return MapAdd.Env.HL2.SetEntityRelationship(a,b,disposition,priority,...)
         end,
         ["SetEntityPhysVelocity"] = function(ent,v)
             local phys = ent:GetPhysicsObject()
@@ -192,6 +207,7 @@ MapAdd.Env = {
                 e:SetPos(origin)
                 e:SetAngles( Angle(angle.x,angle.y,angle.z))
             end
+            return e
         end,
         ["SpawnEntity"] = function(ent)
             if IsValid(ent) then ent:Spawn() end
@@ -412,6 +428,16 @@ function MapAdd.Precache(t)
     end
 end
 
+if SERVER then
+    util.AddNetworkString("MapAddMusic")
+else
+    net.Receive("MapAddMusic",function()
+        local val = net.ReadString() or ""
+        local f = sound.GetProperties( val )
+        surface.PlaySound( (f or {}).sound or "" )
+    end)
+end
+
 MapAdd.EntityFunctions = {
     ["instant_trig"] = function(_,t)
         local result = {}
@@ -469,13 +495,9 @@ MapAdd.EntityFunctions = {
     ["player"] = function( class, tb )
         for _,pair in pairs(tb) do
             if pair.Key == "music" then
-                sound.PlayFile( "sound/music/" .. pair.Value .. ".mp3", "noplay", function( station, errCode, errStr )
-                    if ( IsValid( station ) ) then
-                        station:Play()
-                    else
-                        print( "Error playing sound!", errCode, errStr )
-                    end
-                end )
+                net.Start("MapAddMusic")
+                net.WriteString(pair.Value)
+                net.Broadcast()
             elseif pair.Key == "origin" then
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
@@ -664,7 +686,7 @@ MapAdd.EntityFunctions = {
                     if innerpair.Key == "spawnflags" then
                         spawnflags = bit.bor(spawnflags,innerpair.Value)
                     else
-                        result[innerpair["Key"]] = innerpair.Value
+                        keyvalues[innerpair["Key"]] = innerpair.Value
                     end
                 end
             end
@@ -772,7 +794,7 @@ MapAdd.RandomSpawnFunctions = {
                     if innerpair.Key == "spawnflags" then
                         spawnflags = bit.bor(spawnflags,innerpair.Value)
                     else
-                        result[innerpair["Key"]] = innerpair.Value
+                        keyvalues[innerpair["Key"]] = innerpair.Value
                     end
                 end
             end
