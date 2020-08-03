@@ -531,6 +531,10 @@ MapAdd.EntityFunctions = {
                 end
             elseif pair.Key == "message" then
                 PrintMessage(HUD_PRINTCENTER, pair.Value)
+            elseif pair.Key == "kill" then
+                for k,v in pairs(player.GetAll()) do
+                    v:Kill()
+                end
             elseif pair.Key == "keyvalues" then
                 for _, innerpair in pairs(pair.Value) do
                     for k,v in pairs(player.GetAll()) do
