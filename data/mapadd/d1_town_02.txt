@@ -1,10 +1,6 @@
-//FIXES: Precache. Zombies spawning near grigori.
 "precache" {
 	"entity"	"npc_f_combine"
-	"entity"	"npc_kheadcrab"	
 	"entity"	"npc_zombie2"	
-//	"entity"	"weapon_ak47"	
-	"entity" 	"weapon_custom7"		
 }
 
 "randomspawn" {
@@ -22,6 +18,15 @@
 		"origin" "-5568 1256 -3224"
 		"radius" "1500"
 	}
+
+	"npc_zombie2" {
+		"count"		"20"
+	}
+	
+	"npc_headcrab_fast" {
+		"count"		"6"
+	}
+	
 	"npc_kheadcrab" {
 		"count"		"3"
 	}
@@ -30,25 +35,6 @@
 
 
 "entities" {
-//TEST: Grigori throws you different weapon.
-//	"removeentity" {
-//		"targetname"	"shotgun_throw_shotgun"
-//	}
-
-//	"weapon_ak47" {
-//		"origin" "-2328 352 -2998"
-//		"angle" "0 0 -90"
-//		"keyvalues" {
-//			"targetname"	"shotgun_throw_shotgun" 
-//			"OnPlayerPickup"	"balcony_scene_b2,Start,,0,-1" 
-//			"OnPlayerPickup"	"autosave_shotgun,Save,,0,-1" 	
-//			"OnPlayerPickup"	"roofzombie_maker2,Enable,,3,1"		
-//			"OnPlayerPickup"	"roofzombie_maker6,Enable,,7,1"		
-//			"OnPlayerPickup"	"roofzombie_maker8,Enable,,8,1"		
-//			"OnPlayerPickup"	"monk_leave_noshotgun_relay,Kill,,0,-1"				
-//		}
-//	}
-
 	"npc_f_combine" {
 		"origin" "-2640 1042 -3136"
 		"angle" "0 -148 0"
@@ -64,19 +50,27 @@
 		}
 	}
 
-	"instant_trig" {
-		"origin" "-2080 437 -3456"
-		"keyvalues" {
-			"radius"	"30"
-			"label"		"drop1"
-		}
-	}
-
 	"food_sankaba"
 	{
 		"origin"	"-3858.90 -367.10 -3493.0"
 		"angle"		"0 0 0"
-	}	
+	}
+
+	"item_ammo_hrifle"
+	{
+		"origin"	"-4123.18 1538.68 -3094.55"
+		"angle"		"0 0 0"
+	}
+
+	"item_item_crate"
+	{
+		"origin" "-1710 1054 -3352" "angle" "0 177 0"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_flare"
+			"ItemCount"		"1"
+		}
+	}
 
 	"instant_trig" {
 		"origin" "-4352 1489 -3027"
@@ -84,91 +78,15 @@
 			"radius"	"50"
 			"label"		"zombiehoard"
 		}
-	}	
-
-	"instant_trig" {
-		"origin" "-1161 773 -3391"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie"
-			"radius" "250"
-		}
-	}
-	"instant_trig" {
-		"origin" "-2111 664 -3391"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie1"
-			"radius" "150"
-		}
-	}
-	"instant_trig" {
-		"origin" "-1612 585 -3391"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie2"
-			"radius" "250"
-		}
-	}
-	"instant_trig" {
-		"origin" "-1861 855 -3455"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie4"
-			"radius" "200"
-		}
-	}
-	"instant_trig" {
-		"origin" "-2941 1066 -3071"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie5"
-			"radius" "100"
-		}
-	}
-	"instant_trig" {
-		"origin" "-2910 1068 -3071"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie6"
-			"radius" "150"
-		}
-	}
-	"instant_trig" {
-		"origin" "-2464 600 -3326"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie7"
-			"radius" "550"
-		}
-	}
-	"instant_trig" {
-		"origin" "-2950 850 -3417"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie8"
-			"radius" "150"
-		}
-	}
-	"instant_trig" {
-		"origin" "-2951 1073 -3455"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie9"
-			"radius" "200"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-1791 660 -3007"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "monk_fix"
-			"radius" "80"
-		}
 	}
 
-	
+	"instant_trig" {
+		"origin" "-2080 437 -3456"
+		"keyvalues" {
+			"radius"	"30"
+			"label"		"drop1"
+		}
+	}
 }
 
 
@@ -182,175 +100,6 @@
 	}
 }
 
-"entities:zombie" {
-	"npc_zombie" {
-		"origin" "-1783.9 610.1 -3456.0"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-1733.7 571.3 -3456.0"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-1781.8 512.2 -3455.9"  "angle" "0 31 0"
-	}
-	"npc_zombie" {
-		"origin" "-1831.0 433.8 -3455.9"  "angle" "0 34 0"
-	}
-}
-"entities:zombie1" {
-	"npc_zombie" {
-		"origin" "-1809.4 574.7 -3327.9" "angle" "0 114 0"
-	}
-	"npc_zombie" {
-		"origin" "-1746.5 648.2 -3327.9" "angle" "0 153 0"
-	}
-	"npc_zombie" {
-		"origin" "-1779.3 614.3 -3328.0" "angle" "0 150 0"
-	}
-	"npc_zombie" {
-		"origin" "-1771.5 533.4 -3328.0" "angle" "0 150 0"
-	}
-	"npc_zombie" {
-		"origin" "-1708.3 431.5 -3328.0" "angle" "0 150 0"
-	}
-}
-"entities:zombie2" {
-	"npc_zombie" {
-		"origin" "-1915.7 148.2 -3456.0"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-2019.8 168.3 -3456.0"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-2065.0 231.3 -3456.0"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-1951.8 241.0 -3456.0"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-1878.3 320.9 -3456.0"  "angle" "0 0 0"
-	}
-	"npc_poisonzombie" {
-		"origin" "-2016.9 302.8 -3456.0"  "angle" "0 0 0"
-	}
-}
-"entities:zombie4" {
-	"npc_zombie" {
-		"origin" "-2539.2 611.5 -3560.0" "angle" "0 28 0"
-	}
-	"npc_zombie" {
-		"origin" "-2570.2 646.6 -3573.1" "angle" "0 352 0"
-	}
-	"npc_zombie" {
-		"origin" "-2595.9 575.2 -3583.3" "angle" "0 29 0"
-	}
-	"npc_zombie" {
-		"origin" "-2572.2 507.4 -3582.0" "angle" "0 36 0"
-	}
-	"npc_zombie" {
-		"origin" "-2489.2 489.5 -3583.6" "angle" "0 5 0"
-	}
-	"npc_zombie" {
-		"origin" "-2417.9 479.7 -3582.5" "angle" "0 51 0"
-	}
-}
-"entities:zombie5" {
-	"npc_zombie2" {
-		"origin" "-2833.1 1000.4 -3008.0"  "angle" "0 0 0"
-	}
-	"npc_zombie2" {
-		"origin" "-2822.3 914.1 -3008.0"  "angle" "0 0 0"
-	}
-	"npc_fastzombie" {
-		"origin" "-2737.4 1044.5 -3008.0"  "angle" "0 -90 0"
-	}
-}
-"entities:zombie6" {
-	"npc_fastzombie" {
-		"origin" "-2703.0 1056.0 -3008.0" "angle" "0 -90 0"
-	}
-	"npc_fastzombie" {
-		"origin" "-2745.4 1055.9 -3008.0" "angle" "0 -90 0"
-	}
-	"npc_fastzombie" {
-		"origin" "-2790.3 1044.3 -3008.0" "angle" "0 -90 0"
-
-	}
-}
-"entities:zombie7" {
-	"npc_zombie" {
-		"origin" "-3672.9 637.6 -3526.5"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-3612.9 712.6 -3538.8"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-3485.9 713.2 -3572.2"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-3362.5 695.7 -3584.0"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-3429.0 622.5 -3581.6"  "angle" "0 0 0"
-	}
-	"npc_zombie" {
-		"origin" "-3553.2 628.6 -3555.0"  "angle" "0 0 0"
-	}
-}
-"entities:zombie8" {
-	"npc_zombie2" {
-		"origin" "-3314.4 -107.2 -3584.0" "angle" "0 0 0"
-	}
-	"npc_zombie2" {
-		"origin" "-3320.2 -145.2 -3584.0" "angle" "0 0 0"
-	}
-	"npc_zombie2" {
-		"origin" "-3378.9 -160.9 -3584.0" "angle" "0 0 0"
-	}
-	"npc_zombie2" {
-		"origin" "-3524.3 -124.7 -3584.0" "angle" "0 0 0"
-	}
-	"npc_zombie2" {
-		"origin" "-3430.9 -118.8 -3584.0"  "angle" "0 0 0"
-	}
-	"npc_fastzombie" {
-		"origin" "-3590.8 -99.3 -3584.0"  "angle" "0 0 0"
-	}
-	"npc_fastzombie" {
-		"origin" "-3591.2 -148.4 -3583.9" "angle" "0 2 0"
-	}
-}
-"entities:zombie9" {
-	"npc_poisonzombie" {
-		"origin" "-3232.1 822.5 -3583.9" "angle" "0 266 0"
-	}
-	"npc_zombie" {
-		"origin" "-3294.7 817.9 -3581.6" "angle" "0 292 0"
-	}
-	"npc_zombie" {
-		"origin" "-3267.0 847.3 -3583.9" "angle" "0 278 0"
-	}
-	"npc_zombie" {
-		"origin" "-3244.3 908.6 -3583.9" "angle" "0 276 0"
-	}
-	"npc_zombie" {
-		"origin" "-3281.1 934.7 -3583.9" "angle" "0 299 0"
-	}
-	"npc_zombie" {
-		"origin" "-3306.4 895.8 -3583.9" "angle" "0 299 0"
-	}
-	"npc_zombie" {
-		"origin" "-3238.0 917.7 -3583.9" "angle" "0 246 0"
-	}
-}
-
-"entities:monk_fix" {
-
-	"event" {
-		"targetname" "monk"
-		"action" "addoutput"
-		"value" "health 9999"
-	}
-}
 
 "entities:zombiehoard" {
 
@@ -408,7 +157,7 @@
 		"keyvalues" {
     "StartDisabled" "0" 
     "MaxNPCCount" "0"
-    "SpawnFrequency" "3"
+    "SpawnFrequency" "4"
     "MaxLiveChildren" "1"
     "targetname" "z_ambush_spawner" 
     "spawnflags" "32"
@@ -424,7 +173,7 @@
 		"keyvalues" {
     "StartDisabled" "0" 
     "MaxNPCCount" "0"
-    "SpawnFrequency" "3"
+    "SpawnFrequency" "4"
     "MaxLiveChildren" "1"
     "targetname" "z_ambush_spawner" 
     "spawnflags" "32"
@@ -440,7 +189,7 @@
 		"keyvalues" {
     "StartDisabled" "0" 
     "MaxNPCCount" "0"
-    "SpawnFrequency" "3"
+    "SpawnFrequency" "4"
     "MaxLiveChildren" "1"
     "targetname" "z_ambush_spawner" 
     "spawnflags" "32"
@@ -456,7 +205,7 @@
 		"keyvalues" {
     "StartDisabled" "0" 
     "MaxNPCCount" "0"
-    "SpawnFrequency" "3"
+    "SpawnFrequency" "4"
     "MaxLiveChildren" "1"
     "targetname" "z_ambush_spawner" 
     "spawnflags" "32"

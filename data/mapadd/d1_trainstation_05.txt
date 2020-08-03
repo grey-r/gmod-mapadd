@@ -1,16 +1,6 @@
 //	map arrange data
 //	location: d1_trainstation_05
 
-"precache" {
-	"entity"	"food_cornedbeef"
-	"entity"	"food_sankaba"	
-	"entity"	"explo_justaway"
-	"entity"	"weapon_soy"
-	"entity" 	"npc_fastzombie"		
-	"model" "models/misc/pcrate.mdl"
-	"model" "models/misc/katoributa.mdl"	
-	"model" "models/misc/newyear/oseti.mdl"	
-}
 
 "entities"
 {
@@ -34,22 +24,6 @@
 		}
 	}
 
-	"explo_justaway" {
-		"origin" "-6390.3 -1404.5 35"  "angle" "0 -147 0"
-		"stabilize"	"45"
-		"keyvalues" {
-			"model" "models/misc/justaway.mdl"
-		}
-	}
-
-//	"explo_justaway" {
-//		"origin" "-6597.1 -1519.1 70.4"  "angle" "0 -18 358"
-//		"keyvalues" {
-//			"model" "models/misc/justaway.mdl"
-//			"detonatevel"	"200"
-//		}
-//	}
-	
 	"prop_physics" {
 		"origin" "-6906.8 -1641.4 128.7"  "angle" "0 -162 180"
 		"keyvalues" {
@@ -102,20 +76,14 @@
 		}
 	}	
 
-	"env_hudhint" {
-		"keyvalues" {
-			"targetname" "hudhint_kick"
-			"message" "Valve_Hint_QuickKick"
-		}
-	}	
-	
-	"instant_trig" {
-		"origin" "-10290 -4733 353"
-		"keyvalues" {
-			"radius"	"128"
-			"label"		"hudhinttrigger_kick"
-		}
-	}	
+  "weapon_fists" {
+  "origin" "-6485.26 -1591.35 68"
+  }
+
+	lua {
+		"callfunc"	"Init"
+	}
+
 }
 
 
@@ -708,12 +676,4 @@
 		}
 	}
 
-}
-
-"entities:hudhinttrigger_kick" {	
-	"event" {
-		"targetname" "hudhint_kick"
-		"action" "ShowHudHint"
-		"delaytime" "6"
-	}
 }

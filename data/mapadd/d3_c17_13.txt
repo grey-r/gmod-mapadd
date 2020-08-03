@@ -1,25 +1,7 @@
 //	map arrange data
-//	location: d3_c17_13
+//	location: d1_coast_08
 
 "precache" {
-	"entity" "npc_launcher"
-	"entity" "npc_combine_e"
-	"entity" "npc_combine_ace"
-	"entity" "npc_f_combine"
-	"entity"	"monster_human_grunt"		
-	"entity"	"weapon_grease"
-	"entity"	"weapon_ak47"
-	"entity"	"weapon_kar98"
-	"entity"	"weapon_mp5"
-	"entity"	"weapon_svd"	
-	"entity" 	"weapon_custom16"
-	"entity" 	"weapon_custom14"
-	"entity" 	"weapon_custom15"	
-	"entity" 	"weapon_custom8"
-	"entity" 	"weapon_custom5"   	
-	"model" "models/Weapons/W_missile.mdl"
-	"sound" "npc/waste_scanner/grenade_fire.wav"
-	"model"	"models/combine_commando.mdl"		
 }
 
 "randomspawn" {
@@ -29,420 +11,131 @@
 		"radius" "1000"
 	}
 
-	"removenodes" {
-		"origin" "6719 2190 60"
-		"radius" "1250"
-	}	
-	
-	"monster_human_grunt" {
+	"npc_combine_s" {
 		"count"		"7"
-		"weapon"	"weapon_custom14"
+		"weapon"	"weapon_oicw"
 		"patrol"
-		"values" 	"squadname cb13 targetname commando runspeedmod 1.5"		
 	}
 
 	"npc_combine_e" {
 		"count"		"3"
-		"weapon"	"weapon_mp5"
+		"weapon"	"weapon_jackhammer"
 		"patrol"
 	}
 
 	"npc_combine_ace" {
 		"count"		"3"
-		"weapon"	"weapon_custom15"
+		"weapon"	"weapon_pulsemg"
 		"patrol"
 	}
 
 }
-
 "entities" {
 
-//Skybox Fire
-	"env_fire" {
-		"origin" "-4507.68 -5707.66 -1923"
+	"prop_ragdoll" {
+		"origin" "5985 -1763 -46" "angle" "10 160 0"
 		"keyvalues" {
-			"targetname" 	"skyboxinflames"
-			"damagescale"	"1"
-			"health"		"999"
-			"spawnflags"	"29"
-			"firesize"		"96"
-			"firetype"		"0"
-			"fireattack"	"0.1"
-		}
-	}	
-
-	"env_fire" {
-		"origin" "-4687 -5436 -2031"
-		"keyvalues" {
-			"targetname" 	"skyboxinflames"
-			"damagescale"	"1"
-			"health"		"999"
-			"spawnflags"	"29"
-			"firesize"		"96"
-			"firetype"		"0"
-			"fireattack"	"0.1"
-		}
-	}	
-
-	"env_fire" {
-		"origin" "-4352 -4608 -2039"
-		"keyvalues" {
-			"targetname" 	"skyboxinflames"
-			"damagescale"	"1"
-			"health"		"999"
-			"spawnflags"	"29"
-			"firesize"		"96"
-			"firetype"		"0"
-			"fireattack"	"0.1"
-		}
-	}
-	
-	"env_fire" {
-		"origin" "-4744 -4712 -2038"
-		"keyvalues" {
-			"targetname" 	"skyboxinflames"
-			"damagescale"	"1"
-			"health"		"999"
-			"spawnflags"	"29"
-			"firesize"		"96"
-			"firetype"		"0"
-			"fireattack"	"0.1"
-		}
-	}	
-
-	"event" {
-		"targetname" "replenish_0"
-		"action" "SetMaxAllies"
-		"value" "10"
-	}		
-	
-	"event" {
-		"targetname" "replenish_1"
-		"action" "SetMaxAllies"
-		"value" "10"
-	}	
-
-	"event" {
-		"targetname" "replenish_1a"
-		"action" "SetMaxAllies"
-		"value" "10"
-	}		
-	
-	"event" {
-		"targetname" "replenish_2"
-		"action" "SetMaxAllies"
-		"value" "10"
-	}	
-
-	"event" {
-		"targetname" "replenish_3"
-		"action" "SetMaxAllies"
-		"value" "10"
-	}	
-
-	"event" {
-		"targetname" "replenish_4"
-		"action" "SetMaxAllies"
-		"value" "10"
-	}	
-		
-	"prop_physics_override" {
-		"origin" "6579.5 -1435.46 64.0"  "angle" "0 0 0"
-		"keyvalues" {
-		"model" "models/props_vehicles/car005b_physics.mdl"
-		}
-	}	
-
-	"prop_physics_override" {
-		"origin" "6825.5 -1435.46 64.0"  "angle" "0 0 0"
-		"keyvalues" {
-		"model" "models/props_vehicles/car005b_physics.mdl"
+			"model"	"models/combine_f_soldier.mdl"
 		}
 	}
 
 	"prop_ragdoll" {
-		"origin" "6575.5 -1067.46 64.0"  "angle" "0 0 0"
+		"origin" "7117 -1720 88" "angle" "10 -160 0"
 		"keyvalues" {
-		"model" "models/props_vehicles/car001a_phy.mdl"
+			"model"	"models/combine_f_soldier.mdl"
 		}
 	}
-	
-	
-	"prop_ragdoll" {
-		"origin" "6825.5 -1067.46 64.0"  "angle" "0 0 0"
-		"keyvalues" {
-		"model" "models/props_vehicles/car001a_phy.mdl"
-		}
-	}
-	
+
 	"npc_f_combine" {
 		"origin" "4729 -2470 64" "angle" "0 -73 0"
 		"keyvalues" {
 			"additionalequipment"	"weapon_grease"
-			"squadname" "fsoldier_garage_1"
 		}
 	}
 
 	"npc_f_combine" {
 		"origin" "4724 -2295 64" "angle" "0 83 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom12"
-			"squadname" "fsoldier_garage_1"
-		}
-	}
-
-	"npc_combine_s" {
-		"origin" "4776 152 -64"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_mp5"	
-			"squadname" "soldier_garage_1"
-		}
-	}	
-
-	"npc_combine_s" {
-		"origin" "4870 151 -64"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"	
-			"squadname" "soldier_garage_1"
+			"additionalequipment"	"weapon_m1garand"
 		}
 	}
 
 	"npc_combine_s" {
 		"origin" "4980 -367 320" "angle" "0 20 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"
+			"additionalequipment"	"weapon_rpg"
 		}
 	}
-	
+
+	"item_item_crate"
+	{
+		"origin"	"7045.25 -1564.18 67.96"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"6327.77 -1354.67 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"6258.65 -576.16 192.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"5670.21 -468.16 -63.97"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_gauss"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"6934.90 -843.16 167.02"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}	
 	"instant_trig" {
-		"origin" "5168 -1368 23"
+		"origin" "5778 -830 192"
 		"keyvalues" {
-			"radius" "330"
-			"label" "streetcombine"
-		}
-	}	
-
-	"instant_trig" {
-		"origin" "5735 -1061 -64"
-		"keyvalues" {
-			"radius" "350"
-			"label" "buildingcombine"
+			"label"	"music1"
+			"radius"	"200"
 		}
 	}
+ }
 
-	"instant_trig" {
-		"origin" "6619 -1700 64"
-		"keyvalues" {
-			"radius" "330"
-			"label" "streetcombine2"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "6719 -1555 64"
-		"keyvalues" {
-			"radius" "330"
-			"label" "chopperdown"
-		}
-	}
-
-	"event" {
-		"targetname" "commando"
-		"action" "addoutput"
-		"value" "health 100"
-		"delaytime" "0.1"
-	}	
-}
-
-"entities:streetcombine" {
-
-	"npc_combine_e" {
-		"origin" "5886 -2053 64"  "angle" "0 150 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"	
-			"squadname" "soldier_streets_1"
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "7015 -1566 64"  "angle" "0 -180 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"		
-			"squadname" "soldier_streets_1"
-		}
-	}
-
-	"npc_combine_s" {
-		"origin" "7119 -1945 64"  "angle" "0 -180 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom5"		
-			"squadname" "soldier_streets_1"
-		}
-	}	
-}
-
-"entities:streetcombine2" {
-
-	"npc_combine_s" {
-		"origin" "6584 -918 64"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_kar98"	
-			"squadname" "soldier_streets_1"
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "6777 -961 64"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"		
-			"squadname" "soldier_streets_1"
-		}
-	}
-
-	"npc_combine_s" {
-		"origin" "6540 -1192 64"  "angle" "0 -180 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom15"		
-			"squadname" "soldier_streets_1"
-		}
-	}	
-}
-
-"entities:buildingcombine" {
-
-	"npc_combine_s" {
-		"origin" "6120 -990 64"  "angle" "0 180 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom5"	
-			"squadname" "soldier_building_1"
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "5923 -1439 -64"  "angle" "0 170 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"		
-			"squadname" "soldier_building_1"
-		}
-	}
-
-	"npc_combine_s" {
-		"origin" "6070 -990 64"  "angle" "0 180 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"		
-			"squadname" "soldier_building_1"
-		}
-	}
-
-	"npc_combine_s" {
-		"origin" "6116 -1467 191"  "angle" "0 180 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_mp5"		
-			"squadname" "soldier_building_1"
-		}
-	}	
-
-	"npc_combine_s" {
-		"origin" "6427 -1492 447"  "angle" "0 160 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_svd"		
-			"squadname" "soldier_building_1"
-		}
-	}
-
-	"npc_combine_s" {
-		"origin" "6105 -887 192"  "angle" "0 -130 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"		
-			"squadname" "soldier_building_1"
-		}
-	}
-	
-	"npc_headcrab" {
-		"origin" "6330 -1311 30"  "angle" "0 -90 0"
-	}	
-	
-}
-	
-"entities:chopperdown" {
-
-	"npc_combinegunship" {
-		"origin" "7945 549 658"
-		"angle" "0 -180 0"
-		"keyvalues" {
-			"targetname" "heli_2"
-			"target" "heli_cdown_path"
-			"physdamagescale" "1.0"
-			"spawnflags" "4"
-			"OnDamaged" "heli_2,SelfDestruct,,0.1,1"			
-		}
-	}
-
-	"path_track" {
-//		"origin" "4799 607 658"     //original from OMS 6.16.11
-		"origin" "6678.3 396.5 562.6"
-		"keyvalues" {
-			"orientationtype" "1"
-			"targetname"	"heli_cdown_path"
-		}
-	}
-
-	"event" {
-		"targetname"	"heli_2"
-		"action"	"FlyToSpecificTrackViaPath"
-		"value"		"heli_cdown_path"
-	}	
-	
-	"npc_launcher" {
-//		"origin" "5168 484 94"    //original from OMS 6.16.11
-		"origin" "5079 671 146"
-		"angle" "-13 -9 0"
-		"keyvalues" {
-			"targetname" "bazooka_1"
-			"LaunchSound" "npc/waste_scanner/grenade_fire.wav"
-			"HomingSpeed" "2000"
-			"StartOn" "1"
-			"LaunchSpeed" "200"
-			"DamageRadius" "145"
-			"Damage" "9999"
-			"LaunchSmoke" "0"
-			"angles" "-20 2 0"
-			"LaunchSpeedTarget" "0"
-			"TriggerCondition" "0"
-			"MaxRange" "7000"
-			"MinRange" "320"
-			"Gravity" "0"
-			"HomingDuration" "2"
-			"HomingStrength" "10"
-			"LaunchSpeedVertical" "700"
-			"LaunchDelay" "0"
-			"SmokeTrail" "1"
-			"FlySound" "Missile.Accelerate"
-			"MissileModel" "models/Weapons/W_missile.mdl"
-			"PathCornerName" "bazooka_1_target"
-		}
-	}
-	
-	"path_corner" {
-//		"origin" "6678.3 396.5 562.6"  // set this for funny results...
-		"angle" "0 0 0"
-		"origin" "7009 352 665"
-		"keyvalues" {
-			"targetname" "bazooka_1_target"
-		}
-	}
-
-//	"event" {
-//		"targetname" "leader_oak"
-//		"action" "addoutput"
-//		"value" "SelfDestruct"
-//		"delaytime" "2.1"
-//	}
-	
-	"event" {
-		"targetname" "bazooka_1"
-		"action" "FireOnce"
-		"delaytime" "5"   // Raised from 0.2.
+"entities:music1" {
+	"player" {
+		"music" "combinetheme"
 	}
 }
+
+
 

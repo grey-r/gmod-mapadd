@@ -1,0 +1,38 @@
+
+"entities" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"0.1"
+			"label"	"Init"
+		}
+	}
+
+}
+
+"entities:Init" {
+
+	"player" {
+		"message"	"Survive as long as you can!"
+		"music"		"Smod_map_epic"
+	}
+
+	"lua" {
+		"callfunc" "Initialize"
+	}
+	
+	"item_suit" {
+		"origin" "399 -857 -1151.70"
+	}
+}
+
+
+"entities:GameOver" {
+
+	"player" {
+		"fadeout"	"10"
+		"message"	"#HL2_GameOver_Survival"
+		"music"		"song28"
+	}
+	
+}

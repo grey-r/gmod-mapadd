@@ -3,25 +3,61 @@
 "precache" {
 	"entity"		"food_cornedbeef"
 	"entity"		"food_sankaba"
-	"entity"		"weapon_gauss"	
 }
 
 
 "entities" {
 
-	"weapon_gauss"
-	{
-		"origin" "-7037.9 -1041.5 120"
-	}
 	
 	"item_item_crate"
 	{
-		"origin" "-6790.0 -1603.4 140.5"
-		"keyvalues"
+		"origin" "-6790.0 -1603.4 273.5"  "angle" "0 -90 275"
+			"keyvalues"
 		{
 			"ItemClass"		"food_cornedbeef"
 			"ItemCount"		"3"
 		}
-	}	
+	}
+
+	"item_item_crate"
+	{
+		"origin" "-6566.6 -1428.1 268.5"  "angle" "-0 112 180"
+				"keyvalues"
+		{
+			"ItemClass"		"food_sankaba"
+			"ItemCount"		"3"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "-6566.6 -1428.1 268.5"  "angle" "-0 112 180"
+				"keyvalues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+			"ItemCount"		"3"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "-6492.44 -513.0 37.3"  "angle" "0 -90 275"
+			"keyvalues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+			"ItemCount"		"3"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "-6887.47 -1590.08 37.3"  "angle" "0 -90 275"
+			"keyvalues"
+		{
+			"ItemClass"		"item_ammo_gauss"
+			"ItemCount"		"2"
+		}
+	}
+	
 }
 

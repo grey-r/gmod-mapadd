@@ -1,0 +1,338 @@
+"precache"{
+	"entity" "npc_combine_s"
+	"entity" "npc_combine_ace"	
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "-2089.68 1488.57 1096.03"
+		"radius" "1000"
+	}
+
+	"npc_combine_s" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_mp40"
+		"targetname"	"tg"
+		"patrolrandom"
+	}
+	
+	"npc_combine_s" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_oicw"
+		"targetname"	"tg"
+		"patrolrandom"
+	}
+
+	"npc_combine_s" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_jackhammer"
+		"targetname"	"tg"
+		"values" "squadname cb2"
+	}
+}
+
+
+"entities:init" {
+	"player" {
+		"origin" "-2089.68 1488.57 1096.03"
+		"angle" "0 88 0"
+		"fadein"	"3"
+		"music" "Smod_map"
+		"message"	"Find and recover the 3 item crates and escape."		
+	}
+
+	"item_suit" {
+		"origin" "-2089.68 1488.57 1096.03"
+	}
+	
+	"weapon_crowbar" {
+		"origin" "-2089.68 1488.57 1096.03"
+	}
+	"weapon_pistol" {
+		"origin" "-2089.68 1488.57 1096.03"
+	}
+	"weapon_pistol" {
+		"origin" "-2089.68 1488.57 1096.03"
+	}
+}
+
+
+"entities"{
+
+	"weapon_a35" {
+		"origin" "-2030.93 2124.25 1226.21"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "init"
+			"timer" ".1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "item1"
+			"timer" ".1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "item2"
+			"timer" ".1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "item3"
+			"timer" ".1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"itemcrate*"
+			"label"		"weapon"
+		}
+	}
+
+    "point_servercommand" {
+        "origin" "-104 231 703"
+        "angle" "0 0 0"
+        "keyvalues" {
+            "targetname" "game_cset"
+        }
+    }
+
+	"point_clientcommand" {
+	"keyvalues" {
+	"targetname" "console"
+		}
+	}
+
+}
+
+"entities:item1" {
+
+	"prop_dynamic" {
+		"origin" "-1853.15 2875.65 956.03"
+		"angle"		"0 0 0"
+		"keyvalues" {
+		  "targetname" "itemcrate1"				
+			"model"	"models/items/item_item_crate_dynamic.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+		"origin" "-1853.15 2875.65 956.03"
+			"label" "item1recover"
+			"touchname"	"!player"			
+			"radius"	"100"
+		}
+	}
+}
+
+"entities:item1recover" {
+
+  "removeentity" {
+      "targetname" "itemcrate1"
+    }
+
+	"player" {
+		"message"	"Crate Recovered"		
+	}
+
+}
+
+"entities:item2" {
+
+	"prop_dynamic" {
+		"origin" "-2792.81 3154.33 930.96"
+		"angle"		"0 0 0"
+		"keyvalues" {
+		  "targetname" "itemcrate2"				
+			"model"	"models/items/item_item_crate_dynamic.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+		"origin" "-2792.81 3154.33 930.96"
+			"label" "item2recover"
+			"touchname"	"!player"			
+			"radius"	"100"
+		}
+	}
+}
+
+"entities:item2recover" {
+
+  "removeentity" {
+      "targetname" "itemcrate2"
+    }
+
+	"player" {
+		"message"	"Crate Recovered"		
+	}
+}
+
+"entities:item3" {
+
+	"prop_dynamic" {
+		"origin" "-3671.66 1511.23 780.17"
+		"angle"		"0 0 0"
+		"keyvalues" {
+		  "targetname" "itemcrate3"				
+			"model"	"models/items/item_item_crate_dynamic.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+		"origin" "-3671.66 1511.23 780.17"
+			"label" "item3recover"
+			"touchname"	"!player"			
+			"radius"	"100"
+		}
+	}
+}
+
+"entities:item3recover" {
+
+  "removeentity" {
+      "targetname" "itemcrate3"
+    }
+
+	"player" {
+		"message"	"Crate Recovered"		
+	}
+
+}
+
+"entities:weapon" {
+
+	"player" {
+		"message"	"Now escape back to the entry point!"		
+	}
+
+    "instant_trig" {
+        "keyvalues" {
+            "timer"    "0.1"
+            "label"    "mb_healthset"
+        }
+    }
+    
+    "instant_trig" {
+        "keyvalues" {
+            "timer"    "0.15"
+            "label"    "mb_spawn"
+        }
+    }
+    
+    "instant_trig" {
+        "keyvalues" {
+            "timer"    "0.2"
+            "label"    "mb_healthset2"
+        }
+    }
+}
+
+"entities:mb_healthset" {
+    
+    "event" {
+        "targetname" "game_cset"
+        "action"    "Command"
+        "value"        "sk_combine_ace_health 500"
+    }
+}
+
+"entities:mb_spawn" {
+
+    "npc_combine_ace" {
+        "origin" "-2235.07 1530.18 1097.26"
+        "angle" "0 128 0"
+        "keyvalues" {
+            "targetname" "miniboss"
+            "additionalequipment" "weapon_minigun"
+            "squadname" "squad"
+        }
+    }
+
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"miniboss"
+			"label"		"escape"
+		}
+	}  
+
+	"instant_trig" {
+		"keyvalues" {
+		"origin" "-2089.68 1488.57 1096.03"
+			"label" "noescape"
+			"touchname"	"!player"			
+			"radius"	"250"
+		}
+	}
+	 
+}
+
+"entities:mb_healthset2" {
+
+    "event" {
+        "targetname" "game_cset"
+        "action"    "Command"
+        "value"        "sk_combine_ace_health 100"
+    }
+  }
+
+
+"entities:escape" {
+
+  "removeentity" {
+      "targetname" "noescape"
+    }
+
+	"player" {
+		"message"	"Mission Complete!"
+		"fadeout"  "3"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"disconnect"
+			"timer"	"6"
+		}
+	}	
+	
+}
+
+"entities:noescape" {
+
+	"player" {
+		"message"	"You must defeat the boss to escape!"		
+	}
+
+}
+
+"entities:disconnect" {
+		"event" {
+		"targetname" "console"
+		"action" "command"
+		"value" "disconnect"
+	}
+}
+
+
+
+
+

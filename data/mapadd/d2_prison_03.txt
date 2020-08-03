@@ -1,50 +1,18 @@
 //	map arrange data
 //	location: d2_prison_03
 
-"precache" {
-	"entity"	"npc_citizen"
-	"entity"	"npc_combine_e"	
-	"entity" 	"weapon_grease"
-	"entity" 	"weapon_mp5"	
-	"entity" 	"weapon_custom14"		
-	"entity" 	"weapon_custom16"		
-	"entity" 	"weapon_kar98"	
-}
-
 "entities" {
-	
-	"instant_trig" {
-		"origin" "-3542 4496 156"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "extra_help"
-			"radius" "100"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-3477 3413 28"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "rep1"
-			"radius" "100"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-3088 4719 156"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "rep2"
-			"radius" "100"
-		}
+
+	"npc_laser_turret" {
+		"origin" "-3609.4 4871.3 64"  "angle" "0 -89 0"
+		"stabilize"	"75"
 	}
 
 	"npc_combine_e" {
 		"origin" "-3854 6152 64"
 		"angle" "0 -98 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"
+			"additionalequipment"	"weapon_oicw"
 		}
 	}
 
@@ -54,78 +22,39 @@
 		"angle"		"0 0 0"
 		"KeyValues"
 		{
-			"ItemClass"		"weapon_custom18"
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"-3326.32 4729.73 192.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
 	//		"ItemClass"		"item_dynamic_resupply"
 			"ItemCount"		"1"
 		}
 	}
-}
-
-"entities:extra_help" {
-
-	"npc_combine_p" {
-		"origin" "-3340.2 5398.8 0.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"		
-			"targetname" "counterattack_soldier_2"
-			"squadname" "counterattack"
-			"runspeedmod" "1.4"
+	"item_item_crate"
+	{
+		"origin"	"-3976.47 1842.05 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_gauss"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
 		}
 	}
-	
-	"npc_combine_p" {
-		"origin" "-3629.9 5495.4 0.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"		
-			"targetname" "counterattack_soldier_2"
-			"squadname" "counterattack"
-			"runspeedmod" "1.4"
-		}
-	}
+
 }
 
 
-"entities:rep1" {
 
-	"npc_combine_p" {
-		"origin" "-3088.5 5005.8 0.0"  "angle" "0 283 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"		
-			"squadname" "tanooki"
-			"squadname" "universal_combine"
-		}
-	}
 	
-	"npc_combine_p" {
-		"origin" "-2763.1 4935.6 0.0"  "angle" "0 192 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"		
-			"squadname" "tanooki"
-			"squadname" "universal_combine"
-		}
-	}
-}
-
-"entities:rep2" {
-
-	"npc_combine_p" {
-		"origin" "-4006.9 5366.2 0.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_kar98"		
-			"squadname" "klo1313"
-			"squadname" "universal_combine2"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-3807.0 5583.9 0.0"  "angle" "0 292 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"		
-			"squadname" "klo1313"
-			"squadname" "universal_combine2"
-		}
-	}
-}	
 
 
 

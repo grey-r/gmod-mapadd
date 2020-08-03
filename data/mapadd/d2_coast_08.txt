@@ -1,13 +1,7 @@
 //	map arrange data
 //	location: d1_coast_08
-//FIXES: Precache
 
 "precache" {
-	"entity"	"weapon_ak47"
-	"entity"	"weapon_grease"
-	"entity"	"weapon_kar98"
-	"entity"	"weapon_custom16"	
-	"entity"	"npc_stalker"		
 }
 
 "randomspawn" {
@@ -37,29 +31,68 @@
 	}
 
 	"npc_combine_s" {
-		"count"		"5"
-		"weapon"	"weapon_custom16"
-		"values" 	"squadname cmb10"		
+		"count"		"7"
+		"weapon"	"weapon_smg1"
 		"patrol"
 	}
 
 	"npc_combine_s" {
 		"count"		"5"
 		"weapon"	"weapon_grease"
-		"values" 	"squadname cb10"		
 		"patrol"
 	}
 
 	"npc_combine_s" {
 		"count"		"3"
 		"weapon"	"weapon_ak47"
-		"values" 	"squadname cm10"		
 		"patrol"
 	}
+
+	"npc_f_combine" {
+		"count"		"1"
+		"weapon"	"weapon_smg1"
+		"patrol"
+	}
+
 }
 
 
 "entities" {
+
+	"item_ammo_rifle"
+	{
+		"origin"	"3292.20 311.20 1855.23"
+
+	}
+	"item_ammo_hrifle"
+	{
+		"origin"	"3674.81 231.35 1854.38"
+
+	}
+	"item_ammo_rifle"
+	{
+		"origin"	"3159.89 -5438.57 1215.96"
+	}
+
+	"item_item_crate"
+	{
+		"origin" "3017 -7063 1847"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+			"ItemCount"		"2"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "2865 -7271 1974"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+			"ItemCount"		"2"
+		}
+	}
 
 	"removeentity" {
 		"targetname" "jeep_fall_trigger"

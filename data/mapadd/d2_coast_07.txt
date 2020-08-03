@@ -4,15 +4,6 @@
 "precache" {
 	"entity"	"npc_citizen"
 	"entity"	"npc_f_monk"
-	"entity"	"npc_sniper"	
-	"entity"	"weapon_svd"
-	"entity"	"weapon_grease"
-	"entity"	"weapon_kar98"
-	"entity"	"weapon_psp"
-	"entity" 	"weapon_custom5" 	
-	"entity" 	"weapon_custom7" 	
-	"entity" 	"weapon_custom16"	
-	"entity"	"food_sankaba"		
 }
 
 "randomspawn" {
@@ -26,39 +17,31 @@
 		"count"		"7"
 		"patrol"
 		"weapon"	"weapon_smg1"
-		"values" 	"squadname cmb"		
 	}
 
 	"npc_combine_s" {
 		"count"		"5"
 		"patrolrandom"
 		"weapon"	"weapon_grease"
-		"values" 	"squadname cmba"				
 	}
 
 	"npc_combine_s" {
 		"count"		"3"
-		"weapon"	"weapon_custom16"
-		"values" 	"squadname cmbb"				
+		"weapon"	"weapon_ak47"
 	}
+
+	"npc_f_combine" {
+		"count"		"1"
+		"weapon"	"weapon_kar98"
+	}
+
 }
 
 
 "entities" {
 
 	"removeentity" {
-		"targetname" "train_2_start"
-	}
-	
-	"path_track" {
-		"origin" "3224 -12020 2136" "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "train_2_start"
-			"orientationtype" "1"
-			"target" "train_2_stop"
-			"spawnflags" "0"
-			"OnPass" "razortrain_wav,StopSound,,0,-1"
-		}
+		"targetname" "jeep_fall_trigger"
 	}
 
 	"item_item_crate"
@@ -71,6 +54,55 @@
 		}
 	}
 
+	"item_item_crate"
+	{
+		"origin" "1006 3597 1723"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+			"ItemCount"		"2"
+		}
+	}
+
+	"item_ammo_hrifle"
+	{
+		"origin"	"1044.99 3857.47 1662.83"
+	}
+
+	"food_sankaba"
+	{
+		"origin" "657.57 3865.74 1674.32"
+	}
+
+	"item_item_crate"
+	{
+		"origin" "740.11 3736.43 1669.93"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+			"ItemCount"		"1"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "1507.26 5028.40 1587.71"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_flare"
+			"ItemCount"		"2"
+		}
+	}
+	
+	"weapon_psp"
+	{
+		"origin"	"-1131.17 7427.09 1791.08"
+	}
+
+//Train is broken in the 215 engine.
+	"removeentity" {
+		"targetname"	"game_of_chicken_trigger"
+	}	
 
 "prop_physics" {
 	"origin" "830.0 7338.9 1709.5"  "angle" "0 -118 180"
@@ -177,6 +209,17 @@
 		}
 	}
 
+	"npc_houndeye" {
+		"origin" "3356.07 3720.74 1599.96" 
+	}
+
+	"npc_combine_s" {
+		"origin" "5585.5 -8769 1847.2" "angle" "0 180 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_rpg"
+			"numgrenade"	"3"
+		}
+	}
 
 	"instant_trig" {
 		"origin" "-1212 7483 1696" "angle" "19 88 0"
@@ -226,10 +269,9 @@
 	"npc_f_monk" {
 		"origin" "-2361 5003 1479"
 		"keyvalues" { "targetname"	"nakama1"
-			"additionalequipment"	"weapon_custom7"
+			"additionalequipment"	"weapon_grease"
 		}
 	}
-
 
 	"info_target" {
 		"origin" "1423 3844 1591"
@@ -247,65 +289,13 @@
 	}
 
 	"instant_trig" {
-		"origin" "734 3989 1568"
+		"origin" "1070 4402 1560"
 		"keyvalues" {
-			"radius"	"60"
+			"radius"	"500"
 			"label"		"erasesniper"
 		}
 	}
 
-	"food_sankaba"
-	{
-		"origin" "657.57 3865.74 1674.32"
-	}
-
-	"item_item_crate"
-	{
-		"origin" "1507.26 5028.40 1587.71"
-		"keyvalues"
-		{
-			"ItemClass"		"item_ammo_357"
-			"ItemCount"		"1"
-		}
-	}
-	
-	"weapon_psp"
-	{
-		"origin"	"-1131.17 7427.09 1791.08"
-	}
-
-	"npc_houndeye" {
-		"origin" "3356.07 3720.74 1599.96"  "angle" "0 179 0"
-	}	
-	
-	"instant_trig" {
-		"origin" "-2959 5540 1677"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "combine"
-			"radius" "500"
-		}
-	}
-
-//houndeyes here spawn under ground...	
-//	"instant_trig" {
-//		"origin" "3323 -6054 2206"
-//		"angle" "0 0 0"
-//		"keyvalues" {
-//			"label" "combine2"
-//			"radius" "600"
-//		}
-//	}
-
-	"item_item_crate"
-	{
-		"origin" "6801 -9316 1722"
-		"keyvalues"
-		{
-			"ItemClass"		"weapon_custom25"
-			"ItemCount"		"1"
-		}
-	}	
 }
 
 "entities:erasesniper" {
@@ -340,78 +330,4 @@
 		}
 	}
 
-}
-
-"entities:combine" {
-	"npc_combine_s" {
-		"origin" "904.7 4537.7 1536.0"  "angle" "0 112 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"		
-			"squadname" "rollercoaster"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "1212.6 4206.5 1535.8"  "angle" "0 112 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "rollercoaster"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "1523.2 4179.0 1536.8"  "angle" "0 112 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "rollercoaster"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "1700.1 4466.0 1534.9"  "angle" "0 112 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"
-			"squadname" "rollercoaster"
-		}
-	}
-}
-
-
-"entities:combine2" {
-	"npc_houndeye" {
-		"origin" "4809.1 -8447.1 1757.6"  "angle" "0 179 0"
-		"keyvalues" {
-			"targetname" "hugo"
-			"squadname" "lemons"
-		}
-	}
-	
-	"npc_houndeye" {
-		"origin" "5087.1 -8694.3 1798.5"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "hugo"
-			"squadname" "lemons"
-		}
-	}
-	
-	"npc_houndeye" {
-		"origin" "4953.5 -8323.7 1756.7"  "angle" "0 0 0"
-		"keyvalues" {	
-			"targetname" "hugo"
-			"squadname" "lemons"
-		}
-	}
-	
-	"npc_houndeye" {
-		"origin" "4808.1 -8112.4 1750.1"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "hugo"
-			"squadname" "lemons"
-		}
-	}
-	
-	"npc_houndeye" {
-		"origin" "5043.9 -8092.6 1742.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "hugo"
-			"squadname" "lemons"
-		}
-	}
 }

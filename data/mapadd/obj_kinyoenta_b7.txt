@@ -1,0 +1,1418 @@
+"precache" {
+	"entity"	"item_suit"
+	"entity"	"weapon_smg1"
+	"entity"	"npc_strider"
+	"entity"	"npc_f_kleiner"
+	"entity"	"npc_citizen"
+	"entity"	"weapon_ar2"
+	"entity"	"npc_combine_s"
+	"entity"	"npc_metropolice"
+	"entity"	"npc_rollermine"
+	"model"		"models/Combine_Soldier_PrisonGuard.mdl"
+	"model"		"models/airboat.mdl"
+}
+
+
+"entities:init" {
+
+	"removeentity" {
+		"targetname"	"ladder01"
+	}
+	
+	
+	"player" {
+		"origin" "-3513 3007 -1336"
+		"angle" "7 115 0"
+		"fadein"	"5"
+		"message"	"MAIN OBJECTIVE: Free the prisoners and escape."
+	}
+	
+	"item_suit" {
+		"origin" "-3513 3007 -1336"
+	}
+
+	"weapon_crowbar" {
+		"origin" "-3513 3007 -1336"
+	}
+	
+	"instant_trig" {
+		"origin" "-2935 3333 -1584"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"gameover"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3858 3296 -861"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"mission1_1"
+		}
+	}
+	
+}
+
+
+"entities:mission1_1" {
+	"player" {
+		"music"	"song29"
+		"message" "First, Reach the tower."
+	}
+
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	".1"
+			"label"		"enemy1"
+		}
+	}
+
+	"event" {
+		"targetname"	"elevator02"
+		"action"	"startforward"
+	}
+
+	"instant_trig" {
+		"origin" "-4776 3288 -377"
+		"keyvalues" {
+			"radius"	"50"
+			"label"		"strider"
+		}
+	}
+
+}
+
+
+"entities:strider" {
+
+	"player" {
+		"message"	"OBJ2 : Take down the strider."
+	}
+	
+	"npc_strider" {
+		"origin" "-3141 3329 -440"
+		"angle"	"0 -179 0"
+		"keyvalues" {
+			"targetname"	"strider"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label"		"mission1_2"
+			"islived"	"strider"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-4688 3418 -380" "angle" "0 46 0"
+		"keyvalues" {
+			"model"	"models/props_lab/dogobject_wood_crate001a_damagedmax.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-4693 3328 -347" "angle" "0 3 0"
+		"keyvalues" {
+			"model"	"models/props_lab/dogobject_wood_crate001a_damagedmax.mdl"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-4666 3206 -380" "angle" "0 46 0"
+		"keyvalues" {
+			"model"	"models/props_lab/dogobject_wood_crate001a_damagedmax.mdl"
+		}
+	}
+	
+	"item_rpg_round" {
+		"origin" "-4666 3206 -380" "angle" "0 46 0"
+	}
+	"item_rpg_round" {
+		"origin" "-4666 3206 -380" "angle" "0 46 0"
+	}
+	"item_rpg_round" {
+		"origin" "-4666 3206 -380" "angle" "0 46 0"
+	}
+	"item_rpg_round" {
+		"origin" "-4666 3206 -380" "angle" "0 46 0"
+	}
+	"item_rpg_round" {
+		"origin" "-4666 3206 -380" "angle" "0 46 0"
+	}
+	"item_rpg_round" {
+		"origin" "-4666 3206 -380" "angle" "0 46 0"
+	}
+	
+	
+}
+
+//	ストライダー倒した後
+"entities:mission1_2" {
+	"player" {
+		"message" "OBJ3 : Get back to the bottom floor and take a teleporter."
+	}
+	
+	"event" {
+		"targetname"	"hatch_02_*"
+		"action"	"startforward"
+	}
+	
+	"event" {
+		"targetname"	"gate2"
+		"action"	"setanimation"
+		"value"		"open"
+	}
+	
+	"instant_trig" {
+		"origin" "-4341 2718 -1346"
+		"keyvalues" {
+			"radius" "50"
+			"label"	"mission2"
+		}
+	}
+	
+	//	ゲート出現
+	"prop_dynamic" {
+		"origin" "-5019 2758 -1080"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+	
+	"prop_dynamic" {
+		"origin" "-5235 2749 -1346" "angle" "0 179 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-5276 4050 -1080" "angle" "0 -90 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+	
+		"npc_metropolice" {
+		"origin" "-3980 4239 -1346" "angle" "0 -107 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-5721 3286 -1346" "angle" "0 58 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-5531 4237 -1346" "angle" "0 -91 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4658 3581 -1080" "angle" "0 89 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4070 3580 -1080" "angle" "0 135 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4413 4259 -696" "angle" "0 -86 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-3904 4076 -666" "angle" "0 -136 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4250 2722 -1346" "angle" "0 101 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-3596 2703 -1346" "angle" "0 167 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"
+			"numgrenade"	"10"
+		}
+	}
+
+	
+}
+
+
+"entities:mission2" {
+
+	//	無駄な死体や、敵を削除
+	"removeentity" {
+		"classname"	"npc_combine_s"
+	}
+	"removeentity" {
+		"classname"	"npc_metropolice"
+	}
+	"removeentity" {
+		"classname"	"prop_ragdoll"
+	}
+
+
+	"player" {
+		"origin" "-4166 3865 -5301"
+		"angle" "2 105 0"
+		"music" "song14"
+		"message"	"Unlock the passage to the top by using the 2 control panels on the ground floor"
+		"fadein"	"5"
+	}
+	
+	"instant_trig" {
+		"origin" "-4471 7972 -5352"
+		"keyvalues" {
+			"radius" "30"
+			"label" "opengate"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-4818 7161 -5352"
+		"keyvalues" {
+			"radius" "30"
+			"label" "opengate2"
+		}
+	}
+	
+	"prop_dynamic" {
+		"origin" "-4054 6931 -4840" "angle" "0 -90 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-5837 8339 -5083" "angle" "0 -90 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+			"targetname" "gate1"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-5819 8155 -5186" "angle" "0 -90 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+			"targetname" "gate2"
+		}
+	}
+	
+	//	敵配置
+	"npc_combine_s" {
+		"origin" "-4920 5496 -4872" "angle" "0 -91 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4671 5219 -4839" "angle" "0 100 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-3990 5327 -4872" "angle" "0 -88 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4795 6159 -4872" "angle" "0 -137 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4255 6720 -4917" "angle" "0 -101 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4329 7247 -5121" "angle" "0 -139 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4976 7266 -5150" "angle" "0 -49 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4536 7297 -5352" "angle" "0 -164 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4184 7209 -5352" "angle" "0 97 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4514 8050 -5352" "angle" "0 -13 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4806 7974 -5352" "angle" "0 -179 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-5650 7899 -5352" "angle" "0 -45 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4105 6949 -4872" "angle" "0 176 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4154 7700 -4872" "angle" "0 -152 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4154 8245 -4872" "angle" "0 -139 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	//	お仲間の配置
+	"npc_citizen" {
+		"origin" "-4533 4412 -5410"
+		"angle" "0 -82 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"
+			"numgrenade"	"10"
+		}
+	}
+
+}
+"entities:allopen" {
+
+	"player" {
+		"message" "Get to the top level and use a teleporter."
+	}
+	
+	
+	"info_target" {
+		"origin" "-5306 7511 -5410"
+		"keyvalues" { "targetname" "goalnpc2" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"atumaru1"
+			"goal"		"goalnpc2"
+		}
+	}
+	
+	//	仲間
+	"npc_citizen" {
+		"origin" "-4812 4767 -4872" "angle" "0 87 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-4856 4877 -4872" "angle" "0 87 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_shotgun"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-4981 4901 -4872" "angle" "0 91 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-5060 4811 -4872" "angle" "0 93 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_ar2"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-4953 4695 -4872" "angle" "0 80 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+
+	//	敵
+	"npc_metropolice" {
+		"origin" "-4407 8742 -4872" "angle" "0 -144 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4002 8559 -4872" "angle" "0 -111 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4157 8742 -4872" "angle" "0 152 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4112 8600 -4872" "angle" "0 -152 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-6473 7803 -4872" "angle" "0 79 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-6311 7619 -4872" "angle" "0 74 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-6308 7378 -4872" "angle" "0 4 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-6511 7368 -4872" "angle" "0 93 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+
+
+}
+
+
+"entities:opengate2" {
+	"event" {
+		"targetname"	"gate2"
+		"action"	"setanimation"
+		"value"		"open"
+	}
+	
+	"instant_trig" {
+		"origin" "-3511 3321 -1639"
+		"keyvalues" {
+			"label"	"allopen"
+			"radius"	"50"
+			"touchname"	"gateopen"
+		}
+	}
+}
+
+
+"entities:opengate" {
+
+	"removeentity" {
+		"targetname"	"common_portal_*"
+	}
+
+	"info_target" {
+		"origin" "-3511 3321 -1639"
+		"keyvalues" {
+			"targetname"	"gateopen"
+		}
+	}
+
+	"event" {
+		"targetname"	"barrier_clip01"
+		"action"	"disable"
+	}
+
+	"event" {
+		"targetname"	"gate1"
+		"action"	"setanimation"
+		"value"		"open"
+	}
+	
+	"instant_trig" {
+		"origin" "-4217 8930 -4872"
+		"keyvalues" {
+			"radius"	"80"
+			"label"		"mission3"
+		}
+	}
+}
+
+"entities:mission3" {
+
+	//	無駄な死体や、敵を削除
+	"removeentity" {
+		"classname"	"npc_combine_s"
+	}
+	"removeentity" {
+		"classname"	"npc_metropolice"
+	}
+	"removeentity" {
+		"classname"	"prop_ragdoll"
+	}
+
+
+	"player" {
+		"origin" "-4001 4717 -7737"
+		"angle" "-89 91 0"
+		"fadein"	"5"
+		"message" "Get to the prisoners"
+	}
+	
+	"instant_trig" {
+		"origin" "372 6814 -7736"
+		"keyvalues" {
+			"radius"	"300"
+			"label"		"spawnfriend"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-4328 5515 -7757"
+		"keyvalues" {
+			"radius"	"200"
+			"label"		"assault1"
+		}
+	}
+	
+	//	敵配置
+	"npc_combine_s" {
+		"origin" "-1549 7672 -8269" "angle" "0 -160 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-1548 7478 -8269" "angle" "0 -160 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-1552 5999 -8269" "angle" "0 152 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-1624 5853 -8269" "angle" "0 151 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-2076 6931 -7652" "angle" "0 -175 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-2032 6641 -7652" "angle" "0 174 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-1048 7312 -7742" "angle" "0 -171 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-916 6814 -7435" "angle" "0 179 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-958 6517 -7781" "angle" "0 169 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ar2"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "347 6375 -8011" "angle" "-0 177 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+			"model"	"models/Combine_Soldier_PrisonGuard.mdl"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "370 7273 -8011" "angle" "0 180 0"
+		"keyvalues" { "targetname"	"atumaru1"
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+
+}
+
+"entities:assault1" {
+	"info_target" {
+		"origin" "-4351 6436 -8012"
+		"keyvalues" { "targetname" "goalnpc3" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"assault1"
+			"goal"		"goalnpc3"
+		}
+	}
+	
+	"npc_metropolice" {
+		"origin" "-3747 7242 -8012" "angle" "0 179 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3749 7157 -8012" "angle" "0 179 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3674 6554 -8012" "angle" "0 -166 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_shotgun"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3653 6450 -8012" "angle" "0 -172 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3747 7242 -7812" "angle" "0 179 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_p90"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3749 7157 -7812" "angle" "0 179 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3674 6554 -7812" "angle" "0 -166 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_shotgun"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3653 6450 -7812" "angle" "0 -172 0"
+		"keyvalues" { "targetname"	"assault1"
+			"additionalequipment"	"weapon_p90"
+		}
+	}
+}
+
+
+"entities:spawnfriend" {
+	
+	"player" {
+		"music"	"song12_long"
+		"message"	"Escape back to the Airboats with the prisoners"
+	}
+
+	
+	"event" {
+		"targetname"	"hatch_*"
+		"action"	"startforward"
+	}
+
+	"prop_dynamic" {
+		"origin" "-4645 4779 -7757"
+		"keyvalues" {
+			"model"	"models/airboat.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-4649 4852 -7739"
+		"keyvalues" {
+			"radius"	"300"
+			"touchname"	"nakama"
+			"label"		"complete"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-4508 4645 -7757" "angle" "0 63 0"
+		"keyvalues" {
+			"model"	"models/airboat.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-4782 4634 -7757" "angle" "0 142 0"
+		"keyvalues" {
+			"model"	"models/airboat.mdl"
+			"solid"	"6"
+		}
+	}
+
+	
+	"npc_f_kleiner" {
+		"origin" "-398 6879 -7474"
+		"angle" "0 3 0"
+		"keyvalues"
+		{
+			"targetname"	"nakama"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+	
+	"npc_citizen" {
+		"origin" "-389 6741 -7474"
+		"angle" "0 -0 0"
+		"keyvalues"
+		{
+			"targetname"	"nakama"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_citizen" {
+		"origin" "-197 6732 -7474" "angle" "0 172 0"
+		"keyvalues"
+		{
+			"targetname"	"nakama"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+	
+	"event" {
+		"targetname"	"rebels_gate01"
+		"action"	"startforward"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"nakama"
+			"label"	"gameover"
+		}
+	}
+	
+	//	敵の出現
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"10"
+			"label"	"putenemy2"
+			"group"		"1"
+			"noclear"	"1"
+		}
+	}
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"11"
+			"label"	"putenemy1:putenemy3"
+			"group"		"1"
+			"noclear"	"1"
+		}
+	}
+
+	//	先に進むと出現停止
+	"instant_trig" {
+		"origin" "-4351 6454 -7995"
+		"keyvalues" {
+			"radius"	"500"
+			"group"		"1"
+			"removegroup"	"1"
+		}
+	}
+
+
+	//	仲間の出現
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"10"
+			"label"	"putcitizen"
+			"group"		"2"
+			"noclear"	"1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"11"
+			"label"	"putcitizen2"
+			"group"		"2"
+			"noclear"	"1"
+		}
+	}
+
+	//	60秒後、出現の取りやめ
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"60"
+			"group"		"2"
+			"removegroup"	"1"
+		}
+	}
+
+
+
+
+	"info_target" {
+		"origin" "-2442 6828 -8011"
+		"keyvalues" { "targetname" "goalnpc5" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"goenemies1"
+			"goal"		"goalnpc5"
+		}
+	}
+	
+	"removeentity" {
+		"targetname"	"auto_door_trigger01"
+	}
+	
+	"event" {
+		"targetname"	"auto_door01"
+		"action"	"startforward"
+	}
+}
+
+"entities:putcitizen" {
+	"npc_citizen" {
+		"origin" "1466 6592 -8011"
+		"angle" "10 178 0"	
+		"activate"
+		"keyvalues" {
+			"targetname"	"goenemies1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+}
+"entities:putcitizen2" {
+	"npc_citizen" {
+		"origin" "1474 7059 -8011"
+		"angle" "10 178 0"	
+		"activate"
+		"keyvalues" {
+			"targetname"	"goenemies1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+}
+
+
+"entities:putenemy1" {
+	"npc_combine_s" {
+		"origin" "-4411 7002 -7900"
+		"activate"
+		"keyvalues" {
+			"targetname"	"goenemies1"
+			"additionalequipment"	"weapon_ar2"
+			"numgrenade"	"10"
+		}
+	}
+}
+
+"entities:putenemy3" {
+	"npc_metropolice" {
+		"origin" "-4418 6806 -7900"
+		"activate"
+		"keyvalues" { 
+			"targetname"	"goenemies1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+}
+
+"entities:putenemy2" {
+	"npc_combine_s" {
+		"origin" "-4405 6633 -7900"
+		"activate"
+		"keyvalues" {
+			"targetname"	"goenemies1"
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+		}
+	}
+}
+
+"entities:complete" {
+	"player" {
+		"music" 	"song_credits_2"
+		"message"	"Mission Complete!"
+		"fadeout"	"12"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"11"
+			"label"	"end"
+		}
+	}
+}
+
+"entities:end" {
+	"player" {
+		"origin" "1580 6515 -7468"
+	}
+}
+
+"entities:enemy1" {
+
+	"npc_metropolice" {
+		"origin" "-3755 3113 -864" "angle" "0 -88 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3456 4244 -1080" "angle" "0 -88 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-3253 4241 -1080" "angle" "0 -100 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-2939 3885 -1080" "angle" "0 91 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-2888 3067 -1080" "angle" "0 91 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-3160 2857 -1346" "angle" "0 88 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m249"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-2966 3056 -1080" "angle" "-0 91 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-3169 2739 -1080" "angle" "-0 91 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+		}
+	}
+	
+	"instant_trig" {
+		"origin" "-3065 2757 -1080"
+		"keyvalues" {
+			"radius"	"100"
+			"label"		"trap1"
+		}
+	}
+	
+	
+	"npc_combine_s" {
+		"origin" "-4609 2715 -1080" "angle" "0 1 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4610 2793 -1080" "angle" "0 1 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4611 2860 -1080" "angle" "0 -2 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-5144 3069 -864" "angle" "0 -130 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-4994 3536 -864" "angle" "0 -123 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"30"
+			"label"	"enemy1_1"
+		}
+	}
+
+	"npc_metropolice" {
+		"origin" "-4933 3360 -380" "angle" "0 -23 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+}
+
+"entities:enemy1_1" {
+
+	"npc_combine_s" {
+		"origin" "-4776 3293 -377" "angle" "0 -180 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_rpg"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-4789 3295 -868" "angle" "0 -169 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_m4a1"
+			"numgrenade"	"10"
+		}
+	}
+	
+}
+
+"entities:trap1" {
+	"npc_rollermine" {
+		"origin" "-3330 3144 -883"
+	}
+	"npc_rollermine" {
+		"origin" "-3410 3141 -884"
+	}
+
+	"npc_combine_s" {
+		"origin" "-2810 2996 -1080" "angle" "0 -133 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-4062 3525 -1080" "angle" "0 -88 0"
+		"keyvalues" {
+			"targetname"	"teki11"
+			"additionalequipment"	"weapon_p90"
+			"numgrenade"	"10"
+		}
+	}
+
+	"npc_combine_s" {
+		"origin" "-3979 3527 -1080" "angle" "0 -89 0"
+		"keyvalues" {
+			"targetname"	"teki12"
+			"additionalequipment"	"weapon_smg1"
+			"numgrenade"	"10"
+		}
+	}
+	
+	"info_target" {
+		"origin" "-4011 2709 -1070"
+		"keyvalues" { "targetname" "goalnpc1" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"teki1*"
+			"goal"		"goalnpc1"
+		}
+	}
+	
+	
+}
+
+
+"entities" {
+
+
+//	"instant_trig" {
+//		"keyvalues" {
+//			"timer"	"1"
+//			"label"	"mission3"
+//		}
+//	}
+
+	"prop_dynamic" {
+		"origin" "-4729 3295 -1327" "angle" "0 177 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+
+
+	"prop_dynamic" {
+		"origin" "-3489 3086 -864" "angle" "0 177 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-3363 3193 -864" "angle" "0 89 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-3828 4232 -1080" "angle" "-0 -0 0"
+		"keyvalues" {
+			"model" "models/combine_gate_Vehicle.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-2639 3447 -1346"
+		"keyvalues" {
+			"model" "models/props_combine/CombineInnerwallCluster1024_001a.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-5910 3436 -1346"
+		"keyvalues" {
+			"model" "models/props_combine/CombineInnerwallCluster1024_001a.mdl"
+			"solid"	"6"
+		}
+	}
+
+
+	"prop_dynamic" {
+		"origin" "-4556 2732 -1050" "angle" "0 2 0"
+		"keyvalues" {
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_dynamic" {
+		"origin" "-4556 2832 -1050" "angle" "0 2 0"
+		"keyvalues" {
+			"model" "models/props_combine/combine_barricade_short01a.mdl"
+			"solid"	"6"
+		}
+	}
+
+	"prop_physics" {
+		"origin" "-4394 3837 -5384"
+		"keyvalues" {
+			"model"	"models/props_lab/dogobject_wood_crate001a_damagedmax.mdl"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"		".1"
+			"label"		"init"
+		}
+	}
+
+
+}
+
+
+
+"entities:gameover" {
+	"player" {
+		"fadeout"	"10"
+		"message"	"FAILURE: All the prisoners were killed..."
+		"kill"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"9"
+			"label"	"end"
+		}
+	}
+	
+}
+
+

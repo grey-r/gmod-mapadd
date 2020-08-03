@@ -1,0 +1,211 @@
+"precache"{
+	"entity" "npc_citizen"
+}
+
+"randomspawn" {
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/wood_crate001a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"5"
+		"model" "models/props_c17/oildrum001.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"2"
+		"model" "models/props_c17/oildrum001_explosive.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/gascan001a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/gascan001a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_interiors/Furniture_Desk01a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_interiors/Furniture_chair03a.mdl"
+	}
+	"npc_turret_floor" {
+		"count"		"5"
+	}
+	"npc_stalker" {
+		"count"		"3"
+		"targetname"	"tg"
+		"patrol"
+		"values"	"beampower 2"
+	}
+	"npc_manhack" {
+		"count"		"3"
+	}
+	"npc_combine_s" {
+		"count"		"4"
+		"model"	"models/combine_super_soldier.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_ar2"
+		"targetname"	"tg"
+	}
+	"npc_combine_s" {
+		"count"		"3"
+		"model"	"models/soldier_camo.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_mp5"
+		"targetname"	"tg"
+		"patrolrandom"
+	}
+	"npc_combine_s" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_grease"
+		"targetname"	"tg"
+		"patrolrandom"
+	}
+	"npc_combine_s" {
+		"count"		"3"
+		"grenade"	"5"
+		"weapon"	"weapon_m249"
+		"targetname"	"tg"
+		"patrolrandom"
+	}
+	"npc_metropolice" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_p90"
+		"targetname"	"tg"
+		"patrolrandom"
+		"values"	"manhacks 1"
+	}
+	"npc_combine_s" {
+		"count"		"2"
+		"grenade"	"5"
+		"weapon"	"weapon_shotgun"
+		"targetname"	"tg"
+	}
+	"npc_combine_s" {
+		"count"		"2"
+		"model"	"models/gman.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_mp5"
+		"targetname"	"tg"
+		"patrol"
+	}
+	"npc_combine_s" {
+		"count"		"2"
+		"model"	"models/mossman.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_ak47"
+		"targetname"	"tg"
+		"patrol"
+	}
+	"npc_combine_s" {
+		"count"		"2"
+		"model"	"models/breen.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_grease"
+		"targetname"	"tg"
+		"patrol"
+	}
+}
+"entities:init" {
+	"player" {
+		"origin" "2575 170 -240"
+		"angle" "0 1 0"
+		"fadein"	"3"
+		"message"	"Eliminate all Combine!"		
+		"music"		"Smod_map"		
+	}
+
+	"item_suit" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_mp5" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_pistol" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_pistol" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_deagle" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_deagle" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_deagle" {
+		"origin" "2552 169 -264"
+	}
+	"weapon_pistol" {
+		"origin" "2552 169 -264"
+	}
+}
+"entities"{
+	"instant_trig" {
+		"keyvalues" {
+			"label" "init"
+			"timer" ".1"
+		}
+	}
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"tg"
+			"label"		"clear"
+		}
+	}
+	"point_clientcommand" {
+	"keyvalues" {
+	"targetname" "console"
+		}
+	}	
+}
+
+"entities:clear"{
+	"player" {
+		"message"	"Mission Clear!!"
+		"fadeout"  "3"
+	}
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"disconnect"
+			"timer"	"6"
+		}
+	}		
+}
+
+"entities:disconnect" {
+		"event" {
+		"targetname" "console"
+		"action" "command"
+		"value" "disconnect"
+	}
+}

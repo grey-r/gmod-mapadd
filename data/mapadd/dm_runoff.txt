@@ -1,0 +1,149 @@
+"precache" {
+	"entity"	"item_suit"
+	"entity"	"npc_citizen"
+	"entity"	"npc_combine_e"
+	"entity"	"npc_combine_s"
+	"entity"	"npc_metropolice"
+	"entity"	"npc_combine_ace"
+}
+
+"entities" {
+
+  "info_player_axis" {
+   "origin"    "10397 2945 -235"
+   }
+
+  "info_player_axis" {
+   "origin"    "10397 2868 -235"
+   }
+
+  "info_player_axis" {
+   "origin"    "10288 2897 -235"
+   }
+
+  "info_player_allies" {
+   "origin"    "9124 1837 -235"
+   }
+
+  "info_player_allies" {
+   "origin"    "9124 1739 -235"
+   }
+
+	lua {
+		"callfunc"	"Init"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"initialize"
+			"timer"	"0.01"
+		}
+	}
+	
+  "game_weapon_manager" {
+  	"origin" "5720 6043 60"
+  			"keyvalues" {
+  						"targetname"	"cleaner"
+  						"weaponname"	"weapon_*"
+  						"maxpieces"	"15"
+  			}
+   }	
+}
+
+"entities:roundstart" {
+
+	"player" {
+		"message"	"Last as long as you can against the enemies!"
+		"music"		"Smod_map"		
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"movenext"
+			"timer"	"0.1"
+		}
+	}
+
+}
+
+
+"entities:initialize" {
+
+	lua {
+		"callfunc"	"RoundInit"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"roundstart"
+			"timer"	"3"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"respawn"
+			"timer"	"8"
+			"noclear"	"1"
+			"targetname"	"respawntrig"
+		}
+	}
+}
+
+"entities:respawn"
+{
+	lua {
+		"callfunc"	"SpawnCombines"
+	}
+	lua {
+		"callfunc"	"RespawnCitizen"
+	}
+
+}
+
+"entities:movenext" {
+
+	lua {
+		"callfunc"	"MoveCombine"
+	}
+}
+
+
+"entities:cmovestop" {
+
+	"removeentity" {
+		"targetname"	"mv*"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"premove"
+			"timer"	"3"
+		}
+	}
+
+}
+
+"entities:premove" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"movenext"
+			"timer"	"1"
+		}
+	}
+
+}
+
+
+"entities:GameOver" {
+
+	"player" {
+		"fadeout"	"10"
+		"message"	"#HL2_GameOver_Survival"
+		"music"		"song28"
+	}
+	
+}
+
+

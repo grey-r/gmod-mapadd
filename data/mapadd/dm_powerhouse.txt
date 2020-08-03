@@ -1,0 +1,185 @@
+"precache"{
+	"entity" "npc_bullsquid"
+	"entity" "npc_zombie2"
+	"entity" "npc_houndeye"		
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "-620 -874 -494"
+		"radius" "200"
+	}
+
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/wood_crate001a.mdl"
+		"stabilize"	"30"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"5"
+		"model" "models/props_c17/oildrum001.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"2"
+		"model" "models/props_c17/oildrum001_explosive.mdl"
+		"stabilize"	"30"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/gascan001a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/gascan001a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_interiors/Furniture_Desk01a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_interiors/Furniture_chair03a.mdl"
+	}
+
+	"npc_antlion" {
+		"count"		"20"
+		"targetname"	"tg2"		
+	}
+
+	"npc_fastzombie" {
+		"count"		"10"
+		"targetname"	"tg"
+	}
+	
+	"npc_zombie2" {
+		"count"		"20"
+		"targetname"	"tg"
+	}
+	
+	"npc_houndeye" {
+		"count"		"10"
+		"targetname"	"tg"
+	}
+}
+
+
+"entities:init" {
+	"player" {
+		"origin" "-1181 -1158 96"
+		"angle" "0 -40 0"
+		"fadein"	"3"
+		"message" "Eliminate All Hostiles"
+		"music"		"Smod_map_lowkey"		
+	}
+
+	"item_suit" {
+		"origin" "-1181 -1158 96"
+	}
+}
+
+"entities:item1" {
+	"weapon_mp5" {
+		"origin" "-1181 -1158 96"
+	}
+	"weapon_mp5" {
+		"origin" "-1181 -1158 96"
+	}
+	"weapon_cz52" {
+		"origin" "-1181 -1158 96"
+	}
+	"weapon_cz52" {
+		"origin" "-1181 -1158 96"
+	}
+	"weapon_cz52" {
+		"origin" "-1181 -1158 96"
+	}
+	"weapon_cz52" {
+		"origin" "-1181 -1158 96"
+	}		
+}
+
+
+
+"entities"{
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "init"
+			"timer" ".1"
+		}
+	}
+
+	"point_clientcommand" {
+	"keyvalues" {
+	"targetname" "console"
+		}
+	}
+
+	"ai_relationship" {
+		"keyvalues" {
+			"targetname" "relationship"
+			"subject"	"tg2"
+			"target"	"tg"
+			"disposition" "3"
+			"rank" "99"
+			"StartActive" "1"
+			"Reciprocal" "0"
+		}
+	}	
+
+	"ai_relationship" {
+		"keyvalues" {
+			"targetname" "relationship"
+			"subject"	"tg"
+			"target"	"tg2"
+			"disposition" "3"
+			"rank" "99"
+			"StartActive" "1"
+			"Reciprocal" "0"
+		}
+	}	
+
+	"event" {
+	"targetname" "relationship"
+	"action" "applyrelationship"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"tg*"
+			"label"		"clear"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "item1"
+			"timer" ".1"
+		}
+	}
+
+}
+
+"entities:clear"{
+	"player" {
+		"message"	"Mission Clear!!"
+		"fadeout"		"3"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"disconnect"
+			"timer"	"6"
+		}
+	}	
+	
+}
+
+"entities:disconnect" {
+		"event" {
+		"targetname" "console"
+		"action" "command"
+		"value" "disconnect"
+	}
+}

@@ -1,0 +1,258 @@
+"precache" {
+	"sound"	"npc_citizen.abouttime01"
+	"entity"	"item_suit"
+	"entity"	"npc_citizen"
+	"entity"	"npc_combine_e"
+	"entity"	"npc_combine_s"
+	"entity"	"npc_metropolice"
+	"sound"		"odessa.nlo_cheer03"
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "101 -1420 64"
+		"radius" "1000"
+	}
+
+	"removenodes" {
+		"origin" "1535 3213 -125"
+		"radius" "1000"
+	}
+
+
+	"item_ammo_ar2" {
+		"count"		"3"
+	}
+
+	"item_ammo_smg1" {
+		"count"		"3"
+	}
+
+	"weapon_frag" {
+		"count"		"2"
+	}
+
+	"weapon_custom1" {
+		"count"		"1"
+	}
+
+	"weapon_custom2" {
+		"count"		"1"
+	}
+
+	"weapon_custom3" {
+		"count"		"1"
+	}
+
+	"prop_physics_multiplayer" {
+		"count"		"8"
+		"model" "models/props_junk/wood_crate001a.mdl"
+		"stabilize"	"30"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"8"
+		"model" "models/props_c17/oildrum001_explosive.mdl"
+		"stabilize"	"30"
+	}
+}
+
+
+"entities" {
+
+	lua {
+		"callfunc"	"Init"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"initialize"
+			"timer"	"0.01"
+		}
+	}
+
+}
+
+"entities:roundstart1" {
+
+	"player" {
+		"music" 	"song_hl1_17"
+		"message"	"Round start!"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"movenext"
+			"timer"	"3"
+		}
+	}
+	
+}
+
+"entities:roundstart2" {
+
+	"player" {
+		"music" 	"song_hl1_21"
+		"message"	"Round start!"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"movenext"
+			"timer"	"1"
+		}
+	}
+
+}
+
+
+"entities:initialize" {
+
+	"player" {
+		"message"	"-- HOSTAGE RESCUE --"
+		"fadein"	"10"
+	}
+
+
+	lua {
+		"callfunc"	"RoundInit"
+	}
+
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"gameover"
+			"islived" "hostage"
+			"group"		"3"
+			"removegroup"	"1"
+		}
+	}
+
+//	Hostage Extract Point
+	"instant_trig" {
+		"origin" "-1202 -1301 -336"
+		"keyvalues" {
+			"label"	"clear"
+			"touchname"	"hostage"
+			"radius" "200"
+			"group"		"3"
+			"removegroup"	"1"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-300 -1999 -336"
+		"keyvalues" {
+			"label"	"clear"
+			"touchname"	"hostage"
+			"radius" "200"
+			"group"		"3"
+			"removegroup"	"1"
+		}
+	}
+
+
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"roundstart1:roundstart2"
+			"timer"	"3"
+		}
+	}
+	
+
+}
+
+"entities:movenext" {
+
+	lua {
+		"callfunc"	"MoveCombine"
+	}
+}
+
+
+"entities:cmovestop" {
+
+	"removeentity" {
+		"targetname"	"mv*"
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"premove"
+			"timer"	"10"
+		}
+	}
+
+}
+
+"entities:premove" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"movenext"
+			"timer"	"1"
+		}
+	}
+
+}
+
+"entities:takeshostage" {
+
+	lua {
+		"callfunc"	"EscortHostage"
+	}
+
+	"player" {
+		"message"	"ESCORT HOSTAGES TO EXTRACT POINT"
+	}
+	
+	"sound" {
+		"targetname"	"hostage"
+		"soundname"	"npc_citizen.abouttime01"
+	}
+
+}
+
+"entities:clear" {
+
+	"player" {
+		"message"	"HOSTAGE WAS RESCUED"
+	}
+	
+	lua {
+		"callfunc"	"StopEnemies"
+	}
+	
+	"sound" {
+		"targetname"	"hostage"
+		"soundname"	"odessa.nlo_cheer03"
+	}
+
+	"scripted_sequence" {
+		"keyvalues" {
+			"m_iszplay"	"cheer1"
+			"m_iszEntity" "hostage"
+			"targetname" "ga1"
+		}
+	}
+
+	"event" {
+		"targetname"	"ga1"
+		"action"	"beginsequence"
+	}
+
+}
+
+
+"entities:gameover" {
+
+	"player" {
+		"kill"
+		"message"	"MISSION FAILURE..."
+//		"music"		"song23"
+		"fadeout"	"5"
+	}
+	
+	
+}

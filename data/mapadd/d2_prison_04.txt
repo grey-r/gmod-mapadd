@@ -2,16 +2,6 @@
 //	location: d2_prison_04
 "precache" {
 	"entity"	"npc_citizen"
-	"entity"	"weapon_mp5"
-	"entity" 	"npc_combine_c"
-	"entity" 	"npc_combine_e"
-	"entity" 	"npc_combine_p"
-	"entity" 	"monster_human_grunt"	
-	"entity" 	"weapon_mp5"	
-	"entity" 	"weapon_custom5"
-	"entity" 	"weapon_custom14"
-	"entity" 	"weapon_kar98"	
-	"model"	"models/combine_commando.mdl"	
 }
 
 
@@ -22,100 +12,81 @@
 		"origin" "-2016 258 -145"
 		"radius"	"600"
 	}
-	
 	"removenodes" {
 		"origin" "-1358 -219 -128"
 		"radius"	"300"
 	}
 
-	"removenodes" {
-		"origin" "-825 1190 162"
-		"radius"	"128"
-	}	
-
-	"removenodes" {
-		"origin" "-895 1676 162"
-		"radius"	"128"
-	}
-	
-	"removenodes" {
-		"origin" "-895 2642 162"
-		"radius"	"128"
-	}	
-	
 	"npc_combine_e" {
-		"count"		"6"
-		"grenade"	"5"
-		"weapon"	"weapon_custom14"
-		"values" 	"squadname leet"			
-	}
-	"npc_combine_c" {
-		"count"		"6"
-		"grenade"	"5"
-		"weapon"	"weapon_mp5"
-		"values" 	"squadname spooky"			
-	}
-// TEST	
-	"monster_human_grunt" {
 		"count"		"5"
 		"grenade"	"5"
-		"weapon"	"weapon_custom5"
-		"values" 	"squadname cb13 targetname commando runspeedmod 1.5"
+		"weapon"	"weapon_oicw"
+	}
+	"npc_combine_c" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_jackhammer"
+	}
+	"npc_combine_s" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_smg1"
+	}
+	"npc_combine_e" {
+		"count"		"5"
+		"weapon"	"weapon_ar2"
+	}
+	"npc_combine_s" {
+		"count"		"1"
+		"model"	"models/gman.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_mp5"
 	}
 
 }
 
 
 "entities" {
-	"item_item_crate" {
-		"origin" "-316.6 3613.2 453.3"
-		"angle" "15 102 15"
-		"keyvalues" {
-			"itemclass"		"item_ammo_smg1_grenade"
-			"itemcount"		"3"
-		}
-	}
-	
-	"item_item_crate" {
-		"origin" "-1173.4 1835.5 451.5"  "angle" "31 -103 7"
-		"keyvalues" {
-			"itemclass"		"item_battery"
-			"itemcount"		"3"
-		}
+
+	"npc_rocket_turret" {
+		"origin" "-1343.5 2959.8 434"  "angle" "0 -91 0"
+		"stabilize"	"75"
 	}
 
-	"instant_trig" {
-		"origin" "-92 1634 156"
-		"keyvalues" {
-			"label"	"bluff"
-			"radius" "115"
+	"item_item_crate"
+	{
+		"origin"	"-269.63 1697.70 225.67"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_gauss"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
 		}
 	}
-	
-	"npc_combine_p" {
-		"origin" "-869.2 2591.8 128.0"  "angle" "0 305 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"			
-			"targetname" "catwalk_soldier_1"
-			"squadname" "cell2_soldier_squad"
+	"item_item_crate"
+	{
+		"origin"	"-278.57 2092.34 446.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
 		}
 	}
-	
-	"instant_trig" {
-		"origin" "-591 2562 156"
-		"keyvalues" {
-			"label"	"rep1"
-			"radius" "115"
+	"item_item_crate"
+	{
+		"origin"	"-950.44 1640.73 481.85"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
 		}
 	}
-
-// TEST	
-	"event" {
-		"targetname" "commando"
-		"action" "addoutput"
-		"value" "health 100"
-		"delaytime" "0.1"
-	}
+}
 	
 }
 

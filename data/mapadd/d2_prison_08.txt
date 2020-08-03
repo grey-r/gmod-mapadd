@@ -1,336 +1,84 @@
 //	map arrange data
 //	location: d2_prison_08
 "precache" {
-	"entity" "npc_kscanner"
-	"entity" "weapon_mp5"
-	"entity" "weapon_grease"
-	"entity"	"monster_human_grunt"		
-	"entity" 	"weapon_custom5"	
-	"entity" 	"weapon_custom14"	
-	"model" "models/props_combine/combine_interface002.mdl"
-	"model" "models/props_combine/combinebutton.mdl"
-	"model" "models/items/item_item_crate.mdl"
-	"model" "models/items/item_item_crate_chunk01.mdl"
-	"model" "models/items/item_item_crate_chunk02.mdl"
-	"model" "models/items/item_item_crate_chunk05.mdl"
-	"model" "models/items/item_item_crate_chunk06.mdl"
-	"model" "models/items/item_item_crate_chunk07.mdl"
-	"model" "models/items/item_item_crate_chunk08.mdl"
-	"model" "models/items/item_item_crate_chunk09.mdl"
 	"entity" "npc_f_turret_floor"
-	"model"	"models/combine_commando.mdl"		
 }
 
 "entities" {
 
-	"npc_f_turret_floor" {
+	"item_item_crate"
+	{
+		"origin" "-2435 2478 1029"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+			"ItemCount"		"2"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin" "-2063 1889 1016"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+			"ItemCount"		"2"
+		}
+	}
+	
+	"item_item_crate"
+	{
+		"origin" "-1859 1826 1017"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_gauss"
+			"ItemCount"		"2"
+		}
+	}	
+
+	"item_item_crate"
+	{
+		"origin" "-2158 1151 1012"
+		"keyvalues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+			"ItemCount"		"3"
+		}
+	}	
+
+	"item_item_crate"
+	{
+		"origin"	"-1050.81 1327.64 1023.75"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_flare"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+	
+	"item_item_crate"
+	{
+		"origin"	"-798.02 1508.56 1054.82"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+
+	"npc_f_turret" {
 		"origin" "-270.9 810.8 964.7"  "angle" "0 178 0"
 		"keyvalues" {
 		"model" "models/combine_turrets/floor_turret.mdl"
 		}
 	}
 
-	"event" {
-		"targetname"	"alyx"
-		"action"	"sethealth"
-		"value"		"9999"
-	}
-
-	"event" {
-		"targetname"	"eli"
-		"action"	"sethealth"
-		"value"		"9999"
-	}	
-	
-	"event" {
-		"targetname" "maker_combine_lower_1"
-		"action" "SetMaxLiveChildren"
-		"value" "5"
-	}	
-	
-	"event" {
-		"targetname" "maker_combine_lower_2"
-		"action" "SetMaxLiveChildren"
-		"value" "5"
-	}	
-	
-	"event" {
-		"targetname" "maker_combine_lower_3"
-		"action" "SetMaxLiveChildren"
-		"value" "5"
-	}	
-	
-	"event" {
-		"targetname" "maker_combine_lower_4"
-		"action" "SetMaxLiveChildren"
-		"value" "5"
-	}
-
-	"event" {
-		"targetname" "maker_combine_lower_6"
-		"action" "SetMaxLiveChildren"
-		"value" "5"
-	}
-
-	"event" {
-		"targetname" "maker_combine_lower_7"
-		"action" "SetMaxLiveChildren"
-		"value" "5"
+	lua {
+		"callfunc"	"Init"
 	}
 	
-	"instant_trig" {
-		"origin" "-272 557 956"
-		"keyvalues" {
-			"label" "hacktest"
-			"radius" "100"
-			//"timer" "0.2" //for testing
-		}
-	}
-
-	"instant_trig" {
-		"origin" "-1212 1205 1116"
-		"keyvalues" {
-			"radius"	"75"
-			"label"		"modoor"
-		}
-	}	
-	
-	"item_item_crate"
-	{
-		"origin" "-599 589 955"
-		"keyvalues"
-		{
-			"ItemClass"		"item_ammo_crossbow"
-			"ItemCount"		"2"
-		}
-	}	
-}
-
-"entities:modoor" {
-
-	"monster_human_grunt" {
-		"origin" "-1464.7 1813.2 960.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom5"			
-			"targetname" "commando"
-			"runspeedmod" "1.5"				
-			"squadname" "squad_room5"
-		}
-	}
-	
-	"monster_human_grunt" {
-		"origin" "-1430.3 1940.5 960.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"			
-			"targetname" "commando"
-			"runspeedmod" "1.5"				
-			"squadname" "squad_room5"
-		}
-	}
-	
-	"monster_human_grunt" {
-		"origin" "-1364.7 1880.0 960.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom5"			
-			"targetname" "commando"
-			"runspeedmod" "1.5"				
-			"squadname" "squad_room5"
-		}
-	}
-
-	"event" {
-		"targetname" "commando"
-		"action" "addoutput"
-		"value" "health 100"
-		"delaytime" "0.1"
-	}	
-}
-
-"entities:hacktest" {
-
-	"prop_physics" {
-		"origin" "-101.5 503.8 960.4"  "angle" "0 -0 360"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_combine/combine_interface002.mdl"
-			"targetname" "goose"
-		}
-	}
-	
-	"prop_dynamic" {
-		"origin" "-79.0 531.5 1002.5"  "angle" "-51 1 178"
-		"freeze"
-		"keyvalues" {
-			"targetname" "console_button1_ani"
-			"model" "models/props_combine/combinebutton.mdl"
-			"MaxAnimTime" "10"
-			"MinAnimTime" "5"
-			"solid" "6"
-		}
-	}
-	
-	"prop_physics" {
-		"origin" "-72.6 531.8 1005.4"  "angle" "27 -53 329"
-		"freeze"
-		"keyvalues" {
-			"targetname" "console_button1"
-			"model" "models/props_debris/impact_debris3.mdl"
-			"rendermode" "5"
-			"renderamt" "0"
-			"rendercolor" "0 1 0"
-			"spawnflags" "256"
-			"onplayeruse" "console_button1_ani,setanimation,press,0,-1"
-			//"onplayeruse" "tiedown,break,,0.1,1" // this crashes the game.
-			"onplayeruse" "console_sound,dospark,,0.2,1"
-			"onplayeruse" "console_glow,color,51 255 51,0.2,1"
-			"onplayeruse" "kscanner_spawner,spawn,,2,1"
-			"onplayeruse" "ben,setrelationship,!player d_li,2.1,1"
-			"onplayeruse" "ben,setrelationship,alyx d_li,2.1,1"
-			"onplayeruse" "ben,setrelationship,mossman d_li,2.1,1"
-			"onplayeruse" "ben,setrelationship,eli d_li,2.1,1"
-			"onplayeruse" "ben,setrelationship,npc_turret_floor d_li,2.1,1"
-			"onplayeruse" "ben,setrelationship,npc_f_turret_floor d_li,2.1,1"
-			"onplayeruse" "ben,setrelationship,turret_buddy d_li,2.1,-1"
-			"onplayeruse" "ben,setrelationship,npc_combine_p d_ht,2.1,1"
-			"onplayeruse" "ben,setfollowtarget,!player,2.1,1"
-			"onplayeruse" "alyx,setrelationship,ben d_li,2.1,1"
-			"onplayeruse" "ben,addoutput,health 325,2.2,1"
-		}
-	}
-
-	"npc_maker" {
-		"origin" "119.3 3.1 2357.3"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "kscanner_spawner"
-			"startdisabled" "1"
-			"maxnpccount" "1"
-			"maxlivechildren" "1"
-			"npctype" "npc_kscanner"
-			"npctargetname" "ben"
-		}
-	}
-	
-	"point_tesla" {
-		"origin" "-111.5 503.8 970.4"
-		"keyvalues" {
-			"targetname" "console_sound"
-			"m_SoundName" "buttons/button19.wav"
-			"sprite" "sprites\physbeam.vmt"
-			"m_color" "0 153 255"
-			"m_flRadius" "5"
-			"beamcount_min" "1"
-			"beamcount_max" "1"
-			"thick_min" "1"
-			"thick_max" "1"
-			"lifetime_min" "1"
-			"lifetime_max" "1"
-			"interval_min" "0.0001"
-			"interval_max" "0.0001"
-			"rendermode" "3"
-			"renderamt" "0"
-		}
-	}
-	
-	"env_sprite" {
-		"origin" "-74.5 531.9 1004.5"
-		"keyvalues" {
-			"targetname" "console_glow"
-			"rendercolor" "236 236 0"
-			"model" "sprites/glow01.spr"
-			"framerate" "10.0"
-			"renderamt" "200"
-			"rendermode" "5"
-			"GlowProxySize" "2.0"
-			"renderfx" "0"
-			"HDRColorScale" "1.0"
-			"scale" "0.1"
-			"spawnflags" "1"
-		}
-	}
-	
-	"env_lightglow" {
-		"origin" "-74.5 532 1004.5"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "console_glow"
-			"rendercolor" "236 236 0"
-			"MaxDist" "500"
-			"MinDist" "10"
-			"OuterMaxDist" "2500"
-			"HorizontalGlowSize" "2"
-			"VerticalGlowSize" "2"
-			"GlowProxySize" "2.0"
-			"HDRColorScale" "1.0"
-			"spawnflags" "1"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "118 220 1433"
-		"keyvalues" {
-			"radius" "550"
-			"label" "ben_fix"
-			"touchname" "ben"
-		}
-	}
-	
-	"logic_timer" {
-		"origin" "433 1002 1032"
-		"keyvalues" {
-			"targetname" "scanner_hud_timer"
-			"startdisabled" "1"
-			"userandomtime" "0"
-			"refiretime" "22"
-			"ontimer" "ben,setrelationship,turret_buddy d_li,0,-1"
-			"ontimer" "ben,setfollowtarget,!player,0,1"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "120 20 1365"
-		"keyvalues" {
-			"label" "hackclean"
-			"radius" "80"
-		}
-	}
-}
-
-"entities:ben_fix" {
-
-	"event" {
-		"targetname" "ben"
-		"action" "addoutput"
-		"value" "onlostenemy ben,setfollowtarget,!player"
-	}
-	
-	"event" {
-		"targetname" "ben"
-		"action" "addoutput"
-		"value" "onlostenemylos ben,setfollowtarget,!player"
-	}
-	
-	"event" {
-		"targetname" "ben"
-		"action" "addoutput"
-		"value" "ondeath scanner_hud_timer,kill"
-	}
-	
-	"event" {
-		"targetname" "scanner_hud_timer"
-		"action" "enable"
-	}
-}
-
-"entities:hackclean" {
-
-	"event" {
-		"targetname" "ben"
-		"action" "setfollowtarget"
-		"value" "turret_buddy"
-	}
-	
-	"event" {
-		"targetname" "scanner_hud_timer"
-		"action" "kill"
-	}
 }

@@ -6,13 +6,7 @@
 	"entity"	"npc_metropolice"
 	"entity"	"npc_fastzombie"
 	"entity"	"npc_combinedropship"
-	"entity"	"weapon_kar98"
-	"entity"	"weapon_grease"	
-	"entity"	"weapon_custom16"		
-	"entity" 	"weapon_custom24"	
-	"entity" 	"weapon_custom30"		
 	"entity"	"prop_dropship_container"
-	"model"	"models/ichthyosaur_corpse.mdl"	
 }
 
 "entities:land3" {
@@ -156,13 +150,6 @@
 	
 }
 
-"entities:init" {
-	"event" {
-		"targetname"	"thumper_1"
-		"action"	"enable"
-	}
-}
-
 "entities:cann" {
 	
 	"event" {
@@ -291,20 +278,11 @@
 		}
 	}
 
-	"instant_trig" {
-		"keyvalues" {
-			"timer"		"0.01"
-			"label"		"init"
-		}
-	}
-
-
-
 	"npc_citizen" {
 		"origin" "1653 -2522 256" "angle" "0 41 0"
 		"keyvalues"
 		{
-			"additionalequipment"	"weapon_grease"
+			"additionalequipment"	"weapon_kar98"
 		}
 	}
 
@@ -340,99 +318,27 @@
 
 	"item_item_crate"
 	{
-		"origin"	"3514.42 -4707.47 580"
+		"origin"	"4307.42 -1727.47 319.96"
 		"angle"		"0 0 0"
 		"KeyValues"
 		{
-			"ItemClass"		"item_rpg_round"
+			"ItemClass"		"item_ammo_rifle"
 	//		"ItemClass"		"item_dynamic_resupply"
-			"ItemCount"		"3"
+			"ItemCount"		"2"
 		}
 	}
-
 	"item_item_crate"
 	{
-		"origin"	"3489.9 -4754.2 580"
+		"origin"	"5655.74 -4567.51 480.03"
 		"angle"		"0 0 0"
 		"KeyValues"
 		{
-			"ItemClass"		"item_rpg_round"
+			"ItemClass"		"item_ammo_357"
 	//		"ItemClass"		"item_dynamic_resupply"
-			"ItemCount"		"3"
-		}
-	}	
-
-	"item_item_crate"
-	{
-		"origin"	"2885 -4089 580"
-		"angle"		"0 0 0"
-		"KeyValues"
-		{
-			"ItemClass"		"item_rpg_round"
-	//		"ItemClass"		"item_dynamic_resupply"
-			"ItemCount"		"3"
+			"ItemCount"		"2"
 		}
 	}
 
-	"item_item_crate"
-	{
-		"origin"	"1683 -3152 580"
-		"angle"		"0 0 0"
-		"KeyValues"
-		{
-			"ItemClass"		"item_rpg_round"
-	//		"ItemClass"		"item_dynamic_resupply"
-			"ItemCount"		"3"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-2322 124 351"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "combine"
-			"radius" "3000"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "2852 -1278 154"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "combine2"
-			"radius" "1500"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "5797 -4451 444"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "siren"
-			"radius" "65"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "2213 -2792 418"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "tempest"
-			"radius" "65"
-		}
-	}
-
-	"weapon_custom30" {
-		"origin" "4545.8 -3141.5 540.0"
-	}
-
-	"prop_ragdoll" {
-		"origin" "4008 1319 256"
-		//"velocity"	"0 -10000 0"
-		"keyvalues" {
-			"model"	"models/ichthyosaur_corpse.mdl"
-		}
-	}	
 }
 
 
@@ -461,22 +367,19 @@
 	"npc_combine_s" {
 		"origin" "-1712.0 -1054.8 928.0"  "angle" "0 -88 0"
 		"keyvalues" {
-				"squadname" "universal_combine"		
-				"additionalequipment"	"weapon_custom16"
+				"additionalequipment"	"weapon_kar98"
 		}
 	}
 	"npc_metropolice" {
 		"origin" "-1850.2 -1078.6 928.0"  "angle" "0 -88 0"
 		"keyvalues" {
-				"squadname" "universal_combine"				
-				"additionalequipment"	"weapon_custom24"
+				"additionalequipment"	"weapon_smg1"
 		}
 	}
 	"npc_metropolice" {
 		"origin" "-1958.2 -1097.1 928.0"  "angle" "0 -88 0"
 		"keyvalues" {
-				"squadname" "universal_combine"				
-				"additionalequipment"	"weapon_grease"
+				"additionalequipment"	"weapon_mp5"
 		}
 	}
 
@@ -504,184 +407,8 @@
 		"origin" "4295 -1747 256" "angle" "0 95 0"
 		"keyvalues"
 		{
-			"additionalequipment"	"weapon_pistol"
+			"additionalequipment"	"weapon_cz52"
 		}
 	}
 	
-}
-
-
-"entities:combine" {
-
-"npc_combine_s" {
-	"origin" "3112.6 471.2 14.7"  "angle" "0 180 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine2"
-			"additionalequipment"	"weapon_smg1"
-		}
-}
-"npc_combine_s" {
-	"origin" "3112.8 342.7 11.0"  "angle" "0 180 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine2"
-			"additionalequipment"	"weapon_ar2"
-		}
-}
-"npc_combine_s" {
-	"origin" "255.9 -949.5 37.5"  "angle" "0 180 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine2"
-			"additionalequipment"	"weapon_grease"
-		}
-}
-"npc_combine_s" {
-	"origin" "513.1 -1259.8 41.0"  "angle" "0 180 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine2"
-			"additionalequipment"	"weapon_smg1"
-		}
-}
-"npc_combine_s" {
-	"origin" "882.2 -1338.5 13.9"  "angle" "0 180 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine2"
-			"additionalequipment"	"weapon_shotgun"
-		}
-	}
-}
-
-"entities:combine2" {
-"npc_combine_s" {
-	"origin" "1891.9 -2843.9 256.0"  "angle" "0 90 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine3"
-			"additionalequipment"	"weapon_smg1"
-		}
-}
-"npc_combine_s" {
-	"origin" "2184.6 -2748.2 256.0"  "angle" "0 90 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine3"
-			"additionalequipment"	"weapon_ar2"
-		}
-}
-"npc_combine_s" {
-	"origin" "2008.6 -2741.0 256.0"  "angle" "0 90 0"
-		"keyvalues"
-		{
-			"squadname" "universal_combine3"		
-			"additionalequipment"	"weapon_grease"
-		}
-	}
-}
-
-"entities:siren" {
-
-	"npc_combine_s" {
-		"origin" "6121.6 -3402.8 384.0"  "angle" "0 196 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"		
-			"targetname" "jenkins00"
-			"squadname" "elroy"
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "6088.9 -3492.1 384.0"  "angle" "0 121 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"		
-			"targetname" "jenkins02"
-			"squadname" "elroy"
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "6142.2 -3621.8 384.0"  "angle" "0 151 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"		
-			"targetname" "jenkins06"
-			"squadname" "elroy"
-		}
-	}
-	
-	"info_target" {
-		"origin" "5534.8 -3472.8 429.5"
-		"keyvalues" {
-			"targetname" "rollout"
-		}
-	}
-	
-	"ai_goal_follow" {
-		"keyvalues" {
-			"startactive"	"1"
-			"searchtype"	"0"
-			"MaximumState"	"2"
-			"actor"		"jenkins*"
-			"goal"		"rollout"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "5534.8 -3472.8 412"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "terra"
-			"radius" "85"
-			"touchname" "jenkins*"
-		}
-	}
-}
-
-"entities:tempest" {
-
-	"npc_combine_s" {
-		"origin" "4519.3 -2685.0 384.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"		
-			"targetname" "bogie19"
-			"squadname" "universal_combine4"			
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "4592.6 -2639.8 384.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"		
-			"targetname" "bogie18"
-			"squadname" "universal_combine4"
-		}
-	}
-	
-	"info_target" {
-		"origin" "3777.2 -2932.3 384.5"
-		"keyvalues" {
-			"targetname" "dental"
-		}
-	}
-	
-	"ai_goal_follow" {
-		"keyvalues" {
-			"targetname" "roman"
-			"startactive" "1"
-			"searchtype" "0"
-			"MaximumState" "2"
-			"actor" "bogie*"
-			"goal" "dental"
-		}
-	}
-}
-
-"entities:terra" {
-
-	"event" {
-		"targetname" "roman"
-		"action" "deactivate"
-	}
 }

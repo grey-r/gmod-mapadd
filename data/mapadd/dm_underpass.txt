@@ -1,0 +1,361 @@
+"precache"{
+	"entity" "npc_citizen"
+}
+
+"randomspawn" {
+
+	"removenodes" {
+		"origin" "-620 -874 -494"
+		"radius" "200"
+	}
+
+	"removenodes" {
+		"origin" "-631 -867 -419"
+		"radius" "600"
+	}
+
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/wood_crate001a.mdl"
+		"stabilize"	"30"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"5"
+		"model" "models/props_c17/oildrum001.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"2"
+		"model" "models/props_c17/oildrum001_explosive.mdl"
+		"stabilize"	"30"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/gascan001a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_junk/gascan001a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_interiors/Furniture_Desk01a.mdl"
+	}
+	"prop_physics_multiplayer" {
+		"count"		"3"
+		"model" "models/props_interiors/Furniture_chair03a.mdl"
+	}
+
+	"npc_turret_floor" {
+		"count"		"2"
+		"stabilize"	"60"
+	}
+
+
+	"npc_stalker" {
+		"count"		"3"
+		"targetname"	"tg"
+		"patrol"
+		"values"	"beampower 2"
+	}
+
+	"npc_manhack" {
+		"count"		"3"
+	}
+
+//	"npc_citizen" {
+//		"count"		"1"
+//		"weapon"	"weapon_ak47"
+//	}
+
+	"npc_combine_s" {
+		"count"		"4"
+		"model"	"models/combine_super_soldier.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_ar2"
+		"targetname"	"tg"
+	}
+	"npc_combine_s" {
+		"count"		"3"
+		"model"	"models/soldier_camo.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_mp5"
+		"targetname"	"tg"
+		"values" "squadname cb1"
+		
+		"patrolrandom"
+	}
+	"npc_combine_s" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_grease"
+		"targetname"	"tg"
+		"patrolrandom"
+	}
+	"npc_combine_s" {
+		"count"		"3"
+		"grenade"	"5"
+		"weapon"	"weapon_kar98"
+		"targetname"	"tg"
+		"patrolrandom"
+	}
+	"npc_metropolice" {
+		"count"		"5"
+		"grenade"	"5"
+		"weapon"	"weapon_smg1"
+		"targetname"	"tg"
+		"patrolrandom"
+		"values"	"manhacks 1"
+	}
+	"npc_combine_s" {
+		"count"		"2"
+		"grenade"	"5"
+		"weapon"	"weapon_shotgun"
+		"targetname"	"tg"
+		"values" "squadname cb2"
+	}
+	"npc_combine_s" {
+		"count"		"2"
+		"model"	"models/gman.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_mp5"
+		"targetname"	"tg"
+		"patrol"
+	}
+	
+	"npc_combine_s" {
+		"count"		"2"
+		"model"	"models/mossman.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_ak47"
+		"targetname"	"tg"
+		"patrol"
+	}
+
+	"npc_combine_s" {
+		"count"		"2"
+		"model"	"models/breen.mdl"
+		"grenade"	"5"
+		"weapon"	"weapon_grease"
+		"targetname"	"tg"
+		"patrol"
+		"values" "squadname cb3"
+	}
+
+}
+
+
+"entities:init" {
+	"player" {
+		"origin" "-695 -833 -352"
+		"angle" "64 -40 0"
+		"fadein"	"3"
+		"message"	"Eliminate all Combine!"		
+		"music"		"Smod_map"		
+	}
+
+	"item_suit" {
+		"origin" "-693 -832 -296"
+	}
+	
+
+	"prop_physics_multiplayer" {
+		"origin" "-414.6 -1428.4 96.2"  "angle" "2 -5 183"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_vehicles/car003b_physics.mdl"
+		}
+	}
+	"prop_physics_multiplayer" {
+		"origin" "-415.5 -1423.3 26.3"  "angle" "-3 15 2"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_vehicles/car003b_physics.mdl"
+		}
+	}
+	
+	"prop_physics_multiplayer" {
+		"origin" "-579.9 -443.4 104.3"  "angle" "-63 176 179"
+		"keyvalues" {
+		"model" "models/props_vehicles/car005b_physics.mdl"
+		}
+	}
+	
+	
+	"prop_physics_multiplayer" {
+		"origin" "-187.1 -371.2 40.2"  "angle" "0 32 268"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_vehicles/car003b_physics.mdl"
+		}
+	}
+	
+	
+	"prop_physics" {
+		"origin" "-90.9 -676.7 386.0"  "angle" "0 -180 341"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_debris/wood_board05a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-86.6 -751.8 384.8"  "angle" "-4 -1 9"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_debris/wood_board05a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-85.8 -822.2 382.6"  "angle" "-4 3 326"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_debris/wood_board05a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-87.3 -851.0 384.9"  "angle" "-4 0 355"
+		"freeze"
+		"keyvalues" {
+		"model" "models/props_debris/wood_board05a.mdl"
+		}
+	}
+
+}
+
+"entities:item1" {
+	"weapon_mp5" {
+		"origin" "-693 -832 -296"
+	}
+	"weapon_mp5" {
+		"origin" "-693 -832 -296"
+	}
+	"weapon_mp5" {
+		"origin" "-693 -832 -296"
+	}
+	"weapon_mp5" {
+		"origin" "-693 -832 -296"
+	}
+}
+
+"entities:item2" {
+	"weapon_ak47" {
+		"origin" "-693 -832 -296"
+	}
+	"weapon_ak47" {
+		"origin" "-693 -832 -296"
+	}
+}
+
+"entities:item3" {
+	"weapon_pistol" {
+		"origin" "-693 -832 -296"
+	}
+	"weapon_pistol" {
+		"origin" "-693 -832 -296"
+	}
+	"weapon_pistol" {
+		"origin" "-693 -832 -296"
+	}
+	"npc_citizen" {
+		"origin" "-704 -895 -492" "angle" "-8 20 0"
+		"keyvalues" {
+			"additionalequipment"	"weapon_ak47"
+			"citizentype"	"3"
+		}
+	
+	}
+}
+
+"entities"{
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "init"
+			"timer" ".1"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"islived"	"tg"
+			"label"		"clear"
+		}
+	}
+
+	"point_clientcommand" {
+	"keyvalues" {
+	"targetname" "console"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label" "snp1:snp2:snp3"
+			"timer" ".1"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"label" "item1:item2:item3"
+			"timer" ".1"
+		}
+	}
+
+}
+
+"entities:snp1" {
+	"npc_combine_s" {
+		"origin" "-1142 -612 1112" "angle" "0 -15 0"
+		"longrange"
+		"keyvalues" {
+			"targetname"	"tg"
+			"additionalequipment"	"weapon_svd"
+		}
+	}
+}
+"entities:snp2" {
+	"npc_combine_s" {
+		"origin" "-1132 -1388 1112" "angle" "0 38 0"
+		"longrange"
+		"keyvalues" {
+			"targetname"	"tg"
+			"additionalequipment"	"weapon_svd"
+		}
+	}
+}
+"entities:snp3" {
+	"npc_combine_s" {
+		"origin" "-1121 -0 1112" "angle" "0 -37 0"
+		"longrange"
+		"keyvalues" {
+			"targetname"	"tg"
+			"additionalequipment"	"weapon_svd"
+		}
+	}
+}
+
+
+
+
+"entities:clear"{
+	"player" {
+		"message"	"Mission Clear!!"
+		"fadeout"		"3"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"disconnect"
+			"timer"	"6"
+		}
+	}	
+	
+}
+
+"entities:disconnect" {
+		"event" {
+		"targetname" "console"
+		"action" "command"
+		"value" "disconnect"
+	}
+}

@@ -1,14 +1,10 @@
 //	map arrange data
 //	location: d1_canals_08
-//FIXES: Precache. NPC's spawning underwater.
+
 "precache"{
 	"entity"	"npc_metropolice"
+	"entity"	"npc_strider"
 	"entity"	"npc_citizen"
-	"entity"	"npc_combine_s"
-	"entity"	"weapon_kar98"
-	"entity"	"weapon_custom16"	
-	"entity"	"weapon_svd"
-	"entity"	"weapon_alyxgun"				
 }
 
 "randomspawn" {
@@ -24,37 +20,28 @@
 	}
 
 	"removenodes" {
-		"origin" "563 -347 -704"
-		"radius" "750"
-	}	
-
-	"removenodes" {
-		"origin" "-7210 2597 -443"
-		"radius" "1000"
-	}
-	
-	"removenodes" {
 		"origin" "484.4 -2934.5 -591.5"
 		"radius" "1500"
 	}
 
-	"npc_metropolice" {
-		"count"		"6"
-		"weapon"	"weapon_pistol"
-		"values" 	"squadname cp"
-		"patrol"
+	"removenodes" {
+		"origin" "477.4 -837.8 -598"
+		"radius" "1500"
 	}
 
 	"npc_metropolice" {
-		"count"		"2"
+		"count"		"10"
+		"weapon"	"weapon_pistol"
+	}
+
+	"npc_metropolice" {
+		"count"		"3"
 		"weapon"	"weapon_smg1"
-		"values" 	"squadname mp"		
 	}
 
 	"npc_combine_s" {
-		"count"		"2"
-		"weapon"	"weapon_smg1"
-		"values" 	"squadname cmbsol"		
+		"count"		"3"
+		"weapon"	"weapon_mp40"
 		"grenade"	"5"
 	}
 
@@ -99,8 +86,7 @@
 		"keyvalues"
 		{
 			"targetname"		"e2"
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_soldier"				
+			"additionalequipment"	"weapon_kar98"
 		}
 	}
 
@@ -110,9 +96,9 @@
 		"origin" "10324 -7671 64" "angle" "0 -90 0"
 		"keyvalues"
 		{
+			"model"	"models/police.mdl"
 			"targetname"		"e3"
 			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_soldier"				
 		}
 	}
 	"npc_combine_s"
@@ -121,18 +107,23 @@
 		"keyvalues"
 		{
 			"targetname"		"e4"
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_soldier"				
+			"additionalequipment"	"weapon_grease"
 		}
 	}
+
+	"npc_bullsquid"
+	{
+		"origin"	"-6249.28 6208.63 -541.54"
+		"angle"		"0 -90 0"
+	}	
+	
 	"npc_metropolice"
 	{
 		"origin" "10429 -7336 -300"	"angle" "0 -91 0"
 		"keyvalues"
 		{
 			"targetname"		"e5"
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_soldier"				
+			"additionalequipment"	"weapon_cz52"
 		}
 	}
 	
@@ -142,7 +133,7 @@
 		"keyvalues"
 		{
 			"targetname"		"e7"
-			"additionalequipment"	"weapon_custom16"
+			"additionalequipment"	"weapon_kar98"
 		}
 	}
 	
@@ -152,8 +143,7 @@
 		"keyvalues"
 		{
 			"targetname"		"e8"
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_soldier"				
+			"additionalequipment"	"weapon_grease"
 		}
 	}
 	
@@ -207,7 +197,17 @@
 		"value"			"1"
 	}
 
-
+	"item_item_crate"
+	{
+		"origin"	"-6871.03 747.58 -568.33"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"weapon_p90"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
+		}
+	}	
 
 "prop_physics" {
 	"origin" "-7352.3 2510.6 -486.6"  "angle" "-0 110 360"
@@ -574,20 +574,17 @@
 	"model" "models/Humans/Group02/male_04.mdl"
 	}
 }
-
-
 	"item_item_crate"
 	{
 		"origin"	"-2554.97 -3258.08 -319.97"
 		"angle"		"0 0 0"
 		"KeyValues"
 		{
-			"ItemClass"		"weapon_anm14"
+			"ItemClass"		"weapon_spikegrenade"
 	//		"ItemClass"		"item_dynamic_resupply"
 			"ItemCount"		"1"
 		}
 	}
-	
 	"item_item_crate"
 	{
 		"origin"	"-2092.02 -1612.22 -317.97"
@@ -599,51 +596,15 @@
 			"ItemCount"		"2"
 		}
 	}
-
-	"weapon_kar98" {
-		"origin" "-1601.7 -712.3 -243.9"
-	}	
-
-	"instant_trig" {
-		"origin" "9666 -10667 -383"
+	"item_item_crate"
+	{
+		"origin"	"-2413.55 -1201.84 -319.97"
 		"angle"		"0 0 0"
-		"keyvalues" {
-			"label" "combine"
-			"radius"	"1500"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-6240 -109 -555"
-		"angle"		"0 0 0"
-		"keyvalues" {
-			"label" "alpha"
-			"radius"	"400"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "4133 -4255 -362"
-		"angle"		"0 0 0"
-		"keyvalues" {
-			"label" "combine2"
-			"radius"	"1500"
-		}
-	}
-	"instant_trig" {
-		"origin" "-458 -72 -511"
-		"angle"		"0 0 0"
-		"keyvalues" {
-			"label" "combine3"
-			"radius"	"1500"
-		}
-	}
-	"instant_trig" {
-		"origin" "-2256 -2857 -319"
-		"angle"		"0 0 0"
-		"keyvalues" {
-			"label" "combine4"
-			"radius"	"1500"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
 		}
 	}	
 }
@@ -651,155 +612,6 @@
 
 "entities:music1" {
 	"player" {
-		"music"	"song_hl1_2"
-	}
-}
-
-
-
-"entities:combine" {
-	"npc_combine_s" {
-		"origin" "9814.4 -7555.0 -63.9"  "angle" "0 262 0"
-		// bridge
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"	
-			"squadname" "universal_combine2"			
-		}		
-	}
-	
-	"npc_combine_s" {
-		"origin" "10009.9 -7560.6 -64.0"  "angle" "0 262 0"
-		// bridge
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_combine2"			
-		}		
-	}
-	
-	"npc_combine_s" {
-		"origin" "10157 -7326 -120"  "angle" "0 262 0"
-		"keyvalues" {
-			"targetname" "alpha_pressure4"
-			"waitingtorappel" "1"
-			"spawnflags" "33685508"
-			"squadname" "universal_combine2"			
-			"additionalequipment"	"weapon_custom16"			
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "10500.8 -7302.4 -291.4"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"	
-			"squadname" "universal_combine2"			
-		}		
-	}
-	"npc_combine_s" {
-		"origin" "9685.0 -7651.0 -442.3"  "angle" "0 262 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"	
-			"squadname" "universal_combine2"			
-		}		
-	}
-	
-	"npc_combine_s" {
-		"origin" "9606 -7323 -120"  "angle" "0 262 0"
-		"keyvalues" {
-			"targetname" "alpha_pressure2"
-			"waitingtorappel" "1"
-			"spawnflags" "33685508"
-			"squadname" "universal_combine2"			
-			"additionalequipment"	"weapon_custom16"						
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "9793 -9065 -384"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "alpha_rapa"
-			"radius" "345"
-		}
-	}
-}
-
-"entities:alpha_rapa" {
-
-	"event" {
-		"targetname" "alpha_pressure*"
-		"action" "BeginRappel"
-		"value" "0.5"
-	}
-}
-
-"entities:combine2" {
-	"npc_combine_s" {
-		"origin" "-22.5 -3117.5 -448.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"	
-			"squadname" "universal_combine3"			
-		}		
-	}
-	"npc_combine_s" {
-		"origin" "-18.5 -2415.7 -512.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"	
-			"squadname" "universal_combine3"			
-		}		
-	}
-	"npc_combine_s" {
-		"origin" "301.3 130.3 -446.4"  "angle" "0 265 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"	
-			"squadname" "universal_combine3"			
-		}		
-	}
-	// Removed combine near dock.
-}
-"entities:combine3" {
-	"npc_combine_s" {
-		"origin" "-116.3 -1743.6 -384.0"  "angle" "0 147 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine4"			
-		}		
-	}
-	"npc_combine_s" {
-		"origin" "-251.6 -2114.6 -384.0"  "angle" "0 92 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine4"			
-		}		
-	}
-	"npc_combine_s" {
-		"origin" "-1262.1 -1574.4 -384.0"  "angle" "0 84 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"	
-			"squadname" "universal_combine4"			
-		}		
-	}
-	"npc_combine_s" {
-		"origin" "-1548.8 -1745.4 -251.9"  "angle" "0 84 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"	
-			"squadname" "universal_combine4"			
-		}		
-	}
-	"npc_combine_s" {
-		"origin" "-144.4 -2731.5 -384.0"  "angle" "0 158 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"	
-			"squadname" "universal_combine4"			
-		}		
-	}
-}
-
-"entities:combine4" {
-	"npc_combine_s" {
-		"origin" "-1192.7 -3478.9 -384.0"  "angle" "0 80 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"	
-			"squadname" "universal_combine5"			
-		}		
+		"music"	"song15"
 	}
 }

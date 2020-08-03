@@ -1,0 +1,733 @@
+//	map arrange data
+//
+//	location: dm_lockdown
+//
+"precache" {
+	"entity"	"item_suit"
+	"entity"	"weapon_crowbar"
+	"entity"	"npc_f_kleiner"
+	"entity"	"npc_metropolice"
+	"entity"	"npc_combine_s"
+	"entity"	"npc_rollermine"
+	"entity"	"npc_headcrab"
+	"entity"	"npc_citizen"
+	"entity"	"npc_antlionguard"
+	"entity"	"npc_zombie"
+	"model"		"models/combine_super_soldier.mdl"
+	"model"		"models/props_junk/watermelon01.mdl"
+	"model"		"models/props_junk/watermelon01_chunk01a.mdl"
+	"model"		"models/props_junk/watermelon01_chunk01b.mdl"
+	"model"		"models/props_junk/watermelon01_chunk01c.mdl"
+	"model"		"models/props_junk/watermelon01_chunk02a.mdl"
+	"model"		"models/props_junk/watermelon01_chunk02b.mdl"
+	"model"		"models/props_junk/watermelon01_chunk02c.mdl"
+}
+
+"entities:def1" {
+	"npc_metropolice" {
+		"origin" "-3818 1434 0" "angle" "0 106 0"
+		"keyvalues" { "additionalequipment"	"weapon_pistol" }
+	}
+	"npc_metropolice" {
+		"origin" "-3141 3765 0" "angle" "0 -70 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_metropolice" {
+		"origin" "-3077 4525 0"  "angle" "0 22 0"
+		"keyvalues" { "additionalequipment"	"weapon_pistol" }
+	}
+	"npc_combine_s" {
+		"origin" "-2706 4676 0" "angle" "0 -136 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	
+	"npc_combine_s" {
+		"origin" "-2818 5672 0" "angle" "0 -94 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-3551 5218 0" "angle" "0 -98 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	
+	
+	"npc_metropolice" {
+		"origin" "-4102 4300 335" "angle" "0 -1 0"
+		"keyvalues" { "additionalequipment"	"weapon_lasergun" }
+	}
+	"npc_combine_s" {
+		"origin" "-3382 4070 128" "angle" "0 -7 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_metropolice" {
+		"origin" "-2536 4156 128" "angle" "0 -175 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1"  "numgrenades" "2" }
+	}
+	"npc_combine_s" {
+		"origin" "-3408 2323 -1" "angle" "0 35 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-3607 2703 114" "angle" "0 -130 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+
+	"npc_combine_s" {
+		"origin" "-3183 3052 0" "angle" "0 -49 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-4111 3095 109" "angle" "0 -78 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_metropolice" {
+		"origin" "-3058 4616 128" "angle" "-1 178 0"
+		"keyvalues" { "additionalequipment"	"weapon_lasergun" }
+	}
+	"npc_zombie" {
+		"origin" "-4124 4689 0"
+		"angle" "4 -61 0"
+	}
+	
+}
+
+
+"entities:def2" {
+	"npc_metropolice" {
+		"origin" "-3149 2164 -1" "angle" "0 -72 0"
+		"keyvalues" { "additionalequipment"	"weapon_pistol" }
+	}
+	"npc_combine_s" {
+		"origin" "-2859 2479 109" "angle" "0 -72 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-3485 2248 128" "angle" "0 127 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+
+	"npc_combine_s" {
+		"origin" "-2704 3657 128" "angle" "0 -81 0"
+		"keyvalues" { "additionalequipment"	"weapon_shotgun" }
+	}
+	"npc_combine_s" {
+		"origin" "-2608 3020 128" "angle" "0 178 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+
+	"npc_combine_s" {
+		"origin" "-2739 2808 128" "angle" "0 -125 0"
+		"keyvalues" { "additionalequipment"	"weapon_shotgun" }
+	}
+
+	"npc_combine_s" {
+		"origin" "-3696 3408 0" "angle" "0 8 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-2950 3602 0" "angle" "0 -168 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-3167 4994 0" "angle" "0 -22 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-3184 4937 0" "angle" "0 -34 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+
+	"npc_combine_s" {
+		"origin" "-3255 5646 0" "angle" "0 -44 0"
+		"keyvalues" { "additionalequipment"	"weapon_ar2" }
+	}
+	"npc_combine_s" {
+		"origin" "-3637 5424 0" "angle" "0 -88 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_metropolice" {
+		"origin" "-4080 5573 0" "angle" "-0 -8 0"
+		"keyvalues" { "additionalequipment"	"weapon_pistol" }
+	}
+	"npc_combine_s" {
+		"origin" "-4006 4316 168" "angle" "0 -72 0"
+		"keyvalues" { "additionalequipment"	"weapon_lasergun" }
+	}
+	"npc_metropolice" {
+		"origin" "-3058 4616 128" "angle" "-1 178 0"
+		"keyvalues" { "additionalequipment"	"weapon_lasergun" }
+	}
+	"npc_zombie" {
+		"origin" "-4124 4689 0"
+		"angle" "4 -61 0"
+	}
+
+
+	"npc_combine_s" {
+		"origin" "-2970 4731 0" "angle" "0 -88 0"
+		"keyvalues" { "additionalequipment"	"weapon_smg1" }
+	}
+	"npc_combine_s" {
+		"origin" "-3201 4082 0" "angle" "0 -47 0"
+		"keyvalues" { "additionalequipment"	"weapon_shotgun" }
+	}
+	"npc_metropolice" {
+		"origin" "-2889 4576 242" "angle" "23 -89 0"
+		"keyvalues" { "additionalequipment"	"weapon_pistol" "numgrenades" "2" }
+	}
+
+}
+
+"entities:antlion" {
+
+	"npc_antlion" {
+		"origin" "-3692 1517 0" "angle" "6 58 0"
+	}
+	
+	"npc_antlion" {
+		"origin" "-3171 1366 -3" "angle" "5 129 0"
+	}
+}
+
+"entities:init" {
+
+	"item_suit" { "origin" "-3611 1875 20" }
+	"weapon_crowbar" { "origin" "-3611 1875 20" }
+	"weapon_pistol" { "origin" "-3611 1875 20" }
+	"weapon_pistol" { "origin" "-3611 1875 20" }
+	"weapon_pistol" { "origin" "-3611 1875 20" }
+	"weapon_pistol" { "origin" "-3611 1875 20" }
+
+	"player" {
+		"origin"	"-3611 1875 20"
+		"angle"		"30 -60 0"
+		"message"	"Escort Dr.Kleiner to the computer room."
+		"fadein"	"10"
+		"music"		"song_radio1"
+	}
+
+	"npc_f_kleiner" {
+		"origin" "-3491 1768 24"
+		"angle" "0 140 0"
+		"keyvalues" {
+			"targetname"	"hakase"
+			"additionalequipment"	"weapon_pistol"
+		}
+	}
+
+//	"event" {
+//		"targetname"	"autosave"
+//		"action"	"Save"
+//		"value"		"1"
+//	}
+
+
+	//	game over
+	"instant_trig" {
+		"keyvalues" {
+			"group"		"1"
+			"islived"	"hakase"
+			"label"		"gameover"
+		}
+	
+	}
+
+	//	Objective 1
+	"instant_trig" {
+		"origin" "-3021 4617 170"
+		"keyvalues" {
+			"touchname"	"hakase"
+			"radius"	"80"
+			"label"		"nextobj"
+		}
+	}
+
+//	"env_message" {
+//		"keyvalues" {
+//			"targetname"	"gameover"
+//			"messageattenuation" "0"
+//			"messagevolume" "10"
+//			"spawnflags" "1"
+//			"message" "GAMEOVER_ALLY"
+//		}
+//	}
+	
+	"logic_autosave" {
+		"keyvalues" {
+			"targetname" "autosave"
+		}
+	}
+	
+//	"player_loadsaved" {
+//		"keyvalues" {
+//			"targetname"	"gameover"
+//			"loadtime" "5"
+//			"messagetime" "1"
+//			"rendercolor" "0 0 0"
+//			"renderamt" "255"
+//			"duration" "2"
+//			"holdtime" "60"
+//		}
+//	}
+
+}
+
+"entities:nextobj" {
+
+
+	"event" {
+		"targetname"	"autosave"
+		"action"	"Save"
+		"value"		"1"
+	}
+
+	"player" {
+		"music"		"song14"
+		"message"	"Get the watermelon and the doctor to the exit."
+	}
+
+	"prop_physics" {
+		"origin" "-3006 4570 182"
+		"keyvalues" {
+			"model"		"models/props_junk/watermelon01.mdl"
+			"targetname"	"melon"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"group"		"1"
+			"islived"	"melon"
+			"label"		"gameover"
+		}
+	
+	}
+
+	"instant_trig" {
+		"origin" "-3905 6208 40"
+		"keyvalues" {
+			"radius"	"400"
+			"touchname"	"hakase"
+			"label"		"escaped"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-3905 6208 40"
+		"keyvalues" {
+			"radius"	"400"
+			"touchname"	"melon"
+			"label"		"carried"
+		}
+	}
+	
+	"npc_combine_s" {
+		"origin" "-3656 4910 128"
+		"keyvalues" { "targetname" "a6comb1"
+			"additionalequipment"	"weapon_ar2"
+			"model"	"models/combine_super_soldier.mdl"
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-3681 4797 128"
+		"keyvalues" { "targetname"	"a6comb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"info_target" {
+		"origin" "-3626 4456 128"
+		"keyvalues" { "targetname" "goalap6" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"3"
+			"actor"		"a6comb*"
+			"goal"		"goalap6"
+		}
+	}
+	"npc_headcrab" {
+		"origin" "-3393 4862 128"
+		"angle" "0 -73 0"
+	}
+	"npc_headcrab" {
+		"origin" "-3393 4862 158"
+		"angle" "0 -73 0"
+	}
+
+	"npc_citizen" {
+		"origin" "-3882 4880 104"
+		"angle" "0 5 0"	
+		"keyvalues" {
+			"additionalequipment"	"weapon_shotgun"
+		}
+	}
+	
+	"npc_antlionguard" {
+		"origin" "-3975 5424 20"
+		"angle" "0 60 0"	
+	}
+	
+	
+}
+
+"entities:escaped" {
+	"instant_trig" {
+		"origin" "-4495 6249 10"
+		"keyvalues" {
+			"radius"	"200"
+			"touchname"	"carried"
+			"removegroup"	"1"
+			"group"		"1"
+			"label"		"clear"
+		}
+	}
+}
+
+"entities:carried" {
+	"info_target" {
+		"origin" "-4495 6249 10"
+		"keyvalues" {
+			"targetname"	"carried"
+			"removegroup"	"1"
+		}
+	}
+}
+
+"entities:clear" {
+	"player" {
+		"origin" "-3555 6057 20"
+		"fadeout"	"5"
+		"message"	"Mission completed!!"
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"label"	"disconnect"
+			"timer"	"6"
+		}
+	}	
+	
+}
+
+"entities:disconnect" {
+		"event" {
+		"targetname" "console"
+		"action" "command"
+		"value" "disconnect"
+	}
+}
+
+
+"entities" {
+
+	//	Messages
+	"point_message" {
+		"origin" "-3029 4627 162"
+		"keyvalues" {
+			"radius"	"400"
+			"message"	"Terminal is here!!"
+		}
+	}
+
+	"point_clientcommand" {
+	"keyvalues" {
+	"targetname" "console"
+		}
+	}
+
+	//	initialize
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	".1"
+			"label"	"init"
+		}
+	}
+	
+	"prop_physics" {
+		"origin" "-3572 5081 20"
+		"angle" "0 -90 0"
+		"keyvalues" {
+			"model"		"models/props_junk/TrashDumpster01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-3647 5028 20"
+		"angle" "0 -90 0"
+		"keyvalues" {
+			"model"		"models/props_junk/TrashDumpster01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-3651 5109 0"
+		"angle" "16 -112 0"
+		"keyvalues" {
+			"model"		"models/props_junk/TrashDumpster01a.mdl"
+		}
+	}
+	"prop_physics" {
+		"origin" "-3631 5187 44"
+		"angle" "16 -112 0"
+		"keyvalues" {
+			"model"		"models/props_junk/TrashDumpster01a.mdl"
+		}
+	}
+	
+	//	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	".2"
+			"label"	"def1:def2"
+		}
+	}
+	
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"120"
+			"label"	"antlion"
+		}
+	}
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	".3"
+			"label"	"trigs"
+		}
+	}
+}
+
+"entities:trigs" {
+
+	"instant_trig" {
+		"origin" "-2796 3514 128"
+		"keyvalues" {
+			"radius"	"50"
+			"label"	"assault1"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-4113 4205 128"
+		"keyvalues" {
+			"radius"	"70"
+			"label"	"assault2"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-3262 4277 0"
+		"keyvalues" {
+			"radius"	"50"
+			"label"	"assault3"
+		}
+	}
+	
+
+	"instant_trig" {
+		"origin" "-3602 4758 0"
+		"keyvalues" {
+			"radius"	"70"
+			"label"	"trap1"
+		}
+	}
+
+
+	"instant_trig" {
+		"origin" "-3872 4931 64"
+		"keyvalues" {
+			"radius"	"70"
+			"label"	"assault4"
+		}
+	}
+
+	"instant_trig" {
+		"origin" "-2781 5029 128"
+		"keyvalues" {
+			"radius"	"70"
+			"label"	"assault5"
+		}
+	}
+
+
+}
+
+"entities:trap1" {
+	"npc_rollermine" {
+		"origin" "-3755 4932 120"
+	}
+}
+
+
+"entities:assault1" {
+	"npc_combine_s" {
+		"origin" "-3328 4071 133"
+		"keyvalues" { "targetname" "a1comb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-3332 3995 128"
+		"keyvalues" { "targetname"	"a1comb2"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"info_target" {
+		"origin" "-2768 4012 148"
+		"keyvalues" { "targetname" "goalap1" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"3"
+			"actor"		"a1comb*"
+			"goal"		"goalap1"
+		}
+	}
+
+}
+
+"entities:assault2" {
+	"npc_combine_s" {
+		"origin" "-3439 4497 128" "angle" "0 -145 0"
+			"keyvalues" { "targetname" "a2comb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-3595 4754 128" "angle" "0 -91 0"
+		"keyvalues" { "targetname"	"a2comb2"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"info_target" {
+		"origin" "-3607 4331 148"
+		"keyvalues" { "targetname" "goalap2" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"a2comb*"
+			"goal"		"goalap2"
+		}
+	}
+
+}
+
+"entities:assault3" {
+	"npc_combine_s" {
+		"origin" "-3574 4649 0"
+		"keyvalues" { "targetname" "a3comb1"
+			"additionalequipment"	"weapon_smg1"
+			 "numgrenades" "2" 
+		}
+	}
+	"npc_metropolice" {
+		"origin" "-3676 4636 0"
+		"keyvalues" { "targetname"	"a3comb2"
+			"additionalequipment"	"weapon_smg1"
+			 "numgrenades" "2" 
+		}
+	}
+
+	"info_target" {
+		"origin" "-3641 4185 20"
+		"keyvalues" { "targetname" "goalap3" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"2"
+			"actor"		"a3comb1"
+			"goal"		"goalap3"
+		}
+	}
+}
+
+"entities:assault4" {
+	"npc_combine_s" {
+		"origin" "-3628 4470 128"
+		"keyvalues" { "targetname" "a4comb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-3558 4483 128"
+		"keyvalues" { "targetname"	"a4comb2"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"info_target" {
+		"origin" "-3629 4928 148"
+		"keyvalues" { "targetname" "goalap4" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"3"
+			"actor"		"a4comb*"
+			"goal"		"goalap4"
+		}
+	}
+
+}
+
+"entities:assault5" {
+	"npc_combine_s" {
+		"origin" "-3160 4276 0"
+		"keyvalues" { "targetname" "a5comb1"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+	"npc_combine_s" {
+		"origin" "-2885 3953 0"
+		"keyvalues" { "targetname"	"a5comb2"
+			"additionalequipment"	"weapon_smg1"
+		}
+	}
+
+	"info_target" {
+		"origin" "-2888 4497 20"
+		"keyvalues" { "targetname" "goalap5" }
+	}
+
+	"ai_goal_follow" {
+		"keyvalues" {
+			"startactive"	"1"
+			"searchtype"	"0"
+			"MaximumState"	"3"
+			"actor"		"a5comb*"
+			"goal"		"goalap5"
+		}
+	}
+
+}
+
+
+"entities:gameover" {
+
+	"player" {
+		"kill"
+		"message"	"Mission failure..."
+	}
+
+	"event" {
+		"targetname"	"gameover"
+		"action"	"Reload"
+		"value"		"1"
+	}	
+}

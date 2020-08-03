@@ -1,476 +1,64 @@
 //	map arrange data
 //	location: d1_coast_03
 "precache" {
-	"entity"	"npc_houndeye"
-	"entity"	"npc_fastzombie"
-	"entity"	"npc_zombie2"	
-	"entity"	"npc_f_turret_floor"
-	"entity" 	"weapon_ak47"
-	"entity"	"weapon_kar98"
-	"entity"	"weapon_grease"	
-	"entity"	"weapon_scissor"
-	"entity" 	"weapon_custom16"	
-	"entity" 	"weapon_custom22"		
-	"entity" 	"weapon_custom24"	
+	"entity"	"npc_bullsquid"
 }
 
 "entities" {
 
 	"item_item_crate"
 	{
-		"origin"	"-8245.17 -10310.34 708.35"
+		"origin"	"-4263.47 3838.02 532.03"
 		"angle"		"0 0 0"
 		"KeyValues"
 		{
-			"ItemClass"		"weapon_custom22"
+			"ItemClass"		"item_ammo_hrifle"
 	//		"ItemClass"		"item_dynamic_resupply"
-			"ItemCount"		"1"
+			"ItemCount"		"2"
 		}
 	}
-
+	
 	"item_item_crate"
 	{
 		"origin"	"-5125.18 4414.98 320.03"
 		"angle"		"0 0 0"
 		"KeyValues"
 		{
-			"ItemClass"		"item_ammo_357"
+			"ItemClass"		"item_ammo_flare"
 	//		"ItemClass"		"item_dynamic_resupply"
 			"ItemCount"		"2"
 		}
-	}	
+	}
 	
+	"item_item_crate"
+	{
+		"origin"	"8816.85 4185.17 320.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
+		}
+	}
+	
+	"weapon_ak47"
+	{
+		"origin"	"8351.00 4381.92 353.83"
+	}
+
 	"weapon_scissor"
 	{
 		"origin"	"6740.46 4799.50 353.83"
 	}
 
-	"instant_trig" {
-		"origin" "-4141 3830 510"
-		"keyvalues" {
-			"radius"	"50"
-			"label"		"tspawn"
-		}
-	}	
-
-	"instant_trig" {
-		"keyvalues" {
-			"label" "ini"
-			"timer" ".1"
-		}
-	}
-
-	"instant_trig" {
-		"origin" "-5699 -6440 505"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie2"
-			"radius" "1500"
-		}
-	}
-	"instant_trig" {
-		"origin" "-4371 -2706 126"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "zombie3"
-			"radius" "1500"
-		}
-	}
-//	"instant_trig" {
-//		"origin" "-4371 -2706 126"
-//		"angle" "0 0 0"
-//		"keyvalues" {
-//			"label" "zombie4"
-//			"radius" "1500"
-//		}
-//	}
-	"instant_trig" {
-		"origin" "-4842 8474 261"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "combine"
-			"radius" "2500"
-		}
-	}
-
-	"instant_trig" {
-		"origin" "5899 839 301"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "combine2"
-			"radius" "2500"
-		}
-	}
-	
-	"npc_houndeye"
+	"npc_bullsquid"
 	{
 		"origin"	"426.50 9643.00 337.61"
-		"keyvalues" {
-			"squadname" "grrrrrrrr"
-		}		
 	}
 
-	"npc_houndeye"
+	"npc_bullsquid"
 	{
 		"origin"	"579.50 9643.00 337.61"
-		"keyvalues" {
-			"squadname" "grrrrrrrr"
-		}		
-	}	
-}
-
-"entities:ini" {
-	"item_item_crate"
-	{
-		"origin"	"-6828 -11759 1088"
-		"angle"		"0 0 0"
-		"keyvalues"
-		{
-			"itemclass"		"item_ammo_357"
-			"itemcount"		"2"
-		}
-	}
-	"item_item_crate"
-	{
-		"origin"	"-7037 -11752 1077"
-		"angle"		"0 0 0"
-		"keyvalues"
-		{
-			"itemclass"		"item_ammo_ar2"
-			"itemcount"		"3"
-		}
-	}
-	"item_item_crate"
-	{
-		"origin"	"-6919 -11593 1087"
-		"angle"		"0 0 0"
-		"keyvalues"
-		{
-			"itemclass"		"item_battery"
-			"itemcount"		"2"
-		}
-	}
-}
-
-"entities:zombie2" {
-	"npc_combine_s" {
-		"origin" "-5874.9 3210.9 264.5" "angle" "0 259 0"
-		"keyvalues" {
-			"additionalequipment" "weapon_ar2"
-			"squadname" "universal_combine"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-5445.4 3057.2 294.2" "angle" "0 229 0"
-		"keyvalues" {
-			"additionalequipment" "weapon_smg1"
-			"squadname" "universal_combine"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-4374.7 3513.0 456.1" "angle" "0 177 0"
-		"keyvalues" {
-			"additionalequipment" "weapon_smg1"
-			"squadname" "universal_combine"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-4379.5 3917.8 456.0" "angle" "0 199 0"
-		"keyvalues" {
-			"additionalequipment" "weapon_grease"
-			"squadname" "universal_combine"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-3882.5 3766.7 484.0" "angle" "0 217 0"
-		"keyvalues" {
-			"additionalequipment" "weapon_shotgun"
-			"squadname" "universal_combine"
-		}
-	}
-}
-"entities:zombie3" {
-	"npc_zombie2" {
-		"origin" "-5876.8 2708.0 168.5" "angle" "0 51 0"
-	}
-	"npc_zombie2" {
-		"origin" "-5792.6 2790.1 196.1" "angle" "0 46 0"
-	}
-	"npc_zombie2" {
-		"origin" "-5490.5 2627.9 230.9" "angle" "0 112 0"
-	}
-	"npc_zombie2" {
-		"origin" "-5458.3 2495.3 225.2" "angle" "0 102 0"
-	}
-}
-"entities:combine" {
-	"npc_combine_s" {
-		"origin" "-170.9 10242.9 259.6" "angle" "0 -140 0"
-		"keyvalues" {
-			"additionalequipment" "weapon_smg1"
-		}
-	}
-	"npc_zombie2" {
-		"origin" "-768.2 8746.2 81.3" "angle" "0 86 0"
-	}
-	"npc_zombie2" {
-		"origin" "-642.4 8836.2 91.2" "angle" "0 86 0"
-	}
-	"npc_zombie2" {
-		"origin" "366.2 9016.7 141.2" "angle" "0 86 0"
-	}
-	"npc_zombie2" {
-		"origin" "216.7 8914.9 128.8" "angle" "0 86 0"
-	}
-}
-
-"entities:combine2" {
-
-	"npc_citizen" {
-		"origin" "7184.6 3290.8 260.8" "angle" "0 -90 0"
-		"keyvalues" {
-			"targetname" "root"
-			"squadname" "universal_citizen"
-			"additionalequipment" "weapon_smg1"
-			"citizentype" "3"
-			"spawnflags" "1048576"			
-		}
-	}
-	
-	"npc_citizen" {
-		"origin" "8133.7 4282.3 355.5" "angle" "0 -160 0"
-		"keyvalues" {
-			"targetname" "root"
-			"squadname" "universal_citizen"
-			"additionalequipment" "weapon_smg1"
-			"citizentype" "3"
-			"spawnflags" "1048576"			
-		}
-	}
-	
-	"npc_citizen" {
-		"origin" "8077.3 4507.0 378.2" "angle" "0 160 0"
-		"keyvalues" {
-			"targetname" "root"
-			"squadname" "universal_citizen"
-			"additionalequipment" "weapon_grease"
-			"citizentype" "3"
-			"spawnflags" "1048576"			
-		}
-	}
-	
-	"npc_citizen" {
-		"origin" "6946.0 4452.1 258.5" "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "root"
-			"squadname" "universal_citizen"
-			"additionalequipment" "weapon_custom24"
-			"citizentype" "3"
-			"spawnflags" "1048576"			
-		}
-	}
-	
-	"npc_citizen" {
-		"origin" "6805.2 4308.4 256.3" "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "root"
-			"squadname" "universal_citizen"
-			"additionalequipment" "weapon_ak47"
-			"citizentype" "3"
-			"spawnflags" "1048576"			
-		}
-	}
-	
-	"npc_citizen" {
-		"origin" "7714.6 3557.4 304.0" "angle" "0 -90 0"
-		"keyvalues" {
-			"targetname" "root"
-			"squadname" "universal_citizen"
-			"additionalequipment" "weapon_custom16"
-			"citizentype" "3"
-			"spawnflags" "1048576"			
-		}
-	}
-}
-
-"entities:tspawn" {
-	"npc_f_turret_floor" {
-		"origin" "-4218.4 3739.4 468.7"  "angle" "0 0 0"
-		"keyvalues" {
-			"model" "models/combine_turrets/floor_turret.mdl"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-4263 3791 496"
-		"keyvalues" {
-			"radius"	"100"
-			"label"		"zambush"
-		}
-	}	
-}
-
-"entities:zambush" {
-	
-	"prop_physics" {
-		"origin" "-4049.2 3576.6 501.1"  "angle" "0 88 -0"
-		"keyvalues" {
-			"model" "models/props_c17/FurnitureCouch001a.mdl"
-		}
-	}
-	
-	"npc_zombie2" {
-		"origin" "-3857.8 3178.6 456.7"  "angle" "0 151 0"
-		"keyvalues" {
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "2000"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_zombie2" {
-		"origin" "-4425.9 3027.7 457.5"  "angle" "0 0 0"
-		"keyvalues" {
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "2000"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_zombie2" {
-		"origin" "-4602.0 3110.8 477.9"  "angle" "0 20 0"
-		"keyvalues" {
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "2000"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-4428.5 3498.7 456.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "2000"
-			"wakesquad" "1"
-		}
-	}
-
-	"instant_trig" {
-		"keyvalues" {
-			"timer"	"15"
-			"label"	"fzambush"
-		}
-	}
-}
-
-"entities:fzambush" {
-	
-	"npc_fastzombie" {
-		"origin" "-5300.1 4219.8 252.8"  "angle" "0 244 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-5321.4 4361.2 252.2"  "angle" "0 262 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-5395.6 4214.1 252.4"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-5495.8 4382.1 230.6"  "angle" "0 280 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-5702.8 4260.8 229.1"  "angle" "0 338 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-5665.0 4656.8 89.2"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-5898.4 4827.5 71.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"npc_fastzombie" {
-		"origin" "-5120 3622 325"  "angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "fzact1"
-			"squadname" "zucki01"
-			"sleepstate" "0"
-			"wakeradius" "5500"
-			"wakesquad" "1"
-		}
-	}
-	
-	"info_target" {
-		"origin" "-3903 3738 512"
-		"keyvalues" {
-			"targetname" "fzgoal"
-		}
-	}
-
-	"ai_goal_follow" {
-		"keyvalues" {
-			"startactive"	"1"
-			"searchtype"	"0"
-			"MaximumState"	"2"			
-			"actor"		"fzact1"
-			"goal"		"fzgoal"
-		}
 	}
 }

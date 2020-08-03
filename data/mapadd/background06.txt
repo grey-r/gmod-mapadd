@@ -1,0 +1,23 @@
+"precache"{
+}
+
+"entities:init" {
+
+	"player" {
+		"music"		"combinetheme"
+	}
+
+}
+
+
+
+"entities" {
+
+	"instant_trig" {
+		"keyvalues" {
+			"timer"	"1"
+			"label"	"init"
+		}
+	}
+}
+

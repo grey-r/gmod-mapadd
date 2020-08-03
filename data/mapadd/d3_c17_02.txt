@@ -1,6 +1,5 @@
 //	map arrange data
 //	location: d3_c17_02
-//FIXES: Precache
 "precache" {
 	"sound"		"npc_citizen.letsgo01"
 	"sound"		"npc_citizen.question25"
@@ -10,15 +9,6 @@
 	"sound"		"npc_citizen.illstayhere01"
 	"sound"		"odessa.nlo_cheer01"
 	"sound"		"odessa.nlo_cheer03"
-	"entity"	"npc_combine_s"	
-	"entity"	"npc_citizen"
-	"entity"	"npc_citizen_medic"		
-	"entity"	"weapon_grease"	
-	"entity"	"weapon_kar98"
-	"entity"	"weapon_ak47"
-	"entity" 	"weapon_custom24"
-	"entity" 	"weapon_custom16"	
-	"entity" 	"weapon_custom12"	
 }
 
 
@@ -41,20 +31,18 @@
 			"additionalequipment"	"weapon_grease"
 			"targetname"		"npc11"
 			"spawnflags" "1052674"
-			"squadname" "universal_citizen"			
 		}		
 	}
 
 
-	"npc_citizen_medic" {
+	"npc_citizen" {
 		"origin" "-8874 -6053 -64" "angle" "0 6 0"
 		"alwaysthink"
 		"longrange"
 		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
+			"additionalequipment"	"weapon_m1garand"
 			"targetname"		"npc12"
 			"spawnflags" "1052674"
-			"squadname" "universal_citizen"
 		}
 	}
 
@@ -69,8 +57,7 @@
 		"longrange"
 		"alwaysthink"
 		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_combine"			
+			"additionalequipment"	"weapon_mp40"
 		}
 	}
 	"npc_metropolice" {
@@ -78,8 +65,7 @@
 		"longrange"
 		"alwaysthink"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom24"
-			"squadname" "universal_combine"			
+			"additionalequipment"	"weapon_cz52"
 		}
 	}
 	"npc_metropolice" {
@@ -88,7 +74,6 @@
 		"longrange"
 		"keyvalues" {
 			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_combine"			
 		}
 	}
 	"npc_metropolice" {
@@ -97,36 +82,28 @@
 		"longrange"
 		"keyvalues" {
 			"additionalequipment"	"weapon_pistol"
-			"squadname" "universal_combine"			
 		}
 	}
 
-	"npc_citizen" {
-		"origin" "-9192.4 -5669.4 -64.0"  "angle" "0 167 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"		
-			"targetname" "cit_1"
-			"squadname" "universal_citizen"
+	"item_item_crate"
+	{
+		"origin" "-5531.2 -4835.96 64.2"
+			"keyvalues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+			"ItemCount"		"2"
 		}
-	}
-	
-	"npc_citizen" {
-		"origin" "-9422.3 -5713.6 -64.0"  "angle" "0 57 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom12"		
-			"targetname" "cit_2"
-			"squadname" "universal_citizen"
+	}		
+
+	"item_item_crate"
+	{
+		"origin" "-8365.2 -6163.96 -13.5"
+			"keyvalues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+			"ItemCount"		"3"
 		}
-	}
-	
-	"npc_citizen" {
-		"origin" "-9191.3 -5562.9 -64.0"  "angle" "0 187 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ak47"		
-			"targetname" "cit_3"
-			"squadname" "universal_citizen"
-		}
-	}	
+	}		
 	
 	"prop_physics" {
 		"origin" "-8696.0 -6042.2 14.1"  "angle" "-0 88 360"
@@ -263,15 +240,6 @@
 		}
 	}
 
-	"instant_trig" {
-		"origin" " -9414 -5625 0.031"
-		"angle" "0 0 0"
-		"timer" ".1"
-		"keyvalues" {
-			"label" "combine"
-			"radius" "500"
-		}
-	}	
 }
 
 "entities:talk1" {
@@ -385,42 +353,5 @@
 	"sound" {
 		"targetname"	"npc12"
 		"soundname"	"npc_citizen.illstayhere01"
-	}
-}
-
-
-"entities:combine" {
-
-	"npc_combine_s" {
-	"relation" "ph1 gh2 lh3"
-		"origin" "-6713.6 -6155.2 -4.0" "angle" "0 166 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_combine2"
-		}		
-	}
-	"npc_combine_s" {
-	"relation" "ph1 gh3 lf2"
-		"origin" "-6459.2 -6195.0 0.0" "angle" "0 167 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine2"
-		}				
-	}
-	"npc_combine_s" {
-	"relation" "ph1 gh3 lf2"
-		"origin" "-6497.8 -5993.6 -4.0" "angle" "0 189 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_kar98"
-			"squadname" "universal_combine2"			
-		}		
-	}
-	"npc_combine_s" {
-	"relation" "ph1 gh3 lf2"
-		"origin" "-7199.3 -6303.7 -4.0"  "angle" "0 64 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"
-			"squadname" "universal_combine2"			
-		}		
 	}
 }

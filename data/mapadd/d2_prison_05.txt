@@ -1,86 +1,13 @@
 //	map arrange data
 //	location: d2_prison_05
-
-"precache" {
-	"entity"	"npc_citizen"
-	"entity" 	"weapon_ak47"	
-	"entity"	"weapon_mp5"
-	"entity" 	"weapon_grease"	
-	"entity"	"weapon_msbomb"
-	"entity" 	"setmsbomb"	
-	"entity" 	"npc_combine_ace"	
-	"entity" 	"npc_combine_c"
-	"entity" 	"npc_combine_e"
-	"entity" 	"npc_combine_p"
-	"entity" 	"npc_zombine"	
-	"entity" 	"npc_zombie2"	
-	"entity" 	"weapon_custom8"	
-	"entity" 	"weapon_custom14"	
-	"entity" 	"weapon_custom24"
-	"entity" 	"weapon_custom18"
-	"entity" 	"weapon_custom25"	
-	"model" 	"models/combine_ace.mdl"	
-}
+// Many thanks to Business for the code references
 
 "entities" {
-
-	"event" {
-		"targetname" "laundry_defense"
-		"action" "addoutput"
-		"value" "OnEntitySpawned laundry_turret,kill"
-	}
-
-	"event" {
-		"targetname" "laundry_reinforcement_spawner"
-		"action" "SetMaxChildren"
-		"value" "15"
-	}
-	
-	"event" {
-		"targetname" "laundry_reinforcement_spawner"
-		"action" "SetMaxLiveChildren"
-		"value" "5"
-	}
-	
-	"setmsbomb" {
-		"origin" "-321 2303.0 405"  "angle" "0 270 0"
-		"keyvalues" {
-			"model" "models/weapons/w_msbomb.mdl"
-		}
-	}
-	
-	"setmsbomb" {
-		"origin" "-321 2303.0 420"  "angle" "0 270 0"
-		"keyvalues" {
-			"model" "models/weapons/w_msbomb.mdl"
-		}
-	}
-	
-	"setmsbomb" {
-		"origin" "-321 2303.0 435"  "angle" "0 270 0"
-		"keyvalues" {
-			"model" "models/weapons/w_msbomb.mdl"
-		}
-	}
-	
-	"setmsbomb" {
-		"origin" "-321 2303.0 450"  "angle" "0 270 0"
-		"keyvalues" {
-			"model" "models/weapons/w_msbomb.mdl"
-		}
-	}
-	
-	"setmsbomb" {
-		"origin" "-322.8 2303.0 465"  "angle" "0 270 0"
-		"keyvalues" {
-			"model" "models/weapons/w_msbomb.mdl"
-		}
-	}
 
 	"npc_combine_e" {
 		"origin" "-662.7 1675 448" "angle" "0 -2 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"
+			"additionalequipment"	"weapon_oicw"
 			"numgrenade"	"5"
 		}
 	}
@@ -104,16 +31,14 @@
 	"npc_metropolice" {
 		"origin" "77.32 1479 407.49" "angle" "0 150 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom24"
-			"squadname" "universal_combine"
+			"additionalequipment"	"weapon_mp40"
 		}
 	}
 
 	"npc_metropolice" {
 		"origin" "43.11 1285 407.49" "angle" "0 150 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom24"
-			"squadname" "universal_combine"
+			"additionalequipment"	"weapon_mp40"
 		}
 	}
 
@@ -127,53 +52,23 @@
 		"angle"		"0 0 0"
 		"KeyValues"
 		{
-			"ItemClass"		"weapon_msbomb"
+			"ItemClass"		"item_ammo_hrifle"
 	//		"ItemClass"		"item_dynamic_resupply"
 			"ItemCount"		"2"
 		}
 	}
 
-	"instant_trig" {
-		"origin" "-528 31 540"
-		"keyvalues" {
-			"radius" "120"
-			"label" "movingon"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-2228 114 604"
-		"keyvalues" {
-			"radius" "70"
-			"label"	"cafe_booth"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-2775 -154 669"
-		"keyvalues" {
-			"radius" "100"
-			"label" "zombie_cluster"
-		}
-	}
-
-	"instant_trig" {
-		"origin" "-2775 -154 669"
-		"keyvalues" {
-			"radius" "100"
-			"label" "zombie_cluster"
-		}
-	}	
-
-	"item_item_crate"
+		"item_item_crate"
 	{
-		"origin" "-1248 1248 668"
-		"keyvalues"
+		"origin"	"-947.81 -731.82 576.03"
+		"angle"		"0 0 0"
+		"KeyValues"
 		{
-			"ItemClass"		"weapon_custom25"
-			"ItemCount"		"1"
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
 		}
-	}	
+	}
 }
 
 "entities:washroom_fight" {
@@ -198,6 +93,14 @@
             "label"    "boss_healthreset"
         }
     }
+
+    "instant_trig" {
+      "origin"	"-261.15 1726.31 409.34"    
+        "keyvalues" {
+            "radius"    "150"        
+            "label"    "assassinfightmusic"
+        }
+    }
 }    
 
 "entities:boss_sethealth" {
@@ -205,20 +108,37 @@
     "event" {
         "targetname" "healthset"
         "action"    "Command"
-        "value"        "sk_combine_ace_health 400"
+        "value"        "sk_combine_ace_health 200"
     }
 }
 
 "entities:boss_spawn" {
+//Introducing: the Combine Aces.
     "npc_combine_ace" {
-        "origin" "-295.5 151.3 512.0"
+        "origin" "-265.5 151.3 512.0"
         "angle" "0 87 0"
         "keyvalues" {
             "targetname" "boss"
-            "additionalequipment" "weapon_custom8"
+            "additionalequipment" "weapon_pulsemg"
             "squadname" "squad1"
         }
     }
+
+    "npc_combine_ace" {
+        "origin" "-275.5 151.3 512.0"
+        "angle" "0 87 0"
+        "keyvalues" {
+            "targetname" "boss"
+            "additionalequipment" "weapon_pulsemg"
+            "squadname" "squad1"
+        }
+    }
+    
+    "removeentity" {
+        "classname"    "npc_antlion_template_maker"
+        "targetname" "laundry_death_counter"
+        //"classname"    "npc_antlion"        
+    }    
 }
 
 "entities:boss_healthreset" {
@@ -232,148 +152,12 @@
 
 "entities:assassinfightmusic" {
 
-	"npc_zombie_torso" {
-		"origin" "-1592.6 826.2 512.0"  "angle" "0 0 0"
-	}
+    "player" {
+        "music"    "assassinfight"
+    }
 }
 
-"entities:movingon" {
 
-	"npc_combine_p" {
-		"origin" "-1029.3 -538.9 512.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_mp5"
-			"targetname" "kitchen_soldier_1"
-			"squadname" "kitchen_squad"
-		}
-	}
-	
-	"item_item_crate" {
-		"origin" "-2087.8 -1200.3 639.6"  "angle" "-0 44 270"
-		"keyvalues" {
-			"itemclass"		"item_ammo_smg1_grenade"
-			"itemcount"		"2"
-		}
-	}
-	
-	"item_item_crate" {
-	"origin" "-2227.9 -1189.1 624.6"  "angle" "0 -4 0"
-		"keyvalues" {
-			"itemclass"		"weapon_custom18"
-			"itemcount"		"1"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-2326.2 -994.3 512.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ak47"
-			"squadname" "bozo"			
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-2235.3 -742.3 512.0"  "angle" "0 325 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "bozo"			
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-2132.0 359.2 640.0"  "angle" "0 280 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"
-			"squadname" "bozo"			
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-1977.2 350.8 640.0"  "angle" "0 253 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"
-			"squadname" "bozo"			
-		}
-	}
-}
-
-"entities:cafe_booth" {
-
-	"npc_combine_p" {
-		"origin" "-2352.4 247.3 768.0"  "angle" "0 150 0"
-		"keyvalues" {
-			 "additionalequipment"	"weapon_ak47"		
-			 "targetname" "cafe_booth_soldier"
-			 "squadname" "cafe_booth_squad"
-		}
-	}
-}
-
-"entities:zombie_cluster" {
-
-	"npc_zombine" {
-		"origin" "-2919.4 -376.1 488.5"  "angle" "0 0 0"
-		"keyvalues" {
-			"squadname" "wallace1"
-		}
-	}
-	
-//	"npc_zombie" {
-//		"origin" "-2940.4 -604.9 520.8"  "angle" "0 76 0"
-//		"keyvalues" {
-//			"squadname" "wallace1"
-//		}
-//	}
-	
-	"npc_zombie2" {
-		"origin" "-3231.7 -479.9 493.6"  "angle" "0 0 0"
-		"keyvalues" {
-			"squadname" "wallace1"
-		}
-	}
-	
-//	"npc_zombine" {
-//		"origin" "-3945.8 -482.7 480.3"  "angle" "0 0 0"
-//		"keyvalues" {
-//			"squadname" "wallace2"
-//		}
-//	}
-	
-//	"npc_zombie" {
-//		"origin" "-3916.6 -600.2 483.2"  "angle" "0 0 0"
-//		"keyvalues" {
-//			"squadname" "wallace2"
-//		}
-//	}
-	
-	"npc_zombine" {
-		"origin" "-4385.8 -476.1 504.6"  "angle" "0 0 0"
-		"keyvalues" {
-			"squadname" "wallace3"
-		}
-	}
-	
-//	"npc_zombie" {
-//		"origin" "-4458.0 -537.1 521.2"  "angle" "0 0 0"
-//		"keyvalues" {
-//			"squadname" "wallace3"
-//		}
-//	}
-	
-	"npc_zombie2" {
-		"origin" "-4713.0 -519.0 510.5"  "angle" "0 0 0"
-		"keyvalues" {
-			"squadname" "wallace3"
-		}
-	}
-	
-//	"npc_zombine" {
-//		"origin" "-4703.1 -605.2 516.2"  "angle" "0 0 0"
-//		"keyvalues" {
-//			"squadname" "wallace3"
-//		}
-//	}
-}
 
 
 

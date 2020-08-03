@@ -2,21 +2,11 @@
 //	location: d2_prison_02
 
 "precache" {
-	"entity"	"npc_combine_p"
-	"entity"	"npc_combine_c"	
+	"entity"	"npc_combine_s"
 	"entity"	"npc_zombie"
-	"entity" 	"npc_fastzombie"	
-	"entity"	"npc_zombine"	
-	"entity"	"npc_citizen"	
-	"entity" 	"weapon_kar98"
-	"entity" 	"weapon_ak47"
-	"entity" 	"weapon_grease"
-	"entity" 	"weapon_mp5"	
-	"entity"	"weapon_custom16"	
 	"entity"	"setmsbomb"
 	"entity"	"npc_fastzombie"
 	"model"		"models/combine_super_soldier.mdl"
-	"model"		"models/soldier_camo.mdl"	
 }
 
 
@@ -52,7 +42,40 @@
 		}
 	}
 
-
+	"item_item_crate"
+	{
+		"origin"	"-1350.15 2808.45 481.75"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_gauss"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"-2136.67 1331.07 448.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
+	
+	"item_item_crate"
+	{
+		"origin"	"-2124.13 1538.98 481.42"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
 
 	"setmsbomb" {
 		"origin" "-1725.0 3568.7 520.9"  "angle" "0 180 0"
@@ -61,32 +84,36 @@
 		"origin" "-1747.8 3647.0 517.8"  "angle" "0 270 0"
 	}
 
-	"npc_combine_c" {
+	"npc_combine_s" {
 		"origin" "-895 3118 384" "angle" "0 179 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_mp5"
+			"model"	"models/soldier_camo.mdl"
+			"additionalequipment"	"weapon_smg1"
 			"numgrenade"	"5"
 		}
 	}
 
-	"npc_combine_c" {
+	"npc_combine_s" {
 		"origin" "-880 2692 384" "angle" "0 179 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_mp5"
+			"model"	"models/soldier_camo.mdl"
+			"additionalequipment"	"weapon_smg1"
 		}
 	}
 
-	"npc_combine_c" {
+	"npc_combine_s" {
 		"origin" "-1112 3034 256" "angle" "0 -100 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
+			"model"	"models/soldier_camo.mdl"
+			"additionalequipment"	"weapon_lasergun"
 		}
 	}
 
-	"npc_combine_c" {
+	"npc_combine_s" {
 		"origin" "-1895 1341 754" "angle" "0 96 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_mp5"
+			"model"	"models/soldier_camo.mdl"
+			"additionalequipment"	"weapon_smg1"
 		}
 	}
 
@@ -98,60 +125,17 @@
 		}
 	}
 
-//	"instant_trig" {
-//		"origin" "-1378 3169 464"
-//		"keyvalues" {
-//			"label"	"zombie"
-//			"radius"	"50"
-//		}
-//	}
-
-	"item_item_crate"
-	{
-		"origin" "-926.13 3261.29 274.44"
-		"angle" "-21 -42 267"
-		"keyvalues"
-		{
-			"itemclass"		"weapon_msbomb"
-			"itemcount"		"1"
-		}
-	}	
-
 	"instant_trig" {
-		"origin" "-2117 3468 512"
+		"origin" "-1378 3169 464"
 		"keyvalues" {
+			"label"	"zombie"
 			"radius"	"50"
-			"label"		"trap2"
 		}
 	}
-
-	"instant_trig" {
-		"origin" "-2107 2739 284"
-		"keyvalues" {
-			"radius"	"65"
-			"label"		"alpha"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-1494 2825 325"
-		"keyvalues" {
-			"radius"	"70"
-			"label"		"rep1"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-1415 3110 476"
-		"keyvalues" {
-			"radius"	"85"
-			"label"		"rep2"
-		}
-	}	
 }
 
 "entities:zombie" {
-	"npc_zombie" {
+	"npc_zombine" {
 		"origin" "-1301 3772 514" "angle" "0 -98 0"
 	}
 }
@@ -174,7 +158,7 @@
 		}
 	}
 	
-	"npc_combine_p" {
+	"npc_combine_s" {
 		"origin" "-1677 1374 384" "angle" "0 118 0"
 		"keyvalues" { "targetname" "teki11"
 			"model"	"models/soldier_camo.mdl"
@@ -182,7 +166,7 @@
 		}
 	}
 	
-	"npc_combine_p" {
+	"npc_combine_s" {
 		"origin" "-1506 1386 384" "angle" "0 86 0"
 		"keyvalues" { "targetname" "teki11"
 			"model"	"models/soldier_camo.mdl"
@@ -219,352 +203,22 @@
 		}
 	}
 	
-	"npc_combine_c" {
+	"npc_combine_s" {
 		"origin" "-1367 2595 384"
 		"keyvalues" { "targetname" "teki2"
-			"additionalequipment"	"weapon_mp5"
+			"model"	"models/soldier_camo.mdl"
+			"additionalequipment"	"weapon_smg1"
 		}
 	}
 	
-	"npc_combine_c" {
+	"npc_combine_s" {
 		"origin" "-1263 3307 384"
 		"keyvalues" { "targetname" "teki2"
-			"additionalequipment"	"weapon_mp5"
+			"model"	"models/soldier_camo.mdl"
+			"additionalequipment"	"weapon_smg1"
 		}
 	}
 	
 
 }
 
-"entities:alpha" {
-	
-	"npc_combine_p" {
-		"origin" "-1878.5 2586.4 384.0"  "angle" "0 267 0"
-		"keyvalues" {
-			"squadname" "universal_combine4"
-			"additionalequipment"	"weapon_custom16"				
-			"targetname" "shine"
-		}
-	}
-	
-	"event" {
-		"targetname" "shine"
-		"action" "StartPatrolling"
-		"delaytime" "0.1"
-	}
-	
-	"instant_trig" {
-		"origin" "-1404 2896 412"
-		"keyvalues" {
-			"radius" "65"
-			"label" "alpha_ambush"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-1441 3226 444"
-		"keyvalues" {
-			"radius" "100"
-			"label" "alpha_zombieroom"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-2074 3463 540"
-		"keyvalues" {
-			"radius" "50"
-			"label" "beta"
-		}
-	}
-}
-
-"entities:alpha_ambush" {
-
-	"npc_combine_p" {
-		"origin" "-1339.9 3299.3 384.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"				
-			"targetname" "dagger_0"
-			"squadname" "yukon"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-1394.9 3200.3 384.1"  "angle" "0 73 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"				
-			"targetname" "dagger_2"
-			"squadname" "yukon"
-		}
-	}
-	
-	"ai_goal_follow" {
-		"Keyvalues" {
-			"MaximumState" "2"
-			"StartActive" "1"
-			"actor" "dagger_*"
-			"goal" "goal_dagger"
-			"SearchType" "0"
-		}
-	}
-	
-	"info_target" {
-		"origin" "-1361 2951 448"
-		"keyvalues" {
-			"targetname" "goal_dagger"
-		}
-	}
-}
-
-"entities:alpha_zombieroom" {
-
-	"npc_zombine" {
-		"origin" "-1330 3821 512"  "angle" "0 -98 0"
-		"keyvalues" {
-			"squadname" "apex"
-		}
-	}
-	
-//	"npc_zombie" {
-//		"origin" "-1280 3855 512"  "angle" "0 -98 0"
-//		"keyvalues" {
-//			"squadname" "apex"
-//		}
-//	}
-	
-//	"npc_zombie" {
-//		"origin" "-1299 3786 512"  "angle" "0 -98 0"
-//		"keyvalues" {
-//			"squadname" "apex"
-//		}
-//	}
-	
-//	"npc_zombie" {
-//		"origin" "-1251 3815 512"  "angle" "0 -98 0"
-//		"keyvalues" {
-//			"squadname" "apex"
-//		}
-//	}
-	
-//	"npc_zombie" {
-//		"origin" "-1313 3735 512" "angle" "0 -98 0"
-//		"keyvalues" {
-//			"squadname" "apex"
-//		}
-//	}
-}
-
-"entities:beta" {
-
-	"npc_combine_p" {
-		"origin" "-2390.3 3104.4 256.1"  "angle" "0 76 0"
-		"relation" "ll3"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"				
-			"targetname" "kela_1"
-			"squadname" "victor"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-2495.0 2905.3 256.1"  "angle" "0 76 0"
-		"relation" "ll3"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"				
-			"targetname" "kela_2"
-			"squadname" "victor"
-		}
-	}
-	
-	"event" {
-		"targetname" "kela_*"
-		"action" "StartPatrolling"
-		"delaytime" "0.1"
-	}
-	
-	"instant_trig" {
-		"origin" "-1949 2697 540"
-		"keyvalues" {
-			"radius" "65"
-			"label" "beta_mirror"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "-1951 1734 412"
-		"keyvalues" {
-			"radius" "75"
-			"label" "beta_ambush"
-		}
-	}
-}
-
-"entities:beta_mirror" {
-
-	"npc_combine_p" {
-		"origin" "-2160.0 1855.8 512.0"  "angle" "0 42 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"				
-			"targetname" "akimbo"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-2013.7 2403.6 384.0"  "angle" "0 263 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"				
-			"targetname" "akimbo"
-			"squadname" "belowme"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-1871.9 2155.5 384.0"  "angle" "0 269 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"				
-			"targetname" "akimbo"
-			"squadname" "belowme"
-		}
-	}
-	
-	"event" {
-		"targetname" "akimbo"
-		"action" "StrartPatrolling"
-		"delaytime" "0.1"
-	}
-	
-	"item_ammo_smg1_grenade" {
-		"origin" "-2139.3 1550.7 418.4"  "angle" "2 157 356"
-	}
-	
-	"item_ammo_smg1_grenade" {
-		"origin" "-2136.3 1541.0 423.2"  "angle" "72 -43 267"
-	}
-}
-
-"entities:beta_ambush" {
-
-	"npc_combine_p" {
-		"origin" "-2186.3 1669.8 512.0"  "angle" "0 359 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"				
-			"targetname" "teno_b"
-			"squadname" "nonky"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-2192.2 1530.1 512.0"  "angle" "0 44 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"		
-			"targetname" "teno_c"
-			"squadname" "nonky"
-		}
-	}
-	
-	"ai_goal_follow" {
-		"Keyvalues" {
-			"MaximumState" "3"
-			"StartActive" "1"
-			"actor" "teno_*"
-			"goal" "goal_teno"
-			"SearchType" "0"
-		}
-	}
-	
-	"info_target" {
-		"origin" "-1589 1354 448"
-		"keyvalues" {
-			"targetname" "goal_teno"
-		}
-	}
-}
-
-"entities:rep1" {
-
-	"npc_combine_p" {
-		"origin" "-1978.6 2444.4 256.0"  "angle" "0 268 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"	
-			"squadname" "universal_combine5"
-		}		
-	}
-	
-	"removeentity" {
-		"origin" "-2000.5 2415.3 384.7"
-		"radius" "50"
-		"classname" "npc_turret_floor"
-	}
-	
-	"removeentity" {
-		"origin" "-1900.8 2422.9 384.8"
-		"radius" "50"
-		"classname" "npc_turret_floor"
-	}
-	
-	"npc_combine_p" {
-		"origin" "-1900.8 2422.9 384"  "angle" "0 278 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"	
-			"squadname" "universal_combine5"
-		}		
-	}
-	
-	"npc_combine_p" {
-		"origin" "-2000.5 2415.3 384"  "angle" "0 268 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"	
-			"squadname" "universal_combine5"			
-		}		
-	}
-	
-	"npc_combine_p" {
-		"origin" "-1889.9 1255.2 640.0"  "angle" "0 91 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"				
-			"targetname" "ninja"
-			"squadname" "gaiden"
-		}
-	}
-	
-	"npc_combine_p" {
-		"origin" "-1617.6 1239.1 640.0"  "angle" "0 120 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"				
-			"targetname" "ninja2"
-			"squadname" "gaiden"
-		}
-	}
-	
-	"event" {
-		"targetname" "ninja2"
-		"action" "startpatrolling"
-		"delaytime" "0.1"
-	}
-}
-
-"entities:rep2" {
-
-	"npc_combine_p" {
-		"origin" "-1853.0 3449.0 512.0"  "angle" "0 245 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"
-			"squadname" "universal_combine6"
-		}		
-	}
-	
-	"npc_combine_p" {
-		"origin" "-1964.1 3585.2 512.0"  "angle" "0 307 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"
-			"squadname" "universal_combine6"
-		}		
-	}
-	
-	"setmsbomb" {
-		"origin" "-1735.9 3647.0 521.1"  "angle" "0 270 0"
-		"keyvalues" {
-			"model" "models/weapons/w_msbomb.mdl"
-		}
-	}
-}

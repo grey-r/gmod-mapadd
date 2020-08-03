@@ -1,13 +1,11 @@
 //	map arrange data
 //	location: d1_coast_01
-//FIXES: Precache
+
 "precache" {
 	"entity"	"npc_zombie"
 	"entity"	"npc_poisonzombie"
 	"entity"	"npc_fastzombie"
 	"entity"	"npc_combine_s"
-	"entity"	"weapon_abgun"	
-	"entity" 	"weapon_pistol"	
 }
 
 "entities:cover" {
@@ -23,7 +21,7 @@
 	"npc_citizen" {
 		"origin" "-10700 -6861 717" "angle" "0 56 0"
 		"keyvalues" { "targetname"	"nakama1"
-			"additionalequipment"	"weapon_pistol" 
+			"additionalequipment"	"weapon_smg1" 
 			"spawnflags" "1052674"
 		}
 	}
@@ -56,7 +54,7 @@
 		"alwaysthink"
 		"keyvalues" { 
 			"targetname"	"nakama1"
-			"additionalequipment"	"weapon_ar2" 
+			"additionalequipment"	"weapon_ak47" 
 		}
 	}
 	"npc_combine_s" {
@@ -65,7 +63,7 @@
 		"alwaysthink"
 		"keyvalues" { 
 			"targetname"	"nakama1"
-			"additionalequipment"	"weapon_ar2" 
+			"additionalequipment"	"weapon_ak47" 
 		}
 	}
 
@@ -121,9 +119,10 @@
 			"radius" "30"
 		}
 	}
+	
 
-	"weapon_abgun" {
-		"origin" "-7108 -10356 816" "angle" "0 0 0"
-	}	
+	lua {
+		"callfunc"	"Init"
+	}
 
 }

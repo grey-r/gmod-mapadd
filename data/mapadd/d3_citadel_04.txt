@@ -1,14 +1,4 @@
-"precache" {
-	"entity" "npc_stalker"
-	"entity" "npc_combine_e"
-	"entity" "npc_combine_c"	
-	"entity" "npc_combine_ace"
-	"entity"	"weapon_grease"
-	"entity"	"weapon_ak47"
-	"entity"	"weapon_custom29"
-	"entity"	"weapon_mp5"
-	"entity"	"weapon_svd"	
-	"entity"	"weapon_lasergun"
+"precache"{
 }
 
 "randomspawn" {
@@ -20,11 +10,26 @@
 	}
 
 	"npc_combine_c" {
-		"count"		"4"
+		"count"		"2"
 		"grenade"	"5"
 		"patrolrandom"
-		"weapon"	"weapon_mp5"
+		"weapon"	"weapon_pulsemg"
 		"values" "squadname cb2"
+	}
+
+	"npc_combine_c" {
+		"count"		"2"
+		"grenade"	"5"
+		"patrolrandom"
+		"weapon"	"weapon_ar2"
+		"values" "squadname cb3"
+	}
+
+
+	"npc_combine_ace" {
+		"count"		"1"
+		"patrolrandom"
+		"weapon"	"weapon_minigun"
 	}
 
 }
@@ -38,4 +43,72 @@
             "targetname" "game_cset"
         }
     }
+
+    "instant_trig" {
+    "origin" "258 1066 2328
+        "keyvalues" {
+            "radius"	"100"        
+            "label"    "boss"
+        }
+    }
+
+	"weapon_minigun"
+	{
+		"origin" "315.5 1767.6 2368"		
+	}
 }
+
+"entities:boss" {
+
+    "instant_trig" {
+        "keyvalues" {
+            "timer"    "0.1"
+            "label"    "boss_healthset"
+        }
+    }
+    
+    "instant_trig" {
+        "keyvalues" {
+            "timer"    "0.15"
+            "label"    "boss_spawn"
+        }
+    }
+    
+    "instant_trig" {
+        "keyvalues" {
+            "timer"    "0.2"
+            "label"    "boss_healthset2"
+        }
+    }
+}
+
+"entities:boss_healthset" {
+    
+    "event" {
+        "targetname" "game_cset"
+        "action"    "Command"
+        "value"        "sk_combine_ace_health 850"
+    }
+}
+
+"entities:boss_spawn" {
+
+    "npc_combine_ace" {
+        "origin" "261.86 815.03 6438.82"
+        "angle" "0 128 0"
+        "keyvalues" {
+            "targetname" "boss"
+            "additionalequipment" "weapon_minigun"
+            "squadname" "squad"
+        }
+    }
+}
+
+"entities:boss_healthset2" {
+
+    "event" {
+        "targetname" "game_cset"
+        "action"    "Command"
+        "value"        "sk_combine_ace_health 100"
+    }
+  }

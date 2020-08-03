@@ -4,11 +4,6 @@
 "precache" {
 	"entity"	"npc_metropolice"
 	"entity"	"prop_vehicle_apc"
-	"entity"	"weapon_grease"	
-	"entity"	"weapon_kar98"	
-	"entity" 	"weapon_custom16"		
-	"entity" 	"weapon_custom30"		
-	"entity"	"food_cornedbeef"	
 	"model"		"models/combine_apc.mdl"
 }
 
@@ -17,18 +12,95 @@
 	"npc_metropolice" {
 		"count"		"15"
 		"weapon"	"weapon_pistol"
-		"values" 	"squadname cb10a"			
 	}
 
 	"npc_metropolice" {
 		"count"		"10"
 		"weapon"	"weapon_grease"
-		"values" 	"squadname cb10a"			
 	}
 
 }
 
+"entities:apc1" {
+
+
+	"event" {
+		"targetname"	"apd1"
+		"action"	"setdriversmaxspeed"
+		"value"		"2000"
+	}
+
+	"event" {
+		"targetname"	"apd1"
+		"action"	"gotopathcorner"
+		"value"		"ap1"
+	}
+
+}
+
+
 "entities" {
+
+	"removeentity" {
+		"targetname" "jeep_fall_trigger"
+	}
+
+	"food_cornedbeef"
+	{
+		"origin"	"-5698.72 -11364.89 953.31"
+	}
+	"item_ammo_rifle"
+	{
+		"origin"	"-5383.19 -41.19 1168.03"
+	}
+	"weapon_m1garand"
+	{
+		"origin"	"-5517.30 -11434.29 916.03"
+	}
+
+	"item_item_crate"
+	{
+		"origin"	"-5187.12 -12030.92 791.25"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+
+	"item_item_crate"
+	{
+		"origin"	"-5466.43 -11548.89 787.25"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+
+	"prop_vehicle_apc" {
+		"origin" "-4134 -10875 1401"		"angle" "0 -72 0"
+		"keyvalues" {
+			"vehiclescript"	"scripts/vehicles/apc_npc.txt"
+			"model"		"models/combine_apc.mdl"
+			"targetname"	"apc1"
+			"solid"		"6"
+		}
+	}
+
+	"npc_apcdriver" {
+		"keyvalues" {
+			"spawnflags" "131332"
+			"vehicle" "apc1"
+			"target" "ap1"
+			"targetname" "apd1"
+		}
+	}
+
 
 	"npc_zombie" {
 		"origin" "1741.5 -9268.2 1292.4"  "angle" "0 0 0"
@@ -56,236 +128,101 @@
 		"action"	"wake"
 		"value"		"1"
 	}
-	
-	"npc_rollermine" {
-		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
-	}
 
-	"npc_rollermine" {
-		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
-	}
-
-	"npc_rollermine" {
-		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
-	}
-
-	"npc_rollermine" {
-		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
-	}
-
-	"npc_rollermine" {
-		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
+	"path_corner" {
+		"origin" "-6271 -10614 762"
+		"keyvalues" {
+			"targetname" "ap1"
+			"target" "ap2"
+		}
 	}
 	
-	"food_cornedbeef"
-	{
-		"origin"	"-5698.72 -11364.89 880.31"
+	"path_corner" {
+		"origin" "-5865 -12473 704"
+		"keyvalues" {
+			"targetname" "ap2"
+			"target" "ap3"
+		}
+	}
+
+	"path_corner" {
+		"origin" "-3011 -12619 704" "angle" "6 82 0"
+		"keyvalues" {
+			"targetname" "ap3"
+		}
 	}
 	
+
+	"instant_trig" {
+		"origin" "-3538 -12542 704"
+		"keyvalues" {
+			"radius"	"400"
+			"label"		"apc1"
+		}
+	}
+
 	"npc_combine_s" {
 		"origin" "1533 2099 1856" "angle" "0 -105 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine"
+			"additionalequipment"	"weapon_a35"
 		}
 	}
 
 	"npc_combine_s" {
 		"origin" "1388 2129 1856" "angle" "0 -117 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine"
+			"additionalequipment"	"weapon_a35"
 		}
+	}
+	
+	"npc_rollermine" {
+		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
 	}
 
-	"weapon_kar98"
-	{
-		"origin"	"-5454.30 -11333.29 880.03"
-	}	
-
-	"npc_combine_s" {
-		"origin" "-5621.8 -11983.0 707.7"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"
-			"squadname" "universal_combine2"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-5543.9 -12300.4 704.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine2"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-5442.7 -12476.5 704.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"
-			"squadname" "universal_combine2"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-5278.5 -12655.1 704.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"
-			"squadname" "universal_combine2"
-		}
-	}
-	"instant_trig" {
-		"origin" "-6400 -11203 847"
-		"angle" "0 0 0"
-		"timer" ".1"
-		"keyvalues" {
-			"label" "combine"
-			"radius" "1500"
-		}
-	}
-	"instant_trig" {
-		"origin" "-773 -6088 1384"
-		"angle" "0 0 0"
-		"timer" ".1"
-		"keyvalues" {
-			"label" "combine2"
-			"radius" "1500"
-		}
-	}
-	"instant_trig" {
-		"origin" "-3962 -4695 1183"
-		"angle" "0 0 0"
-		"timer" ".1"
-		"keyvalues" {
-			"label" "combine3"
-			"radius" "1500"
-		}
+	"npc_rollermine" {
+		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
 	}
 
-	"weapon_custom30"
-	{
-		"origin"	"316 1175 1156"
-	}	
+	"npc_rollermine" {
+		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
+	}
+
+	"npc_rollermine" {
+		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
+	}
+
+	"npc_rollermine" {
+		"origin" "-4960.7 -11965.6 713.4"  "angle" "70 103 260"
+	}
+	
+	"instant_trig" {
+		"origin" "-788 -5836 1344"
+		"keyvalues" {
+			"label"	"flank"
+			"radius"	"500"
+		}	
+	}
 }
+
 
 "entities:flank" {
 
 	"npc_combine_s" {
 		"origin" "-3813 -4698 1152" "angle" "0 0 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"
+			"additionalequipment"	"weapon_a35"
 		}
 	}
 
 	"npc_combine_s" {
 		"origin" "-3715 -4914 1152" "angle" "0 0 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"
+			"additionalequipment"	"weapon_a35"
 		}
 	}
 }
 
-"entities:combine" {
-	"npc_combine_s" {
-		"origin" "-4267.7 -7911.6 1065.8"  "angle" "0 -130 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"
-			"squadname" "universal_combine3"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-4449.2 -7906.7 1052.4"  "angle" "0 -130 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"
-			"squadname" "universal_combine3"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-4262.7 -7700.8 1072.5"  "angle" "0 -130 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"
-			"squadname" "universal_combine3"
-		}
-	}
-}
 
-"entities:combine2" {
-	"npc_combine_s" {
-		"origin" "-3809.4 -4271.6 1257.1"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"
-			"squadname" "universal_combine4"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-3748.1 -4633.0 1088.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_combine4"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-3921.7 -4642.1 1088.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine4"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-4342.4 -4508.6 1088.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine4"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-3735.4 -4882.4 1088.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"
-			"squadname" "universal_combine4"
-		}
-	}
-}
-"entities:combine3" {
-	"npc_combine_s" {
-		"origin" "-4599.2 -144.2 1088.0"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_ar2"
-			"squadname" "universal_combine5"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-4890.0 -180.3 1088.0"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_combine5"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-4808.1 -581.5 1088.0"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine5"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-3849.6 -380.0 1093.3"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_grease"
-			"squadname" "universal_combine5"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-3442.2 -464.3 1085.4"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_shotgun"
-			"squadname" "universal_combine5"
-		}
-	}
-	"npc_combine_s" {
-		"origin" "-3250.5 -520.0 1086.3"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
-			"squadname" "universal_combine5"
-		}
-	}	
-}
+
 
 

@@ -1,27 +1,107 @@
 //	map arrange data
 //	location: d3_c17_07
-//FIXES: Precache. Raised alyx's health.
 "precache" {
 	"entity"	"npc_kscanner"
-	"entity"	"npc_combine_ace"	
 	"sound"		"novaprospekt.al_letsgetgoing"
-	"entity" "npc_metropolice"
-	"entity" "npc_combine_s"
-	"entity"	"npc_f_combine" 	
-	"entity"	"npc_vortigaunt" 	
-	"entity" "weapon_grease"
-	"entity" "weapon_mp5"	
-	"entity" "weapon_custom15"
-	"entity" "weapon_custom16"	
-	"entity" "weapon_svd"
-	"entity" "weapon_ak47"	
-	"entity" 	"weapon_custom24"
-	"entity" 	"weapon_custom14" 
-	"entity" 	"weapon_custom6"  	
 }
 
 
 "entities" {
+
+	"npc_f_combine"
+	{
+		"origin"	"4797.17 982.38 192.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"additionalequipment"	"weapon_m1garand"
+		}
+	}
+	"npc_f_combine"
+	{
+		"origin"	"4778 1210.35 193.22"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"additionalequipment"	"weapon_ak47"
+		}
+	}
+	"npc_f_combine"
+	{
+		"origin"	"5318.74 1572.47 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"additionalequipment"	"weapon_m1garand"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"6081.91 1360.48 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"2"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"6081.91 1360.48 84.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_flare"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}	
+	"item_item_crate"
+	{
+		"origin"	"6082.60 1295.72 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"6088.28 1641.41 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_rifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
+	"item_item_crate"
+	{
+		"origin"	"6079.42 1735.90 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_flare"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
+	
+	"item_item_crate"
+	{
+		"origin"	"6079.42 1796.80 64.03"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_gauss"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"3"
+		}
+	}
 	
 	"instant_trig" {
 		"keyvalues" {
@@ -42,50 +122,13 @@
 			"removegroup"	"1"
 		}
 	}
-
-	"instant_trig" {
-		"origin" "5365 1044 28"
-		"keyvalues" {
-			"radius" "120"
-			"label" "makemoney"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "8029 1543 24"
-		"keyvalues" {
-			"radius" "500"
-			"label" "zombies2"
-		}
-	}
-
-	"instant_trig" {
-		"origin" "5604 1416 64"
-		"keyvalues" {
-			"radius" "128"
-			"label" "helpmeout"
-		}
-	}	
-
-	"instant_trig" {
-		"origin" "7885 1541 64"
-		"keyvalues" {
-			"radius" "250"
-			"label" "stophelping"
-		}
-	}
-
-	"weapon_custom6"
-	{
-		"origin"	"8120.2 2451.89 28"
-	}	
 }
 
 "entities:sethealth" {
 	"event" {
 		"targetname"	"alyx"
 		"action"	"sethealth"
-		"value"		"9999"
+		"value"		"999"
 	}
 }
 
@@ -95,8 +138,25 @@
 	"instant_trig" {
 		"origin" "4692 670 128"
 		"keyvalues" {
-			"radius"	"100"
+			"radius"	"50"
 			"label"		"alyxtalk1"
+		}
+	}
+
+	"weapon_a35"
+	{
+		"origin"	"4232.46 1637.54 148.03"
+	}	
+
+	"item_item_crate"
+	{
+		"origin"	"4583.77 1355.02 181.75"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"weapon_m249"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
 		}
 	}
 
@@ -126,16 +186,14 @@
 	"npc_metropolice" {
 		"origin" "6786 1995 928" "angle" "0 -139 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom24"
-			"squadname" "popgun"			
+			"additionalequipment"	"weapon_pistol"
 		}
 	}
 
 	"npc_metropolice" {
 		"origin" "5569 1524 650" "angle" "0 0 0"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "popgun"			
+			"additionalequipment"	"weapon_smg1"
 		}
 	}
 
@@ -149,12 +207,7 @@
 
 }
 
-"entities:stophelping" {
-
-	"event" {
-		"targetname" "f_spawner"
-		"action" "Kill"
-	}
+"entities:stage1" {
 
 }
 
@@ -164,18 +217,11 @@
 		"targetname"	"alyx"
 		"soundname"	"novaprospekt.al_letsgetgoing"
 	}
-
-	"event" {
-		"targetname" "alyx"
-		"action" "addoutput"
-		"value" "health 9999"
-	}
 	
 	"npc_combine_ace" {
 		"origin" "4805 1269 128" "angle" "0 -24 0"
 		"keyvalues" {
 			"additionalequipment"	"weapon_mp5"
-			"squadname" "47"			
 		}
 	}
 	
@@ -183,7 +229,6 @@
 		"origin" "4246 1412 128" "angle" "0 9 0"
 		"keyvalues" {
 			"additionalequipment"	"weapon_mp5"
-			"squadname" "47"			
 		}
 	}
 
@@ -191,410 +236,7 @@
 		"origin" "4976 1128 0" "angle" "0 108 0"
 		"keyvalues" {
 			"additionalequipment"	"weapon_mp5"
-			"squadname" "47"			
 		}
 	}
 
-}
-
-"entities:zombies2" {
-
-	// slump_b
-	"npc_zombie" {
-		"origin" "8280.6 3182.5 -245.1"  "angle" "0 78 0"
-		"keyvalues" {
-			"targetname" "z_1"
-			"squadname" "squad_z_1"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_1_idle"
-			"m_iszEntity" "z_1"
-			"m_iszPostIdle" "slump_b"
-			"spawnflags" "256"
-		}
-	}
-	
-	"event" {
-		"targetname" "z_1_idle"
-		"action" "beginsequence"
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_1_act"
-			"m_iszEntity" "z_1"
-			"m_iszPlay" "slumprise_b"
-		}
-	}
-	
-	// slump_b
-	"npc_zombie" {
-		"origin" "8375.2 3144.3 -249.6"  "angle" "0 351 0"
-		"keyvalues" {
-			"targetname" "z_2"
-			"squadname" "squad_z_1"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_2_idle"
-			"m_iszEntity" "z_2"
-			"m_iszPostIdle" "slump_b"
-			"spawnflags" "256"
-		}
-	}
-	
-	"event" {
-		"targetname" "z_2_idle"
-		"action" "beginsequence"
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_2_act"
-			"m_iszEntity" "z_2"
-			"m_iszPlay" "slumprise_b"
-		}
-	}
-	
-	// slump_a
-	"npc_zombie" {
-		"origin" "8441.4 2891.5 -262.5"  "angle" "0 83 0"
-		"keyvalues" {
-			"targetname" "z_3"
-			"squadname" "squad_z_1"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_3_idle"
-			"m_iszEntity" "z_3"
-			"m_iszPostIdle" "slump_a"
-			"spawnflags" "256"
-		}
-	}
-	
-	"event" {
-		"targetname" "z_3_idle"
-		"action" "beginsequence"
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_3_act"
-			"m_iszEntity" "z_3"
-			"m_iszPlay" "slumprise_a2"
-		}
-	}
-	
-	// slump_a
-	"npc_zombie" {		
-		"origin" "8467.2 2605.2 -267.6"  "angle" "0 78 0"
-		"keyvalues" {
-			"targetname" "z_4"
-			"squadname" "squad_z_1"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_4_idle"
-			"m_iszEntity" "z_4"
-			"m_iszPostIdle" "slump_a"
-			"spawnflags" "256"
-		}
-	}
-	
-	"event" {
-		"targetname" "z_4_idle"
-		"action" "beginsequence"
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_4_act"
-			"m_iszEntity" "z_4"
-			"m_iszPlay" "slumprise_a"
-		}
-	}
-	
-	// slump_b
-	"npc_zombie" {
-		"origin" "8674.5 2511.8 -258.9"  "angle" "0 131 0"
-		"keyvalues" {
-			"targetname" "z_5"
-			"squadname" "squad_z_1"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_5_idle"
-			"m_iszEntity" "z_5"
-			"m_iszPostIdle" "slump_b"
-			"spawnflags" "256"
-		}
-	}
-	
-	"event" {
-		"targetname" "z_5_idle"
-		"action" "beginsequence"
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_5_act"
-			"m_iszEntity" "z_5"
-			"m_iszPlay" "slumprise_b"
-		}
-	}
-	
-	// slump_a
-	"npc_zombie" {
-		"origin" "8782.6 2598.5 -256.0"  "angle" "0 109 0"
-		"keyvalues" {
-			"targetname" "z_6"
-			"squadname" "squad_z_1"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_6_idle"
-			"m_iszEntity" "z_6"
-			"m_iszPostIdle" "slump_a"
-			"spawnflags" "256"
-		}
-	}
-	
-	"event" {
-		"targetname" "z_5_idle"
-		"action" "beginsequence"
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "z_6_act"
-			"m_iszEntity" "z_6"
-			"m_iszPlay" "slumprise_a2"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "8318 2445 -218"
-		"keyvalues" {
-			"radius" "500"
-			"label" "upandatem"
-		}
-	}
-}
-
-"entities:upandatem" {
-
-	"event" {
-		"targetname" "z_1_idle"
-		"action" "cancelsequence"
-		"delaytime" "0.1"
-	}
-	
-	"event" {
-		"targetname" "z_1_act"
-		"action" "beginsequence"
-		"delaytime" "0.1"
-	}
-	
-	"event" {
-		"targetname" "z_2_idle"
-		"action" "cancelsequence"
-	}
-	
-	"event" {
-		"targetname" "z_2_act"
-		"action" "beginsequence"
-	}
-	
-	"event" {
-		"targetname" "z_3_idle"
-		"action" "cancelsequence"
-	}
-	
-	"event" {
-		"targetname" "z_3_act"
-		"action" "beginsequence"
-	}
-	
-	"event" {
-		"targetname" "z_4_idle"
-		"action" "cancelsequence"
-		"delaytime" "0.1"
-	}
-	
-	"event" {
-		"targetname" "z_4_act"
-		"action" "beginsequence"
-		"delaytime" "0.1"
-	}
-	
-	"event" {
-		"targetname" "z_5_idle"
-		"action" "cancelsequence"
-	}
-	
-	"event" {
-		"targetname" "z_5_act"
-		"action" "beginsequence"
-	}
-	
-	"event" {
-		"targetname" "z_6_idle"
-		"action" "cancelsequence"
-	}
-	
-	"event" {
-		"targetname" "z_6_act"
-		"action" "beginsequence"
-	}
-}
-
-
-"entities:makemoney" {
-
-	"prop_physics" {
-		"origin" "8101.2 1871.7 25.7"  "angle" "-0 -90 0"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_junk/Trashdumpster01a.mdl"
-		}
-	}
-
-	"prop_physics" {
-		"origin" "8109.0 1861.0 75.0"  "angle" "0 63 360"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_junk/Trashdumpster01a.mdl"
-		}
-	}
-
-	"event" {
-		"targetname" "citizen_1"
-		"action" "addoutput"
-		"value" "health 140"
-	}
-	
-	"event" {
-		"targetname" "citizen_2"
-		"action" "addoutput"
-		"value" "health 140"
-	}
-	
-	"event" {
-		"targetname" "citizen_3"
-		"action" "addoutput"
-		"value" "health 140"
-	}
-	
-	"event" {
-		"targetname" "alyx"
-		"action" "addoutput"
-		"value" "health 9999"
-	}
-	
-	"npc_combine_s" {
-		"origin" "6154.3 1673.4 0.0"  "angle" "0 -167 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom14"		
-			"targetname" "soldier_courtyard_wall"
-			"squadname" "squad_soldier_courtyard"
-			"onfoundplayer" "soldier_courtyard_wall_idle,cancelsequence,,0,1"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "5961.7 2262.5 10.2"  "angle" "24 -135 297"
-		"keyvalues" {
-			"targetname" "soldier_courtyard_wall_idle"
-			"m_iszEntity" "soldier_courtyard_wall"
-			"m_iszPostIdle" "crouchidle"
-			"spawnflags" "256"
-		}
-	}
-	
-	"event" {
-		"targetname" "soldier_courtyard_wall_idle"
-		"action" "beginsequence"
-	}
-	
-	"npc_metropolice" {
-		"origin" "6728.0 1127.5 0.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_pistol"	
-			"targetname" "soldier_courtyard_pat"
-			"squadname" "squad_soldier_courtyard"
-		}
-	}
-	
-	"npc_metropolice" {
-		"origin" "6809.0 1679.5 -4.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"		
-			"targetname" "soldier_courtyard_pat"
-			"squadname" "squad_soldier_courtyard"
-		}
-	}
-	
-	"event" {
-		"targetname" "soldier_courtyard_pat"
-		"action" "startpatrolling"
-		"delaytime" "0.1"
-	}
-}
-
-"entities:helpmeout" {
-
-	"ai_goal_follow" {
-		"origin" "5634 1248 24"
-		"keyvalues" {
-    "targetname" "f_commander"
-    "StartActive" "1"
-    "SearchType" "0"
-    "MaximumState" "4"
-    "Formation" "0"
-    "spawnflags" "32"
-    "actor" "f_npc"
-    "goal" "!player"
-		}
-	}
-
-	"npc_maker" {
-		"origin" "5368 1152 24"
-		"keyvalues" {
-    "StartDisabled" "0" 
-    "MaxNPCCount" "3"
-    "SpawnFrequency" "1"
-    "MaxLiveChildren" "1"
-    "targetname" "f_spawner" 
-    "spawnflags" "32"
-    //"additionalequipment" "weapon_ak47"
-    "NPCType" "npc_vortigaunt" 
-    "NPCSquadname" "f"
-    "NPCTargetname" "f_npc"
-		}
-	}	
 }

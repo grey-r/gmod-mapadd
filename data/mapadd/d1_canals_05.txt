@@ -1,22 +1,15 @@
 //	map arrange data
 //	location: d1_canals_05
-//FIXES: Precache. Replaced the zombie in a box with a headcrab due to issues.
+
 "precache"{
 	"entity"	"npc_zombie"
-	"entity"	"npc_houndeye"		
-	"entity"	"weapon_bananna"
-	"entity"	"weapon_flaregun"	
+	"entity"	"npc_houndeye"	
 }
 
 
 "entities"{
 
 	"weapon_bananna"
-	{
-		"origin"	"2813.9 -5075.6 -432"
-	}
-
-	"weapon_flaregun"
 	{
 		"origin"	"4271.968750 1808.049438 -454.275269"
 	}
@@ -45,53 +38,31 @@
 			"radius"	"50"
 		}
 	}
-
-	// START - ARLENE FIX //
-	"instant_trig" {
-		"origin" "6159 854 -429"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"label" "arlene_fix_go"
-			"radius" "150"
+	"item_item_crate"
+	{
+		"origin"	"529.45 -177.07 -372.48"
+		"keyvalues"
+		{
+			"ItemClass"		"weapon_flaregun"
+			"ItemCount"		"1"
+		}
+	}	
+	"item_item_crate"
+	{
+		"origin"	"711.16 -288.28 -389.62"
+		"keyvalues"
+		{
+			"ItemClass"		"item_box_flare_rounds"
+			"ItemCount"		"3"
 		}
 	}
 	
-	"point_servercommand" {
-		"origin" "6179 665 -403"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "game_s_cmd"
-		}
+	"npc_houndeye"
+	{
+		"origin" "4176.87 4922.93 -224.53"
 	}
+}			
 
-	"npc_houndeye" {
-		"origin" "1058.7 -3807.3 -405.8" "angle" "0 4 0"
-		"keyvalues" { 
-			"squadname" "howl"			
-		}		
-	}		
-	"npc_houndeye" {
-		"origin" "3344.2 -4659.3 -405.8" "angle" "0 42 0"
-		"keyvalues" { 
-			"squadname" "howl"			
-		}		
-	}
-	"npc_houndeye" {
-		"origin" "3095.2 -3113.4 -405.8" "angle" "0 -11 0"
-		"keyvalues" { 
-			"squadname" "howl"			
-		}		
-	}	
-}
-
-"entities:arlene_fix_go" {
-		
-	"event" {
-		"targetname" "arlene"
-		"action" "addoutput"
-		"value" "health 9999"
-	}
-}
 
 "entities:canister1" {
 
@@ -111,7 +82,7 @@
 			"FlightTime" "1.5"
 			"FlightSpeed" "2700"
 			"HeadcrabCount" "4"
-			"HeadcrabType" "0"
+			"HeadcrabType" "1"
 			"angles" "308 138 0"
 			"OnImpacted" "cannister01,OpenCanister,,0.5,-1"
 			"OnOpened" "cannister01,SpawnHeadcrabs,,1,-1"

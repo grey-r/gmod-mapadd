@@ -4,13 +4,6 @@
 "precache"{
 	"entity"	"npc_combinegunship"
 	"model"		"models/props_vehicles/car003a_physics.mdl"
-	"entity" 	"npc_citizen"	
-	"entity" 	"npc_kscanner"	
-	"entity" 	"weapon_custom16"		
-	"entity" 	"prop_vehicle_apc"
-	"model"	"models/combine_apc.mdl"	
-	"model" "models/props_debris/metal_panel01a.mdl"
-	"model" "models/props_junk/iBeam01a_cluster01.mdl"	
 }
 
 "randomspawn" {
@@ -21,20 +14,20 @@
 		"message"		"Hurry up gordon!!"
 	}
 
-//	"removeentity" {
-//		"targetname"	"heli_1"
-//	}
-//	"npc_combinegunship" {
-//		"origin" "5543 -11291 475"
-//		"alwaysthink"
-//		"longrange"
-//		"keyvalues" {
-//			"spawnflags" "4"
-//			"targetname"	"heli_1"
-//			"target" "heli_path_2_1"
-//			"GracePeriod" "2.0"
-//		}
-//	}
+	"removeentity" {
+		"targetname"	"heli_1"
+	}
+	"npc_combinegunship" {
+		"origin" "5543 -11291 475"
+		"alwaysthink"
+		"longrange"
+		"keyvalues" {
+			"spawnflags" "4"
+			"targetname"	"heli_1"
+			"target" "heli_path_2_1"
+			"GracePeriod" "2.0"
+		}
+	}
 
 	"npc_kscanner" {
 		"origin" "8171 -11214 141"
@@ -72,6 +65,8 @@
 		}
 
 	}
+
+
 }
 
 "entities:helimove" {
@@ -180,19 +175,26 @@
 		"value"		"ap1"
 	}
 
-	"instant_trig" {
-		"origin" "4222 9596 -63"
-		"keyvalues" {
-			"radius" "300"
-			"label" "noapc"
-		}
-	}	
-	
 }
 
 "entities" {
 
+	"item_item_crate"
+	{
+		"origin"	"3823.62 9918.48 -64.08"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"item_ammo_hrifle"
+	//		"ItemClass"		"item_dynamic_resupply"
+			"ItemCount"		"1"
+		}
+	}
 
+	"weapon_kar98"
+	{
+		"origin"	"4819.84 9614.25 -13.39"
+	}
 
 	"instant_trig" {
 		"origin" "5760 -6559 -365"
@@ -264,7 +266,7 @@
 		"origin" "11641 -5410 0" "angle" "0 -173 0"
 		"longrange"
 		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"
+			"additionalequipment"	"weapon_mp40"
 		}
 	}
 
@@ -291,7 +293,7 @@
 		"longrange"
 		"keyvalues" {
 			"weapondrawn" "1"
-			"additionalequipment"	"weapon_pistol"
+			"additionalequipment"	"weapon_grease"
 		}
 	}
 
@@ -308,7 +310,7 @@
 		"longrange"
 		"keyvalues" {
 			"weapondrawn" "1"
-			"additionalequipment"	"weapon_pistol"
+			"additionalequipment"	"weapon_cz52"
 		}
 	}
 
@@ -316,7 +318,7 @@
 		"origin" "8148 5136 0" "angle" "0 -91 0"
 		"longrange"
 		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
+			"additionalequipment"	"weapon_grease"
 		}
 	}
 
@@ -332,7 +334,7 @@
 		"origin" "5425 9282 -134" "angle" "0 -0 0"
 		"longrange"
 		"keyvalues" { 
-			"additionalequipment"	"weapon_pistol"
+			"additionalequipment"	"weapon_cz52"
 		}
 	}
 	
@@ -495,109 +497,7 @@
 	}
 
 
-	
-	"prop_physics_override" {
-		"origin" "3253.8 9042.1 -495.5"  "angle" "-11 -91 1"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_canal/locks_large_b.mdl"
-		}
-	}
-	
-	"prop_physics_override" {
-		"origin" "4719.2 -9394.2 -319.3"  "angle" "-0 -81 0"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_c17/concrete_barrier001a.mdl"
-			"targetname" "sw_barrier"
-		}
-	}
-	
-	"prop_physics_override" {
-		"origin" "4552.0 -9428.4 -319.3"  "angle" "0 -72 360"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_c17/concrete_barrier001a.mdl"
-			"targetname" "sw_barrier"
-		}
-	}
-	
-	"prop_physics_override" {
-		"origin" "4412.0 -9473.5 -319.3"  "angle" "0 109 0"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_c17/concrete_barrier001a.mdl"
-			"targetname" "sw_barrier"
-		}
-	}
-	
-	"prop_physics_override" {
-		"origin" "4285.1 -9515.0 -319.4"  "angle" "0 106 0"
-		"freeze"
-		"keyvalues" {
-			"model" "models/props_c17/concrete_barrier001a.mdl"
-			"targetname" "sw_barrier"
-		}
-	}
-	
-	"npc_metropolice" {
-		"origin" "4560.9 -9268.5 -320.0"  "angle" "0 296 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"					
-			"targetname" "sw_killme"
-			"squadname" "universal_combine"			
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "4453.7 -9403.8 -320.0"  "angle" "0 282 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"				
-			"targetname" "sw_killme"
-			"squadname" "universal_combine"			
-		}
-	}
-	
-	"npc_metropolice" {
-		"origin" "4286.2 -9358.1 -320.0"  "angle" "0 278 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"		
-			"targetname" "sw_killme"
-			"squadname" "universal_combine"			
-		}
-	}
-	
-	"point_servercommand" {
-		"origin" "4546 -9854 -254"
-		"angle" "0 0 0"
-		"keyvalues" {
-			"targetname" "game_s_cmd"
-		}
-	}
 
-	"instant_trig" {
-		"origin" "7295 9169 -227"
-		"keyvalues" {
-			"radius" "400"
-			"label"	"safehaus"
-		}
-	}
-
-		"instant_trig" {
-		"origin" "1292 8657 -393"
-		"keyvalues" {
-			"radius" "400"
-			"label" "digital"
-		}
-	}
-	
-	"instant_trig" {
-		"origin" "10464 -5595 -521"
-		"keyvalues" {
-			"radius" "750"
-			"label" "straitaway"
-		}
-	}
 
 }
 
@@ -711,440 +611,6 @@
 			"actor"		"teki1_*"
 			"goal"		"goalnpc1"
 		}
-	}
-	
-}
-
-
-"entities:safehaus" {
-
-	"event" {
-		"targetname" "heli_1"
-		"action" "SetRelationship"
-		"value" "npc_citizen D_NU 2"
-	}
-	
-	"event" {
-		"targetname" "sw_*"
-		"action" "Kill"
-	}
-	
-	"event" {
-		"targetname" "prop_door_rotating"
-		"action" "Close"
-	}
-	
-	"event" {
-		"targetname" "prop_door_rotating"
-		"action" "Lock"
-		"delaytime" "0.1"
-	}
-	
-	"npc_citizen" {
-		"origin" "4537.2 9375 -128.0"  "angle" "0 177 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"				
-			"targetname" "rook"
-			"spawnflags" "1048576"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "4540 9411 -63"
-		"angles" "0 0 0"
-		"keyvalues" {
-			"targetname" "rook_move1"
-			"m_iszEntity" "rook"
-			"m_iszPlay" "Lean_Left"
-			"m_iszPostIdle" "Lean_Left"
-			"spawnflags" "256"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "4540 9411 -100"
-		"angles" "0 0 0"
-		"keyvalues" {
-			"targetname" "rook_move2"
-			"m_iszEntity" "rook"
-			"m_iszPlay" "Lean_Left_to_Idle"
-			"OnEndSequence" "rook,SetReadinessHigh,,0,1"
-		}
-	}
-	
-	"npc_citizen" {
-		"origin" "4160.4 9968 -128.0"  "angle" "0 272 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"				
-			"targetname" "knight"
-			"spawnflags" "1048576"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "4131 9968 -63"
-		"angles" "0 0 0"
-		"keyvalues" {
-			"targetname" "knight_move1"
-			"m_iszEntity" "knight"
-			"m_iszPlay" "Lean_Back"
-			"m_iszPostIdle" "Lean_Back"
-			"spawnflags" "256"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "4131 9967 -100"
-		"angles" "0 0 0"
-		"keyvalues" {
-			"targetname" "knight_move2"
-			"m_iszEntity" "knight"
-			"m_iszPlay" "Lean_Back_to_Idle"
-			"OnEndSequence" "knight,SetReadinessHigh,,0,1"
-		}
-	}
-	
-	"npc_citizen" {
-		"origin" "4787.2 9601.5 -112.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_pistol"				
-			"targetname" "pawn"
-			"spawnflags" "1048576"
-		}
-	}
-	
-	
-	"npc_citizen" {
-		"origin" "4824 9872.1 -112.0"  "angle" "0 180 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_pistol"		
-			"targetname" "douche"
-			"spawnflags" "1048576"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "4826 9949 -48"
-		"angles" "0 0 0"
-		"keyvalues" {
-			"targetname" "douche_move1"
-			"m_iszEntity" "douche"
-			"m_iszPlay" "plazaidle4"
-			"m_iszPostIdle" "plazaidle4"
-			"spawnflags" "256"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "4826 9949 -84"
-		"angles" "0 0 0"
-		"keyvalues" {
-			"targetname" "douche_move2"
-			"m_iszEntity" "douche"
-			"m_iszPlay" "plazastand4"
-			"OnEndSequence" "douche,SetReadinessHigh,,0,1"
-		}
-	}
-	
-	"event" {
-		"targetname" "rook_move1"
-		"action" "BeginSequence"
-		"delaytime" "0.1"
-	}
-	
-	"event" {
-		"targetname" "knight_move1"
-		"action" "BeginSequence"
-		"delaytime" "0.1"
-	}
-	
-	"event" {
-		"targetname" "douche_move1"
-		"action" "BeginSequence"
-		"delaytime" "0.1"
-	}
-	
-	"instant_trig" {
-		"origin" "4264.8 9726.6 -100"
-		"keyvalues" {
-			"radius" "450"
-			"label" "wakeup"
-		}
-	}
-}
-
-"entities:wakeup" {
-
-	"event" {
-		"targetname" "prop_door_rotating"
-		"action" "Unlock"
-	}
-	
-	"event" {
-		"targetname" "douche_move1"
-		"action" "CancelSequence"
-		"delaytime" "3"
-	}
-	
-	"event" {
-		"targetname" "douche_move2"
-		"action" "BeginSequence"
-		"delaytime" "3"
-	}
-	
-	"event" {
-		"targetname" "rook_move1"
-		"action" "CancelSequence"
-		"delaytime" "3"
-	}
-	
-	"event" {
-		"targetname" "rook_move2"
-		"action" "BeginSequence"
-		"delaytime" "3"
-	}
-	
-	"event" {
-		"targetname" "knight_move1"
-		"action" "CancelSequence"
-		"delaytime" "3"
-	}
-	
-	"event" {
-		"targetname" "knight_move2"
-		"action" "BeginSequence"
-		"delaytime" "3"
-	}
-	
-	"event" {
-		"targetname" "pawn"
-		"action" "SetReadinessHigh"
-		"delaytime" "3"
-	}
-	
-	"instant_trig" {
-		"origin" "4628 9649 -84"
-		"keyvalues" {
-			"radius" "80"
-			"label" "buffer"
-		}
-	}
-}
-
-"entities:buffer" {
-
-	"instant_trig" {
-		"keyvalues" {
-			"timer" "2"
-			"label" "combo"
-		}
-	}
-	
-	"event" {
-		"targetname" "heli_1"
-		"action" "SetRelationship"
-		"value" "npc_citizen D_HT 2"
-		"delaytime" "5"
-	}
-}
-
-"entities:combo" {
-
-	"npc_metropolice" {
-		"origin" "4921.2 9798.7 -128.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_pistol"					
-			"targetname" "scooter9"
-			"squadname" "universal_combine4"			
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "3413.8 9391.5 -128.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"					
-			"targetname" "scooter8"
-			"squadname" "universal_combine4"			
-		}
-	}
-	
-	"npc_metropolice" {
-		"origin" "3207.0 9845.3 -128.0"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"					
-			"targetname" "scooter6"
-			"squadname" "universal_combine4"			
-		}
-	}
-	
-	"npc_metropolice" {
-		"origin" "3775 9462 344"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"						
-			"targetname" "cash2"
-			"waitingtorappel" "1"
-			"spawnflags" "33685508"
-			"squadname" "universal_combine4"			
-		}
-	}
-	
-	"npc_metropolice" {
-		"origin" "3775 9859 344"  "angle" "0 0 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_pistol"					
-			"targetname" "cash0"
-			"waitingtorappel" "1"
-			"spawnflags" "33685508"
-			"squadname" "universal_combine4"			
-		}
-	}
-	
-	"event" {
-		"targetname" "cash*"
-		"action" "BeginRappel"
-		"value" "0.2"
-	}
-	
-	"info_target" {
-		"origin" "4260 9662 -100"
-		"keyvalues" {
-			"targetname" "comehere"
-		}
-	}
-	
-	"ai_goal_follow" {
-		"keyvalues" {
-			"startactive"	"1"
-			"searchtype"	"0"
-			"MaximumState"	"2"
-			"actor"		"scooter*"
-			"goal"		"comehere"
-		}
-	}
-}
-
-"entities:digital" {
-
-	"npc_combine_s" {
-		"origin" "-9780.4 1421.2 192.0"  "angle" "0 0 0"
-		"longrange"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"
-			"squadname" "universal_combine5"			
-		}		
-	}
-	
-	"npc_combine_s" {
-		"origin" "-9748.1 1697.7 192.0"  "angle" "0 0 0"
-		"longrange"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"	
-			"squadname" "universal_combine5"			
-		}				
-	}
-}
-
-"entities:straitaway" {
-
-	"npc_metropolice" {
-		"origin" "12812.1 -1625.4 0.0"  "angle" "0 0 0"
-		"longrange"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"					
-			"targetname" "sw_killme"
-			"squadname" "universal_combine6"			
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "12820.0 -572.6 0.0"  "angle" "0 0 0"
-		"longrange"
-		"keyvalues" {
-			"additionalequipment"	"weapon_smg1"					
-			"targetname" "sw_killme"
-			"squadname" "universal_combine6"			
-		}
-	}
-	
-	
-	"npc_metropolice" {
-		"origin" "13860.3 -1514.5 0.0"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_pistol"					
-			"targetname" "sw_killme"
-			"squadname" "universal_combine6"			
-		}
-	}
-	
-	"npc_combine_s" {
-		"origin" "12781.8 -1904.7 -192.0"  "angle" "0 -90 0"
-		"keyvalues" {
-			"additionalequipment"	"weapon_custom16"					
-			"targetname" "sw_scripted"
-			"squadname" "universal_combine6"			
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "12781.8 -1904.7 -94.0"  "angle" "0 -90 0"
-		"keyvalues" {
-			"targetname" "sw_script1"
-			"m_iszEntity" "sw_scripted"
-			"m_iszPlay" "leanwall_corner_right_idle"
-			"m_iszPostIdle" "leanwall_corner_right_idle"
-			"spawnflags" "256"
-		}
-	}
-	
-	"scripted_sequence" {
-		"origin" "12781.8 -1904.7 -24.0"  "angle" "0 -90 0"
-		"keyvalues" {
-			"targetname" "sw_script2"
-			"m_iszEntity" "sw_scripted"
-			"m_iszPlay" "leanwall_corner_right_exit"
-		}
-	}
-	
-	"event" {
-		"targetname" "sw_script1"
-		"action" "BeginSequence"
-		"delaytime" "0.1"
-	}
-	
-	"instant_trig" {
-		"origin" "13309 -3643 -393"
-		"keyvalues" {
-			"radius" "800"
-			"label" "popout"
-		}
-	}
-}
-
-"entities:popout" {
-
-	"event" {
-		"targetname" "sw_script1"
-		"action" "CancelSequence"
-		"delaytime" "0.1"
-	}
-	
-	"event" {
-		"targetname" "sw_script2"
-		"action" "BeginSequence"
-		"delaytime" "0.1"
-	}
-}
-
-"entities:noapc" {
-
-	"event" {
-		"targetname" "apd1"
-		"action" "Kill"
-	}
-	
-	"event" {
-		"targetname" "apc1"
-		"action" "Kill"
 	}
 	
 }

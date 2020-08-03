@@ -1,128 +1,32 @@
 //	map arrange data
 //	location: d1_eli_02.txt
 
-"precache" {
-	"model" "models/misc/bowl_pin.mdl"
-	"model" "models/misc/bowl_ball.mdl"	
-}
-
 "entities"
 {
 
-//	"npc_headcrab"
-//	{
-//		"origin"	"-872.253235 444.629089 -2599.560059"
-//	}
+	lua {
+		"callfunc"	"Init"
+	}
 
-"prop_physics" {
-	"origin" "-2320.8 443.8 -2674.9"  "angle" "-1 0 1"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"	
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2329.5 464.3 -2674.9"  "angle" "-1 -0 2"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"	
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2337.8 485.2 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2346.5 505.6 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"	
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2340.7 445.4 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2360.6 448.0 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"	
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2380.5 448.3 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2349.4 465.7 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"	
-	"targetname" "pin"	
-	}
-}
-"prop_physics" {
-	"origin" "-2369.0 467.3 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"	
-	"targetname" "pin"
-	}
-}
-"prop_physics" {
-	"origin" "-2357.8 486.6 -2674.9"  "angle" "0 0 0"
-	"freeze"	
-	"keyvalues" {
-	"model" "models/misc/bowl_pin.mdl"
-	"spawnflags" "1"	
-	"targetname" "pin"	
-	}
-  }
- 
-
-"prop_physics" {
-	"origin" "-2351.6 898.3 -2674.9"
-	"keyvalues" {
-	"model" "models/misc/bowl_ball.mdl"
-	}
-} 
- 
-	"instant_trig" {
-		"origin" "-1238 192 -2493"
-		"keyvalues" {
-			"label" "unfreeze"
-			"radius"	"100"
+	"item_item_crate"
+	{
+		"origin"	"-869.52 436.9 -2534.83"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"weapon_gravgren"
+			"ItemCount"		"1"
 		}
-	} 
-}
-"entities:unfreeze" {
-	"event" {
-		"targetname" "pin"
-		"action" "EnableMotion"
 	}
-}	
+
+	"item_item_crate"
+	{
+		"origin"	"-826.811768 542.667969 -2559.968750"
+		"angle"		"0 0 0"
+		"KeyValues"
+		{
+			"ItemClass"		"weapon_lasergun"
+			"ItemCount"		"1"
+		}
+	}
+}
