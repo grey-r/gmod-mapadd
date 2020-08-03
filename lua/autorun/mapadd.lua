@@ -244,7 +244,10 @@ MapAdd.Env = {
                 ["AngleYaw"] = td.Normal:Angle().y,
                 ["AnglePitch"] = td.Normal:Angle().p
             }
-        end
+        end,
+        ["RandomSeed"] = function(n) math.randomseed(n) end,
+        ["RandomInt"] = function(a,b) return math.random(a,b) end,
+        ["RandomFloat"] = function(a,b) return math.Rand(a,b) end
     }
 }
 
