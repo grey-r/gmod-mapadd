@@ -5,6 +5,13 @@ MapAdd.Table = {} --loaded from keyvalues
 MapAdd.Nodes = {} --populated from navmesh on map load
 MapAdd.Env = {
     ["HL2"] = {
+        ["DISPOSITION"] = {
+            ["D_NU"] = D_NU,
+            ["D_HT"] = D_HT,
+            ["D_FR"] = D_FR,
+            ["D_LI"] = D_LI,
+            ["D_ER"] = D_ER
+        },
         ["EntFire"] = function (targetname, activator, input, parameter, delay )
             timer.Simple(delay, function()
                 local es = ents.FindByName(targetname)
@@ -96,9 +103,15 @@ MapAdd.Env = {
         ["GetAbsOrigin"] = function(e) return e:GetPos() end,
         ["GetAbsAngles"] = function(e) return e:GetAngles() end,
         ["GetAbsVelocity"] = function(e) return e:GetVelocity() end,
+        ["GetEntityAbsOrigin"] = function(e) return e:GetPos() end,
+        ["GetEntityAbsAngles"] = function(e) return e:GetAngles() end,
+        ["GetEntityAbsVelocity"] = function(e) return e:GetVelocity() end,
         ["SetAbsOrigin"] = function(e,v) e:SetPos(v) end,
         ["SetAbsAngles"] = function(e,v) e:SetAngles(Angle(v.x,v.y,v.z)) end,
         ["SetAbsVelocity"] = function(e,v) e:SetVelocity(v) end,
+        ["SetEntityAbsOrigin"] = function(e,v) e:SetPos(v) end,
+        ["SetEntityAbsAngles"] = function(e,v) e:SetAngles(Angle(v.x,v.y,v.z)) end,
+        ["SetEntityAbsVelocity"] = function(e,v) e:SetVelocity(v) end,
         ["EyePosition"] = function(e) return e:EyePos() end,
         ["EyeAngles"] = function(e) return Vector( e:EyeAngles().p, e:EyeAngles().y, e:EyeAngles().r) end,
         ["KeyValue"] = function(e,k,v) e:SetKeyValue(k,v) end,
@@ -198,6 +211,20 @@ MapAdd.Env = {
             end
         end,
         ["FindEntityByClassname"] = function(ent,classname)
+            local entsTbl = ents.FindByClass(classname)
+            local canReturn = false
+            if ent==nil then
+                canReturn = true
+            end
+            for _,v in pairs(entsTbl) do
+                if canReturn then
+                    return v
+                elseif v == ent then
+                    canReturn = true
+                end
+            end
+        end,
+        ["FindEntityByClass"] = function(ent,classname)
             local entsTbl = ents.FindByClass(classname)
             local canReturn = false
             if ent==nil then
@@ -433,7 +460,7 @@ MapAdd.EntityFunctions = {
     ["lua"] = function( class, tb )
         for _,pair in pairs(tb) do
             if pair.Key == "callfunc" then
-                local f = CompileString(pair.value .. "()")
+                local f = CompileString(pair.Value .. "()", pair.Value .. " MapAdd")
                 setfenv(f,MapAdd.Env)
                 f()
             end
@@ -453,9 +480,9 @@ MapAdd.EntityFunctions = {
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
-                    ang.x = t[1]
-                    ang.y = t[2]
-                    ang.z = t[3]
+                    pos.x = t[1]
+                    pos.y = t[2]
+                    pos.z = t[3]
                 end
 
                 for k,v in pairs(player.GetAll()) do
@@ -474,11 +501,11 @@ MapAdd.EntityFunctions = {
                 end
             elseif pair.Key == "fadein" then
                 for k,v in pairs(player.GetAll()) do
-                    v:ScreenFade(SCREENFADE.IN,color_black,pair.value,0)
+                    v:ScreenFade(SCREENFADE.IN,color_black,pair.Value,0)
                 end
             elseif pair.Key == "fadeout" then
                 for k,v in pairs(player.GetAll()) do
-                    v:ScreenFade(SCREENFADE.OUT,color_black,pair.value,0)
+                    v:ScreenFade(SCREENFADE.OUT,color_black,pair.Value,0)
                 end
             elseif pair.Key == "message" then
                 PrintMessage(HUD_PRINTCENTER, pair.Value)
@@ -498,9 +525,9 @@ MapAdd.EntityFunctions = {
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
-                    ang.x = t[1]
-                    ang.y = t[2]
-                    ang.z = t[3]
+                    pos.x = t[1]
+                    pos.y = t[2]
+                    pos.z = t[3]
                 end
                 origin = pos
             elseif pair.Key == "radius" then
@@ -516,7 +543,9 @@ MapAdd.EntityFunctions = {
         table.Merge(entTable,ents.FindByName(class))
 
         for _, ent in pairs(entTable) do
-            ent:AddRelationship(relation)
+            if ent.AddRelationship then
+                ent:AddRelationship(relation)
+            end
         end
     end,
     ["removeentity"] = function( class, tb )
@@ -528,9 +557,9 @@ MapAdd.EntityFunctions = {
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
-                    ang.x = t[1]
-                    ang.y = t[2]
-                    ang.z = t[3]
+                    pos.x = t[1]
+                    pos.y = t[2]
+                    pos.z = t[3]
                 end
                 origin = pos
             elseif pair.Key == "classname" then
@@ -565,9 +594,9 @@ MapAdd.EntityFunctions = {
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
-                    ang.x = t[1]
-                    ang.y = t[2]
-                    ang.z = t[3]
+                    pos.x = t[1]
+                    pos.y = t[2]
+                    pos.z = t[3]
                 end
                 origin = pos
             elseif pair.Key == "targetname" then
@@ -587,7 +616,7 @@ MapAdd.EntityFunctions = {
         end
     end,
     ["default"] = function( class, tb ) 
-        local ent = ents.create(class)
+        local ent = ents.Create(class)
 
         if not ent:IsValid() then
             print("Attempted to make invalid entity " .. class)
@@ -616,9 +645,9 @@ MapAdd.EntityFunctions = {
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
-                    ang.x = t[1]
-                    ang.y = t[2]
-                    ang.z = t[3]
+                    pos.x = t[1]
+                    pos.y = t[2]
+                    pos.z = t[3]
                 end
                 ent:SetPos(pos)
             elseif pair.Key == "angle" then
@@ -641,7 +670,10 @@ MapAdd.EntityFunctions = {
             end
         end
 
-        ent:AddRelationship(relation)
+        if ent.AddRelationship then
+            ent:AddRelationship(relation)
+        end
+
         for _, input in pairs(inputs) do
             ent:Fire(input)
         end
@@ -672,9 +704,9 @@ MapAdd.RandomSpawnFunctions = {
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
-                    ang.x = t[1]
-                    ang.y = t[2]
-                    ang.z = t[3]
+                    pos.x = t[1]
+                    pos.y = t[2]
+                    pos.z = t[3]
                 end
                 origin = pos
             elseif pair.Key=="radius" then
@@ -702,9 +734,12 @@ MapAdd.RandomSpawnFunctions = {
         local count = 0
         local grenades = 0
         local weapon = ""
+        local model
         for _,pair in pairs(tb) do
             if pair.Key == "count" then
                 count = pair.Value
+            elseif pair.Key == "model" then
+                    model = pair.Value
             elseif pair.Key == "values" then
                 local tb = string.Explode(" ",pair.Value)
                 local key
@@ -746,11 +781,19 @@ MapAdd.RandomSpawnFunctions = {
         local nodeList = table.Copy(MapAdd.Nodes)
 
         for i=1, count do
-            local ent = ents.create(class)
+            local ent = ents.Create(class)
+            if not ent:IsValid() then
+                print("Failed to create ent " .. class)
+                return
+            end
     
             local nodeIndex = math.random(1,#nodeList)
             local node = nodeList[nodeIndex]
-            nodeList.remove(nodeIndex)
+            table.remove(nodeList,nodeIndex)
+
+            if model then
+                ent:SetModel(model)
+            end
 
             ent:SetPos(node)
             ent:SetAngles( Angle(0,math.random(-180,180),0) )
@@ -760,7 +803,9 @@ MapAdd.RandomSpawnFunctions = {
                 return
             end
 
-            ent:AddRelationship(relation)
+            if ent.AddRelationship then
+                ent:AddRelationship(relation)
+            end
             for _, input in pairs(inputs) do
                 ent:Fire(input)
             end
@@ -873,11 +918,17 @@ function MapAdd.Initialize()
         if inner.Key == "precache" then
             MapAdd.Precache(inner.Value)
         end
-        if inner.Key == "entities" then
-            MapAdd.Entities(inner.Value)
-        end
         if inner.Key == "randomspawn" then
             MapAdd.RandomSpawn(inner.Value)
+        end
+    end
+end
+
+function MapAdd.InitializePost()
+    local t = MapAdd.Table--[1].Value --root
+    for _, inner in pairs(t) do
+        if inner.Key == "entities" then
+            MapAdd.Entities(inner.Value)
         end
     end
 end
@@ -917,6 +968,8 @@ function MapAdd.Load()
         setfenv(fileCompiled,MapAdd.Env)
         fileCompiled()
     end
+
+    MapAdd.InitializePost()
 end
 
 hook.add("InitPostEntity","MapAdd",function()
