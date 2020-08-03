@@ -202,10 +202,11 @@ MapAdd.Env = {
             ent:SetModel(model)
         end,
         ["CreateEntity"] = function(classname, origin, angle )
+            local angle2 = angle or Vector()
             local e = ents.Create(classname)
             if e:IsValid() then
                 e:SetPos(origin or Vector())
-                e:SetAngles( Angle(angle.x,angle.y,angle.z))
+                e:SetAngles( Angle(angle2.x,angle2.y,angle2.z))
             end
             return e
         end,
