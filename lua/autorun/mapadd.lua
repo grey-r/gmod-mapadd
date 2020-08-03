@@ -1,6 +1,15 @@
 --lua_run dumpTable(util.KeyValuesToTable( fixKeyValues(file.Read( "data/mapadd/d1_trainstation_01.txt", "GAME" )) ))
 
 MapAdd = MapAdd or {}
+MapAdd.Replacements = {
+    ["weapon_mp5"] = "weapon_smg1",
+    ["weapon_deagle"] = "weapon_357",
+    ["weapon_grease"] = "weapon_smg1",
+    ["weapon_p90"] = "weapon_smg1",
+    ["weapon_ak47"] = "weapon_ak-47",
+    ["weapon_m249"] = "weapon_m249para",
+    ["npc_combine_e"] = "npc_combine_s"
+}
 MapAdd.Table = {} --loaded from keyvalues
 MapAdd.Nodes = {} --populated from navmesh on map load
 MapAdd.Env = {
@@ -208,7 +217,7 @@ MapAdd.Env = {
         end,
         ["CreateEntity"] = function(classname, origin, angle )
             local angle2 = angle or Vector()
-            local e = ents.Create(classname)
+            local e = ents.Create(MapAdd.Replacements[classname] or classname)
             if e:IsValid() then
                 e:SetPos(origin or Vector())
                 e:SetAngles( Angle(angle2.x,angle2.y,angle2.z))
@@ -527,7 +536,7 @@ MapAdd.EntityFunctions = {
                     ang.r = t[3]
                 end
                 for k,v in pairs(player.GetAll()) do
-                    v:SetAngles(ang)
+                    v:SetEyeAngles(ang)
                 end
             elseif pair.Key == "fadein" then
                 for k,v in pairs(player.GetAll()) do
@@ -650,7 +659,7 @@ MapAdd.EntityFunctions = {
         end
     end,
     ["default"] = function( class, tb ) 
-        local ent = ents.Create(class)
+        local ent = ents.Create(MapAdd.Replacements[class] or class)
 
         if not ent:IsValid() then
             print("Attempted to make invalid entity " .. class)
@@ -670,6 +679,8 @@ MapAdd.EntityFunctions = {
             elseif pair.Key == "longrange" then
                 spawnflags = bit.bor(spawnflags,256)
             elseif pair.Key == "patrol" then
+                inputs[#inputs+1] = "StartPatrolling"
+            elseif pair.Key == "patrolrandom" then
                 inputs[#inputs+1] = "StartPatrolling"
             elseif pair.Key == "relation" then
                 relation = pair.Value
@@ -768,12 +779,15 @@ MapAdd.RandomSpawnFunctions = {
         local count = 0
         local grenades = 0
         local weapon = ""
+        local targetname
         local model
         for _,pair in pairs(tb) do
             if pair.Key == "count" then
                 count = pair.Value
             elseif pair.Key == "model" then
                     model = pair.Value
+            elseif pair.Key == "targetname" then
+                    keyvalues["targetname"] = pair.Value
             elseif pair.Key == "values" then
                 local tb = string.Explode(" ",pair.Value)
                 local key
@@ -781,14 +795,15 @@ MapAdd.RandomSpawnFunctions = {
                     if not key then
                         key = tb[i]
                     else
-                        keyvalues[key] = tb[i]
+                        local val = tb[i]
+                        keyvalues[key] = tonumber(val) or val
                         key = nil
                     end
                 end
             elseif pair.Key == "grenades" then
                 grenades = pair.Value
             elseif pair.Key == "weapon" then
-                weapon = pair.Value
+                weapon = MapAdd.Replacements[pair.Value] or pair.Value
             elseif pair.Key == "alwaysthink" then
                 spawnflags = bit.bor(spawnflags,1024)
             elseif pair.Key == "freeze" then
@@ -796,6 +811,8 @@ MapAdd.RandomSpawnFunctions = {
             elseif pair.Key == "longrange" then
                 spawnflags = bit.bor(spawnflags,256)
             elseif pair.Key == "patrol" then
+                inputs[#inputs+1] = "StartPatrolling"
+            elseif pair.Key == "patrolrandom" then
                 inputs[#inputs+1] = "StartPatrolling"
             elseif pair.Key == "relation" then
                 relation = pair.Value
@@ -815,7 +832,7 @@ MapAdd.RandomSpawnFunctions = {
         local nodeList = table.Copy(MapAdd.Nodes)
 
         for i=1, count do
-            local ent = ents.Create(class)
+            local ent = ents.Create(MapAdd.Replacements[class] or class)
             if not ent:IsValid() then
                 print("Failed to create ent " .. class)
                 return
@@ -1016,7 +1033,7 @@ function MapAdd.Load()
     MapAdd.InitializePost()
 end
 
-hook.add("InitPostEntity","MapAdd",function()
+hook.add("PlayerInitialSpawn","MapAdd",function()
     timer.Simple(0, function()
         MapAdd.Load()
     end)
