@@ -204,7 +204,7 @@ MapAdd.Env = {
         ["CreateEntity"] = function(classname, origin, angle )
             local e = ents.Create(classname)
             if e:IsValid() then
-                e:SetPos(origin)
+                e:SetPos(origin or Vector())
                 e:SetAngles( Angle(angle.x,angle.y,angle.z))
             end
             return e
@@ -326,7 +326,8 @@ MapAdd.Env = {
             MapAdd.WorkVars = MapAdd.WorkVars or {}
             return MapAdd.WorkVars[s]
         end
-    }
+    },
+    ["VECTORZERO"] = vector_zero
 }
 setmetatable(MapAdd.Env, {__index = _G})
 
@@ -821,7 +822,7 @@ MapAdd.RandomSpawnFunctions = {
                 ent:SetModel(model)
             end
 
-            ent:SetPos(node)
+            ent:SetPos(node or Vector())
             ent:SetAngles( Angle(0,math.random(-180,180),0) )
 
             if not ent:IsValid() then
