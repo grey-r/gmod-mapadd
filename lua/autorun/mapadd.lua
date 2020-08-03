@@ -419,20 +419,55 @@ MapAdd.EntityFunctions = {
             if pair.Key == "targetname" then
                 entTable = ents.FindByClass(pair.Value)
                 table.Merge(entTable,ents.FindByName(pair.Value))
-            end
-            if pair.Key == "action" then
+            elseif pair.Key == "action" then
                 action = pair.Value
-            end
-            if pair.Key == "value" then
+            elseif pair.Key == "value" then
                 value = pair.Value
-            end
-            if pair.Key == "delaytime" then
+            elseif pair.Key == "delaytime" then
                 delay = pair.Value
             end
         end
         for _,v in pairs(entTable) do
             v:Fire(action,value,delay)
         end    
+    end,
+    ["lua"] = function( class, tb )
+        local entTable,action,value,delay
+        for _,pair in pairs(tb) do
+            if pair.Key == "callfunc" then
+                local f = CompileString(pair.value .. "()")
+                setfenv(f,MapAdd.Env)
+                f()
+            end
+        end
+    end,
+    ["relation"] = function( class, tb )
+        local origin, radius, class, rel, entTable
+        for _,pair in pairs(tb) do
+            if pair.Key == "origin" then
+                local pos = Vector()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.x = t[1]
+                    ang.y = t[2]
+                    ang.z = t[3]
+                end
+                origin = pos
+            elseif pair.Key == "radius" then
+                radius = pair.Value
+            elseif pair.Key == "classname" then
+                class = pair.Value
+            elseif pair.Key == "relation" then
+                rel = pair.Value
+            end
+        end
+
+        entTable = ents.FindByClass(class)
+        table.Merge(entTable,ents.FindByName(class))
+
+        for _, ent in pairs(entTable) do
+            ent:AddRelationship(relation)
+        end
     end,
     ["default"] = function( class, tb ) 
         local ent = ents.create(class)
@@ -450,23 +485,17 @@ MapAdd.EntityFunctions = {
         for _,pair in pairs(tb) do
             if pair.Key == "alwaysthink" then
                 spawnflags = bit.bor(spawnflags,1024)
-            end
-            if pair.Key == "freeze" then
+            elseif pair.Key == "freeze" then
                 spawnflags = bit.bor(spawnflags,8)
-            end
-            if pair.Key == "longrange" then
+            elseif pair.Key == "longrange" then
                 spawnflags = bit.bor(spawnflags,256)
-            end
-            if pair.Key == "patrol" then
+            elseif pair.Key == "patrol" then
                 inputs[#inputs+1] = "StartPatrolling"
-            end
-            if pair.Key == "relation" then
+            elseif pair.Key == "relation" then
                 relation = pair.Value
-            end
-            if pair.Key == "stabilize" then
+            elseif pair.Key == "stabilize" then
                 relation = pair.Value
-            end
-            if pair.Key == "origin" then
+            elseif pair.Key == "origin" then
                 local pos = Vector()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
@@ -475,8 +504,7 @@ MapAdd.EntityFunctions = {
                     ang.z = t[3]
                 end
                 ent:SetPos(pos)
-            end
-            if pair.Key == "angle" then
+            elseif pair.Key == "angle" then
                 local ang = Angle()
                 local t = string.Explode(" ",pair.Value)
                 if #t>=3 then
@@ -485,8 +513,7 @@ MapAdd.EntityFunctions = {
                     ang.r = t[3]
                 end
                 ent:SetAngles(ang)
-            end
-            if pair["Key"] == "keyvalues" then
+            elseif pair["Key"] == "keyvalues" then
                 for _, innerpair in pairs(pair.Value) do
                     if innerpair.Key == "spawnflags" then
                         spawnflags = bit.bor(spawnflags,innerpair.Value)
