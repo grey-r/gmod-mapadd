@@ -439,6 +439,58 @@ MapAdd.EntityFunctions = {
             end
         end
     end,
+    ["player"] = function( class, tb )
+        for _,pair in pairs(tb) do
+            if pair.Key == "music" then
+                sound.PlayFile( "sound/music/" .. pair.Value .. ".mp3", "noplay", function( station, errCode, errStr )
+                    if ( IsValid( station ) ) then
+                        station:Play()
+                    else
+                        print( "Error playing sound!", errCode, errStr )
+                    end
+                end )
+            elseif pair.Key == "origin" then
+                local pos = Vector()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.x = t[1]
+                    ang.y = t[2]
+                    ang.z = t[3]
+                end
+
+                for k,v in pairs(player.GetAll()) do
+                    v:SetPos(pos + VectorRand()*Vector(16,16,0))
+                end
+            elseif pair.Key == "angle" then
+                local ang = Angle()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.p = t[1]
+                    ang.y = t[2]
+                    ang.r = t[3]
+                end
+                for k,v in pairs(player.GetAll()) do
+                    v:SetAngles(ang)
+                end
+            elseif pair.Key == "fadein" then
+                for k,v in pairs(player.GetAll()) do
+                    v:ScreenFade(SCREENFADE.IN,color_black,pair.value,0)
+                end
+            elseif pair.Key == "fadeout" then
+                for k,v in pairs(player.GetAll()) do
+                    v:ScreenFade(SCREENFADE.OUT,color_black,pair.value,0)
+                end
+            elseif pair.Key == "message" then
+                PrintMessage(HUD_PRINTCENTER, pair.Value)
+            elseif pair.Key == "keyvalues" then
+                for _, innerpair in pairs(pair.Value) do
+                    for k,v in pairs(player.GetAll()) do
+                        v:SetKeyValue(innerpair["Key"], innerpair.Value)
+                    end
+                end
+            end
+        end
+    end,
     ["relation"] = function( class, tb )
         local origin, radius, class, rel, entTable
         for _,pair in pairs(tb) do
