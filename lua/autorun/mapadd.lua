@@ -247,7 +247,13 @@ MapAdd.Env = {
         end,
         ["RandomSeed"] = function(n) math.randomseed(n) end,
         ["RandomInt"] = function(a,b) return math.random(a,b) end,
-        ["RandomFloat"] = function(a,b) return math.Rand(a,b) end
+        ["RandomFloat"] = function(a,b) return math.Rand(a,b) end,
+        ["PlaySoundPos"] = function(s,pos,...) EmitSound( s, pos, ...) end,
+        ["PlaySoundEntity"] = function(s,ent,...) 
+            if IsValid(ent) then
+                EmitSound( s, ent:GetPos(), ent, ...)
+            end
+        end
     }
 }
 
