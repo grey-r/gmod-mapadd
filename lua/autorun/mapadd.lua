@@ -285,6 +285,7 @@ MapAdd.Env = {
         end
     }
 }
+setmetatable(MapAdd.Env, {__index = _G})
 
 local function dumpTable( t, indent, done )
 
@@ -520,6 +521,13 @@ function MapAdd.Load()
         local fixedKeyValues = fixKeyValues(mapAdd)
         MapAdd.Table = util.KeyValuesToTablePreserveOrder( fixedKeyValues, true, true )
         MapAdd.Initialize()
+    end
+
+    local luaMapAddPath = "lua/mapadd/" .. mapName .. ".lua"
+    if (file.Exists(luaMapAddPath,"GAME")) then
+        local fileCompiled = CompileFile(string.sub(luaMapAddPath,4))
+        setfenv(fileCompiled,MapAdd.Env)
+        fileCompiled()
     end
 end
 
