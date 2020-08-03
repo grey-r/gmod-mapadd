@@ -395,8 +395,7 @@ MapAdd.EntityFunctions = {
                 result.origin.x = exp[1]
                 result.origin.y = exp[2]
                 result.origin.z = exp[3]
-            end
-            if pair["Key"] == "keyvalues" then
+            elseif pair["Key"] == "keyvalues" then
                 for _, innerpair in pairs(pair.Value) do
                     if innerpair["Key"] == "label" then
                         result.labels = string.Explode(":",innerpair["Value"])
@@ -467,6 +466,45 @@ MapAdd.EntityFunctions = {
 
         for _, ent in pairs(entTable) do
             ent:AddRelationship(relation)
+        end
+    end,
+    ["removeentity"] = function( class, tb )
+        local origin, radius, entTable
+        origin = Vector()
+        entTable = {}
+        for _,pair in pairs(tb) do
+            if pair.Key == "origin" then
+                local pos = Vector()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.x = t[1]
+                    ang.y = t[2]
+                    ang.z = t[3]
+                end
+                origin = pos
+            elseif pair.Key == "classname" then
+                table.Merge(entTable,ents.FindByClass(pair.Value))
+            elseif pair.Key == "targetname" then
+                table.Merge(entTable,ents.FindByName(pair.Value))
+            elseif pair.Key == "radius" then
+                radius = pair.Value
+            elseif pair.Key == "keyvalues" then
+                for _, innerpair in pairs(pair.Value) do
+                    if pair.Key == "classname" then
+                        table.Merge(entTable,ents.FindByClass(pair.Value))
+                    elseif pair.Key == "targetname" then
+                        table.Merge(entTable,ents.FindByName(pair.Value))
+                    elseif pair.Key == "radius" then
+                        radius = pair.Value
+                    end
+                end
+            end
+        end
+
+        for _, ent in pairs(entTable) do
+            if ent:GetPos():Distance(origin) < radius then
+                SafeRemoveEntity(ent)
+            end
         end
     end,
     ["default"] = function( class, tb ) 
