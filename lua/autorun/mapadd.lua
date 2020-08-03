@@ -253,6 +253,19 @@ MapAdd.Env = {
             if IsValid(ent) then
                 EmitSound( s, ent:GetPos(), ent, ...)
             end
+        end,
+        ["GetNodeCounts"] = function() return #MapAdd.Nodes end,
+        ["GetNodeData"] = function(id) 
+            local n = MapAdd.Nodes[id]
+            if not n then
+                return
+            end
+            local node = {}
+            node.x = n.x
+            node.y = n.y
+            node.z = n.z
+            node.yaw = math.Rand(-180,180) --idk
+            node.type = 2 --ground
         end
     }
 }
