@@ -266,6 +266,22 @@ MapAdd.Env = {
             node.z = n.z
             node.yaw = math.Rand(-180,180) --idk
             node.type = 2 --ground
+        end,
+        ["SaveString"] = function(s,v)
+            MapAdd.Strings = MapAdd.Strings or {}
+            MapAdd.Strings[s] = v
+        end,
+        ["LoadString"] = function(s,v)
+            MapAdd.Strings = MapAdd.Strings or {}
+            return MapAdd.Strings[s]
+        end,
+        ["StoreWorkVar"] = function(s,v)
+            MapAdd.WorkVars = MapAdd.WorkVars or {}
+            MapAdd.WorkVars[s] = v
+        end,
+        ["GetWorkVar"] = function(s,v)
+            MapAdd.WorkVars = MapAdd.WorkVars or {}
+            return MapAdd.WorkVars[s]
         end
     }
 }
