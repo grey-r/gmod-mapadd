@@ -139,13 +139,13 @@ MapAdd.Env = {
         ["SetEntityAbsVelocity"] = function(e,v) e:SetVelocity(v) end,
         ["EyePosition"] = function(e) return e:EyePos() end,
         ["EyeAngles"] = function(e) return Vector( e:EyeAngles().p, e:EyeAngles().y, e:EyeAngles().r) end,
-        ["KeyValue"] = function(e,k,v)
+        ["KeyValue"] = function(e,k,val)
             if IsValid(e) then
                 if e:GetClass() == "instant_trig" then
                     e.KeyValues = e.KeyValues or {}
-                    e.KeyValues[k] = tonumber(v) or v
+                    e.KeyValues[k] = MapAdd.Replace(val)
                 else
-                    e:SetKeyValue(k,v)
+                    e:SetKeyValue(k,MapAdd.Replace(val))
                 end
             end
         end,
@@ -361,7 +361,25 @@ MapAdd.Env = {
     },
     ["VECTORZERO"] = vector_zero
 }
-setmetatable(MapAdd.Env, {__index = _G})
+MapAdd.EnvTmp = {}
+
+setmetatable(MapAdd.Env, {
+    __index = function(tbl,key)
+        return MapAdd.EnvTmp[key] or _G[key]
+    end,
+    __newindex = function(tbl,key,val)
+        MapAdd.EnvTmp[key] = val
+    end
+})
+
+function MapAdd.Replace( val )
+    local v = tonumber(val) or val
+    local rep = MapAdd.Replacements[v]
+    if rep and istable(rep) then
+        return rep[math.random(1,#rep)]
+    end
+    return rep or v
+end
 
 local function dumpTable( t, indent, done )
 
@@ -489,7 +507,8 @@ MapAdd.EntityFunctions = {
                     elseif innerpair["Key"] == "timer" then 
                         result.expireTime = CurTime() + innerpair["Value"]
                     else
-                        result[innerpair["Key"]] = innerpair.Value
+                        local val = innerpair.Value
+                        result[innerpair["Key"]] = MapAdd.Replace(val)
                     end
                 end
             end
@@ -572,7 +591,8 @@ MapAdd.EntityFunctions = {
             elseif pair.Key == "keyvalues" then
                 for _, innerpair in pairs(pair.Value) do
                     for k,v in pairs(player.GetAll()) do
-                        v:SetKeyValue(innerpair["Key"], innerpair.Value)
+                        local val = innerpair.Value
+                        v:SetKeyValue(innerpair["Key"], MapAdd.Replace(val))
                     end
                 end
             end
@@ -737,7 +757,8 @@ MapAdd.EntityFunctions = {
                     if innerpair.Key == "spawnflags" then
                         spawnflags = bit.bor(spawnflags,innerpair.Value)
                     else
-                        keyvalues[innerpair["Key"]] = innerpair.Value
+                        local val = innerpair.Value
+                        keyvalues[innerpair["Key"]] = MapAdd.Replace(val)
                     end
                 end
             end
@@ -836,7 +857,7 @@ MapAdd.RandomSpawnFunctions = {
                         key = tb[i]
                     else
                         local val = tb[i]
-                        keyvalues[key] = tonumber(val) or val
+                        keyvalues[key] = MapAdd.Replace(val)
                         key = nil
                     end
                 end
@@ -861,7 +882,8 @@ MapAdd.RandomSpawnFunctions = {
                     if innerpair.Key == "spawnflags" then
                         spawnflags = bit.bor(spawnflags,innerpair.Value)
                     else
-                        keyvalues[innerpair["Key"]] = innerpair.Value
+                        local val = innerpair.Value
+                        keyvalues[innerpair["Key"]] = MapAdd.Replace(val)
                     end
                 end
             end
@@ -1040,14 +1062,42 @@ function MapAdd.InitializePost()
     end
 end
 
-function MapAdd.Load() 
-    if CLIENT then
-        return
+function MapAdd.NodesFromSNL(path, gamePath)
+    local nodes,f
+    f = file.Open(path,"r",gamePath)
+    if not f then return false end
+
+    nodes = {}
+
+    while (not f:EndOfFile()) do
+        local l = f:ReadLine() --N "000 02 2499.05 -974.78 -508.97 0.00"
+        print(string.trim(string.Replace(string.sub(l,string.find(l," ") or 0),"\"","")))
+        local nodeType = string.sub(l,1,1)
+        if string.lower(nodeType) == "n" then
+            local modLine = string.trim(string.Replace(string.sub(l,string.find(l," ") or 0),"\"",""))
+            local t = string.Explode(" ",modLine)
+            if #t>=5 then
+                local unknown = t[1]
+                local nodeType = t[2]
+                local nodeX = tonumber(t[3]) or 0
+                local nodeY = tonumber(t[4]) or 0
+                local nodeZ = tonumber(t[5]) or 0
+                if tonumber(nodeType) == 2 then --ground
+                    nodes[#nodes+1] = Vector(nodeX,nodeY,nodeZ)
+                end
+            end
+        end
     end
 
-    MapAdd.Triggers = {}
-    MapAdd.Nodes = {}
+    f:Close()
+    if (#nodes > #MapAdd.Nodes) then
+        MapAdd.Nodes = nodes
+    end
 
+    return true
+end
+
+function MapAdd.NodesFromGraph()
     local areas = navmesh.GetAllNavAreas()
     local nodes = {}
     local nodecache = {}
@@ -1061,9 +1111,29 @@ function MapAdd.Load()
         end
         nodes[#nodes+1] = v:GetCenter()
     end
-    MapAdd.Nodes = nodes
+    if (#nodes > #MapAdd.Nodes) then
+        MapAdd.Nodes = nodes
+    end
+    return (#nodes > 0)
+end
 
+function MapAdd.Load() 
+    if CLIENT then
+        return
+    end
+
+    MapAdd.Triggers = {}
+    MapAdd.Nodes = {}
+    MapAdd.EnvTmp = {}
+    
     local mapName = game.GetMap()
+
+    local nodePath = "data/mapadd/nodes/" .. mapName .. ".snl"
+    if (file.Exists(nodePath,"GAME")) then
+        MapAdd.NodesFromSNL(nodePath, "GAME")
+    end
+    MapAdd.NodesFromGraph()
+
     local mapAddPath = "data/mapadd/" .. mapName .. ".txt"
     if (file.Exists(mapAddPath,"GAME")) then
         local mapAdd = file.Read( mapAddPath, "GAME" )
