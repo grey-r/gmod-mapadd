@@ -248,10 +248,10 @@ MapAdd.Env = {
         ["RandomSeed"] = function(n) math.randomseed(n) end,
         ["RandomInt"] = function(a,b) return math.random(a,b) end,
         ["RandomFloat"] = function(a,b) return math.Rand(a,b) end,
-        ["PlaySoundPos"] = function(s,pos,...) EmitSound( s, pos, ...) end,
+        ["PlaySoundPos"] = function(s,pos,...) EmitSound( s, pos, 0, ...) end,
         ["PlaySoundEntity"] = function(s,ent,...) 
             if IsValid(ent) then
-                EmitSound( s, ent:GetPos(), ent, ...)
+                EmitSound( s, ent:GetPos(), ent:EntIndex(), ...)
             end
         end,
         ["GetNodeCounts"] = function() return #MapAdd.Nodes end,
@@ -531,7 +531,7 @@ MapAdd.EntityFunctions = {
                 targetEnts[1]:EmitSound(snd or "")
             end
         else
-            EmitSound(snd or "", origin or Vector())
+            EmitSound(snd or "", origin or Vector(),0)
         end
     end,
     ["default"] = function( class, tb ) 
