@@ -707,7 +707,30 @@ function MapAdd.ActivateTrigger( t )
         end
     end
 
-    if t.OnHitTrigger then --TODO
+    if t.OnHitTrigger then
+        local target,cmd,val,delay,fires,tb
+        tb = string.Explode(",",t.OnHitTrigger)
+        if tb[1] then
+            target = tb[1]
+        else
+            return
+        end
+        if tb[2] then
+            cmd = tb[2]
+        else
+            return
+        end
+        val = tb[3] or ""
+        delay = tonumber(tb[4] or "0")
+        fires = tonumber(tb[5] or "1")
+        timer.Create(CurTime() .. "mapaddtrigger", delay, fires, function()
+            local checkEnts
+            checkEnts = ents.FindByClass(target)
+            table.Merge(checkEnts,ents.FindByName(target))
+            for _, ent in pairs(checkEnts) do
+                ent:Fire(cmd,val)
+            end
+        end)
     end
 
     if t.labels then
