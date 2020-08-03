@@ -431,7 +431,6 @@ MapAdd.EntityFunctions = {
         end    
     end,
     ["lua"] = function( class, tb )
-        local entTable,action,value,delay
         for _,pair in pairs(tb) do
             if pair.Key == "callfunc" then
                 local f = CompileString(pair.value .. "()")
@@ -505,6 +504,34 @@ MapAdd.EntityFunctions = {
             if ent:GetPos():Distance(origin) < radius then
                 SafeRemoveEntity(ent)
             end
+        end
+    end,
+    ["sound"] = function( class, tb )
+        local origin, targetname, snd, targetEnts
+        for _,pair in pairs(tb) do
+            if pair.Key == "origin" then
+                local pos = Vector()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.x = t[1]
+                    ang.y = t[2]
+                    ang.z = t[3]
+                end
+                origin = pos
+            elseif pair.Key == "targetname" then
+                targetname = pair.Value
+            elseif pair.Key == "soundname" then
+                snd = pair.Value
+            end
+        end
+
+        if targetname then
+            targetEnts = ents.FindByName(targetname)
+            if #targetEnts > 0 then
+                targetEnts[1]:EmitSound(snd or "")
+            end
+        else
+            EmitSound(snd or "", origin or Vector())
         end
     end,
     ["default"] = function( class, tb ) 
