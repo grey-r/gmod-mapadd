@@ -893,6 +893,13 @@ function MapAdd.ProcessTriggers()
         if t.expireTime and CurTime() > t.expireTime then
             MapAdd.ActivateTrigger( t )
         end
+        if t.islived then
+            local entTbl = ents.FindByClass(t.islived)
+            table.Merge(entTbl, ents.FindByName(t.islived))
+            if #entTbl==0 then
+                MapAdd.ActivateTrigger( t )
+            end
+        end
     end
 end
 
@@ -1010,7 +1017,9 @@ function MapAdd.Load()
 end
 
 hook.add("InitPostEntity","MapAdd",function()
-    MapAdd.Load()
+    timer.Simple(0, function()
+        MapAdd.Load()
+    end)
 end)
 
 hook.add("PostCleanupMap","MapAdd",function()

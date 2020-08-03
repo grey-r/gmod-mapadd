@@ -8,6 +8,12 @@ local	CITIZENSPAWNPOINT = "info_player_counterterrorist"
 local	COMBINESPAWNPOINT = "info_player_terrorist"
 local	HOSTAGESPAWNPOINT = "info_target"
 
+local HOSTAGEPOSITIONS = {
+	Vector(1955.426392,-281.327850,-159.968750),
+	Vector(2296.259033,-28.475822,-159.968750),
+	Vector(1979.598511,-10.876556,-159.968750)
+}
+
 --local	COMBINESPAWNPOINT = "info_player_counterterrorist"
 --local	CITIZENSPAWNPOINT = "info_player_terrorist"
 
@@ -78,15 +84,17 @@ end
 function SpawnHostages()
 
 	local cnt = HOSTAGES
-	local ent = HL2.FindEntityByClass(nil, HOSTAGESPAWNPOINT)
-	while ent ~= nil do
+	--local ent = HL2.FindEntityByClass(nil, HOSTAGESPAWNPOINT)
+	--while ent ~= nil do
 		
-		local ang = HL2.GetEntityAbsAngles(ent)
-		local org = HL2.GetEntityAbsOrigin(ent)
+		--local ang = HL2.GetEntityAbsAngles(ent)
+		--local org = HL2.GetEntityAbsOrigin(ent)
 
-		print("spawnhostages calling spawnhostage")
+		--print("spawnhostages calling spawnhostage")
+	
+	for _,org in pairs(HOSTAGEPOSITIONS) do
 		
-		SpawnHostage(org, ang)
+		SpawnHostage(org, VECTORZERO )
 		
 		ent = HL2.FindEntityByClass(ent, HOSTAGESPAWNPOINT)
 
