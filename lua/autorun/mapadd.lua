@@ -664,6 +664,129 @@ function MapAdd.Entities(t)
     end
 end
 
+MapAdd.RandomSpawnFunctions = {
+    ["removenodes"] = function( class, tb )
+        local origin,radius
+        for _,pair in pairs(tb) do
+            if pair.Key == "origin" then
+                local pos = Vector()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.x = t[1]
+                    ang.y = t[2]
+                    ang.z = t[3]
+                end
+                origin = pos
+            elseif pair.Key=="radius" then
+                radius = pair.Value
+            end
+        end
+        if origin and radius then
+            local i=#MapAdd.Nodes
+            while i>0 do
+                if MapAdd.Nodes[i]:Distance(origin)<radius then
+                    table.remove(MapAdd.Nodes,i)
+                end
+                i=i-1
+            end
+        end
+    end,
+    ["removeairnodes"] = function( class, tb ) 
+    end,
+    ["default"] = function( class, tb ) 
+        local spawnflags = 0
+        local keyvalues = {}
+        local inputs = {}
+        local relation = ""
+        local stabilize = 10 --TODO
+        local count = 0
+        local grenades = 0
+        local weapon = ""
+        for _,pair in pairs(tb) do
+            if pair.Key == "count" then
+                count = pair.Value
+            elseif pair.Key == "values" then
+                local tb = string.Explode(" ",pair.Value)
+                local key
+                for i=1, #tb do
+                    if not key then
+                        key = tb[i]
+                    else
+                        keyvalues[key] = tb[i]
+                        key = nil
+                    end
+                end
+            elseif pair.Key == "grenades" then
+                grenades = pair.Value
+            elseif pair.Key == "weapon" then
+                weapon = pair.Value
+            elseif pair.Key == "alwaysthink" then
+                spawnflags = bit.bor(spawnflags,1024)
+            elseif pair.Key == "freeze" then
+                spawnflags = bit.bor(spawnflags,8)
+            elseif pair.Key == "longrange" then
+                spawnflags = bit.bor(spawnflags,256)
+            elseif pair.Key == "patrol" then
+                inputs[#inputs+1] = "StartPatrolling"
+            elseif pair.Key == "relation" then
+                relation = pair.Value
+            elseif pair.Key == "stabilize" then
+                relation = pair.Value
+            elseif pair["Key"] == "keyvalues" then
+                for _, innerpair in pairs(pair.Value) do
+                    if innerpair.Key == "spawnflags" then
+                        spawnflags = bit.bor(spawnflags,innerpair.Value)
+                    else
+                        result[innerpair["Key"]] = innerpair.Value
+                    end
+                end
+            end
+        end
+
+        local nodeList = table.Copy(MapAdd.Nodes)
+
+        for i=1, count do
+            local ent = ents.create(class)
+    
+            local nodeIndex = math.random(1,#nodeList)
+            local node = nodeList[nodeIndex]
+            nodeList.remove(nodeIndex)
+
+            ent:SetPos(node)
+            ent:SetAngles( Angle(0,math.random(-180,180),0) )
+
+            if not ent:IsValid() then
+                print("Attempted to make invalid entity " .. class)
+                return
+            end
+
+            ent:AddRelationship(relation)
+            for _, input in pairs(inputs) do
+                ent:Fire(input)
+            end
+            ent:SetKeyValue("numgrenades",grenades)
+            ent:SetKeyValue("NumGrenades",grenades) --idk if case sensitive so why not both
+            ent:SetKeyValue("additionalequipment",weapon)
+            for key, value in pairs(keyvalues) do
+                ent:SetKeyValue(key,value)
+            end
+            ent:SetKeyValue("spawnflags",spawnflags)
+    
+            ent:Spawn()
+        end
+    end
+}
+
+function MapAdd.RandomSpawn(t)
+    for _, pair in pairs(t) do
+        local f = MapAdd.RandomSpawnFunctions[pair["Key"]]
+        if not f then
+            f =  MapAdd.RandomSpawnFunctions["default"]
+        end
+        f(pair.Key, pair.Value)
+    end
+end
+
 function MapAdd.ProcessTriggers()
     for k,t in pairs(MapAdd.Triggers) do
         if t.touchname and t.origin and t.radius then
@@ -752,6 +875,9 @@ function MapAdd.Initialize()
         end
         if inner.Key == "entities" then
             MapAdd.Entities(inner.Value)
+        end
+        if inner.Key == "randomspawn" then
+            MapAdd.RandomSpawn(inner.Value)
         end
     end
 end
