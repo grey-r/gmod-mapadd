@@ -413,6 +413,27 @@ MapAdd.EntityFunctions = {
         end
         table.insert(MapAdd.Triggers,result)
     end,
+    ["event"] = function( class, tb )
+        local entTable,action,value,delay
+        for _,pair in pairs(tb) do
+            if pair.Key == "targetname" then
+                entTable = ents.FindByClass(pair.Value)
+                table.Merge(entTable,ents.FindByName(pair.Value))
+            end
+            if pair.Key == "action" then
+                action = pair.Value
+            end
+            if pair.Key == "value" then
+                value = pair.Value
+            end
+            if pair.Key == "delaytime" then
+                delay = pair.Value
+            end
+        end
+        for _,v in pairs(entTable) do
+            v:Fire(action,value,delay)
+        end    
+    end,
     ["default"] = function( class, tb ) 
         local ent = ents.create(class)
 
