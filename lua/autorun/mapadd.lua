@@ -12,6 +12,21 @@ MapAdd.Replacements = {
 }
 MapAdd.Table = {} --loaded from keyvalues
 MapAdd.Nodes = {} --populated from navmesh on map load
+MapAdd.DispositionCodes = {
+    ["n"] = "D_NU",
+    ["h"] = "D_HT",
+    ["f"] = "D_FR",
+    ["l"] = "D_LI",
+}
+MapAdd.TargetCodes = {
+    ["a"] = {"npc_antlion","npc_antlion_grub","npc_antlionguard","npc_antlionguard"},
+    ["c"] = {"npc_metropolice","npc_combine_s","npc_hunter","npc_manhack","npc_stalker","npc_strider","npc_turret_floor"},
+    ["g"] = {"player"},
+    ["l"] = {"npc_zombie","npc_headcrab","npc_poisonzombie","npc_zombine","npc_zombie_torso","npc_fastzombie","npc_fastzombie_torso"},
+    ["p"] = {"npc_citizen"},
+    ["s"] = {"npc_stalker"},
+    ["v"] = {"npc_vortigaunt"}
+}
 MapAdd.Env = {
     ["DISPOSITION"] = {
         ["D_NU"] = D_NU,
@@ -586,8 +601,20 @@ MapAdd.EntityFunctions = {
         table.Merge(entTable,ents.FindByName(class))
 
         for _, ent in pairs(entTable) do
-            if ent.AddRelationship then
-                ent:AddRelationship(relation)
+            if (not origin) or (ent:GetPos():Distance(origin)<radius) then
+                if ent.AddRelationship then
+                    local relationTable = string.Explode(" ",relation)
+                    for _,rel in pairs(relationTable) do
+                        local target = string.sub(rel,1,1)
+                        local disp = string.sub(rel,2,2)
+                        local prio = tonumber(string.sub(rel,3))
+                        local target_classes = MapAdd.TargetCodes[string.lower(target)]
+                        local disposition_code = MapAdd.DispositionCodes[string.lower(disp)]
+                        for _,target_class in pairs(target_classes) do
+                            ent:AddRelationship(target_class .. " " .. disposition_code .. " " .. prio)
+                        end
+                    end
+                end
             end
         end
     end,
@@ -716,7 +743,17 @@ MapAdd.EntityFunctions = {
         end
 
         if ent.AddRelationship then
-            ent:AddRelationship(relation)
+            local relationTable = string.Explode(" ",relation)
+            for _,rel in pairs(relationTable) do
+                local target = string.sub(rel,1,1)
+                local disp = string.sub(rel,2,2)
+                local prio = tonumber(string.sub(rel,3))
+                local target_classes = MapAdd.TargetCodes[string.lower(target)]
+                local disposition_code = MapAdd.DispositionCodes[string.lower(disp)]
+                for _,target_class in pairs(target_classes) do
+                    ent:AddRelationship(target_class .. " " .. disposition_code .. " " .. prio)
+                end
+            end
         end
 
         for _, input in pairs(inputs) do
@@ -816,8 +853,6 @@ MapAdd.RandomSpawnFunctions = {
                 inputs[#inputs+1] = "StartPatrolling"
             elseif pair.Key == "relation" then
                 relation = pair.Value
-            elseif pair.Key == "stabilize" then
-                relation = pair.Value
             elseif pair["Key"] == "keyvalues" then
                 for _, innerpair in pairs(pair.Value) do
                     if innerpair.Key == "spawnflags" then
@@ -854,8 +889,18 @@ MapAdd.RandomSpawnFunctions = {
                 return
             end
 
-            if ent.AddRelationship then
-                ent:AddRelationship(relation)
+            if ent.AddRelationship then      
+                local relationTable = string.Explode(" ",relation)
+                for _,rel in pairs(relationTable) do
+                    local target = string.sub(rel,1,1)
+                    local disp = string.sub(rel,2,2)
+                    local prio = tonumber(string.sub(rel,3))
+                    local target_classes = MapAdd.TargetCodes[string.lower(target)]
+                    local disposition_code = MapAdd.DispositionCodes[string.lower(disp)]
+                    for _,target_class in pairs(target_classes) do
+                        ent:AddRelationship(target_class .. " " .. disposition_code .. " " .. prio)
+                    end
+                end
             end
             for _, input in pairs(inputs) do
                 ent:Fire(input)
