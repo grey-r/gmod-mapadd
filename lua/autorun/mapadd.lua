@@ -305,7 +305,7 @@ MapAdd.Env = {
         end,
         ["GetNodeCounts"] = function() return #MapAdd.Nodes end,
         ["GetNodeData"] = function(id) 
-            local n = MapAdd.Nodes[id]
+            local n = MapAdd.Nodes[id+1]
             if not n then
                 return
             end
@@ -315,6 +315,7 @@ MapAdd.Env = {
             node.z = n.z
             node.yaw = math.Rand(-180,180) --idk
             node.type = 2 --ground
+            return node
         end,
         ["SaveString"] = function(s,v)
             MapAdd.Strings = MapAdd.Strings or {}
