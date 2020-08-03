@@ -1,7 +1,8 @@
 --lua_run dumpTable(util.KeyValuesToTable( fixKeyValues(file.Read( "data/mapadd/d1_trainstation_01.txt", "GAME" )) ))
 
-MapAdd = {}
+MapAdd = MapAdd or {}
 MapAdd.Table = {} --loaded from keyvalues
+MapAdd.Nodes = {} --populated from navmesh on map load
 MapAdd.Env = {
     ["HL2"] = {
         ["EntFire"] = function (targetname, activator, input, parameter, delay )
@@ -41,7 +42,7 @@ MapAdd.Env = {
         ["CreateTimer"] = function(f_name, int, parameters ) --todo: add vararg for parameters?
             timer.Simple(int, function()
                 RunString(f_name .. "(" .. (parameters or "") .. ")")
-            end
+            end)
         end,
         ["GetDateMD"] = function()
             return os.date("%m%d")
@@ -121,7 +122,7 @@ MapAdd.Env = {
                 ["custom"] = MOVETYPE_CUSTOM
             }
             e:SetMoveType(MOVETYPES[mt] or MOVETYPES["ground"])
-        end,,
+        end,
         ["SetEntityRelationship"] = function(a,b,disposition,priority)
             local aList, bList
 
@@ -212,7 +213,7 @@ MapAdd.Env = {
         end,
         ["RemoveEntity"] = function(ent)
             SafeRemoveEntity(ent)
-        end
+        end,
         ["Vector"] = function(x,y,z) return Vector(x,y,z) end,
         ["VectorString"] = function(v) return tostring(v) end,
         ["DotProduct"] = function(a,b) return a:Dot(b) end,
@@ -455,6 +456,10 @@ function MapAdd.Initialize()
 end
 
 function MapAdd.Load() 
+    if CLIENT then
+        return
+    end
+
     local mapName = game.GetMap()
     local mapAddPath = "data/mapadd/" .. mapName .. ".txt"
     if (file.Exists(mapAddPath,"GAME")) then
@@ -463,6 +468,21 @@ function MapAdd.Load()
         MapAdd.Table = util.KeyValuesToTablePreserveOrder( fixedKeyValues, true, true )
         MapAdd.Initialize()
     end
+    
+    local areas = navmesh.GetAllNavAreas()
+    local nodes = {}
+    local nodecache = {}
+    for _, v in pairs(areas) do
+        for i=0,3 do
+            local corner = v:GetCorner(i)
+            local cornerID = tostring(corner)
+            if not nodecache[corner] then
+                nodes[#nodes+1] = corner
+            end
+        end
+        nodes[#nodes+1] = v:GetCenter()
+    end
+    MapAdd.Nodes = nodes
 end
 
 hook.add("InitPostEntity","MapAdd",function()
