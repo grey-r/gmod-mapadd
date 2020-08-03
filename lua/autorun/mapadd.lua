@@ -460,15 +460,6 @@ function MapAdd.Load()
         return
     end
 
-    local mapName = game.GetMap()
-    local mapAddPath = "data/mapadd/" .. mapName .. ".txt"
-    if (file.Exists(mapAddPath,"GAME")) then
-        local mapAdd = file.Read( mapAddPath, "GAME" )
-        local fixedKeyValues = fixKeyValues(mapAdd)
-        MapAdd.Table = util.KeyValuesToTablePreserveOrder( fixedKeyValues, true, true )
-        MapAdd.Initialize()
-    end
-    
     local areas = navmesh.GetAllNavAreas()
     local nodes = {}
     local nodecache = {}
@@ -483,6 +474,15 @@ function MapAdd.Load()
         nodes[#nodes+1] = v:GetCenter()
     end
     MapAdd.Nodes = nodes
+
+    local mapName = game.GetMap()
+    local mapAddPath = "data/mapadd/" .. mapName .. ".txt"
+    if (file.Exists(mapAddPath,"GAME")) then
+        local mapAdd = file.Read( mapAddPath, "GAME" )
+        local fixedKeyValues = fixKeyValues(mapAdd)
+        MapAdd.Table = util.KeyValuesToTablePreserveOrder( fixedKeyValues, true, true )
+        MapAdd.Initialize()
+    end
 end
 
 hook.add("InitPostEntity","MapAdd",function()
