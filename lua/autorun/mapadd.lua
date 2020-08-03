@@ -116,7 +116,12 @@ MapAdd.Env = {
         ["EyeAngles"] = function(e) return Vector( e:EyeAngles().p, e:EyeAngles().y, e:EyeAngles().r) end,
         ["KeyValue"] = function(e,k,v)
             if IsValid(e) then
-                e:SetKeyValue(k,v)
+                if e:GetClass() == "instant_trig" then
+                    e.KeyValues = e.KeyValues or {}
+                    e.KeyValues[k] = v
+                else
+                    e:SetKeyValue(k,v)
+                end
             end
         end,
         ["SetEntityParent"] = function(e,par,at) e:SetParent(par,at) end,
@@ -965,6 +970,9 @@ function MapAdd.Load()
     if CLIENT then
         return
     end
+
+    MapAdd.Triggers = {}
+    MapAdd.Nodes = {}
 
     local areas = navmesh.GetAllNavAreas()
     local nodes = {}

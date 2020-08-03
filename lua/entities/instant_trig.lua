@@ -11,12 +11,11 @@ ENT.Instructions	= "Use with keyvalues"
 
 function ENT:Initialize()
     if CLIENT then return end
-    self.kv = self:GetKeyValues()
 end
 
 function ENT:Think()
     if CLIENT then return end
-    local kv = self.kv
+    local kv = self.KeyValues or {}
     local t = {
         ["origin"] = self:GetPos()
     }
@@ -32,8 +31,9 @@ function ENT:Think()
     if t.radius and not t.touchname then
         t.touchname = "player"
     end
-    table.insert(MapAdd.Triggers,result)
-    self:Remove()
+    print("Adding mapadd trigger:")
+    PrintTable(t)
+    table.insert(MapAdd.Triggers,t)
     self:Remove()
 end
 
