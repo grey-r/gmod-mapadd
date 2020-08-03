@@ -118,7 +118,7 @@ MapAdd.Env = {
             if IsValid(e) then
                 if e:GetClass() == "instant_trig" then
                     e.KeyValues = e.KeyValues or {}
-                    e.KeyValues[k] = v
+                    e.KeyValues[k] = tonumber(v) or v
                 else
                     e:SetKeyValue(k,v)
                 end
@@ -604,19 +604,19 @@ MapAdd.EntityFunctions = {
                 radius = pair.Value
             elseif pair.Key == "keyvalues" then
                 for _, innerpair in pairs(pair.Value) do
-                    if pair.Key == "classname" then
-                        table.Merge(entTable,ents.FindByClass(pair.Value))
-                    elseif pair.Key == "targetname" then
-                        table.Merge(entTable,ents.FindByName(pair.Value))
-                    elseif pair.Key == "radius" then
-                        radius = pair.Value
+                    if innerpair.Key == "classname" then
+                        table.Merge(entTable,ents.FindByClass(innerpair.Value))
+                    elseif innerpair.Key == "targetname" then
+                        table.Merge(entTable,ents.FindByName(innerpair.Value))
+                    elseif innerpair.Key == "radius" then
+                        radius = innerpair.Value
                     end
                 end
             end
         end
 
         for _, ent in pairs(entTable) do
-            if ent:GetPos():Distance(origin) < radius then
+            if ent:GetPos():Distance(origin) < (radius or 300) then
                 SafeRemoveEntity(ent)
             end
         end
