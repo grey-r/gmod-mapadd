@@ -4,14 +4,14 @@ MapAdd = MapAdd or {}
 MapAdd.Table = {} --loaded from keyvalues
 MapAdd.Nodes = {} --populated from navmesh on map load
 MapAdd.Env = {
+    ["DISPOSITION"] = {
+        ["D_NU"] = D_NU,
+        ["D_HT"] = D_HT,
+        ["D_FR"] = D_FR,
+        ["D_LI"] = D_LI,
+        ["D_ER"] = D_ER
+    },
     ["HL2"] = {
-        ["DISPOSITION"] = {
-            ["D_NU"] = D_NU,
-            ["D_HT"] = D_HT,
-            ["D_FR"] = D_FR,
-            ["D_LI"] = D_LI,
-            ["D_ER"] = D_ER
-        },
         ["EntFire"] = function (targetname, activator, input, parameter, delay )
             timer.Simple(delay, function()
                 local es = ents.FindByName(targetname)
