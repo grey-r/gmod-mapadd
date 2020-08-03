@@ -8,7 +8,8 @@ MapAdd.Replacements = {
     ["weapon_p90"] = "weapon_smg1",
     ["weapon_ak47"] = "weapon_ak-47",
     ["weapon_m249"] = "weapon_m249para",
-    ["npc_combine_e"] = "npc_combine_s"
+    ["npc_combine_e"] = "npc_combine_s",
+    ["npc_zombie2"] = "npc_zombie"
 }
 MapAdd.Table = {} --loaded from keyvalues
 MapAdd.Nodes = {} --populated from navmesh on map load
@@ -428,6 +429,7 @@ local function fixKeyValues(testStr)
     testExp = [[^([%s]+)(%b"")([%s]*)$]]
     testRep = [[%1%2 "true"%3]]
     testResult = "root {"
+    testStr = string.gsub(testStr,[[(%b"")([%s]*){]],[[%1 {]]) --prevents us from screwing up poorly formatted mapadds (PLEASE DONT DROP LINES ON CURLY BRACKETS)
     testTbl = string.Explode("\n",testStr)
     for i,s in ipairs(testTbl) do
         appendStr = string.gsub(s, testExp, testRep)
@@ -602,7 +604,7 @@ MapAdd.EntityFunctions = {
 
         for _, ent in pairs(entTable) do
             if (not origin) or (ent:GetPos():Distance(origin)<radius) then
-                if ent.AddRelationship then
+                if ent.AddRelationship and relation and relation~="" then
                     local relationTable = string.Explode(" ",relation)
                     for _,rel in pairs(relationTable) do
                         local target = string.sub(rel,1,1)
@@ -620,7 +622,6 @@ MapAdd.EntityFunctions = {
     end,
     ["removeentity"] = function( class, tb )
         local origin, radius, entTable
-        origin = Vector()
         entTable = {}
         for _,pair in pairs(tb) do
             if pair.Key == "origin" then
@@ -652,7 +653,7 @@ MapAdd.EntityFunctions = {
         end
 
         for _, ent in pairs(entTable) do
-            if ent:GetPos():Distance(origin) < (radius or 300) then
+            if (not origin) or ( ent:GetPos():Distance(origin) < (radius or 300) ) then
                 SafeRemoveEntity(ent)
             end
         end
@@ -742,7 +743,7 @@ MapAdd.EntityFunctions = {
             end
         end
 
-        if ent.AddRelationship then
+        if ent.AddRelationship and relation and relation~="" then      
             local relationTable = string.Explode(" ",relation)
             for _,rel in pairs(relationTable) do
                 local target = string.sub(rel,1,1)
@@ -770,11 +771,13 @@ MapAdd.EntityFunctions = {
 
 function MapAdd.Entities(t)
     for _, pair in pairs(t) do
-        local f = MapAdd.EntityFunctions[pair["Key"]]
-        if not f then
-            f =  MapAdd.EntityFunctions["default"]
+        if istable(pair.Value) then
+            local f = MapAdd.EntityFunctions[pair["Key"]]
+            if not f then
+                f =  MapAdd.EntityFunctions["default"]
+            end
+            f(pair.Key, pair.Value)
         end
-        f(pair.Key, pair.Value)
     end
 end
 
@@ -889,7 +892,7 @@ MapAdd.RandomSpawnFunctions = {
                 return
             end
 
-            if ent.AddRelationship then      
+            if ent.AddRelationship and relation and relation~="" then      
                 local relationTable = string.Explode(" ",relation)
                 for _,rel in pairs(relationTable) do
                     local target = string.sub(rel,1,1)
@@ -1008,6 +1011,7 @@ function MapAdd.ActivateTrigger( t )
         for k,v in pairs(t.labels) do
             for _,inner in pairs(MapAdd.Table) do
                 if inner.Key == "entities:" .. v then
+                    print("MapAdd Executing: " .. inner.Key)
                     MapAdd.Entities( inner.Value )
                 end
             end
