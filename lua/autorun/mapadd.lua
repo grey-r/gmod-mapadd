@@ -413,7 +413,80 @@ MapAdd.EntityFunctions = {
         end
         table.insert(MapAdd.Triggers,result)
     end,
-    ["default"] = function( k, v ) print("Failed to use entity " .. k) end
+    ["default"] = function( class, tb ) 
+        local ent = ents.create(class)
+
+        if not ent:IsValid() then
+            print("Attempted to make invalid entity " .. class)
+            return
+        end
+
+        local spawnflags = 0
+        local keyvalues = {}
+        local inputs = {}
+        local relation = ""
+        local stabilize = 10 --TODO
+        for _,pair in pairs(tb) do
+            if pair.Key == "alwaysthink" then
+                spawnflags = bit.bor(spawnflags,1024)
+            end
+            if pair.Key == "freeze" then
+                spawnflags = bit.bor(spawnflags,8)
+            end
+            if pair.Key == "longrange" then
+                spawnflags = bit.bor(spawnflags,256)
+            end
+            if pair.Key == "patrol" then
+                inputs[#inputs+1] = "StartPatrolling"
+            end
+            if pair.Key == "relation" then
+                relation = pair.Value
+            end
+            if pair.Key == "stabilize" then
+                relation = pair.Value
+            end
+            if pair.Key == "origin" then
+                local pos = Vector()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.x = t[1]
+                    ang.y = t[2]
+                    ang.z = t[3]
+                end
+                ent:SetPos(pos)
+            end
+            if pair.Key == "angle" then
+                local ang = Angle()
+                local t = string.Explode(" ",pair.Value)
+                if #t>=3 then
+                    ang.p = t[1]
+                    ang.y = t[2]
+                    ang.r = t[3]
+                end
+                ent:SetAngles(ang)
+            end
+            if pair["Key"] == "keyvalues" then
+                for _, innerpair in pairs(pair.Value) do
+                    if innerpair.Key == "spawnflags" then
+                        spawnflags = bit.bor(spawnflags,innerpair.Value)
+                    else
+                        result[innerpair["Key"]] = innerpair.Value
+                    end
+                end
+            end
+        end
+
+        ent:AddRelationship(relation)
+        for _, input in pairs(inputs) do
+            ent:Fire(input)
+        end
+        for key, value in pairs(keyvalues) do
+            ent:SetKeyValue(key,value)
+        end
+        ent:SetKeyValue("spawnflags",spawnflags)
+
+        ent:Spawn()
+    end
 }
 
 function MapAdd.Entities(t)
@@ -441,6 +514,7 @@ function MapAdd.ProcessTriggers()
                 end
             else
                 checkEnts = ents.FindByClass(t.touchname)
+                table.Merge(checkEnts,ents.FindByName(t.touchname))
             end
 
             for l,b in pairs(checkEnts) do
@@ -468,7 +542,7 @@ function MapAdd.ActivateTrigger( t )
         end
     end
 
-    if t.OnHitTrigger then
+    if t.OnHitTrigger then --TODO
     end
 
     if t.labels then
