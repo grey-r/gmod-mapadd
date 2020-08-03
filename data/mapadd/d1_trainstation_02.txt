@@ -13,16 +13,16 @@
 	"prop_physics" {
 //		"origin" "-3719.23 -908.308 110.75"
 //		"angle" "0 180 0"
-		"origin" "-3705.9 -915.3 115.8"  "angle" "1 -165 1"
+		"origin" "-3705.9 -915.3 117"  "angle" "1 -165 1"
 		//"stabilize"	"90"
 		"keyvalues" {
 			"fadescale" "0"
 			"targetname" "cupcop_can"
-			"spawnflags" "261"
+			"spawnflags" "277"
 			"model" "models/props_junk/gascan001a.mdl"
 			"fademindist" "-1"
 			"inertiaScale" "1.0"
-			"physdamagescale" "80"
+			"physdamagescale" "150"
 			"OnPhysGunPickup" "cupcop_can_pickup,Trigger,,0,-1"
 		}
 	}
