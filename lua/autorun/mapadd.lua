@@ -46,7 +46,7 @@ MapAdd.Env = {
             end)
         end,
         ["HookKilledEvent"] = function( f_name )
-            hook.add("PostEntityTakeDamage","MapAddKilledHook",function( ent, dmg, took)
+            hook.Add("PostEntityTakeDamage","MapAddKilledHook",function( ent, dmg, took)
                 --[[
                 > Info.IsPlayer - Boolean; if this entity is the player, return 1. Otherwise, return 0.
                 > Info.IsNPC - Boolean; if the entity's an NPC, return 1. Otherwise, return 0.
@@ -381,77 +381,15 @@ function MapAdd.Replace( val )
     return rep or v
 end
 
-local function dumpTable( t, indent, done )
-
-	done = done or {}
-	indent = indent or 0
-	local keys = table.GetKeys( t )
-
-	table.sort( keys, function( a, b )
-		if ( isnumber( a ) && isnumber( b ) ) then return a < b end
-		return tostring( a ) < tostring( b )
-	end )
-
-	done[ t ] = true
-
-	for i = 1, #keys do
-		local key = keys[ i ]
-		local value = t[ key ]
-		Msg( string.rep( "\t", indent ) )
-
-		if  ( istable( value ) && !done[ value ] ) then
-
-			done[ value ] = true
-            Msg( "[")
-            if isstring( key ) then
-                Msg("\"")
-            end
-            Msg( tostring( key ) )
-            if isstring( key ) then
-                Msg("\"")
-            end
-            Msg( "] = {\n" )
-			dumpTable ( value, indent + 2, done )
-            Msg( string.rep( "\t", indent ) )
-			Msg( "}" )
-			done[ value ] = nil
-
-		else
-            Msg( "[")
-            if isstring( key ) then
-                Msg("\"")
-            end
-            Msg( tostring( key ) )
-            if isstring( key ) then
-                Msg("\"")
-            end
-            Msg( "] = " )
-            if isstring( value ) then
-                Msg("\"")
-            end
-			Msg( tostring( value ) )
-            if isstring( value ) then
-                Msg("\"")
-            end
-        end
-        if (i~=#keys) then
-            Msg(",")
-        end
-        Msg("\n")
-
-	end
-
-end
-
 local function fixKeyValues(testStr)
     testExp = [[^([%s]+)(%b"")([%s]*)$]]
     testRep = [[%1%2 "true"%3]]
     testResult = "root {"
-    testStr = string.gsub(testStr,[[(%b"")([%s]*){]],[[%1 {]]) --prevents us from screwing up poorly formatted mapadds (PLEASE DONT DROP LINES ON CURLY BRACKETS)
+    testStr = testStr:gsub([[(%b"")([%s]*){]],[[%1 {]]) --prevents us from screwing up poorly formatted mapadds (PLEASE DONT DROP LINES ON CURLY BRACKETS)
     testTbl = string.Explode("\n",testStr)
     for i,s in ipairs(testTbl) do
         appendStr = string.gsub(s, testExp, testRep)
-        if string.len(string.trim(appendStr)) > 0 then
+        if string.Trim(appendStr):len() > 0 then
             testResult = testResult .. appendStr
             if i~=#testTbl then
                 testResult = testResult .. "\n"
@@ -627,11 +565,11 @@ MapAdd.EntityFunctions = {
                 if ent.AddRelationship and relation and relation~="" then
                     local relationTable = string.Explode(" ",relation)
                     for _,rel in pairs(relationTable) do
-                        local target = string.sub(rel,1,1)
-                        local disp = string.sub(rel,2,2)
-                        local prio = tonumber(string.sub(rel,3))
-                        local target_classes = MapAdd.TargetCodes[string.lower(target)]
-                        local disposition_code = MapAdd.DispositionCodes[string.lower(disp)]
+                        local target = rel:sub(1,1)
+                        local disp = rel:sub(2,2)
+                        local prio = tonumber(rel:sub(3))
+                        local target_classes = MapAdd.TargetCodes[target:lower()]
+                        local disposition_code = MapAdd.DispositionCodes[disp:lower()]
                         for _,target_class in pairs(target_classes) do
                             ent:AddRelationship(target_class .. " " .. disposition_code .. " " .. prio)
                         end
@@ -767,11 +705,11 @@ MapAdd.EntityFunctions = {
         if ent.AddRelationship and relation and relation~="" then      
             local relationTable = string.Explode(" ",relation)
             for _,rel in pairs(relationTable) do
-                local target = string.sub(rel,1,1)
-                local disp = string.sub(rel,2,2)
-                local prio = tonumber(string.sub(rel,3))
-                local target_classes = MapAdd.TargetCodes[string.lower(target)]
-                local disposition_code = MapAdd.DispositionCodes[string.lower(disp)]
+                local target = rel:sub(1,1)
+                local disp = rel:sub(2,2)
+                local prio = tonumber(rel:sub(3))
+                local target_classes = MapAdd.TargetCodes[target:lower()]
+                local disposition_code = MapAdd.DispositionCodes[disp:lower()]
                 for _,target_class in pairs(target_classes) do
                     ent:AddRelationship(target_class .. " " .. disposition_code .. " " .. prio)
                 end
@@ -917,11 +855,11 @@ MapAdd.RandomSpawnFunctions = {
             if ent.AddRelationship and relation and relation~="" then      
                 local relationTable = string.Explode(" ",relation)
                 for _,rel in pairs(relationTable) do
-                    local target = string.sub(rel,1,1)
-                    local disp = string.sub(rel,2,2)
-                    local prio = tonumber(string.sub(rel,3))
-                    local target_classes = MapAdd.TargetCodes[string.lower(target)]
-                    local disposition_code = MapAdd.DispositionCodes[string.lower(disp)]
+                    local target = rel:sub(1,1)
+                    local disp = rel:sub(2,2)
+                    local prio = tonumber(rel:sub(3))
+                    local target_classes = MapAdd.TargetCodes[target:lower()]
+                    local disposition_code = MapAdd.DispositionCodes[disp:lower()]
                     for _,target_class in pairs(target_classes) do
                         ent:AddRelationship(target_class .. " " .. disposition_code .. " " .. prio)
                     end
@@ -958,9 +896,9 @@ function MapAdd.ProcessTriggers()
         if t.touchname and t.origin and t.radius then
             local checkEnts
 
-            local firstChar = string.sub(t.touchname,1,1)
+            local firstChar = t.touchname:sub(1,1)
             if firstChar=="^" then
-                local otherChars = string.sub(t.touchname,2)
+                local otherChars = t.touchname:sub(2)
                 for l,b in pairs(ents.GetAll()) do
                     if b:GetClass()~=otherChars then
                         table.insert(checkEnts,b)
@@ -1071,10 +1009,10 @@ function MapAdd.NodesFromSNL(path, gamePath)
 
     while (not f:EndOfFile()) do
         local l = f:ReadLine() --N "000 02 2499.05 -974.78 -508.97 0.00"
-        print(string.trim(string.Replace(string.sub(l,string.find(l," ") or 0),"\"","")))
-        local nodeType = string.sub(l,1,1)
-        if string.lower(nodeType) == "n" then
-            local modLine = string.trim(string.Replace(string.sub(l,string.find(l," ") or 0),"\"",""))
+        print(string.Trim(string.Replace(string.sub(l,string.find(l," ") or 0),"\"","")))
+        local nodeType = l:sub(1,1):lower()
+        if nodeType == "n" then
+            local modLine = string.Trim(string.Replace(l:sub( 1 + l:find(" ") or 0),"\"",""))
             local t = string.Explode(" ",modLine)
             if #t>=5 then
                 local unknown = t[1]
@@ -1144,7 +1082,7 @@ function MapAdd.Load()
 
     local luaMapAddPath = "lua/mapadd/" .. mapName .. ".lua"
     if (file.Exists(luaMapAddPath,"GAME")) then
-        local fileCompiled = CompileFile(string.sub(luaMapAddPath,4))
+        local fileCompiled = CompileFile(luaMapAddPath:sub(5))
         setfenv(fileCompiled,MapAdd.Env)
         fileCompiled()
     end
@@ -1152,13 +1090,13 @@ function MapAdd.Load()
     MapAdd.InitializePost()
 end
 
-hook.add("PlayerInitialSpawn","MapAdd",function()
+hook.Add("PlayerInitialSpawn","MapAdd",function()
     timer.Simple(0, function()
         MapAdd.Load()
     end)
 end)
 
-hook.add("PostCleanupMap","MapAdd",function()
+hook.Add("PostCleanupMap","MapAdd",function()
     MapAdd.Load()
 end)
 
